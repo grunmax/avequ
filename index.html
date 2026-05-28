@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт у розробці</title>
+    <style>
+        /* Базові стилі для центрування */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e0e9e5 0%, #b1c9be 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2c3e50;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        /* Контейнер для листочка та анімація обертання */
+        .leaf-container {
+            margin-bottom: 30px;
+            font-size: 80px; /* Розмір емодзі-листочка */
+            display: inline-block;
+            animation: spin-and-float 6s ease-in-out infinite;
+        }
+
+        @keyframes spin-and-float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(180deg);
+            }
+            100% {
+                transform: translateY(0) rotate(360deg);
+            }
+        }
+
+        /* Футер */
+        footer {
+            position: absolute;
+            bottom: 20px;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="leaf-container">🍃</div>
+        <h1>Скоро тут буде щось цікаве</h1>
+        <p>Проєкт у процесі розробки...</p>
+    </div>
+
+    <footer>
+        &copy; <span id="year"></span> Усі права захищені.
+    </footer>
+
+    <script>
+        // Проста JS-заглушка для динамічного виведення поточного року
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearSpan = document.getElementById('year');
+            if (yearSpan) {
+                yearSpan.textContent = new Date().getFullYear();
+            }
+            
+            console.log("Stub сторінку успішно завантажено. Логіку додавати сюди.");
+        });
+    </script>
+</body>
+</html>
