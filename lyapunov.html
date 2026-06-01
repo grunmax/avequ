@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V.F.S. LXXXV — Lyapunov Stability</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: #7a6030;
+    --ink: #0e0c08;
+    --parchment: #f5f0e4;
+    --parchment-dark: #e8e0cc;
+    --parchment-mid: #ede6d4;
+    --red: #8b1a1a;
+    --stone: #3a3530;
+    --stone-light: #5a5248;
+    --blue-dim: #1a2a3a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--ink);
+    color: var(--parchment);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.75;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.6;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 40px 100px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 60px 0 50px;
+    border-bottom: 1px solid var(--gold-dim);
+    margin-bottom: 70px;
+    position: relative;
+  }
+
+  .header::after {
+    content: '✟';
+    display: block;
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    padding: 0 20px;
+    color: var(--gold);
+    font-size: 22px;
+  }
+
+  .ordo-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 6px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    animation: fadeIn 1.2s ease both;
+  }
+
+  .title-main {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(26px, 5vw, 44px);
+    font-weight: 900;
+    color: var(--gold);
+    letter-spacing: 3px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    animation: fadeIn 1.4s ease both;
+    text-shadow: 0 0 40px rgba(201, 168, 76, 0.3);
+  }
+
+  .title-sub {
+    font-family: 'IM Fell English', serif;
+    font-style: italic;
+    font-size: 21px;
+    color: var(--parchment-dark);
+    opacity: 0.7;
+    animation: fadeIn 1.6s ease both;
+    margin-bottom: 6px;
+  }
+
+  .title-edition {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    animation: fadeIn 1.7s ease both;
+  }
+
+  .vfs-sigil {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    animation: fadeIn 1.8s ease both;
+  }
+
+  .vfs-letter {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    font-weight: 900;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .vfs-dot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-bottom: 70px;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .section-number {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(16px, 3vw, 24px);
+    font-weight: 600;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+    position: relative;
+  }
+
+  .section-title::before {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  /* FORMULA BLOCKS */
+  .formula-block {
+    background: linear-gradient(135deg, rgba(201,168,76,0.04) 0%, rgba(201,168,76,0.01) 100%);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 28px 32px;
+    margin: 24px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .formula-block::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle at top right, rgba(201,168,76,0.06), transparent);
+  }
+
+  .formula-block.boxed {
+    border-color: var(--gold);
+    border-width: 1px 1px 1px 3px;
+    background: linear-gradient(135deg, rgba(201,168,76,0.08) 0%, rgba(201,168,76,0.02) 100%);
+  }
+
+  .formula-block.apex {
+    border: 2px solid var(--gold);
+    background: linear-gradient(135deg, rgba(201,168,76,0.12) 0%, rgba(201,168,76,0.04) 100%);
+    box-shadow: 0 0 40px rgba(201,168,76,0.08), inset 0 0 20px rgba(201,168,76,0.03);
+  }
+
+  .formula-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .formula-content {
+    font-size: 20px;
+    color: var(--parchment);
+    overflow-x: auto;
+  }
+
+  /* DEFINITION TABLE */
+  .def-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+
+  .def-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    text-align: left;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    font-weight: 400;
+  }
+
+  .def-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    vertical-align: top;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .def-table tr:last-child td { border-bottom: none; }
+
+  .def-table td:first-child {
+    font-family: 'IM Fell English', serif;
+    font-size: 18px;
+    color: var(--gold-light);
+    white-space: nowrap;
+    padding-right: 24px;
+  }
+
+  .def-table td:nth-child(2) {
+    color: var(--parchment);
+    font-style: italic;
+  }
+
+  .def-table td:nth-child(3) {
+    color: var(--parchment-dark);
+    opacity: 0.7;
+  }
+
+  .def-table td:last-child {
+    color: var(--gold-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+
+  /* PROSE */
+  p {
+    margin-bottom: 16px;
+    color: var(--parchment-dark);
+    opacity: 0.88;
+    font-size: 19px;
+  }
+
+  p strong {
+    color: var(--gold-light);
+    font-weight: 400;
+    font-style: italic;
+  }
+
+  ul {
+    margin-bottom: 16px;
+    padding-left: 24px;
+    color: var(--parchment-dark);
+    opacity: 0.88;
+  }
+
+  li {
+    margin-bottom: 8px;
+  }
+
+  /* STATES */
+  .states-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  @media (max-width: 600px) {
+    .states-grid { grid-template-columns: 1fr; }
+    .container { padding: 40px 20px 80px; }
+  }
+
+  .state-card {
+    border: 1px solid rgba(201,168,76,0.15);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
+
+  .state-card.collapse { border-top: 2px solid var(--red); }
+  .state-card.equilibrium { border-top: 2px solid var(--stone-light); }
+  .state-card.transform { border-top: 2px solid var(--gold); }
+
+  .state-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold-light);
+    margin-bottom: 10px;
+  }
+
+  .state-condition {
+    font-size: 15px;
+    color: var(--parchment-dark);
+    margin-bottom: 10px;
+    overflow-x: auto;
+  }
+
+  .state-desc {
+    font-size: 14px;
+    color: var(--stone-light);
+    font-style: italic;
+  }
+
+  .state-card.collapse .state-name { color: #c06060; }
+  .state-card.equilibrium .state-name { color: var(--stone-light); }
+  .state-card.transform .state-name { color: var(--gold); }
+
+  /* LAWS */
+  .law-block {
+    margin: 32px 0;
+    padding-left: 24px;
+    border-left: 2px solid rgba(201,168,76,0.2);
+    position: relative;
+  }
+
+  .law-block::before {
+    content: attr(data-numeral);
+    position: absolute;
+    left: -28px;
+    top: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--gold-dim);
+    letter-spacing: 2px;
+  }
+
+  .law-title {
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    color: var(--gold-light);
+    letter-spacing: 1px;
+    margin-bottom: 14px;
+  }
+
+  /* HIGHLIGHT */
+  .highlight-box {
+    background: rgba(139, 26, 26, 0.1);
+    border: 1px solid rgba(139, 26, 26, 0.3);
+    border-left: 3px solid var(--red);
+    padding: 20px 24px;
+    margin: 20px 0;
+    font-style: italic;
+    color: var(--parchment-dark);
+    opacity: 0.9;
+  }
+
+  .highlight-box.gold {
+    background: rgba(201,168,76,0.06);
+    border-color: rgba(201,168,76,0.3);
+    border-left-color: var(--gold);
+    font-style: normal;
+  }
+
+  /* SYSTEM BLOCK */
+  .system-block {
+    border: 1px solid rgba(201,168,76,0.3);
+    border-radius: 2px;
+    padding: 32px;
+    background: linear-gradient(180deg, rgba(201,168,76,0.04) 0%, transparent 100%);
+    margin: 24px 0;
+  }
+
+  .system-block .formula-content {
+    font-size: 18px;
+  }
+
+  /* OMEGA BLOCK */
+  .omega-block {
+    border: 2px solid var(--gold);
+    padding: 40px 32px;
+    text-align: center;
+    margin: 32px 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.08), transparent);
+    position: relative;
+  }
+
+  .omega-block::before {
+    content: 'Pl';
+    font-size: 20px;
+    letter-spacing: -1px;
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    padding: 0 16px;
+    font-family: 'Cinzel', serif;
+    font-size: 28px;
+    color: var(--gold);
+  }
+
+  .omega-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  /* REGIMES */
+  .regime-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 24px 0;
+  }
+
+  @media (max-width: 600px) {
+    .regime-grid { grid-template-columns: 1fr; }
+  }
+
+  .regime-card {
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 24px;
+  }
+
+  .regime-card.surgery { border-top: 2px solid var(--gold); }
+  .regime-card.holding { border-top: 2px solid var(--stone-light); }
+
+  .regime-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--gold-light);
+    margin-bottom: 12px;
+  }
+
+  .regime-card.holding .regime-name { color: var(--stone-light); }
+
+  .regime-condition {
+    font-size: 13px;
+    color: var(--gold-dim);
+    font-style: italic;
+    margin-bottom: 12px;
+  }
+
+  /* DIVIDER */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 50px 0;
+    opacity: 0.4;
+  }
+
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--gold-dim);
+  }
+
+  .divider-symbol {
+    color: var(--gold-dim);
+    font-size: 14px;
+  }
+
+  /* SUMMARY TABLE */
+  .summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+
+  .summary-table th {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    padding: 10px 16px;
+    border-bottom: 1px solid rgba(201,168,76,0.3);
+    text-align: left;
+    font-weight: 400;
+  }
+
+  .summary-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(201,168,76,0.08);
+    font-size: 15px;
+    line-height: 1.5;
+    vertical-align: top;
+  }
+
+  .summary-table tr:last-child td { border-bottom: none; }
+  .summary-table td:first-child { color: var(--gold-light); font-style: italic; }
+
+  .summary-table.fixed-cols { table-layout: fixed; }
+  .summary-table.fixed-cols td:first-child { width: 40%; word-break: break-word; overflow-x: auto; }
+
+  .toc {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 25px 30px;
+    margin-bottom: 60px;
+    border-radius: 2px;
+  }
+  .toc h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+  .toc ul { list-style: none; }
+  .toc li { margin-bottom: 6px; font-size: 16px; }
+  .toc a { color: var(--parchment-dark); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--gold-light); }
+  .summary-table td:last-child { color: var(--parchment-dark); opacity: 0.8; }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 40px 0 20px;
+  }
+
+  .footer-sigil {
+    font-size: 28px;
+    margin-bottom: 20px;
+    letter-spacing: 8px;
+  }
+
+  .footer-motto {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section:nth-child(1) { animation-delay: 0.1s; }
+  .section:nth-child(2) { animation-delay: 0.2s; }
+  .section:nth-child(3) { animation-delay: 0.3s; }
+  .section:nth-child(4) { animation-delay: 0.4s; }
+  .section:nth-child(5) { animation-delay: 0.5s; }
+  .section:nth-child(6) { animation-delay: 0.6s; }
+  .section:nth-child(7) { animation-delay: 0.7s; }
+  .section:nth-child(8) { animation-delay: 0.8s; }
+  .section:nth-child(9) { animation-delay: 0.9s; }
+  .section:nth-child(10) { animation-delay: 1.0s; }
+
+  mjx-container { color: var(--parchment) !important; }
+</style>
+</head>
+<body>
+  <div class="container">
+  <div class="title-block" style="text-align:center; padding:40px 0 20px;">
+    <div class="title-edition">Editio LXXXV</div>
+    <div class="title-main" style="font-size:28px;">Lyapunov Stability of the Active Domain</div>
+    <div class="title-sub">Invariant Active-Domain q-Free Lyapunov Theorem for V.F.S. &#8212; повний доказ із коментарями</div>
+    <div style="margin-top:16px;"><a href="index.html" style="color:var(--gold); text-decoration:none; font-size:13px; letter-spacing:2px;">&#8592; Return to the main treatise (§ 11)</a></div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">Abstract</div>
+    <div class="section-title">What is proved</div>
+    <p>This is the full Lyapunov&#8211;barrier analysis of V.F.S. on the normalized <em>active transformation domain</em>. An absolute barrier functional serves as a motivational stage; we then pass to a <strong>scaled q-free functional</strong> needing no artificial condition \(q\ge q_0>0\). Main result: under explicit parametric conditions the <em>admissible active corridor</em> \(\mathcal{D}_A\) is positively invariant; on it V.F.S. has a dissipative Lyapunov functional, resistance \(\sigma\) decays, the will&#8211;action imbalance vanishes exponentially, the normalized death-boundary is never reached, and the hybrid dynamics are uniformly non-Zeno.</p>
+    <div class="highlight-box gold" style="margin-top:16px;">
+      <strong>Зв&#8217;язок із основним трактатом.</strong> Ця теорема — строгий фундамент під «теорему басейну Трансформації» (§6) і стабільність (§9). Активний домен \(\mathcal{D}_A\) є точним аналогом басейну: усередині нього система не лише уникає межі смерті \(\partial\mathcal{D}_{\rm death}\), а й асимптотично сходиться до Pleroma-вирівнювання. Hybrid resets тут — це оператор Воскресіння \(\mathfrak{R}\) (§6a).
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 1</div>
+    <div class="section-title">Base V.F.S. dynamics</div>
+    <p>For \(V,F>0\), \(\sigma,\lambda\ge0\), \(\Omega_P>0\), with synergic intensity and threshold</p>
+    <div class="formula-block"><div class="formula-content">
+      \[u=\sqrt{VF+\varepsilon}\ (\varepsilon\ge0),\qquad \Lambda_c=\tfrac{\gamma}{\delta},\qquad \dot\sigma=(\gamma-\delta u)\tanh(\kappa\sigma).\]
+    </div></div>
+    <p>So \(u>\Lambda_c\) is the transformation region, \(u\lt\Lambda_c\) the collapse region. The symmetric will&#8211;action form and capacity law:</p>
+    <div class="formula-block"><div class="formula-content">
+      \[\dot V=\mu(aF+c\lambda)-\rho V,\quad \dot F=\mu(aV+c\lambda)-\rho F,\quad \mu=1-\tfrac{u}{\Omega_P},\]
+      \[\dot\Omega_P=\alpha\lambda,\qquad \dot\lambda=-\dot\sigma=\delta(u-\Lambda_c)\tanh(\kappa\sigma).\]
+    </div></div>
+    <div class="highlight-box gold">
+      <strong>Зміст.</strong> Це рівно канонічна V.F.S.-система (§6): мультиплікативний Dolorosum \(-\rho V,-\rho F\), закон збереження \(\dot\sigma+\dot\lambda=0\), поріг \(\Lambda_c\), що ділить трансформацію й колапс. Lyapunov-аналіз працює з тією самою динамікою, нічого не змінюючи.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 2</div>
+    <div class="section-title">Resistance potential &#8212; first dissipative block</div>
+    <div class="formula-block"><div class="formula-content">
+      \[\Psi_\sigma(\sigma)=\int_0^\sigma\tanh(\kappa s)\,ds=\tfrac1\kappa\ln\cosh(\kappa\sigma)\ge0.\]
+    </div></div>
+    <p><strong>Lemma 2.1 (dissipation in the active margin).</strong> If \(u\ge\Lambda_c+\eta\) (\(\eta>0\)), then \(\dot\Psi_\sigma=(\gamma-\delta u)\tanh^2(\kappa\sigma)\le-\delta\eta\tanh^2(\kappa\sigma)\); and on \(0\le\sigma\le C_\sigma\) there is \(c_\sigma>0\) with \(\dot\Psi_\sigma\le-c_\sigma\Psi_\sigma\).</p>
+    <p style="font-size:14px; color:var(--gold-dim);"><em>Proof.</em> \(\Psi_\sigma'=\tanh(\kappa\sigma)\Rightarrow\dot\Psi_\sigma=(\gamma-\delta u)\tanh^2(\kappa\sigma)\). For \(u\ge\Lambda_c+\eta\), \(\gamma-\delta u\le-\delta\eta\). On the compact \([0,C_\sigma]\), \(\tanh^2(\kappa\sigma)\) and \(\Psi_\sigma\) are equivalent near \(0\) and positive away from it, so \(\tanh^2\ge m_\sigma\Psi_\sigma\); set \(c_\sigma=\delta\eta m_\sigma\). \(\square\)</p>
+    <div class="highlight-box gold">
+      <strong>Зміст.</strong> \(\Psi_\sigma\) — «потенціал спротиву», енергія гріха. У зоні трансформації (\(u\) над порогом із запасом \(\eta\)) ця енергія дисипує експоненційно. Аналітична форма очищення: Filtrum Tetelestai (§1) стає функціоналом, що монотонно спадає.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 3</div>
+    <div class="section-title">Absolute barrier &#8212; motivational stage</div>
+    <div class="formula-block"><div class="formula-content">
+      \[\mathcal L_{abs}=A_\sigma\Psi_\sigma+E_VV^2+E_FF^2+E_\lambda\lambda^2+E_\Delta\tfrac{(V-F)^2}{2}-\eta_V\ln V-\eta_F\ln F-\eta_\Omega\ln(\Omega_P-\Lambda_c)-\eta_m\ln(\Omega_P-u).\]
+    </div></div>
+    <p>Its role is to guard the absolute death-boundary \(V=0,\ F=0,\ \Omega_P=\Lambda_c,\ u=\Omega_P\).</p>
+    <div class="highlight-box gold">
+      <strong>Чесне застереження (Remark).</strong> З \(\mathcal L_{abs}\le L_{max}\) <strong>не</strong> можна виводити прості оцінки \(V\le\sqrt{L_{max}/E_V}\): логарифмічні barrier-члени бувають від&#8217;ємними (напр. \(-\eta_V\ln V<0\) при \(V>1\)). Коректно — через properness/coercivity (компактність sublevel-множин). Це мотивує перехід до <em>нормалізованої</em> геометрії, природної для Epektasis, де \(\Omega_P\) росте.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 4</div>
+    <div class="section-title">Normalized variables</div>
+    <div class="formula-block"><div class="formula-content">
+      \[h_1=\tfrac{V}{\Omega_P},\ h_2=\tfrac{F}{\Omega_P},\ q=\tfrac{\lambda}{\Omega_P},\ r=\tfrac{u}{\Omega_P},\ \mu=1-r,\ h_3=1-\tfrac{\Lambda_c}{\Omega_P},\]
+      \[r^2=h_1h_2+e(h_3),\qquad e(h_3)=\varepsilon\tfrac{(1-h_3)^2}{\Lambda_c^2}.\]
+    </div></div>
+    <div class="formula-block"><div class="formula-content">
+      \[\dot h_1=\mu(ah_2+cq)-\rho h_1-\alpha q h_1,\quad \dot h_2=\mu(ah_1+cq)-\rho h_2-\alpha q h_2,\]
+      \[\dot q=\delta(r+h_3-1)\tanh(\kappa\sigma)-\alpha q^2,\qquad \dot h_3=\alpha q(1-h_3).\]
+    </div></div>
+    <div class="highlight-box gold">
+      <strong>Зміст.</strong> Усе ділиться на місткість \(\Omega_P\): змінні стають <em>частками повноти</em>. \(r=u/\Omega_P\) — близькість синергії до Брим; \(\mu=1-r\) — запас насичення. Коли Брим росте, абсолютні \(V,F\) можуть рости, а нормалізовані \(h_i\) лишаються керованими.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 5</div>
+    <div class="section-title">q-free product-balance mechanism</div>
+    <p>A classical barrier proof might require \(q\ge q_0>0\) (Sophia actively pushing \(h_1,h_2\) off zero). We replace this with a product-balance mechanism.</p>
+    <div class="formula-block"><div class="formula-content">
+      \[\text{Balance defect:}\quad D_\Delta=\tfrac12(h_1-h_2)^2.\]
+    </div></div>
+    <p><strong>Lemma 5.1 (exponential dissipation of imbalance).</strong> For \(a>0,\ \mu\ge\mu_*>0,\ q,\rho\ge0\): with \(d=h_1-h_2\), \(\dot d=-(a\mu+\rho+\alpha q)d\), hence \(\dot D_\Delta=-2(a\mu+\rho+\alpha q)D_\Delta\le-2a\mu_*D_\Delta\), so \(D_\Delta(t)\le D_\Delta(0)e^{-2a\mu_* t}\).</p>
+    <p><strong>Lemma 5.2 (product floor).</strong> If \(r\ge r_*\) and \(h_3\ge h_{3,*}\), then \(\Omega_P\ge\Omega_{min}=\tfrac{\Lambda_c}{1-h_{3,*}}\) and \(h_1h_2=r^2-\tfrac{\varepsilon}{\Omega_P^2}\ge p_*:=r_*^2-\tfrac{\varepsilon}{\Omega_{min}^2}\). If \(p_*>0\), the product has a positive floor.</p>
+    <p><strong>Lemma 5.3 (product-balance lower bound).</strong> If \(h_1h_2\ge p_*>0\) and \(D_\Delta\le D^*\) with \(d_*=\sqrt{2D^*}\), then</p>
+    <div class="formula-block boxed"><div class="formula-content">
+      \[h_1,h_2\ge m_{pb}:=\frac{\sqrt{d_*^2+4p_*}-d_*}{2}>0.\]
+    </div></div>
+    <p style="font-size:14px; color:var(--gold-dim);"><em>Proof.</em> WLOG \(h_1\le h_2\le h_1+d_*\). From \(h_1(h_1+d_*)\ge h_1h_2\ge p_*\), solving the quadratic gives \(h_1\ge(\sqrt{d_*^2+4p_*}-d_*)/2\); same for \(h_2\). \(\square\)</p>
+    <div class="highlight-box gold">
+      <strong>Зміст і місток до V.F.S.</strong> Це формальна відповідь на питання «чи контролюється кожне з \(V,F\) окремо?»: насичення тримає <em>добуток</em> \(h_1h_2\) (через \(r\)), а закон балансу тримає <em>різницю</em> малою (\(D_\Delta\)). Разом — добуток із малою різницею — змушують <em>кожен</em> фактор бути \(\ge m_{pb}>0\). Воля й Дія не падають до нуля не тому, що Софія їх штучно підпирає (\(q\ge q_0\)), а тому що вони <em>симетричні й співмірні</em>. Це чистіше й слабше за припущення — саме тому «q-free».
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 6</div>
+    <div class="section-title">q-free Lyapunov functional &amp; dissipative estimate</div>
+    <div class="formula-block apex"><div class="formula-content" style="text-align:center;">
+      \[\boxed{\ \mathcal L_{pb}=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2.\ }\]
+    </div></div>
+    <p><strong>Proposition 6.1.</strong> Where \(u\ge\Lambda_c+\eta,\ \mu\ge\mu_*>0,\ q\ge0,\ 0\le\sigma\le C_\sigma\), there exist \(C_{act}\ge0,\ C_1>0\) with \(\dot{\mathcal L}_{pb}\le C_{act}-C_1\mathcal L_{pb}\).</p>
+    <p style="font-size:14px; color:var(--gold-dim);"><em>Proof.</em> \(A_\sigma\dot\Psi_\sigma\le-A_\sigma c_\sigma\Psi_\sigma\) (Lemma 2.1); \(A_\Delta\dot D_\Delta\le-2A_\Delta a\mu_* D_\Delta\) (Lemma 5.1); and \(\tfrac{d}{dt}q^2=2\delta q(r+h_3-1)\tanh(\kappa\sigma)-2\alpha q^3\), bounded above on the corridor and absorbed into \(C_{act}\). Combining yields the inequality. \(\square\)</p>
+    <div class="highlight-box gold">
+      <strong>Зміст.</strong> Один функціонал \(\mathcal L_{pb}\) поєднує три «енергії»: спротив \(\Psi_\sigma\), дисбаланс \(D_\Delta\), нормалізовану Софію \(q^2\). Оцінка \(\dot{\mathcal L}\le C_{act}-C_1\mathcal L\) дає <em>практичну стабільність</em> (обмеженість до рівня \(C_{act}/C_1\)); сильніша збіжність \(\sigma\to0,\ D_\Delta\to0\) доводиться окремо в §10 через власні точні тотожності.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 7</div>
+    <div class="section-title">Active domain &amp; boundary invariance</div>
+    <div class="formula-block boxed"><div class="formula-content">
+      \[\mathcal D_A=\left\{\begin{array}{l}0\le\sigma\le C_\sigma,\ q\in[0,q^*],\ h_3\in[h_{3,*},1),\\ r\in[r_*,r^*],\ \mu=1-r\ge\mu_*>0,\\ D_\Delta\le D^*,\ h_1>0,\ h_2>0\end{array}\right\},\quad 0\lt r_*\lt r^*\lt1.\]
+    </div></div>
+    <p><strong>Automatically inward faces.</strong> \(\sigma=0\) (\(\dot\sigma=0\)); \(\sigma=C_\sigma\) (\(\dot\sigma<0\)); \(q=0\) (\(\dot q=\delta(r+h_3-1)\tanh\ge0\) when \(r+h_3-1\ge0\)); \(q=q^*\) (inward if \(\alpha(q^*)^2\ge\delta r^*\), since \(r+h_3-1\le r\le r^*\)); \(h_3=h_{3,*}\) (\(\dot h_3=\alpha q(1-h_3)\ge0\)); \(D_\Delta=D^*\) (\(\dot D_\Delta\le0\)).</p>
+    <div class="highlight-box gold">
+      <strong>Зміст.</strong> «Inward-pointing» = потік на кожній грані спрямований усередину, тож траєкторія не виходить. Шість граней — автоматичні; лишаються дві радіальні (\(r=r_*,r^*\)), для яких потрібні явні параметричні умови (§8).
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 8</div>
+    <div class="section-title">Radial corridor &amp; explicit admissibility</div>
+    <p><strong>Lemma 8.1 (radial identity).</strong> From \(r^2=h_1h_2+e(h_3)\):</p>
+    <div class="formula-block"><div class="formula-content">
+      \[2r\dot r=\mu\big[a(h_1^2+h_2^2)+cq(h_1+h_2)\big]-2\rho(r^2-e(h_3))-2\alpha q r^2=:\mathcal R.\]
+    </div></div>
+    <p><strong>Assumption (explicit radial admissibility).</strong> With \(e_*^{max}=\varepsilon\tfrac{(1-h_{3,*})^2}{\Lambda_c^2}\), \(d_*=\sqrt{2D^*}\):</p>
+    <div class="formula-block"><div class="formula-content">
+      \[\text{(non-degeneracy)}\quad r_*^2>e_*^{max},\]
+      \[\text{(active margin)}\quad r_*+h_{3,*}-1\ge\eta\tfrac{1-h_{3,*}}{\Lambda_c},\]
+      \[\text{(upper }q\text{ wall)}\quad \alpha(q^*)^2\ge\delta r^*,\]
+      \[\text{(lower radial wall)}\quad a(1-r_*)\big(r_*^2-e_*^{max}\big)\ge(\rho+\alpha q^*)r_*^2,\]
+      \[\text{(upper radial wall)}\quad (1-r^*)\big[a(d_*^2+2r^{*2})+cq^*\sqrt{d_*^2+4r^{*2}}\big]\le2\rho\big(r^{*2}-e_*^{max}\big).\]
+    </div></div>
+    <p><strong>Lemma 8.2 / 8.3.</strong> Under these, \(\dot r\ge0\) at \(r=r_*\) (drop the non-negative \(cq(h_1+h_2)\), use \(h_1^2+h_2^2\ge2h_1h_2\)) and \(\dot r\le0\) at \(r=r^*\) (worst-case \(h_1^2+h_2^2\le d_*^2+2r^{*2}\), \(h_1+h_2\le\sqrt{d_*^2+4r^{*2}}\); dissipation \(-2\rho(r^2-e)\) dominates). Both radial faces are inward.</p>
+    <div class="highlight-box gold">
+      <strong>Зміст.</strong> Радіальні стіни — найтонші: \(r\) не повинна ні впасти (втрата трансформації, наближення до колапсу), ні дійти до Брим (\(r\to1\), межа смерті \(u=\Omega_P\)). П'ять нерівностей — це точні, перевірювані умови на параметри \((a,c,\rho,\alpha,\delta,\varepsilon,\Lambda_c)\) і ширину коридору, за яких коридор тримається. Це те, чого бракувало «теоремі басейну» (§6): <em>явні</em> умови, а не лише існування.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 9</div>
+    <div class="section-title">Main theorems: invariance, Lyapunov stability, non-Zeno</div>
+    <div class="formula-block boxed"><div class="formula-content">
+      <strong>Theorem 9.1 (positive invariance).</strong> Under explicit radial admissibility, \(x(0)\in\mathcal D_A\Rightarrow x(t)\in\mathcal D_A\ \forall t\ge0\).
+    </div></div>
+    <p><strong>Theorem 9.2 (q-free invariant-domain Lyapunov stability).</strong> If, in addition, resets return the state into \(\mathcal D_A\) with \(\mathcal L_{pb}(x_j^+)\le L_R\), then: (i) \(\mathcal D_A\) invariant; (ii) \(\dot{\mathcal L}_{pb}\le C_{act}-C_1\mathcal L_{pb}\); (iii) \(\mathcal L_{pb}(t)\le L_*:=\max\{L_R,C_{act}/C_1\}\) (Grönwall between resets); (iv) the death-boundary is never reached, \(h_1,h_2\ge m_{pb}>0\); (v) no condition \(q\ge q_0>0\) is needed — invariant \(q\ge0\) suffices.</p>
+    <div class="formula-block boxed"><div class="formula-content">
+      <strong>Theorem 9.3 (uniform non-Zeno).</strong> With margin \(\bar h_*=\min\{m_{pb},h_{3,*},r_*,1-r^*,q^*,C_\sigma,\sqrt{D^*}\}>0\) and bounded field \(\bar M_*\lt\infty\), each inter-jump interval satisfies \(\Delta t_j\ge\Delta t_*:=\bar h_*/\bar M_*>0\). No Zeno accumulation.
+    </div></div>
+    <div class="highlight-box gold">
+      <strong>Зміст і місток.</strong> (9.1) Басейн строго замкнений — потрапивши, не вийдеш. (9.2) Функціонал обмежений навіть із Воскресіннями (resets), <em>якщо</em> кожне Воскресіння повертає в басейн із контрольованим \(\mathcal L_{pb}\) — це формальна умова на оператор \(\mathfrak{R}\) (§6a). (9.3) Між Воскресіннями завжди є додатний проміжок часу: душа не може воскресати нескінченно часто за скінченний час — немає «Zeno-патології» нескінченних стрибків.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 10</div>
+    <div class="section-title">Asymptotic cleansing &amp; alignment</div>
+    <p><strong>Proposition 10.1 (exponential alignment).</strong> In \(\mathcal D_A\) with \(\mu\ge\mu_*>0\): the exact identity \(\dot D_\Delta=-2(a\mu+\rho+\alpha q)D_\Delta\) gives</p>
+    <div class="formula-block boxed"><div class="formula-content">
+      \[D_\Delta(t)\le D_\Delta(0)e^{-2(a\mu_*+\rho)t},\qquad |h_1-h_2|\le|h_1(0)-h_2(0)|e^{-(a\mu_*+\rho)t}\to0.\]
+    </div></div>
+    <p><strong>Proposition 10.2 (exponential cleansing).</strong> If the active margin \(u\ge\Lambda_c+\eta\) holds on \([0,\infty)\) with \(0\le\sigma\le C_\sigma\), then \(\Psi_\sigma(t)\le\Psi_\sigma(0)e^{-c_\sigma t}\), so \(\sigma(t)\to0\); and since \(\Psi_\sigma\sim\tfrac{\kappa}{2}\sigma^2\) near \(0\), \(\sigma(t)=O(e^{-c_\sigma t/2})\).</p>
+    <div class="formula-block apex"><div class="formula-content" style="text-align:center;">
+      \[\boxed{\ \sigma(t)\to0,\qquad h_1(t)-h_2(t)\to0.\ }\]
+      <p style="margin-top:12px; color:var(--gold);">Одночасне асимптотичне очищення singular resistance та вирівнювання voluntas&#8211;factum у геометрії Pleroma.</p>
+    </div></div>
+    <div class="highlight-box gold">
+      <strong>Hybrid-reset caveat.</strong> На hybrid-time цей наслідок глобальний лише якщо: (i) resets скінченні; <em>або</em> (ii) reset не збільшує dissipative modes — \(\Psi_\sigma(x^+)\le\Psi_\sigma(x^-),\ D_\Delta(x^+)\le D_\Delta(x^-)\); <em>або</em> (iii) сумарна reset-інжекція скінченна. Інакше Воскресіння може штучно «накрутити» \(\sigma\) чи \(D_\Delta\), і continuous-збіжність не означає hybrid-збіжності. <strong>Місток:</strong> це пряма умова коректності оператора \(\mathfrak{R}\) (§6a) — Воскресіння має очищати, а не погіршувати; умова (ii) формалізує саме це.
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-number">§ 11</div>
+    <div class="section-title">Final result</div>
+    <div class="formula-block apex"><div class="formula-content" style="text-align:center;">
+      \[\boxed{\ \text{explicit admissible parameters}\Rightarrow\mathcal D_A\text{ positively invariant}\Rightarrow\text{q-free Lyapunov dissipativity}\Rightarrow\text{death-boundary avoidance}\Rightarrow\text{non-Zeno}.\ }\]
+      <p style="margin-top:14px;">plus \(\sigma(t)\to0,\ h_1(t)-h_2(t)\to0\) in the infinite active transformation phase.</p>
+    </div></div>
+    <p>The result is stated not as global stability on all of phase space, but as the</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">
+      <strong>Invariant Active-Domain q-Free Lyapunov Stability Theorem for V.F.S.</strong>
+    </div></div>
+    <p>with explicit parametric admissibility of the active corridor.</p>
+    <div class="highlight-box gold">
+      <strong>Підсумковий місток до трактату.</strong> Це строге, кількісне ядро під §6 (басейн), §9 (стабільність) і §6a (Воскресіння як reset). Воно не претендує на спасіння всіх (не глобальна стабільність) — поза \(\mathcal D_A\) лишається колапс і реальна межа смерті (§6). Усередині ж — доведено: спротив очищається, воля й дія вирівнюються, Брим не пробивається, а Воскресіння (за умови (ii)) не порушує дисипативності. Математична форма обоження в межах басейну.
+    </div>
+  </div>
+
+  <div class="section" id="theo">
+    <div class="section-number">§ 12</div>
+    <div class="section-title">Theological Corollaries &#8212; Богословські висновки</div>
+    <p>Функціонал Ляпунова не слід тлумачити як доказ автоматичного або глобального спасіння з довільного стану. Його зміст інший: у додатно інваріантному active transformation domain система має внутрішню дисипативну структуру, що утримує її від розпаду, стабілізує синергію волі й дії та асимптотично гасить спротив. У стислому вигляді:</p>
+    <div class="formula-block"><div class="formula-content">
+      \[\text{explicit admissibility}\Rightarrow\mathcal{D}_A\text{ positively invariant}\Rightarrow\dot{\mathcal L}_{pb}\le C-C_1\mathcal L_{pb}\Rightarrow\sigma(t)\to0,\ D_\Delta(t)\to0.\]
+    </div></div>
+    <p>Богословськи це означає, що V.F.S. описує не механічне спасіння і не самоспасіння, а стійкість синергійного шляху в домені, де благодать, воля, дія й очищення вже перебувають у правильному динамічному порядку.</p>
+
+    <p style="margin-top:24px;"><strong>1. Спротив не є остаточною онтологічною реальністю.</strong> У active domain \(\sigma(t)\to0\) — це підтримує логіку <em>privatio boni</em>: зло/гріх/спротив не мають власної вічної субстанційної стійкості. Спротив реальний екзистенційно (впливає на динаміку), але не остаточний онтологічно.</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">спротив реальний як хвороба, але не остаточний як буття.</div></div>
+
+    <p><strong>2. Воля й дія повинні зійтися.</strong> Дисбаланс \(D_\Delta=\tfrac12(h_1-h_2)^2\to0\), тобто \(h_1-h_2\to0\) (\(\textit{volo}\leftrightarrow\textit{facio}\)). Святість не є ані чистою психологічною інтенцією, ані механічним моральним активізмом — вона є гармонізацією внутрішнього воління та втіленої дії.</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">воля без дії і дія без волі є нестійкими формами духовного життя.</div></div>
+
+    <p><strong>3. Благодать не скасовує структуру, а стабілізує її.</strong> Функціонал не каже, що благодать робить волю непотрібною, ані що людина стабілізує себе самотужки. Воля, дія, мудрість, межі системи й динаміка спротиву працюють разом: \(\text{gratia}+\text{voluntas}+\text{factum}\Rightarrow\text{stabilitas transformationis}\).</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">стабільність виникає в синергійному домені.</div></div>
+
+    <p><strong>4. Духовне життя має живий домен.</strong> Результат не глобальний, а доменний: \(x(0)\in\mathcal{D}_A\Rightarrow x(t)\in\mathcal{D}_A\ \forall t\ge0\). Це не означає, що будь-який стан автоматично веде до очищення; але якщо система входить у такий домен, її внутрішня динаміка вже спрямована до преображення.</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">існує режим життя, в якому преображення стає стабільним.</div></div>
+
+    <p><strong>5. Manere не замінює живу синергію.</strong> Умова \(r_*^2>\varepsilon/\Omega_{\min}^2\): \(\varepsilon\) — Manere-регуляризатор (мінімальне утримання буття), але стабільність не може стояти лише на цьому залишку. Потрібна реальна синергія \(VF>0\).</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">виживання не дорівнює преображенню.</div></div>
+
+    <p><strong>6. Sophia не є елітарною передумовою.</strong> Замість штучної \(q\ge q_0>0\) достатньо \(q\ge0\) (q-free). Sophia може бути не передумовою доступу, а плодом переплавлення спротиву — модель не елітарна.</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">людина не мусить уже мати великий запас Sophia, щоб увійти в стабільний шлях.</div></div>
+
+    <p><strong>7. Спротив може бути переплавлений у Sophia.</strong> Із консервативної пари \(\sigma(t)+\lambda(t)=\text{const}\): якщо \(\sigma\to0\), спротив не просто зникає як залишок — він переплавляється, \(\text{resistance}\to\text{Sophia}\). Досвід боротьби, падіння, травми у правильному домені може стати матеріалом мудрості.</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">те, що було спротивом, може стати змістом преображеної мудрості.</div></div>
+
+    <p><strong>8. Non-Zeno має духовне значення.</strong> Нижня межа dwell-time \(\Delta t_j\ge\Delta t_*>0\): hybrid-система не робить нескінченну кількість переходів за скінченний час. У стабільному домені є ритм, тривалість і послідовність; очищення зберігає особистісну неперервність.</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">духовне преображення не є хаотичною нескінченною кризою.</div></div>
+
+    <p><strong>9. Pleroma не досягається насильницьким стрибком.</strong> Згасання \(\sigma(t)\to0\) асимптотичне, не скінченночасове обнулення — узгоджено з <em>epektasis</em>: рух до повноти реальний, стабільний, спрямований, але не редукується до технічної кнопки завершення.</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">повнота є напрямом преображення, а не насильницьким стрибком.</div></div>
+
+    <p style="margin-top:28px;"><strong>Головний богословський висновок.</strong></p>
+    <div class="formula-block apex"><div class="formula-content" style="text-align:center;">
+      благодать не знищує свободу, свобода не самоспасається, а спротив не має останнього слова.
+    </div></div>
+    <div class="formula-block apex"><div class="formula-content" style="text-align:center;">
+      У активному синергійному домені воля й дія входять у гармонію, спротив асимптотично згасає, а пережитий спротив може бути переплавлений у Sophia без руйнування особистісної неперервності.
+    </div></div>
+    <p>Саме це є головним богословським значенням функціоналу Ляпунова для V.F.S.: він формалізує не автоматичну перемогу, а стабільну динаміку преображення в домені, де благодать і людська відповідь перебувають у живій синергії.</p>
+  </div>
+
+  <div style="text-align:center; margin:40px 0;"><a href="index.html" style="color:var(--gold); text-decoration:none; font-size:13px; letter-spacing:2px;">&#8592; Return to the main treatise (§ 11)</a></div>
+
+<div class="footer">
+    <div class="footer-sigil">🐚</div>
+    <div style="margin-top:12px; font-family:'Cinzel',serif; font-size:10px; letter-spacing:4px; color:var(--gold-dim); opacity:0.5;">Ave, qui in silentio Verbum audis.</div>
+    <div class="footer-motto">Verità Eterna</div>
+    <div style="margin-top:16px; font-family:'Cinzel',serif; font-size:22px; color:var(--gold); letter-spacing:6px;">V · F · S</div>
+    <div style="margin-top:24px; font-family:'Cinzel',serif; font-size:10px; letter-spacing:4px; color:var(--gold-dim); opacity:0.5;">Editio Octogesima Quinta · Мт 12:20 · MMXXVI</div>
+  </div>
+
+<script>
+
+/* ================================================================
+   APPENDIX I — The Cathartic Neck · Canvas Simulations
+   Two autonomous scripts share one Euler integrator pattern.
+   Both run on DOMContentLoaded (page is fully parsed).
+================================================================ */
+(function drawDecart(){
+  /* Curvature Portrait (x, ẍ) — N=30, plasma colormap */
+  var cv=document.getElementById('cv_decart');
+  if(!cv)return;
+  var ctx=cv.getContext('2d'),W=800,H=500;
+  function rn(){var u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+  var N=30,T=42,dt=0.055,nS=Math.ceil(T/dt);
+  var gamma=0.42,delta=0.86,Lc=gamma/delta,eps=0.035,kappa=1.4;
+  var a=0.35,c=0.05,alpha=0.035,tau=0.12,Gmax=1;
+  var V=[],F=[],sig=[],lam=[],Op=[];
+  for(var i=0;i<N;i++){var phi=2*Math.PI*i/N;
+    V[i]=Math.max(0.04,0.55+0.34*(1+Math.cos(phi))/2+0.035*rn());
+    F[i]=Math.max(0.04,0.55+0.34*(1+Math.sin(phi))/2+0.035*rn());
+    sig[i]=0.36+0.34*Math.random();lam[i]=0.05+0.08*Math.random();
+    Op[i]=Lc+0.65+0.08*Math.random();}
+  var xh=[];for(var i=0;i<N;i++)xh[i]=new Float64Array(nS);
+  for(var s=0;s<nS;s++){var t=s*dt,Pt=tau*Gmax*Math.exp(-tau*t);
+    for(var i=0;i<N;i++){var u=Math.sqrt(V[i]*F[i]+eps);xh[i][s]=u-sig[i];
+      var ds=(gamma-delta*u)*Math.tanh(kappa*sig[i]);
+      var sat=Math.max(0,1-u/Math.max(Op[i],Lc+0.05));
+      sig[i]+=ds*dt;lam[i]-=ds*dt;Op[i]+=alpha*lam[i]*dt;
+      if(Op[i]<Lc+0.02)Op[i]=Lc+0.02;
+      var z=u/Lc, D=0.25*sig[i]*z*Math.exp(1-z); /* Dolorosum (calibrated d0=0.25 for ensemble topology) */
+      V[i]+=dt*(a*F[i]*sat-D*V[i]+c*lam[i]*V[i]+0.025*Pt);
+      F[i]+=dt*(a*V[i]*sat-D*F[i]+c*lam[i]*F[i]+0.025*Pt);
+      V[i]=Math.max(1e-6,V[i]);F[i]=Math.max(1e-6,F[i]);}}
+  var j0=Math.floor(0.05*T/dt),j1=Math.floor(0.96*T/dt);
+  var dxA=[],ddxA=[];
+  for(var i=0;i<N;i++){dxA[i]=new Float64Array(nS);ddxA[i]=new Float64Array(nS);
+    for(var j=1;j<nS-1;j++)dxA[i][j]=(xh[i][j+1]-xh[i][j-1])/(2*dt);
+    for(var j=2;j<nS-2;j++)ddxA[i][j]=(dxA[i][j+1]-dxA[i][j-1])/(2*dt);}
+  var xMin=1e9,xMax=-1e9,yMin=1e9,yMax=-1e9;
+  for(var i=0;i<N;i++)for(var j=j0;j<=j1;j++){var xv=xh[i][j],yv=ddxA[i][j];
+    if(isFinite(xv)&&isFinite(yv)){if(xv<xMin)xMin=xv;if(xv>xMax)xMax=xv;if(yv<yMin)yMin=yv;if(yv>yMax)yMax=yv;}}
+  xMin=Math.max(xMin,0.3);xMax=Math.min(xMax,4.6);yMin=Math.max(yMin,-0.026);yMax=Math.min(yMax,0.013);
+  var PAD={l:64,r:30,t:20,b:50},pw=W-PAD.l-PAD.r,ph=H-PAD.t-PAD.b;
+  function px(x){return PAD.l+pw*(x-xMin)/(xMax-xMin);}
+  function py(y){return PAD.t+ph*(1-(y-yMin)/(yMax-yMin));}
+  function plasma(t){var s=[[0.05,0.03,0.53],[0.49,0.01,0.66],[0.80,0.10,0.54],[0.97,0.46,0.18],[0.99,0.90,0.14]];
+    var n=s.length-1,idx=Math.min(Math.floor(t*n),n-1),f=t*n-idx,a2=s[idx],b2=s[Math.min(idx+1,n)];
+    return'rgb('+Math.round((a2[0]+(b2[0]-a2[0])*f)*255)+','+Math.round((a2[1]+(b2[1]-a2[1])*f)*255)+','+Math.round((a2[2]+(b2[2]-a2[2])*f)*255)+')';}
+  ctx.fillStyle='#0e0c08';ctx.fillRect(0,0,W,H);
+  ctx.lineWidth=0.4;
+  for(var gx=Math.ceil(xMin*2)/2;gx<=xMax;gx+=0.5){ctx.strokeStyle='rgba(201,168,76,0.06)';ctx.beginPath();ctx.moveTo(px(gx),PAD.t);ctx.lineTo(px(gx),PAD.t+ph);ctx.stroke();}
+  for(var gy=-0.025;gy<=0.012;gy+=0.005){ctx.strokeStyle=Math.abs(gy)<0.0001?'rgba(201,168,76,0.2)':'rgba(201,168,76,0.06)';ctx.lineWidth=Math.abs(gy)<0.0001?0.8:0.4;ctx.beginPath();ctx.moveTo(PAD.l,py(gy));ctx.lineTo(PAD.l+pw,py(gy));ctx.stroke();}
+  ctx.setLineDash([6,4]);ctx.lineWidth=1.2;ctx.strokeStyle='rgba(232,201,122,0.55)';ctx.beginPath();ctx.moveTo(PAD.l,py(0));ctx.lineTo(PAD.l+pw,py(0));ctx.stroke();ctx.setLineDash([]);
+  for(var i=0;i<N;i++){ctx.beginPath();ctx.strokeStyle=plasma(i/N);ctx.lineWidth=1.8;ctx.globalAlpha=0.85;
+    var first=true;
+    for(var j=j0;j<=j1;j++){var xv=xh[i][j],yv=ddxA[i][j];if(!isFinite(xv)||!isFinite(yv)||xv<xMin||xv>xMax||yv<yMin||yv>yMax)continue;if(first){ctx.moveTo(px(xv),py(yv));first=false;}else ctx.lineTo(px(xv),py(yv));}
+    ctx.stroke();}
+  ctx.globalAlpha=1;
+  ctx.font='11px serif';ctx.fillStyle='#a08c5c';ctx.textAlign='center';
+  [1,2,3,4].forEach(function(v){ctx.fillText(v,px(v),PAD.t+ph+16);});
+  ctx.textAlign='right';[-0.020,-0.015,-0.010,-0.005,0,0.005,0.010].forEach(function(v){ctx.fillText(v.toFixed(3),PAD.l-6,py(v)+4);});
+  ctx.fillStyle='#e8c97a';ctx.font='12px serif';ctx.textAlign='center';
+  ctx.fillText('x = u \u2212 \u03c3   (transmissive state of Filtrum Lucis)',PAD.l+pw/2,H-8);
+  ctx.save();ctx.translate(14,PAD.t+ph/2);ctx.rotate(-Math.PI/2);ctx.textAlign='center';ctx.fillText('\u1e8d   (curvature of crossing)',0,0);ctx.restore();
+  ctx.font='bold 11px serif';
+  ctx.fillStyle='rgba(201,168,76,0.85)';ctx.textAlign='left';ctx.fillText('Curvature Well \u00b7 Odinai',px(0.4),py(0.0095));
+  ctx.fillStyle='rgba(232,201,122,0.9)';ctx.fillText('Laminar Anastatic Channel',px(2.1),py(0.0042));
+  var nX=px(1.38),nY=py(-0.004);
+  ctx.strokeStyle='#c9a84c';ctx.lineWidth=1;ctx.setLineDash([3,3]);ctx.beginPath();ctx.moveTo(nX+55,nY-30);ctx.lineTo(nX+8,nY-4);ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='#c9a84c';ctx.textAlign='left';ctx.fillText('The Neck \u00b7 \u03c3\u21920',nX+57,nY-33);
+  var cbX=W-22,cbY=PAD.t+15,cbH=120,cbW=10;
+  for(var k=0;k<cbH;k++){ctx.fillStyle=plasma(1-k/cbH);ctx.fillRect(cbX,cbY+k,cbW,1);}
+  ctx.strokeStyle='#3a3020';ctx.lineWidth=0.5;ctx.strokeRect(cbX,cbY,cbW,cbH);
+  ctx.fillStyle='#a08c5c';ctx.font='10px serif';ctx.textAlign='left';ctx.fillText('t\u2191',cbX+cbW+3,cbY+6);ctx.fillText('t\u2193',cbX+cbW+3,cbY+cbH);
+})();
+
+(function drawPolar(){
+  /* Kathartic Neck Polar Unfolding — N=10 trajectories */
+  var cv=document.getElementById('cv_polar');
+  if(!cv)return;
+  var ctx=cv.getContext('2d'),W=620,H=660,CX=W/2,CY=H/2+10,R=250;
+  function rn(){var u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
+  function getQ(arr,q){var s=arr.slice().sort(function(a,b){return a-b;}),p=(s.length-1)*q,base=Math.floor(p),rest=p-base;return s[base+1]!==undefined?s[base]+rest*(s[base+1]-s[base]):s[base];}
+  var N=10,T=42,dt=0.055,nS=Math.ceil(T/dt);
+  var gamma=0.42,delta=0.86,Lc=gamma/delta,eps=0.035,kappa=1.4;
+  var a=0.35,c=0.05,alpha=0.035,tau=0.12,Gmax=1,r0=0.55,Ar=0.38;
+  var V=[],F=[],sig=[],lam=[],Op=[];
+  for(var i=0;i<N;i++){var phi=2*Math.PI*i/N;
+    V[i]=Math.max(0.04,0.55+0.34*(1+Math.cos(phi))/2+0.035*rn());
+    F[i]=Math.max(0.04,0.55+0.34*(1+Math.sin(phi))/2+0.035*rn());
+    sig[i]=0.36+0.34*Math.random();lam[i]=0.05+0.08*Math.random();
+    Op[i]=Lc+0.65+0.08*Math.random();}
+  var xh=[];for(var i=0;i<N;i++)xh[i]=new Float64Array(nS);
+  for(var s=0;s<nS;s++){var t=s*dt,Pt=tau*Gmax*Math.exp(-tau*t);
+    for(var i=0;i<N;i++){var u=Math.sqrt(V[i]*F[i]+eps);xh[i][s]=u-sig[i];
+      var ds=(gamma-delta*u)*Math.tanh(kappa*sig[i]);
+      var sat=Math.max(0,1-u/Math.max(Op[i],Lc+0.05));
+      sig[i]+=ds*dt;lam[i]-=ds*dt;Op[i]+=alpha*lam[i]*dt;if(Op[i]<Lc+0.02)Op[i]=Lc+0.02;
+      var z=u/Lc, D=0.25*sig[i]*z*Math.exp(1-z); /* Dolorosum (calibrated d0=0.25 for ensemble topology) */
+      V[i]+=dt*(a*F[i]*sat-D*V[i]+c*lam[i]*V[i]+0.025*Pt);
+      F[i]+=dt*(a*V[i]*sat-D*F[i]+c*lam[i]*F[i]+0.025*Pt);
+      V[i]=Math.max(1e-6,V[i]);F[i]=Math.max(1e-6,F[i]);}}
+  var j0=Math.floor(0.05*T/dt),j1=Math.floor(0.96*T/dt);
+  var ddx=[];var absAll=[];
+  for(var i=0;i<N;i++){ddx[i]=new Float64Array(nS);var dx2=new Float64Array(nS);
+    for(var j=1;j<nS-1;j++)dx2[j]=(xh[i][j+1]-xh[i][j-1])/(2*dt);
+    for(var j=2;j<nS-2;j++)ddx[i][j]=(dx2[j+1]-dx2[j-1])/(2*dt);
+    for(var j=j0;j<=j1;j++)absAll.push(Math.abs(ddx[i][j]));}
+  var xStar=getQ(absAll,0.98);
+  var rv=[];var xNecks=[];
+  for(var i=0;i<N;i++){rv[i]=new Float64Array(nS);var minR=1e9,nJ=j0;
+    for(var j=j0;j<=j1;j++){var r=Math.max(0.08,Math.min(0.98,r0+Ar*Math.tanh(2.2*ddx[i][j]/xStar)));rv[i][j]=r;if(r<minR){minR=r;nJ=j;}}
+    xNecks.push(xh[i][nJ]);}
+  var xc=getQ(xNecks,0.5),xMin=1e9,xMax=-1e9;
+  for(var i=0;i<N;i++)for(var j=j0;j<=j1;j++){if(xh[i][j]<xMin)xMin=xh[i][j];if(xh[i][j]>xMax)xMax=xh[i][j];}
+  function toCart(tDeg,r){var ang=(tDeg-90)*Math.PI/180;return{x:CX+R*r*Math.cos(ang),y:CY+R*r*Math.sin(ang)};}
+  function toDeg(xv){return xv<=xc?60*(xv-xMin)/(xc-xMin):60+300*(xv-xc)/(xMax-xc);}
+  ctx.fillStyle='#0e0c08';ctx.fillRect(0,0,W,H);
+  [0.2,0.4,r0,0.75,0.95].forEach(function(rr){ctx.beginPath();ctx.arc(CX,CY,R*rr,0,2*Math.PI);ctx.strokeStyle=rr===r0?'rgba(201,168,76,0.45)':'rgba(201,168,76,0.10)';ctx.lineWidth=rr===r0?1.3:0.5;if(rr===r0)ctx.setLineDash([5,4]);else ctx.setLineDash([]);ctx.stroke();ctx.setLineDash([]);});
+  [0,60,120,180,240,300].forEach(function(deg){var rad=(deg-90)*Math.PI/180;ctx.beginPath();ctx.moveTo(CX,CY);ctx.lineTo(CX+R*Math.cos(rad),CY+R*Math.sin(rad));ctx.strokeStyle=deg===60?'rgba(201,168,76,0.65)':'rgba(201,168,76,0.12)';ctx.lineWidth=deg===60?1.5:0.5;if(deg===60)ctx.setLineDash([6,4]);else ctx.setLineDash([]);ctx.stroke();ctx.setLineDash([]);});
+  var cols=['#c9a84c','#e8c97a','#e87c3e','#d44b7a','#9b59b6','#5dade2','#48c9b0','#f0b27a','#a9cce3','#82e0aa'];
+  for(var i=0;i<N;i++){ctx.beginPath();ctx.strokeStyle=cols[i];ctx.lineWidth=2.2;ctx.globalAlpha=0.88;
+    var first=true;
+    for(var j=j0;j<=j1;j++){var pt=toCart(toDeg(xh[i][j]),rv[i][j]);if(first){ctx.moveTo(pt.x,pt.y);first=false;}else ctx.lineTo(pt.x,pt.y);}
+    ctx.stroke();
+    var pt0=toCart(toDeg(xh[i][j0]),rv[i][j0]);ctx.globalAlpha=1;
+    ctx.beginPath();ctx.arc(pt0.x,pt0.y,5,0,2*Math.PI);ctx.fillStyle=cols[i];ctx.fill();ctx.strokeStyle='#f5f0e4';ctx.lineWidth=1.2;ctx.stroke();}
+  ctx.globalAlpha=1;
+  /* Neck marker — візир L (4 гострих промені, дуже витягнуті) */
+  var nP=toCart(60,0.13);
+  ctx.beginPath();
+  var nR=14,nR2=4;
+  for(var k=0;k<8;k++){
+    var rr=k%2===0?nR:nR2,aa=k*Math.PI/4;
+    if(k===0)ctx.moveTo(nP.x+rr*Math.cos(aa),nP.y+rr*Math.sin(aa));
+    else ctx.lineTo(nP.x+rr*Math.cos(aa),nP.y+rr*Math.sin(aa));
+  }
+  ctx.closePath();
+  ctx.fillStyle='#e8c97a';ctx.fill();ctx.strokeStyle='#0e0c08';ctx.lineWidth=1.5;ctx.stroke();
+  var lgX=18,lgY=H-56;
+  ctx.beginPath();ctx.arc(lgX+7,lgY,5,0,2*Math.PI);ctx.fillStyle='#c9a84c';ctx.fill();ctx.strokeStyle='#f5f0e4';ctx.lineWidth=1.2;ctx.stroke();
+  ctx.fillStyle='#a08c5c';ctx.font='11px serif';ctx.textAlign='left';ctx.fillText('\u2014 початок траєкторії',lgX+16,lgY+4);
+  ctx.beginPath();
+  var lR=9,lR2=3,lCx=lgX+9,lCy=lgY+20;
+  for(var k=0;k<8;k++){var rr=k%2===0?lR:lR2,aa=k*Math.PI/4;if(k===0)ctx.moveTo(lCx+rr*Math.cos(aa),lCy+rr*Math.sin(aa));else ctx.lineTo(lCx+rr*Math.cos(aa),lCy+rr*Math.sin(aa));}
+  ctx.closePath();ctx.fillStyle='#e8c97a';ctx.fill();ctx.strokeStyle='#0e0c08';ctx.lineWidth=1.5;ctx.stroke();
+  ctx.fillStyle='#a08c5c';ctx.fillText('\u2014 Kathartic Neck (\u03c3\u21920)',lgX+22,lgY+24);
+  ctx.strokeStyle='rgba(201,168,76,0.5)';ctx.lineWidth=1;ctx.setLineDash([4,3]);ctx.beginPath();ctx.moveTo(lgX,lgY+40);ctx.lineTo(lgX+18,lgY+40);ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle='#a08c5c';ctx.fillText('\u2014 r\u2080 = 0.55  (\u1e8d = 0)',lgX+22,lgY+44);
+  ctx.font='11px serif';ctx.fillStyle='#c9a84c';
+  [{deg:0,text:'0\u00b0'},{deg:60,text:'60\u00b0 \u00b7 Neck'},{deg:180,text:'180\u00b0'},{deg:270,text:'270\u00b0'}].forEach(function(l){var pt=toCart(l.deg,1.07);ctx.textAlign='center';ctx.fillText(l.text,pt.x,pt.y);});
+  ctx.fillStyle='rgba(160,140,92,0.8)';ctx.font='10px serif';ctx.textAlign='center';ctx.fillText('pre-cathartic sector',CX+80,CY-R*0.88);
+  ctx.fillStyle='rgba(232,201,122,0.7)';ctx.fillText('post-cathartic \u00b7 Anastasis \u00b7 \u0404\u043f\u0435\u043a\u0442\u0430\u0437\u0438\u0441',CX-R*0.5,CY+R*0.9);
+  ctx.fillStyle='#c9a84c';ctx.font='bold 13px serif';ctx.textAlign='center';ctx.fillText('KATHARTIC NECK',CX-18,CY-R*0.47);
+  ctx.fillStyle='rgba(201,168,76,0.5)';ctx.font='10px serif';ctx.textAlign='left';ctx.fillText('r\u2080',CX+R*r0+4,CY+3);
+})();
+
+</script>
+</div>
+
+</body>
+</html>
