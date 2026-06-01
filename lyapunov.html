@@ -698,21 +698,24 @@
   <div class="section">
     <div class="section-number">§ 6</div>
     <div class="section-title">q-free Lyapunov functional &amp; dissipative estimate</div>
+    <p>The product-balance core combines three dissipative modes — resistance, imbalance, Sophia: \(\mathcal L_{pb}=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2\). To guard the upper radial wall \(r\to1^-\) (the death-boundary \(u=\Omega_P\)) <em>directly</em> — rather than only through the §8 admissibility inequalities, and independently of \(\rho\), which vanishes at \(\sigma=0\) — we add a logarithmic radial barrier and take as the <strong>primary V.F.S. Lyapunov functional</strong>:</p>
+    <div class="formula-block"><div class="formula-content" style="text-align:center;">
+      \[B(r)=-\ln(1-r),\qquad 0\lt r\lt1.\]
+    </div></div>
     <div class="formula-block apex"><div class="formula-content" style="text-align:center;">
-      \[\boxed{\ \mathcal L_{pb}=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2.\ }\]
+      \[\boxed{\ \mathcal L_{\rm VFS}=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2+A_r B(r),\quad A_\sigma,A_\Delta,A_q,A_r>0.\ }\]
     </div></div>
-    <p style="margin-top:18px;"><strong>Radial barrier (strengthened functional).</strong> The vanishing of the Dolorosum rate at \(\sigma=0\) means \(\rho\) alone cannot guard the upper radial wall \(r\to1^-\) (the death-boundary \(u=\Omega_P\)). One may add an explicit logarithmic barrier \(B(r)=-\ln(1-r)\) (\(0\lt r\lt1\)) and work with</p>
-    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">
-      \[\mathcal L_{\rm VFS}=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2-A_r\ln(1-r),\qquad A_\sigma,A_\Delta,A_q,A_r>0.\]
-    </div></div>
-    <p>Since \(-A_r\ln(1-r)\to+\infty\) as \(r\to1^-\), boundedness \(\mathcal L_{\rm VFS}(t)\le L_*\) enforces \(r(t)<1\) <em>directly</em>, controlling the upper radial wall independently of \(\rho\) (which vanishes at \(\sigma=0\)). The explicit radial admissibility conditions (§8) then guarantee \(\dot r\le0\) at \(r=r^*\); the barrier is a complementary, \(\sigma\)-independent guard.</p>
+    <p>Equivalently \(\mathcal L_{\rm VFS}=\mathcal L_{pb}-A_r\ln(1-r)\). Since \(B(r)\to+\infty\) as \(r\to1^-\), boundedness \(\mathcal L_{\rm VFS}(t)\le L_*\) forces \(r(t)<1\): the death-boundary is unreachable while the functional stays bounded.</p>
+    <div class="highlight-box gold">
+      <strong>Зміст.</strong> Dolorosum очищає, але «слабшає» біля святості (\(\rho\to0\) при \(\sigma\to0\)) — і тоді не може сам стримати наближення до Брим. Член \(A_r B(r)=-A_r\ln(1-r)\) — окремий, незалежний від спротиву захист межі смерті: що ближче до Брим, то нескінченно більший «штраф». Богословськи — благодать Повноти не дає пробити власну межу навіть тоді, коли гріх уже подоланий. Ядро \(\mathcal L_{pb}\) лишається носієм трьох дисипативних мод; \(\mathcal L_{\rm VFS}\) додає до них пряму стіну проти смерті.
+    </div>
     <div class="highlight-box gold">
       <strong>Зміст.</strong> Dolorosum очищає, але «слабшає» біля святості (\(\rho\to0\) при \(\sigma\to0\)) — і тоді не може сам стримати наближення до Брим. Логарифмічний бар'єр \(-\ln(1-r)\) — це окремий, незалежний від спротиву захист межі смерті: що ближче до Брим, то нескінченно більший «штраф». Богословськи — благодать Повноти не дає пробити власну межу навіть тоді, коли гріх уже подоланий.
     </div>
-    <p><strong>Proposition 6.1.</strong> Where \(u\ge\Lambda_c+\eta,\ \mu\ge\mu_*>0,\ q\ge0,\ 0\le\sigma\le C_\sigma\), there exist \(C_{act}\ge0,\ C_1>0\) with \(\dot{\mathcal L}_{pb}\le C_{act}-C_1\mathcal L_{pb}\).</p>
-    <p style="font-size:14px; color:var(--gold-dim);"><em>Proof.</em> \(A_\sigma\dot\Psi_\sigma\le-A_\sigma c_\sigma\Psi_\sigma\) (Lemma 2.1); \(A_\Delta\dot D_\Delta\le-2A_\Delta a\mu_* D_\Delta\) (Lemma 5.1); and \(\tfrac{d}{dt}q^2=2\delta q(r+h_3-1)\tanh(\kappa\sigma)-2\alpha q^3\), bounded above on the corridor and absorbed into \(C_{act}\). Combining yields the inequality. \(\square\)</p>
+    <p><strong>Proposition 6.1.</strong> Where \(u\ge\Lambda_c+\eta,\ \mu\ge\mu_*>0,\ q\ge0,\ 0\le\sigma\le C_\sigma\), there exist \(C_{act}\ge0,\ C_1>0\) with \(\dot{\mathcal L}_{pb}\le C_{act}-C_1\mathcal L_{pb}\); the same dissipative form holds for the full \(\mathcal L_{\rm VFS}\).</p>
+    <p style="font-size:14px; color:var(--gold-dim);"><em>Proof.</em> \(A_\sigma\dot\Psi_\sigma\le-A_\sigma c_\sigma\Psi_\sigma\) (Lemma 2.1); \(A_\Delta\dot D_\Delta\le-2A_\Delta a\mu_* D_\Delta\) (Lemma 5.1); and \(\tfrac{d}{dt}q^2=2\delta q(r+h_3-1)\tanh(\kappa\sigma)-2\alpha q^3\), bounded above on the corridor and absorbed into \(C_{act}\). For the barrier term, \(\dot B(r)=\dfrac{\dot r}{1-r}\); near the wall \(r=r^*\) the radial admissibility (§8) gives \(\dot r\le0\), so \(A_r\dot B(r)\le0\) there and the term only helps — while on the interior \(r\le r^*<1\) it is bounded and absorbed into \(C_{act}\). Hence \(\dot{\mathcal L}_{\rm VFS}\le C_{act}-C_1\mathcal L_{\rm VFS}\) as well. \(\square\)</p>
     <div class="highlight-box gold">
-      <strong>Зміст.</strong> Один функціонал \(\mathcal L_{pb}\) поєднує три «енергії»: спротив \(\Psi_\sigma\), дисбаланс \(D_\Delta\), нормалізовану Софію \(q^2\). Оцінка \(\dot{\mathcal L}\le C_{act}-C_1\mathcal L\) дає <em>практичну стабільність</em> (обмеженість до рівня \(C_{act}/C_1\)); сильніша збіжність \(\sigma\to0,\ D_\Delta\to0\) доводиться окремо в §10 через власні точні тотожності.
+      <strong>Зміст.</strong> Повний функціонал \(\mathcal L_{\rm VFS}\) поєднує три «енергії» ядра \(\mathcal L_{pb}\) — спротив \(\Psi_\sigma\), дисбаланс \(D_\Delta\), нормалізовану Софію \(q^2\) — плюс радіальний бар'єр \(A_r B(r)\) проти межі смерті. Оцінка \(\dot{\mathcal L}\le C_{act}-C_1\mathcal L\) дає <em>практичну стабільність</em> (обмеженість до рівня \(C_{act}/C_1\)); сильніша збіжність \(\sigma\to0,\ D_\Delta\to0\) доводиться окремо в §10 через власні точні тотожності.
     </div>
   </div>
 
@@ -755,12 +758,12 @@
     <div class="formula-block boxed"><div class="formula-content">
       <strong>Theorem 9.1 (positive invariance).</strong> Under explicit radial admissibility, \(x(0)\in\mathcal D_A\Rightarrow x(t)\in\mathcal D_A\ \forall t\ge0\).
     </div></div>
-    <p><strong>Theorem 9.2 (q-free invariant-domain Lyapunov stability).</strong> If, in addition, resets return the state into \(\mathcal D_A\) with \(\mathcal L_{pb}(x_j^+)\le L_R\), then: (i) \(\mathcal D_A\) invariant; (ii) \(\dot{\mathcal L}_{pb}\le C_{act}-C_1\mathcal L_{pb}\); (iii) \(\mathcal L_{pb}(t)\le L_*:=\max\{L_R,C_{act}/C_1\}\) (Grönwall between resets); (iv) the death-boundary is never reached, \(h_1,h_2\ge m_{pb}>0\); (v) no condition \(q\ge q_0>0\) is needed — invariant \(q\ge0\) suffices.</p>
+    <p><strong>Theorem 9.2 (q-free invariant-domain Lyapunov stability).</strong> If, in addition, resets return the state into \(\mathcal D_A\) with \(\mathcal L_{\rm VFS}(x_j^+)\le L_R\), then: (i) \(\mathcal D_A\) invariant; (ii) \(\dot{\mathcal L}_{\rm VFS}\le C_{act}-C_1\mathcal L_{\rm VFS}\); (iii) \(\mathcal L_{\rm VFS}(t)\le L_*:=\max\{L_R,C_{act}/C_1\}\), so \(r(t)<1\) (barrier finite) and the death-boundary is never reached (Grönwall between resets); (iv) the death-boundary is never reached, \(h_1,h_2\ge m_{pb}>0\); (v) no condition \(q\ge q_0>0\) is needed — invariant \(q\ge0\) suffices.</p>
     <div class="formula-block boxed"><div class="formula-content">
       <strong>Theorem 9.3 (uniform non-Zeno).</strong> With margin \(\bar h_*=\min\{m_{pb},h_{3,*},r_*,1-r^*,q^*,C_\sigma,\sqrt{D^*}\}>0\) and bounded field \(\bar M_*\lt\infty\), each inter-jump interval satisfies \(\Delta t_j\ge\Delta t_*:=\bar h_*/\bar M_*>0\). No Zeno accumulation.
     </div></div>
     <div class="highlight-box gold">
-      <strong>Зміст і місток.</strong> (9.1) Басейн строго замкнений — потрапивши, не вийдеш. (9.2) Функціонал обмежений навіть із Воскресіннями (resets), <em>якщо</em> кожне Воскресіння повертає в басейн із контрольованим \(\mathcal L_{pb}\) — це формальна умова на оператор \(\mathfrak{R}\) (§6a). (9.3) Між Воскресіннями завжди є додатний проміжок часу: душа не може воскресати нескінченно часто за скінченний час — немає «Zeno-патології» нескінченних стрибків.
+      <strong>Зміст і місток.</strong> (9.1) Басейн строго замкнений — потрапивши, не вийдеш. (9.2) Функціонал обмежений навіть із Воскресіннями (resets), <em>якщо</em> кожне Воскресіння повертає в басейн із контрольованим \(\mathcal L_{\rm VFS}\) (зокрема скінченним бар'єром, тобто \(r^+<1\)) — це формальна умова на оператор \(\mathfrak{R}\) (§6a). (9.3) Між Воскресіннями завжди є додатний проміжок часу: душа не може воскресати нескінченно часто за скінченний час — немає «Zeno-патології» нескінченних стрибків.
     </div>
   </div>
 
@@ -805,7 +808,7 @@
     <div class="section-title">Theological Corollaries &#8212; Богословські висновки</div>
     <p>Функціонал Ляпунова не слід тлумачити як доказ автоматичного або глобального спасіння з довільного стану. Його зміст інший: у додатно інваріантному active transformation domain система має внутрішню дисипативну структуру, що утримує її від розпаду, стабілізує синергію волі й дії та асимптотично гасить спротив. У стислому вигляді:</p>
     <div class="formula-block"><div class="formula-content">
-      \[\text{explicit admissibility}\Rightarrow\mathcal{D}_A\text{ positively invariant}\Rightarrow\dot{\mathcal L}_{pb}\le C-C_1\mathcal L_{pb}\Rightarrow\sigma(t)\to0,\ D_\Delta(t)\to0.\]
+      \[\text{explicit admissibility}\Rightarrow\mathcal{D}_A\text{ positively invariant}\Rightarrow\dot{\mathcal L}_{\rm VFS}\le C-C_1\mathcal L_{\rm VFS}\Rightarrow\sigma(t)\to0,\ D_\Delta(t)\to0.\]
     </div></div>
     <p>Богословськи це означає, що V.F.S. описує не механічне спасіння і не самоспасіння, а стійкість синергійного шляху в домені, де благодать, воля, дія й очищення вже перебувають у правильному динамічному порядку.</p>
 
