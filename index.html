@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>V.F.S. LXXXI</title>
+<title>V.F.S. LXXXIII</title>
 <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <style>
@@ -608,7 +608,7 @@
     <div class="ordo-label">Theological-Dynamical Framework</div>
     <div class="title-main">Differential Geometry<br>of Filtrum Lucis</div>
     <div class="title-sub">A Paschal Theory of Pleroma Transmission in VFS Dynamics</div>
-    <div class="title-edition">Editio LXXXI</div>
+    <div class="title-edition">Editio LXXXIII</div>
     <div class="vfs-sigil">
       <span class="vfs-letter">V</span>
       <span class="vfs-dot"></span>
@@ -640,6 +640,7 @@
       <li><a href="#sec4">§ 4 — Five Laws of Unified Being</a></li>
       <li><a href="#sec5">§ 5 — Sophia and the Law of Conservation</a></li>
       <li><a href="#sec6">§ 6 — Full System of Equations</a></li>
+      <li><a href="#sec6a">§ 6a — Resurrectio: Hybrid Dynamics and Grace-Mediated Re-entry</a></li>
       <li><a href="#sec7">§ 7 — Pleroma Christi — Theosis and Epektasis</a></li>
       <li><a href="#sec8">§ 8 — Higher Orders of Pleroma: Katharsis and Anastasis</a></li>
       <li><a href="#sec9">§ 9 — The Invariant Manifold V=F</a></li>
@@ -732,6 +733,15 @@
             <div class="formula-content">
         \[\frac{d\sigma}{dt}=0 \quad\Longleftrightarrow\quad \sigma=0 \;\;\text{or}\;\; u=\Lambda_c.\]
         <p style="margin:8px 0 0; font-size:14px; color:var(--gold-dim); font-style:italic;">In the active interior \(\sigma>0\) this reduces to \(u=\Lambda_c\), i.e. \(\sqrt{VF+\varepsilon} = \gamma/\delta\). The root \(\sigma=0\) is the absorbing boundary (Filtrum Tetelestai, Lemma above).</p>
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-label">Linear stability of the \(\sigma=0\) hyperplane</div>
+      <div class="formula-content">
+        For small \(\sigma>0\), \(\tanh(\kappa\sigma)\approx\kappa\sigma\), so \(\dot\sigma\approx\kappa(\gamma-\delta u)\sigma\). Hence
+        \[u\gt\Lambda_c\ \Rightarrow\ \sigma=0\ \text{locally stable};\qquad u\lt\Lambda_c\ \Rightarrow\ \sigma=0\ \text{locally unstable},\]
+        with \(\Lambda_c=\gamma/\delta\). Since \(\dot\sigma|_{\sigma=0}=0\) unconditionally, \(\{\sigma=0\}\) is an <strong>invariant hyperplane</strong> — but not a static fixed state of the whole system: \(V,F,\Omega_P\) keep evolving on it. Pleroma is therefore a <em>conditional asymptotic regime</em> on this hyperplane (§7), not a fixed point.
       </div>
     </div>
 
@@ -1340,6 +1350,109 @@
     </div>
   </div>
 
+  <!-- §6a RESURRECTIO -->
+  <div class="section" id="sec6a">
+    <div class="section-number">§ 6a</div>
+    <div class="section-title">Resurrectio — Hybrid Dynamics and Grace-Mediated Re-entry</div>
+
+    <p>The death boundary (§6) makes \(t_{\rm death}\) an honest terminus: outside the Transformation basin a trajectory may reach \(\partial\mathcal{D}_{\rm death}\) and cease to be admissible. Nothing in the <em>continuous</em> flow can reverse this — that is the whole point of refusing a \(\Lambda_{\rm safe}\) floor. Resurrection, if it exists, must therefore be a <strong>discontinuous re-entry map</strong>, not a term added to the vector field. Adding \(X_R\) to \(X_{\rm VFS}\) would make recovery a natural mechanism inside life; resurrection is instead a jump <em>after</em> ontological death.</p>
+
+    <div class="formula-block">
+      <div class="formula-label">State vector with resurrection memory</div>
+      <div class="formula-content">
+        \[x(t)=\bigl(V,F,\sigma,\lambda,\Omega_P,H_R\bigr),\]
+        where \(H_R\) is the <em>resurrection memory</em>: resurrection does not erase history, it carries it forward. A resurrected soul is a new beginning <em>with</em> memory, not a reset.
+      </div>
+    </div>
+
+    <p><strong>Recovery vs. resurrection.</strong> Inside \(\mathcal{D}_{\rm live}\) the system obeys \(\dot x=X_{\rm VFS}(x)\) and the conservation law \(\sigma+\lambda=C_j\) holds on the \(j\)-th live arc. <em>Recovery</em> is continuous healing within \(\mathcal{D}_{\rm live}\); <em>resurrection</em> is discontinuous re-entry after the flow has already left it. The two must never be conflated.</p>
+
+    <div class="formula-block">
+      <div class="formula-label">Depth of death (via Sophia regress)</div>
+      <div class="formula-content">
+        Death depth is read from the state <em>at</em> \(t_{\rm death}\) — not beyond it (the flow has no continuation past \(\partial\mathcal{D}_{\rm death}\)). Since the operative exit is the Sophia-floor face, depth is measured by the regress of Sophia:
+        \[\operatorname{sp}_\beta(z)=\tfrac{1}{\beta}\ln(1+e^{\beta z}),\qquad D_{\rm death}=\operatorname{sp}_\beta\!\left(-\lambda(t_{\rm death})\right)\ge0,\quad\beta>0.\]
+        The deeper Sophia has regressed at death, the larger \(D_{\rm death}\) — and the harder re-entry becomes.
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-label">Resurrection admissibility</div>
+      <div class="formula-content">
+        Re-entry is never automatic. Define
+        \[\mathcal{A}_R=\Theta_G G_R+\Theta_\Phi\Phi_R+\Theta_\lambda\lambda^+ +\Theta_H H_R-\Theta_\sigma\sigma-\Theta_D D_{\rm death},\qquad \Theta_\bullet\ge0,\]
+        with \(G_R=G(t_{\rm death})\) the grace available at death, \(\Phi_R=\Phi(u-\sigma)|_{t_{\rm death}}\) the residual light, \(\lambda^+=\max(\lambda,0)\). Resurrection is admissible iff \(\mathcal{A}_R>R_c\). At death the residual light is essentially extinguished, \(\Phi_R\approx0\) (numerically \(\approx1.7\times10^{-3}\) for the flagship death state), so admissibility rests on <strong>grace</strong> \(G_R\) and memory \(H_R\), not on the dying soul's own remaining light — resurrection is an act of grace, not of merit.
+      </div>
+    </div>
+
+    <div class="formula-block boxed">
+      <div class="formula-label" style="color:var(--gold-dim); letter-spacing:2px;">Two levels of grace — archetype and participation</div>
+      <div class="formula-content" style="text-align:left;">
+        <p>The grace in \(\mathcal{A}_R\) is not the soul's own resource. It is <strong>participated</strong> grace, drawn from a single archetypal Resurrection. We distinguish two re-entry maps.</p>
+
+        <p><strong>The archetypal Resurrection</strong> \(\mathfrak{R}_{\rm Christi}\) is the one act that establishes the very possibility of re-entry: it is what makes the map \(\partial\mathcal{D}_{\rm death}\to\mathcal{D}_{\rm live}\) <em>nonempty at all</em>. It carries maximal grace \(G_{\rm Christi}=G_{\max}\), overcomes sin completely (\(q_R=0\Rightarrow\sigma^+=0\), "It is finished"), lifts the conservation level maximally (\(C_{j+1}\gg C_j\)), and lands in the Transformation basin in a single jump — \(t_{\rm death}=\infty\) thereafter. It is the reservoir from which all other re-entry draws.</p>
+
+        <p><strong>Participated resurrection</strong> \(\mathfrak{R}_{\rm human}\) is defined only where the archetype has opened it. The human's grace is not autonomous:
+        \[\boxed{\,G_R^{\rm human}=\pi\,G_{\rm Christi},\qquad \pi\in[0,1]\,,}\]
+        where \(\pi\) is the degree of participation (faith, communion). Admissibility \(\mathcal{A}_R>R_c\) is then met only if participation exceeds a critical threshold \(\pi_c\). Numerically, for the flagship death state, \(\pi_c\approx0.69\): below it death stays absolute, above it re-entry becomes possible.</p>
+
+        <p style="color:var(--gold);"><strong>«Звичайна людина воскресає не власною накопиченою благодаттю, а причастям до Христового Воскресіння. \(G_R\) людини — це не її ресурс, це подароване через те, єдине.»</strong> Formally: with \(G_{\rm Christi}=0\) the admissibility \(\mathcal{A}_R=\Theta_\Phi\Phi_R+\Theta_\lambda\lambda^+ -\Theta_\sigma\sigma-\Theta_D D_{\rm death}<0\) for <em>every</em> participation \(\pi\) — before the archetype, death is absolute. «Бо як в Адамі всі вмирають, так у Христі всі оживуть» (1 Кор. 15:22).</p>
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-label">The re-entry map \(\mathfrak{R}\)</div>
+      <div class="formula-content" style="text-align:left;">
+        \[\mathfrak{R}:\partial\mathcal{D}_{\rm death}\longrightarrow\mathcal{D}_{\rm live},\qquad x(t_{\rm death}^+)=\mathfrak{R}\bigl(x(t_{\rm death}^-)\bigr),\]
+        \[\begin{aligned}
+        V^+&=V_R+\beta_V G_R+\chi_V H_R, & F^+&=F_R+\beta_F G_R+\chi_F H_R,\\[2pt]
+        \sigma^+&=q_R\,\sigma^-\ (0\le q_R<1), & \lambda^+&=\lambda^-+(1-q_R)\sigma^-+\eta_R H_R+\theta_G G_R,\\[2pt]
+        \Omega_P^+&=\Omega_R+\alpha_\Omega G_R+\beta_\Omega\lambda^+ +\chi_\Omega H_R, & H_R^+&=H_R^-+\omega_R D_{\rm death},
+        \end{aligned}\]
+        with \(V_R,F_R>0\), \(\Omega_R>\Lambda_c\), all coefficients \(\ge0\). Sin is reduced (\(q_R<1\)) but not necessarily erased; its overcome portion \((1-q_R)\sigma^-\) is transformed into Sophia; grace \(\theta_G G_R\) lifts the new Sophia further; the capacity \(\Omega_P\) is expanded; memory records the death.
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-label">Re-entry conditions — landing inside \(\mathcal{D}_{\rm live}\)</div>
+      <div class="formula-content">
+        \[u^+=\sqrt{V^+F^+ +\varepsilon},\qquad V^+\gt0,\ F^+\gt0,\ \sigma^+\ge0,\ \Omega_P^+\gt\Lambda_c,\ u^+\lt\Omega_P^+.\]
+        The last condition is the subtle one: resurrection must expand the capacity enough to contain the new synergic intensity. Equivalently \(\Omega_R+\alpha_\Omega G_R+\beta_\Omega\lambda^+ +\chi_\Omega H_R\gt\sqrt{V^+F^+ +\varepsilon}\).
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-label">Jump in the conservation law</div>
+      <div class="formula-content">
+        \[\frac{d}{dt}(\sigma+\lambda)=0\ \text{ inside each live arc, but }\ \sigma+\lambda\ \text{ may jump under }\ \mathfrak{R}:\quad C_{j+1}=\sigma^+ +\lambda^+\neq C_j.\]
+        Resurrection does not violate conservation <em>within</em> life; it opens a <em>new</em> life-arc at a new level. With grace lifting Sophia (\(\theta_G G_R\)), \(C_{j+1}\gt C_j\): the resurrected soul lives at a higher ontological level than before. This is not return to the old balance but a new covenant.
+      </div>
+    </div>
+
+    <div class="formula-block">
+      <div class="formula-label">Full hybrid V.F.S. system</div>
+      <div class="formula-content">
+        \[\begin{cases}
+        \dot x=X_{\rm VFS}(x), & x(t)\in\mathcal{D}_{\rm live},\\[4pt]
+        t_{\rm death}=\inf\{t\gt0:x(t)\notin\mathcal{D}_{\rm live}\}, & x(t_{\rm death})\in\partial\mathcal{D}_{\rm death},\\[4pt]
+        x(t_{\rm death}^+)=\mathfrak{R}(x(t_{\rm death}^-)), & \mathcal{A}_R\gt R_c,\\[4pt]
+        \text{no re-entry (final death)}, & \mathcal{A}_R\le R_c.
+        \end{cases}\]
+        A hybrid dynamical system: continuous flow, death at the boundary, conditional resurrection jump, new live arc.
+      </div>
+    </div>
+
+    <p><strong>Numerical confirmation (three theses).</strong> (1) <em>Without the archetype</em> (\(G_{\rm Christi}=0\)): \(\mathcal{A}_R\approx-0.69<0\) for every \(\pi\) — death absolute. (2) <em>With the archetype</em> (\(G_{\rm Christi}=1\)): \(\mathcal{A}_R\) rises with \(\pi\), crossing \(R_c\) at \(\pi_c\approx0.69\) — participation enables re-entry. (3) <em>The archetype itself</em> (\(q_R=0\), full grace): \(\sigma^+=0\), \(C:0.5\to1.3\), the resurrected arc survives forever (\(\sigma\to0\), basin reached in one jump). A participated re-entry with modest seeds gives a <em>new mortal arc</em> (e.g. \(t_{\rm death}\) extended \(3.22\to8.77\)); a participated re-entry with sufficient grace lifting \(\lambda\) reaches the basin and lives — both are genuine, and which obtains depends on the grace participated.</p>
+
+    <div class="formula-block apex">
+      <div class="formula-content" style="text-align:center;">
+        \[\boxed{\ \text{Recovery is continuous healing inside }\mathcal{D}_{\rm live};\quad \text{Resurrection is discontinuous grace-mediated re-entry after }t_{\rm death}.\ }\]
+        <p style="margin-top:14px; color:var(--gold);">Death is real, but not necessarily final. \(\mathfrak{R}\) opens a new live arc with expanded \(\Omega_P\), transformed \(\sigma\), increased \(\lambda\), and preserved memory \(H_R\) — and only \(\mathfrak{R}_{\rm Christi}\) makes \(\mathfrak{R}_{\rm human}\) possible at all.</p>
+      </div>
+    </div>
+  </div>
+
+
   <!-- §7 PLEROMA CHRISTI -->
   <div class="section" id="sec7">
     <div class="section-number">§ 7</div>
@@ -1351,6 +1464,7 @@
       \[\boxed{\begin{array}{c}\text{Pleroma Christi} = \text{the asymptotic regime of inexhaustible Fullness,}\\[2pt]\text{not the capacity of the Vessel.}\end{array}}\]
       Formally, this is the regime defined by the asymptotics:
       \[\sigma(t)\to 0,\quad \lambda(t)\to\lambda_{\max},\quad \mathcal{Syn}(t)\to\mathcal{E}_0,\quad \Omega_P(t)\to\infty.\]
+      <p style="font-size:14px; color:var(--gold-dim);">These are <strong>conditional</strong>, not automatic for all data. By the conservation law, \(\sigma\to0\Rightarrow\lambda\to C=\sigma_0+\lambda_0\); and from \(\dot\Omega_P=\alpha\lambda\), the growth \(\Omega_P\to\infty\) requires \(\int_0^\infty\lambda\,dt=+\infty\). Hence the precise statement: <em>if \(\sigma(t)\to0\) and \(C=\sigma_0+\lambda_0>0\), then \(\lambda\to C>0\) and \(\Omega_P\to\infty\)</em>. Without \(C>0\) the unbounded growth of the Brim does not follow, and \(\lambda_{\max}=C\).</p>
       The biblical image of this regime: <em>"All the rivers run into the sea; yet the sea is not full"</em> (Eccl. 1:7).
     </div>
 
@@ -1905,7 +2019,7 @@
       </div>
     </div>
 
-    <p>де Δ₀ = V(0) − F(0), μ(s) = 1 − √(V(s)F(s)+ε)/Ω_P(s). При динамічній \(\Omega_P(t)\) <strong>у режимі Трансформації / Pleroma Christi</strong>: \(\mu(t) > 0\), інтеграл розбігається:</p>
+    <p>де Δ₀ = V(0) − F(0), μ(s) = 1 − √(V(s)F(s)+ε)/Ω_P(s). Згасання \(\Delta\to0\) — <strong>умовне</strong>: воно потребує \(a\mu+\rho\ge0\) і \(\int_0^\infty(a\mu+\rho)\,dt=+\infty\). Поза живим доменом, де \(u>\Omega_P\) (\(\mu<0\)), член \(a\mu\) від'ємний і знак \(a\mu+\rho\) не гарантований. Натомість при динамічній \(\Omega_P(t)\) <strong>у режимі Трансформації / Pleroma Christi</strong>: \(\mu(t) > 0\), інтеграл розбігається:</p>
 
     <div class="formula-block">
       <div class="formula-label">Збіжність при Єпектазисі — Δ_∞ = 0</div>
@@ -2871,7 +2985,7 @@
     <div style="margin-top:12px; font-family:'Cinzel',serif; font-size:10px; letter-spacing:4px; color:var(--gold-dim); opacity:0.5;">Ave, qui in silentio Verbum audis.</div>
     <div class="footer-motto">Verità Eterna</div>
     <div style="margin-top:16px; font-family:'Cinzel',serif; font-size:22px; color:var(--gold); letter-spacing:6px;">V · F · S</div>
-    <div style="margin-top:24px; font-family:'Cinzel',serif; font-size:10px; letter-spacing:4px; color:var(--gold-dim); opacity:0.5;">Editio Octogesima Prima · Мт 12:20 · MMXXVI</div>
+    <div style="margin-top:24px; font-family:'Cinzel',serif; font-size:10px; letter-spacing:4px; color:var(--gold-dim); opacity:0.5;">Editio Octogesima Tertia · Мт 12:20 · MMXXVI</div>
   </div>
 
 <script>
