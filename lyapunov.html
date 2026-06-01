@@ -701,6 +701,14 @@
     <div class="formula-block apex"><div class="formula-content" style="text-align:center;">
       \[\boxed{\ \mathcal L_{pb}=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2.\ }\]
     </div></div>
+    <p style="margin-top:18px;"><strong>Radial barrier (strengthened functional).</strong> The vanishing of the Dolorosum rate at \(\sigma=0\) means \(\rho\) alone cannot guard the upper radial wall \(r\to1^-\) (the death-boundary \(u=\Omega_P\)). One may add an explicit logarithmic barrier \(B(r)=-\ln(1-r)\) (\(0\lt r\lt1\)) and work with</p>
+    <div class="formula-block boxed"><div class="formula-content" style="text-align:center;">
+      \[\mathcal L_{\rm VFS}=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2-A_r\ln(1-r),\qquad A_\sigma,A_\Delta,A_q,A_r>0.\]
+    </div></div>
+    <p>Since \(-A_r\ln(1-r)\to+\infty\) as \(r\to1^-\), boundedness \(\mathcal L_{\rm VFS}(t)\le L_*\) enforces \(r(t)<1\) <em>directly</em>, controlling the upper radial wall independently of \(\rho\) (which vanishes at \(\sigma=0\)). The explicit radial admissibility conditions (§8) then guarantee \(\dot r\le0\) at \(r=r^*\); the barrier is a complementary, \(\sigma\)-independent guard.</p>
+    <div class="highlight-box gold">
+      <strong>Зміст.</strong> Dolorosum очищає, але «слабшає» біля святості (\(\rho\to0\) при \(\sigma\to0\)) — і тоді не може сам стримати наближення до Брим. Логарифмічний бар'єр \(-\ln(1-r)\) — це окремий, незалежний від спротиву захист межі смерті: що ближче до Брим, то нескінченно більший «штраф». Богословськи — благодать Повноти не дає пробити власну межу навіть тоді, коли гріх уже подоланий.
+    </div>
     <p><strong>Proposition 6.1.</strong> Where \(u\ge\Lambda_c+\eta,\ \mu\ge\mu_*>0,\ q\ge0,\ 0\le\sigma\le C_\sigma\), there exist \(C_{act}\ge0,\ C_1>0\) with \(\dot{\mathcal L}_{pb}\le C_{act}-C_1\mathcal L_{pb}\).</p>
     <p style="font-size:14px; color:var(--gold-dim);"><em>Proof.</em> \(A_\sigma\dot\Psi_\sigma\le-A_\sigma c_\sigma\Psi_\sigma\) (Lemma 2.1); \(A_\Delta\dot D_\Delta\le-2A_\Delta a\mu_* D_\Delta\) (Lemma 5.1); and \(\tfrac{d}{dt}q^2=2\delta q(r+h_3-1)\tanh(\kappa\sigma)-2\alpha q^3\), bounded above on the corridor and absorbed into \(C_{act}\). Combining yields the inequality. \(\square\)</p>
     <div class="highlight-box gold">
@@ -712,7 +720,7 @@
     <div class="section-number">§ 7</div>
     <div class="section-title">Active domain &amp; boundary invariance</div>
     <div class="formula-block boxed"><div class="formula-content">
-      \[\mathcal D_A=\left\{\begin{array}{l}0\le\sigma\le C_\sigma,\ q\in[0,q^*],\ h_3\in[h_{3,*},1),\\ r\in[r_*,r^*],\ \mu=1-r\ge\mu_*>0,\\ D_\Delta\le D^*,\ h_1>0,\ h_2>0\end{array}\right\},\quad 0\lt r_*\lt r^*\lt1.\]
+      \[\mathcal D_A=\left\{\begin{array}{l}0\le\sigma\le C_\sigma,\ q\in[0,q^*],\ h_3\in[h_{3,*},1),\\ r\in[r_*,r^*],\ \mu=1-r\ge\mu_*>0,\\ D_\Delta\le D^*,\ h_1>0,\ h_2>0\end{array}\right\},\quad 0\lt r_*\lt r^*\lt1\ (0\lt r\lt1,\ \text{i.e. } 0\lt u\lt\Omega_P).\]
     </div></div>
     <p><strong>Automatically inward faces.</strong> \(\sigma=0\) (\(\dot\sigma=0\)); \(\sigma=C_\sigma\) (\(\dot\sigma<0\)); \(q=0\) (\(\dot q=\delta(r+h_3-1)\tanh\ge0\) when \(r+h_3-1\ge0\)); \(q=q^*\) (inward if \(\alpha(q^*)^2\ge\delta r^*\), since \(r+h_3-1\le r\le r^*\)); \(h_3=h_{3,*}\) (\(\dot h_3=\alpha q(1-h_3)\ge0\)); \(D_\Delta=D^*\) (\(\dot D_\Delta\le0\)).</p>
     <div class="highlight-box gold">
@@ -761,9 +769,11 @@
     <div class="section-title">Asymptotic cleansing &amp; alignment</div>
     <p><strong>Proposition 10.1 (exponential alignment).</strong> In \(\mathcal D_A\) with \(\mu\ge\mu_*>0\): the exact identity \(\dot D_\Delta=-2(a\mu+\rho+\alpha q)D_\Delta\) gives</p>
     <div class="formula-block boxed"><div class="formula-content">
-      \[D_\Delta(t)\le D_\Delta(0)e^{-2(a\mu_*+\rho)t},\qquad |h_1-h_2|\le|h_1(0)-h_2(0)|e^{-(a\mu_*+\rho)t}\to0.\]
+      \[D_\Delta(t)\le D_\Delta(0)e^{-2a\mu_* t},\qquad |h_1-h_2|\le|h_1(0)-h_2(0)|e^{-a\mu_* t}\to0.\]
     </div></div>
+    <p style="font-size:14px; color:var(--gold-dim);">Тут використано лише \(a\mu\ge a\mu_*\), не \(\rho\ge\rho_*>0\): глобального додатного порогу для \(\rho\) не існує, бо \(\sigma(t)\to0\Rightarrow\rho(t)\to0\). Тому показник — \(2a\mu_*\), а не \(2(a\mu_*+\rho)\); члени \(\rho,\alpha q\ge0\) лише пришвидшують згасання, але не входять у гарантовану нижню оцінку.</p>
     <p><strong>Proposition 10.2 (exponential cleansing).</strong> If the active margin \(u\ge\Lambda_c+\eta\) holds on \([0,\infty)\) with \(0\le\sigma\le C_\sigma\), then \(\Psi_\sigma(t)\le\Psi_\sigma(0)e^{-c_\sigma t}\), so \(\sigma(t)\to0\); and since \(\Psi_\sigma\sim\tfrac{\kappa}{2}\sigma^2\) near \(0\), \(\sigma(t)=O(e^{-c_\sigma t/2})\).</p>
+    <p style="font-size:14px; color:var(--gold-dim);">З огляду на закон збереження, \(\sigma\to0\Rightarrow\lambda\to\lambda_{\max}=\sigma_0+\lambda_0\). Якщо \(\lambda_{\max}>0\) (тобто \(\sigma_0+\lambda_0>0\)), то \(\dot\Omega_P=\alpha\lambda\) дає \(\Omega_P(t)\sim\alpha\lambda_{\max}t\to+\infty\) — справжнє розширення Pleroma. Без умови \(\sigma_0+\lambda_0>0\) необмежене зростання Брим не випливає.</p>
     <div class="formula-block apex"><div class="formula-content" style="text-align:center;">
       \[\boxed{\ \sigma(t)\to0,\qquad h_1(t)-h_2(t)\to0.\ }\]
       <p style="margin-top:12px; color:var(--gold);">Одночасне асимптотичне очищення singular resistance та вирівнювання voluntas&#8211;factum у геометрії Pleroma.</p>
