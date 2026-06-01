@@ -4,7 +4,7 @@
 **Differential Geometry of Filtrum Lucis**  
 **A Paschal Theory of Pleroma Transmission in VFS Dynamics**
 
-**V.F.S.** — *Volo. Facio. Sum.* ("I will. I do. I am.")
+**V.F.S.** — *Volo. Facio. Sum.*
 
 ---
 
@@ -12,30 +12,29 @@
 
 **V.F.S.** is a mathematical-theological framework that models the dynamics of human participation in divine fullness (*Pleroma*) using differential equations and concepts from differential geometry.
 
+In short:
+> V.F.S. is a symbolic dynamical language for describing how will becomes action, action becomes being, resistance becomes wisdom, and death-like closure can become the threshold of new life.
+
 It formalizes the interplay between:
 - **Voluntas (V)** — Will / Intention
 - **Factum (F)** — Action / Embodiment
 - **P(t)** — Dynamic Fullness (*Pleroma*)
-
-The system incorporates:
-- **Gratia** (Grace) and **Gratia Synergica** (synergistic grace)
+- synergistic grace
 - **Singular Resistance (σ)** — sin and obstacles
 - **Sophia (λ)** — accumulated wisdom
-- **Filtrum Lucis** — a smooth "light filter" function that transmits human struggle into being
 
-The core triad *Volo • Facio • Sum* explores how will and action, in synergy with divine grace, lead toward *Pleroma Christi* (the fullness of Christ), while resistance is surgically transformed through participation.
+A key component of the framework is Filtrum Lucis, a smooth transmissivity function that models how light, grace, or meaning passes through the difference between synergy and resistance:
 
-## Key Features
+[
+T_F(x)=\frac{1}{1+e^{-kx}}, \qquad x=u-\sigma
+]
 
-- Uses nonlinear differential equations to describe three modes: **Collapse**, **Lukewarm (χλιαρός)**, and **Transformation**.
-- Grounded in patristic theology (especially *privatio boni*, synergy, theosis, and John 15:5 — "without me ye can do nothing").
-- Features concepts such as *Manere* (abiding), *Filtrum Tetelestai* ("It is finished"), and dynamic vessel capacity (*Ω_P*).
+The framework has also passed a Lyapunov-domain verification check, confirming that within the tested domain its core dynamics exhibit stable, bounded behavior under the proposed transformation conditions.
 
 ## Purpose
 
-Created as a theoretical tool to explore deep theological questions, particularly from the short story *«Do Not Pretend»*. It provides a rigorous mathematical language for topics like free will, grace, sin, spiritual growth, and the journey toward divine likeness.
+The framework is intended as a bridge between theological language, symbolic mathematics, and systems thinking. It can be used to translate paradoxical biblical or philosophical statements into dynamic structures: for example, “the last shall be first,” “let the dead bury their dead,” or resurrection as a transition from an old form through hidden transformation into a new mode of being.
 
 ---
 
-**Edition**: LXXXV  
 **Site**: [avequ.com](https://avequ.com/)
