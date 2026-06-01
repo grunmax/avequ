@@ -25,6 +25,7 @@ The framework has also passed a Lyapunov-domain verification check, confirming t
 
 ## Audit
 For a full mathematical audit of the model, I recommend using advanced OpenAI or Anthropic models.
+
 ---
 
 
