@@ -1,14 +1,13 @@
 # V.F.S.
 
 **Theological-Dynamical Framework**  
-**Differential Geometry of Filtrum Lucis**  
-**A Paschal Theory of Pleroma Transmission in VFS Dynamics**
+*Differential Geometry of Filtrum Lucis* 
 
 ---
 
 ## Short Description
 
-**V.F.S.** is a mathematical-theological framework that models the dynamics of human participation in divine fullness using differential equations and concepts from differential geometry.
+**V.F.S.** is a mathematical-theological framework that models the dynamics of human being using differential equations and concepts from differential geometry.
 
 In short:
 > V.F.S. is a symbolic dynamical language for describing how will becomes action, action becomes being, resistance becomes wisdom, and death-like closure can become the threshold of new life.
@@ -18,7 +17,7 @@ In short:
 The framework is intended as a bridge between theological language, symbolic mathematics, and systems thinking. It can be used to translate paradoxical biblical or philosophical statements into dynamic structures: for example, “the last shall be first,” “let the dead bury their dead,” or resurrection as a transition from an old form through hidden transformation into a new mode of being.
 
 ## Key component
-A key component of the framework is Filtrum Lucis, a smooth transmissivity function that models how light, grace, or meaning passes through the difference between synergy and resistance.
+A key component of the framework is Filtrum Lucis, a smooth transmissivity function that models the interaction between synergy and resistance.
 
 ## Lyapunov Stability Check
 The framework has also passed a Lyapunov-domain verification check, confirming that within the tested domain its core dynamics exhibit stable, bounded behavior under the proposed transformation conditions.
