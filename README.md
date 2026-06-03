@@ -1,4 +1,4 @@
-# V.F.S. v.1.0 — Microcosm
+# V.F.S. v.1.0 — Inner Transmutation
 *Closed Transmutation Model*
 
 **Theological-Dynamical Framework**  
@@ -8,7 +8,7 @@
 
 ## Short Description
 
-V.F.S. is a mathematical-theological framework that models the dynamics of human existence through differential equations and concepts from differential geometry.
+V.F.S. is a symbolic-theological dynamical system with a Lyapunov-stable active transformation domain. Its theological semantics are interpretive, but the stability claim is mathematical and local-to-basin, not decorative.
 
 In short:
 > V.F.S. is a symbolic dynamical language for describing how will becomes action, action becomes being, resistance becomes wisdom, and death-like closure can become the threshold of new life.
