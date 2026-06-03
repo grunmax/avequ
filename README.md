@@ -1,4 +1,5 @@
-# V.F.S.
+# V.F.S. — Microcosm
+*Closed Transmutation Model*
 
 **Theological-Dynamical Framework**  
 *Differential Geometry of Filtrum Lucis* 
