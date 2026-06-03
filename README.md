@@ -1,4 +1,5 @@
-# V.F.S.
+# V.F.S. v.2.0 Open-Gate
+*Open Balance / Open-Gate Model*
 
 **Theological-Dynamical Framework**  
 *Differential Geometry of Filtrum Lucis* 
@@ -10,7 +11,7 @@
 V.F.S. is a mathematical-theological framework that models the dynamics of human existence through differential equations and concepts from differential geometry.
 
 In short:
-> V.F.S. is a symbolic dynamical language for describing how will becomes action, action becomes being, resistance becomes wisdom, and death-like closure can become the threshold of new life.
+> V.F.S. is a symbolic dynamical language for describing how will becomes action, action becomes being, resistance is transformed into wisdom, and death-like closure can become the threshold of new life.
 
 ## Purpose
 
