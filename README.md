@@ -1,4 +1,4 @@
-# V.F.S. — Microcosm
+# V.F.S. v.1.0 — Microcosm
 *Closed Transmutation Model*
 
 **Theological-Dynamical Framework**  
