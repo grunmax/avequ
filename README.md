@@ -41,7 +41,6 @@ flowchart LR
     L --> B
 ```
 
-### Derivative Ladder
 ### Core Concepts
 
 * **V** — **Voluntas**: will, inner orientation, the movement of willing.
