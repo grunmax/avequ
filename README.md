@@ -1,5 +1,5 @@
-# V.F.S. v.2.0 Open-Gate
-*Open Balance / Open-Gate Model*
+# V.F.S. Open-Gate
+*Open Balance / Open-Gate v.2.0 Model*
 
 **Theological-Dynamical Framework**  
 *Differential Geometry of Filtrum Lucis* 
