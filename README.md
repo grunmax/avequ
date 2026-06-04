@@ -30,27 +30,32 @@ For a full mathematical audit of the model, I recommend using advanced OpenAI or
 
 ```mermaid
 flowchart LR
-    V["V"] --> SY["Sy"]
+    V["V"] --> SY["Syn"]
     F["F"] --> SY
     SY --> FL["Filtrum Lucis"]
     R["σ"] --> FL
     R --> L["λ"]
     G["Open Gate"] --> L
     FL --> P["P(t)"]
-    P --> S["S(t) = Being"]
+    P --> S["S(t) = Being<br/>dP/dt"]
     S --> A["A(t) = Odinai<br/>d²P/dt²"]
     A --> K["K(t) = Katharsis<br/>d³P/dt³"]
     K --> AN["An(t) = Anastasis<br/>d⁴P/dt⁴"]
     AN --> E["Epektasis"]
-    E --> B["Ω_P(t)"]
-    B --> PC["Pleroma Christi"]
+    E --> B["Brim Ω_P(t)"]
+    B --> PC["Pleroma Christi approx."]
     L --> B
 ```
 
 ### Derivative Ladder
-
-**P(t)** is Pleroma itself.  
-**S(t) ** is Being — the first dynamic expression of Pleroma.  
+**V** Voluntas.
+**P(t)** Factum.
+**Syn** Gratia Synergica.
+**Filtrum Lucis** smooth softplus filter.
+**σ** Resistance of singularity.
+**λ** Sophia - Accumulated wisdom — resistance transmuted.
+**P(t)** is Pleroma itself, fullness of the Vessel.  
+**S(t)** is Being — the first dynamic expression of Pleroma.  
 **A(t)** is Odinai — the birth-pang acceleration of becoming.  
 **K(t)** is Katharsis — the cathartic turn of transformation.  
 **An(t)** is Anastasis — the resurrectional emergence of a new mode of being.
