@@ -20,12 +20,6 @@ The framework is intended as a bridge between theological language, symbolic mat
 ## Key component
 A key component of the framework is Filtrum Lucis, a smooth transmissivity function defined over the difference between synergy and resistance.
 
-## Lyapunov Stability Check
-The framework has also passed a Lyapunov-domain verification check, confirming that within the tested domain its core dynamics exhibit stable, bounded behavior under the proposed transformation conditions.
-
-## Audit
-For a full mathematical audit of the model, I recommend using advanced OpenAI or Anthropic models.
-
 ## Conceptual Flow of V.F.S.
 
 ```mermaid
@@ -66,6 +60,12 @@ flowchart LR
 * **An(t)** — **Anastasis**: the resurrectional emergence of a new mode of being.
 
 After **Anastasis**, V.F.S. opens toward **Epektasis**, **Ω_P(t)** as **Brim Expansion**, and **Pleroma Christi**.
+
+## Lyapunov Stability Check
+The framework has also passed a Lyapunov-domain verification check, confirming that within the tested domain its core dynamics exhibit stable, bounded behavior under the proposed transformation conditions.
+
+## Audit
+For a full mathematical audit of the model, I recommend using advanced OpenAI or Anthropic models.
 
 
 ---
