@@ -48,19 +48,25 @@ flowchart LR
 ```
 
 ### Derivative Ladder
-**V** Voluntas.
-**P(t)** Factum.
-**Syn** Gratia Synergica.
-**Filtrum Lucis** smooth softplus filter.
-**σ** Resistance of singularity.
-**λ** Sophia - Accumulated wisdom — resistance transmuted.
-**P(t)** is Pleroma itself, fullness of the Vessel.  
-**S(t)** is Being — the first dynamic expression of Pleroma.  
-**A(t)** is Odinai — the birth-pang acceleration of becoming.  
-**K(t)** is Katharsis — the cathartic turn of transformation.  
-**An(t)** is Anastasis — the resurrectional emergence of a new mode of being.
+### Core Concepts
 
-After Anastasis, V.F.S. opens toward **Epektasis**, **Ω_P(t)** as Brim Expansion, and **Pleroma Christi**.
+* **V** — **Voluntas**: will, inner orientation, the movement of willing.
+* **F** — **Factum**: action, the concrete embodiment of will.
+* **Syn** — **Gratia Synergica**: the living cooperation of will, action, and grace.
+* **Filtrum Lucis** — a smooth softplus light-filter; its transmissivity is sigmoid-shaped.
+* **σ** — **Resistance**: singular resistance, deformation, or inner obstruction.
+* **λ** — **Sophia**: accumulated wisdom; resistance transmuted and, in the Open-Gate version, nourished by received grace.
+* **P(t)** — **Pleroma**: fullness itself, the unfolding fullness of the Vessel.
+
+### Derivative Ladder of Pleroma
+
+* **S(t)** — **Being / Sum / Gignesthai**: the first dynamic expression of Pleroma.
+* **A(t)** — **Odinai**: the birth-pang acceleration of becoming.
+* **K(t)** — **Katharsis**: the cathartic turn of transformation.
+* **An(t)** — **Anastasis**: the resurrectional emergence of a new mode of being.
+
+After **Anastasis**, V.F.S. opens toward **Epektasis**, **Ω_P(t)** as **Brim Expansion**, and **Pleroma Christi**.
+
 
 ---
 
