@@ -267,6 +267,37 @@
             white-space: nowrap !important;
         }
 
+
+
+        /* Modal content for Filtrum Lucis polar heart */
+        .fl-modal-container {
+            width: 720px;
+            max-width: 95%;
+            padding: 56px 36px 36px 36px;
+        }
+
+        .fl-chart-wrap {
+            text-align: center;
+        }
+
+        .fl-chart-wrap svg {
+            max-width: 520px;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .fl-chart-wrap p {
+            text-align: center;
+            font-size: 0.95rem;
+            color: #7a6030;
+            font-style: italic;
+            margin: 14px auto 0;
+            max-width: 540px;
+            line-height: 1.55;
+        }
+
         /* Нижній блок сакрального підпису */
         #log-output {
             margin-top: 50px;
@@ -352,6 +383,12 @@
             <li style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 8px;"><strong>P(t)</strong> — <strong>Pleroma</strong>: fullness itself, the unfolding fullness of the Vessel.</li>
         </ul>
 
+        <h2>Key component</h2>
+        <p>A key component of the framework is Filtrum Lucis, a smooth transmissivity function defined over the difference between synergy and resistance.</p>
+        <div class="btn-group"> 
+            <button class="vfs-btn" id="btn-x">FL polar heart</button>       
+        </div>
+
         <h3 style="font-family: 'Cinzel', serif; font-size: 1.05rem; font-weight: 500; letter-spacing: 1.5px; color: #5c4d4a; margin-top: 30px; margin-bottom: 12px; border-bottom: 1px dotted #e3dec3; padding-bottom: 4px;">Derivative Ladder of Pleroma</h3>
         <ul style="padding-left: 20px; margin-bottom: 35px; list-style-type: square;">
             <li style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 8px;"><strong>S(t)</strong> — <strong>Being / Sum / Gignesthai</strong>: the first dynamic expression of Pleroma.</li>
@@ -436,12 +473,62 @@ different levels of strictness.</p>
         </div>
     </div>
 
+
+    <div id="fl-modal" class="modal-overlay">
+        <div class="modal-container fl-modal-container">
+            <span id="fl-modal-close-btn" class="modal-close">&times;</span>
+            <div class="fl-chart-wrap">
+<svg style="max-width:520px;width:100%;height:auto;display:block;margin:0 auto;" viewBox="0 0 560 600" xmlns="http://www.w3.org/2000/svg" font-family="Cinzel, Georgia, serif">
+  <defs>
+    <radialGradient id="bgl" cx="50%" cy="45%" r="80%"><stop offset="0%" stop-color="#fdfdfc"/><stop offset="100%" stop-color="#f4f1ea"/></radialGradient>
+    <linearGradient id="gres" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#8b1a1a"/><stop offset="100%" stop-color="#8c7b72"/></linearGradient>
+    <linearGradient id="gtr" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#e8c97a"/><stop offset="100%" stop-color="#c9a84c"/></linearGradient>
+    <marker id="aL" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#8b1a1a"/></marker>
+    <marker id="aR" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#c9a84c"/></marker>
+  </defs>
+  <rect width="560" height="600" fill="url(#bgl)"/>
+  <circle cx="280.0" cy="300" r="101.2" fill="none" stroke="#d5ceb4" stroke-width="1"/><circle cx="280.0" cy="300" r="153.2" fill="none" stroke="#e3dec3" stroke-width="1"/><circle cx="280.0" cy="300" r="215.0" fill="none" stroke="#e3dec3" stroke-width="1"/>
+  <line x1="280.0" y1="300" x2="495" y2="300" stroke="#d5ceb4" stroke-width="1" stroke-dasharray="3 4"/>
+  <line x1="280.0" y1="300" x2="156.7" y2="123.9" stroke="#bfae93" stroke-width="1.3"/>
+  <path d="M 326.0 300 A 46 46 0 0 0 253.6 262.3" fill="none" stroke="#bfae93" stroke-width="1.2"/>
+  <text x="218" y="276" fill="#8c7b72" font-size="13" font-style="italic" font-family="Georgia,serif">&#952;</text>
+  <text x="222" y="206" fill="#8c7b72" font-size="13" font-style="italic" font-family="Georgia,serif">r</text>
+  <text x="380" y="295" fill="#8c7b72" font-size="9" font-family="Georgia,serif">r=1</text>
+  <!-- branches -->
+  <path d="M 279.94 515.00 L 279.94 514.83 L 279.94 514.65 L 279.93 514.48 L 279.93 514.30 L 279.93 514.13 L 279.93 513.95 L 279.93 513.77 L 279.92 513.60 L 279.92 513.42 L 279.92 513.24 L 279.92 513.06 L 279.91 512.88 L 279.91 512.70 L 279.91 512.52 L 279.91 512.34 L 279.90 512.16 L 279.90 511.98 L 279.90 511.80 L 279.90 511.62 L 279.89 511.43 L 279.89 511.25 L 279.89 511.06 L 279.88 510.88 L 279.88 510.69 L 279.88 510.51 L 279.87 510.32 L 279.87 510.13 L 279.87 509.95 L 279.86 509.76 L 279.86 509.57 L 279.86 509.38 L 279.85 509.19 L 279.85 509.00 L 279.84 508.81 L 279.84 508.62 L 279.83 508.43 L 279.83 508.23 L 279.82 508.04 L 279.82 507.85 L 279.81 507.65 L 279.81 507.46 L 279.80 507.26 L 279.80 507.06 L 279.79 506.87 L 279.79 506.67 L 279.78 506.47 L 279.77 506.27 L 279.77 506.07 L 279.76 505.87 L 279.75 505.67 L 279.75 505.47 L 279.74 505.27 L 279.73 505.06 L 279.73 504.86 L 279.72 504.66 L 279.71 504.45 L 279.70 504.25 L 279.69 504.04 L 279.69 503.83 L 279.68 503.62 L 279.67 503.42 L 279.66 503.21 L 279.65 503.00 L 279.64 502.79 L 279.63 502.58 L 279.62 502.36 L 279.61 502.15 L 279.60 501.94 L 279.59 501.72 L 279.57 501.51 L 279.56 501.29 L 279.55 501.08 L 279.54 500.86 L 279.52 500.64 L 279.51 500.43 L 279.50 500.21 L 279.48 499.99 L 279.47 499.77 L 279.45 499.54 L 279.44 499.32 L 279.42 499.10 L 279.41 498.87 L 279.39 498.65 L 279.37 498.42 L 279.36 498.20 L 279.34 497.97 L 279.32 497.74 L 279.30 497.51 L 279.28 497.28 L 279.26 497.05 L 279.24 496.82 L 279.22 496.59 L 279.20 496.36 L 279.18 496.12 L 279.15 495.89 L 279.13 495.65 L 279.11 495.42 L 279.08 495.18 L 279.06 494.94 L 279.03 494.70 L 279.00 494.46 L 278.98 494.22 L 278.95 493.98 L 278.92 493.73 L 278.89 493.49 L 278.86 493.24 L 278.83 493.00 L 278.79 492.75 L 278.76 492.50 L 278.72 492.25 L 278.69 492.00 L 278.65 491.75 L 278.62 491.50 L 278.58 491.25 L 278.54 490.99 L 278.50 490.74 L 278.46 490.48 L 278.41 490.22 L 278.37 489.97 L 278.33 489.71 L 278.28 489.45 L 278.23 489.18 L 278.18 488.92 L 278.13 488.66 L 278.08 488.39 L 278.03 488.13 L 277.97 487.86 L 277.92 487.59 L 277.86 487.32 L 277.80 487.05 L 277.74 486.78 L 277.68 486.50 L 277.62 486.23 L 277.55 485.95 L 277.48 485.68 L 277.42 485.40 L 277.34 485.12 L 277.27 484.84 L 277.20 484.55 L 277.12 484.27 L 277.04 483.99 L 276.96 483.70 L 276.88 483.41 L 276.79 483.12 L 276.70 482.83 L 276.61 482.54 L 276.52 482.25 L 276.43 481.95 L 276.33 481.65 L 276.23 481.36 L 276.13 481.06 L 276.02 480.76 L 275.91 480.45 L 275.80 480.15 L 275.69 479.84 L 275.57 479.54 L 275.45 479.23 L 275.33 478.92 L 275.20 478.60 L 275.07 478.29 L 274.94 477.97 L 274.80 477.66 L 274.66 477.34 L 274.52 477.02 L 274.37 476.69 L 274.22 476.37 L 274.06 476.04 L 273.90 475.71 L 273.73 475.38 L 273.57 475.05 L 273.39 474.71 L 273.22 474.38 L 273.03 474.04 L 272.85 473.69 L 272.65 473.35 L 272.46 473.00 L 272.25 472.66 L 272.05 472.31 L 271.83 471.95 L 271.62 471.60 L 271.39 471.24 L 271.16 470.88 L 270.93 470.51 L 270.69 470.15 L 270.44 469.78 L 270.18 469.41 L 269.92 469.03 L 269.66 468.66 L 269.38 468.28 L 269.10 467.89 L 268.81 467.51 L 268.52 467.12 L 268.22 466.72 L 267.91 466.33 L 267.59 465.93 L 267.26 465.52 L 266.93 465.11 L 266.58 464.70 L 266.23 464.29 L 265.87 463.87 L 265.50 463.45 L 265.13 463.02 L 264.74 462.59 L 264.34 462.15 L 263.94 461.71 L 263.52 461.26 L 263.09 460.81 L 262.66 460.35 L 262.21 459.89 L 261.75 459.42 L 261.28 458.95 L 260.80 458.47 L 260.31 457.99 L 259.81 457.50 L 259.29 457.00 L 258.77 456.50 L 258.23 455.98 L 257.68 455.47 L 257.11 454.94 L 256.54 454.41 L 255.94 453.87 L 255.34 453.32 L 254.72 452.76 L 254.09 452.19 L 253.45 451.61 L 252.79 451.03 L 252.12 450.43 L 251.43 449.83 L 250.72 449.21 L 250.01 448.58 L 249.27 447.94 L 248.52 447.29 L 247.76 446.63 L 246.98 445.95 L 246.19 445.26 L 245.37 444.56 L 244.55 443.84 L 243.70 443.11 L 242.84 442.36 L 241.97 441.59 L 241.07 440.81 L 240.16 440.02 L 239.24 439.20 L 238.30 438.36 L 237.34 437.51 L 236.36 436.63 L 235.37 435.74 L 234.36 434.82 L 233.34 433.88 L 232.30 432.92 L 231.24 431.93 L 230.17 430.92 L 229.08 429.88 L 227.98 428.82 L 226.86 427.73 L 225.73 426.61 L 224.59 425.45 L 223.43 424.27 L 222.26 423.06 L 221.08 421.82 L 219.88 420.54 L 218.68 419.22 L 217.47 417.87 L 216.24 416.48 L 215.01 415.06 L 213.78 413.59 L 212.53 412.09 L 211.29 410.54 L 210.04 408.95 L 208.78 407.32 L 207.53 405.64 L 206.28 403.92 L 205.04 402.15 L 203.80 400.33 L 202.56 398.47 L 201.34 396.55 L 200.13 394.58 L 198.93 392.57 L 197.75 390.50 L 196.58 388.37 L 195.44 386.20 L 194.32 383.97 L 193.23 381.68 L 192.17 379.34 L 191.15 376.95 L 190.16 374.51 L 189.21 372.00 L 188.31 369.45 L 187.45 366.84 L 186.64 364.18 L 185.89 361.47 L 185.20 358.70 L 184.57 355.89 L 184.01 353.03 L 183.52 350.13 L 183.10 347.18 L 182.77 344.19 L 182.51 341.17 L 182.35 338.11 L 182.28 335.02 L 182.30 331.90 L 182.42 328.76 L 182.65 325.60 L 182.98 322.42 L 183.43 319.24 L 183.99 316.05 L 184.67 312.87 L 185.47 309.70 L 186.39 306.55 L 187.44 303.42 L 188.61 300.32 L 189.91 297.26 L 191.34 294.25 L 192.90 291.29 L 194.60 288.40 L 196.42 285.59 L 198.37 282.86 L 200.44 280.22 L 202.64 277.68 L 204.96 275.26 L 207.40 272.97 L 209.95 270.81 L 212.61 268.79 L 215.37 266.92 L 218.22 265.23 L 221.15 263.70 L 224.17 262.37 L 227.25 261.22 L 230.38 260.29 L 233.56 259.56 L 236.77 259.06 L 240.01 258.80 L 243.24 258.77 L 246.47 258.99 L 249.67 259.47 L 252.82 260.22 L 255.92 261.23 L 258.93 262.53 L 261.84 264.10 L 264.63 265.98 L 267.27 268.15 L 269.75 270.62 L 272.03 273.41 L 274.09 276.52 L 275.90 279.97 L 277.43 283.76 L 278.64 287.90 L 279.49 292.43 L 279.94 297.37 L 280.06 297.37" fill="none" stroke="url(#gres)" stroke-width="3.6" stroke-linecap="round" opacity="0.97"/>
+  <path d="M 279.94 297.37 L 280.06 297.37 L 280.51 292.43 L 281.36 287.90 L 282.57 283.76 L 284.10 279.97 L 285.91 276.52 L 287.97 273.41 L 290.25 270.62 L 292.73 268.15 L 295.37 265.98 L 298.16 264.10 L 301.07 262.53 L 304.08 261.23 L 307.18 260.22 L 310.33 259.47 L 313.53 258.99 L 316.76 258.77 L 319.99 258.80 L 323.23 259.06 L 326.44 259.56 L 329.62 260.29 L 332.75 261.22 L 335.83 262.37 L 338.85 263.70 L 341.78 265.23 L 344.63 266.92 L 347.39 268.79 L 350.05 270.81 L 352.60 272.97 L 355.04 275.26 L 357.36 277.68 L 359.56 280.22 L 361.63 282.86 L 363.58 285.59 L 365.40 288.40 L 367.10 291.29 L 368.66 294.25 L 370.09 297.26 L 371.39 300.32 L 372.56 303.42 L 373.61 306.55 L 374.53 309.70 L 375.33 312.87 L 376.01 316.05 L 376.57 319.24 L 377.02 322.42 L 377.35 325.60 L 377.58 328.76 L 377.70 331.90 L 377.72 335.02 L 377.65 338.11 L 377.49 341.17 L 377.23 344.19 L 376.90 347.18 L 376.48 350.13 L 375.99 353.03 L 375.43 355.89 L 374.80 358.70 L 374.11 361.47 L 373.36 364.18 L 372.55 366.84 L 371.69 369.45 L 370.79 372.00 L 369.84 374.51 L 368.85 376.95 L 367.83 379.34 L 366.77 381.68 L 365.68 383.97 L 364.56 386.20 L 363.42 388.37 L 362.25 390.50 L 361.07 392.57 L 359.87 394.58 L 358.66 396.55 L 357.44 398.47 L 356.20 400.33 L 354.96 402.15 L 353.72 403.92 L 352.47 405.64 L 351.22 407.32 L 349.96 408.95 L 348.71 410.54 L 347.47 412.09 L 346.22 413.59 L 344.99 415.06 L 343.76 416.48 L 342.53 417.87 L 341.32 419.22 L 340.12 420.54 L 338.92 421.82 L 337.74 423.06 L 336.57 424.27 L 335.41 425.45 L 334.27 426.61 L 333.14 427.73 L 332.02 428.82 L 330.92 429.88 L 329.83 430.92 L 328.76 431.93 L 327.70 432.92 L 326.66 433.88 L 325.64 434.82 L 324.63 435.74 L 323.64 436.63 L 322.66 437.51 L 321.70 438.36 L 320.76 439.20 L 319.84 440.02 L 318.93 440.81 L 318.03 441.59 L 317.16 442.36 L 316.30 443.11 L 315.45 443.84 L 314.63 444.56 L 313.81 445.26 L 313.02 445.95 L 312.24 446.63 L 311.48 447.29 L 310.73 447.94 L 309.99 448.58 L 309.28 449.21 L 308.57 449.83 L 307.88 450.43 L 307.21 451.03 L 306.55 451.61 L 305.91 452.19 L 305.28 452.76 L 304.66 453.32 L 304.06 453.87 L 303.46 454.41 L 302.89 454.94 L 302.32 455.47 L 301.77 455.98 L 301.23 456.50 L 300.71 457.00 L 300.19 457.50 L 299.69 457.99 L 299.20 458.47 L 298.72 458.95 L 298.25 459.42 L 297.79 459.89 L 297.34 460.35 L 296.91 460.81 L 296.48 461.26 L 296.06 461.71 L 295.66 462.15 L 295.26 462.59 L 294.87 463.02 L 294.50 463.45 L 294.13 463.87 L 293.77 464.29 L 293.42 464.70 L 293.07 465.11 L 292.74 465.52 L 292.41 465.93 L 292.09 466.33 L 291.78 466.72 L 291.48 467.12 L 291.19 467.51 L 290.90 467.89 L 290.62 468.28 L 290.34 468.66 L 290.08 469.03 L 289.82 469.41 L 289.56 469.78 L 289.31 470.15 L 289.07 470.51 L 288.84 470.88 L 288.61 471.24 L 288.38 471.60 L 288.17 471.95 L 287.95 472.31 L 287.75 472.66 L 287.54 473.00 L 287.35 473.35 L 287.15 473.69 L 286.97 474.04 L 286.78 474.38 L 286.61 474.71 L 286.43 475.05 L 286.27 475.38 L 286.10 475.71 L 285.94 476.04 L 285.78 476.37 L 285.63 476.69 L 285.48 477.02 L 285.34 477.34 L 285.20 477.66 L 285.06 477.97 L 284.93 478.29 L 284.80 478.60 L 284.67 478.92 L 284.55 479.23 L 284.43 479.54 L 284.31 479.84 L 284.20 480.15 L 284.09 480.45 L 283.98 480.76 L 283.87 481.06 L 283.77 481.36 L 283.67 481.65 L 283.57 481.95 L 283.48 482.25 L 283.39 482.54 L 283.30 482.83 L 283.21 483.12 L 283.12 483.41 L 283.04 483.70 L 282.96 483.99 L 282.88 484.27 L 282.80 484.55 L 282.73 484.84 L 282.66 485.12 L 282.58 485.40 L 282.52 485.68 L 282.45 485.95 L 282.38 486.23 L 282.32 486.50 L 282.26 486.78 L 282.20 487.05 L 282.14 487.32 L 282.08 487.59 L 282.03 487.86 L 281.97 488.13 L 281.92 488.39 L 281.87 488.66 L 281.82 488.92 L 281.77 489.18 L 281.72 489.45 L 281.67 489.71 L 281.63 489.97 L 281.59 490.22 L 281.54 490.48 L 281.50 490.74 L 281.46 490.99 L 281.42 491.25 L 281.38 491.50 L 281.35 491.75 L 281.31 492.00 L 281.28 492.25 L 281.24 492.50 L 281.21 492.75 L 281.17 493.00 L 281.14 493.24 L 281.11 493.49 L 281.08 493.73 L 281.05 493.98 L 281.02 494.22 L 281.00 494.46 L 280.97 494.70 L 280.94 494.94 L 280.92 495.18 L 280.89 495.42 L 280.87 495.65 L 280.85 495.89 L 280.82 496.12 L 280.80 496.36 L 280.78 496.59 L 280.76 496.82 L 280.74 497.05 L 280.72 497.28 L 280.70 497.51 L 280.68 497.74 L 280.66 497.97 L 280.64 498.20 L 280.63 498.42 L 280.61 498.65 L 280.59 498.87 L 280.58 499.10 L 280.56 499.32 L 280.55 499.54 L 280.53 499.77 L 280.52 499.99 L 280.50 500.21 L 280.49 500.43 L 280.48 500.64 L 280.46 500.86 L 280.45 501.08 L 280.44 501.29 L 280.43 501.51 L 280.41 501.72 L 280.40 501.94 L 280.39 502.15 L 280.38 502.36 L 280.37 502.58 L 280.36 502.79 L 280.35 503.00 L 280.34 503.21 L 280.33 503.42 L 280.32 503.62 L 280.31 503.83 L 280.31 504.04 L 280.30 504.25 L 280.29 504.45 L 280.28 504.66 L 280.27 504.86 L 280.27 505.06 L 280.26 505.27 L 280.25 505.47 L 280.25 505.67 L 280.24 505.87 L 280.23 506.07 L 280.23 506.27 L 280.22 506.47 L 280.21 506.67 L 280.21 506.87 L 280.20 507.06 L 280.20 507.26 L 280.19 507.46 L 280.19 507.65 L 280.18 507.85 L 280.18 508.04 L 280.17 508.23 L 280.17 508.43 L 280.16 508.62 L 280.16 508.81 L 280.15 509.00 L 280.15 509.19 L 280.14 509.38 L 280.14 509.57 L 280.14 509.76 L 280.13 509.95 L 280.13 510.13 L 280.13 510.32 L 280.12 510.51 L 280.12 510.69 L 280.12 510.88 L 280.11 511.06 L 280.11 511.25 L 280.11 511.43 L 280.10 511.62 L 280.10 511.80 L 280.10 511.98 L 280.10 512.16 L 280.09 512.34 L 280.09 512.52 L 280.09 512.70 L 280.09 512.88 L 280.08 513.06 L 280.08 513.24 L 280.08 513.42 L 280.08 513.60 L 280.07 513.77 L 280.07 513.95 L 280.07 514.13 L 280.07 514.30 L 280.07 514.48 L 280.06 514.65 L 280.06 514.83 L 280.06 515.00" fill="none" stroke="url(#gtr)" stroke-width="3.6" stroke-linecap="round" opacity="0.97"/>
+  <!-- direction arrows: resistance flows down-left into cusp; transmission flows out down-right -->
+  <line x1="279.4" y1="499.3" x2="279.3" y2="497.1" stroke="#8b1a1a" stroke-width="3" marker-end="url(#aL)"/>
+  <line x1="280.7" y1="497.3" x2="280.5" y2="499.5" stroke="#c9a84c" stroke-width="3" marker-end="url(#aR)"/>
+  <!-- threshold notch -->
+  <circle cx="279.9" cy="297.4" r="4.5" fill="#c9a84c"/>
+  <!-- labels -->
+  <text x="80" y="230" fill="#8b1a1a" font-size="16" letter-spacing="2">RESISTANCE</text>
+  <text x="75" y="248" fill="#8b1a1a" font-size="10" font-family="Georgia,serif" font-style="italic">light withheld, &#963; rises</text>
+  <text x="375" y="230" fill="#c9a84c" font-size="16" letter-spacing="2">TRANSMISSION</text>
+  <text x="375" y="248" fill="#7a6030" font-size="10" font-family="Georgia,serif" font-style="italic">light passes, &#955; grows</text>
+  <text x="222" y="285" fill="#c9a84c" font-size="14" letter-spacing="1">THRESHOLD</text>
+  <text x="290" y="315" fill="#8c7b72" font-size="10" font-family="Georgia,serif" font-style="italic">u = &#923;&#7580; &#183; the eye of the filter</text>
+  
+  <text x="236" y="557" fill="#8c7b72" font-size="10" font-family="Georgia,serif" font-style="italic">full intensity (|x|&#8594;X&#8348;&#8323;&#8339;)</text>
+  <text x="185" y="32" fill="#8c7b72" font-size="13" letter-spacing="3">FILTRUM LUCIS — THE FILTER OF LIGHT</text>
+</svg>
+        <p style="text-align:center;font-size:13px;color:#7a6030;font-style:italic;margin-top:10px;max-width:520px;margin-left:auto;margin-right:auto;">
+          Filtrum Lucis as a polar heart. Incoming intensity rises along two branches to the threshold notch \(u=\Lambda_c\) &#8212; the eye of the filter through which all light must pass. What is withheld becomes resistance (\(\sigma\) rises, left/violet); what passes becomes transmitted Sophia (\(\lambda\) grows, right/blue). Radius is logarithmic, so the critical neighbourhood of the threshold is magnified: the filter is sharpest exactly where intensity meets its measure.
+        </p>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.vfs-btn:not(#btn-diagram)');
+            const buttons = document.querySelectorAll('.vfs-btn:not(#btn-diagram):not(#btn-x)');
             const diagBtn = document.getElementById('btn-diagram');
             const modal = document.getElementById('diagram-modal');
             const closeModalBtn = document.getElementById('modal-close-btn');
+            const flBtn = document.getElementById('btn-x');
+            const flModal = document.getElementById('fl-modal');
+            const closeFlModalBtn = document.getElementById('fl-modal-close-btn');
 
             // Логування переходів по звичайних кнопках
             buttons.forEach(button => {
@@ -464,6 +551,23 @@ different levels of strictness.</p>
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
                     modal.classList.remove('active');
+                }
+            });
+
+            // Логіка відкриття модального вікна Filtrum Lucis
+            flBtn.addEventListener('click', () => {
+                flModal.classList.add('active');
+            });
+
+            // Логіка закриття Filtrum Lucis через хрестик
+            closeFlModalBtn.addEventListener('click', () => {
+                flModal.classList.remove('active');
+            });
+
+            // Логіка закриття Filtrum Lucis при кліку на оверлей поза контентом
+            flModal.addEventListener('click', (e) => {
+                if (e.target === flModal) {
+                    flModal.classList.remove('active');
                 }
             });
         });
