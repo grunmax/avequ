@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V.F.S.</title>
+    <!-- Підключення витончених шрифтів -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -57,6 +58,16 @@
             letter-spacing: 6px;
             color: #423532;
             text-align: center;
+        }
+
+        /* Латинський девіз під заголовком */
+        .motto {
+            font-style: italic;
+            color: #8c7b72;
+            text-align: center;
+            margin: -4px 0 24px 0;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
         .subtitle {
@@ -185,7 +196,10 @@
 <body>
 
     <div class="parchment">
+        <!-- Шапка документа -->
         <h1>V.F.S.</h1>
+        <div class="motto">Volo. Facio. Sum.</div>
+
         <div class="subtitle">Open Balance / Open-Gate v.2.0 Model</div>
         
         <div class="framework-meta">
@@ -193,6 +207,7 @@
             <span style="color: #8c7b72; font-style: italic;">Differential Geometry of Filtrum Lucis</span>
         </div>
 
+        <!-- Короткий опис -->
         <h2>Short Description</h2>
         <p>
             V.F.S. is a symbolic-theological dynamical system with a Lyapunov-stable active transformation domain. 
@@ -203,6 +218,7 @@
             resistance is transformed into wisdom, and death-like closure can become the threshold of new life.
         </blockquote>
 
+        <!-- Аудит -->
         <h2>Audit</h2>
         <p>For a full mathematical audit of the model, I recommend using advanced OpenAI or Anthropic models.</p>
         <div class="btn-group">
@@ -210,6 +226,7 @@
             <a href="docs/vfs_opengate_core.tex" class="vfs-btn" target="_blank" data-name="Core LaTeX">Summarize core (LaTeX)</a>
         </div>
 
+        <!-- Перевірка стійкості -->
         <h2>Lyapunov Stability Check</h2>
         <p>
             The framework has also passed a Lyapunov-domain verification check, confirming that within the tested 
@@ -220,12 +237,14 @@
             <a href="docs/vfs_opengate_lyapunov.tex" class="vfs-btn" target="_blank" data-name="Lyapunov LaTeX">Summarize Lyapunov-check (LaTeX)</a>
         </div>
 
+        <!-- Веб-версія -->
         <h2>Web version</h2>
-        <p>To view the dynamic web representation of the Open-Gate model:</p>
+        <p>To view the web representation of the Open-Gate model:</p>
         <div class="btn-group">
             <a href="vfs.html" class="vfs-btn html-accent" data-name="VFS HTML">VFS HTML</a>
         </div>
 
+        <!-- Автентичний підпис -->
         <div id="log-output">
             <span class="shell-icon">🐚</span>
             <span class="latin-phrase">Ave, qui in silentio Verbum audis.</span><br>
