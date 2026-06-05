@@ -4,10 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V.F.S.</title>
-    <!-- Підключення витончених шрифтів -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>
+        // Налаштування теми Mermaid під колір нашого пергаменту
+        mermaid.initialize({
+            startOnLoad: false, // Вимикаємо автозапуск, щоб шрифти встигли завантажитися
+            theme: 'base',
+            themeVariables: {
+                background: '#fdfdfc',
+                primaryColor: '#faf9f5',
+                primaryTextColor: '#4a3e3d',
+                primaryBorderColor: '#d5ceb4',
+                lineColor: '#8c7b72',
+                secondaryColor: '#f7f3e8',
+                tertiaryColor: '#fdfdfc',
+                fontFamily: 'Cormorant Garamond'
+            }
+        });
+
+        // Чекаємо повної готовності шрифтів у браузері перед малюванням діаграми
+        document.fonts.ready.then(() => {
+            setTimeout(() => {
+                mermaid.run();
+            }, 150);
+        });
+    </script>
     
     <style>
         /* Світла палітра: слонова кістка та м'який крем */
@@ -161,6 +186,87 @@
             border-color: #8f7d66;
         }
 
+        /* Стилі для великого модального вікна діаграми */
+        .modal-overlay {
+            display: flex; 
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-color: rgba(42, 35, 34, 0.4);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none; 
+            transition: opacity 0.3s ease, pointer-events 0.3s ease;
+        }
+
+        /* Активація модального вікна */
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto; 
+        }
+
+        .modal-container {
+            background: #fdfdfc;
+            border: 1px solid #e3dec3;
+            box-shadow: 0 25px 60px rgba(74, 62, 61, 0.3), inset 0 0 40px #f7f5ee;
+            padding: 60px 40px 40px 40px;
+            max-width: 95%;
+            max-height: 90vh;
+            width: 700px;
+            overflow-y: auto; /* Дозволяємо вертикальний скрол */
+            overflow-x: hidden;
+            border-radius: 8px;
+            position: relative;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-sizing: border-box;
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: scale(1);
+        }
+
+        /* Кнопка закриття (хрестик) */
+        .modal-close {
+            position: absolute;
+            top: 15px; right: 20px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #8c7b72;
+            transition: color 0.2s ease, transform 0.2s ease;
+            line-height: 1;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            color: #4a3e3d;
+            transform: scale(1.1);
+        }
+
+        /* Адаптивність карти Mermaid */
+        .mermaid {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .mermaid svg {
+            width: 100% !important;
+            max-width: 100% !important;
+            height: auto !important;
+            overflow: visible !important;
+        }
+
+        /* Ультимативний фікс для скасування обрізання тексту в контейнерах Mermaid */
+        .mermaid foreignObject, 
+        .mermaid foreignObject div {
+            overflow: visible !important;
+            white-space: nowrap !important;
+        }
+
         /* Нижній блок сакрального підпису */
         #log-output {
             margin-top: 50px;
@@ -196,7 +302,6 @@
 <body>
 
     <div class="parchment">
-        <!-- Шапка документа -->
         <h1>V.F.S.</h1>
         <div class="motto">Volo. Facio. Sum.</div>
 
@@ -207,7 +312,6 @@
             <span style="color: #8c7b72; font-style: italic;">Differential Geometry of Filtrum Lucis</span>
         </div>
 
-        <!-- Короткий опис -->
         <h2>Short Description</h2>
         <p>
             V.F.S. is a symbolic-theological dynamical system with a Lyapunov-stable active transformation domain. 
@@ -218,7 +322,6 @@
             resistance is transformed into wisdom, and death-like closure can become the threshold of new life.
         </blockquote>
 
-        <!-- Аудит -->
         <h2>Audit</h2>
         <p>For a full mathematical audit of the model, I recommend using advanced OpenAI or Anthropic models.</p>
         <div class="btn-group">
@@ -226,7 +329,6 @@
             <a href="docs/vfs_opengate_core.tex" class="vfs-btn" target="_blank" data-name="Core LaTeX">Summarize core (LaTeX)</a>
         </div>
 
-        <!-- Перевірка стійкості -->
         <h2>Lyapunov Stability Check</h2>
         <p>
             The framework has also passed a Lyapunov-domain verification check, confirming that within the tested 
@@ -237,14 +339,13 @@
             <a href="docs/vfs_opengate_lyapunov.tex" class="vfs-btn" target="_blank" data-name="Lyapunov LaTeX">Summarize Lyapunov-check (LaTeX)</a>
         </div>
 
-        <!-- Веб-версія -->
-        <h2>Web version</h2>
+        <h2>Web version & Dynamics</h2>
         <p>To view the web representation of the Open-Gate model:</p>
         <div class="btn-group">
             <a href="vfs.html" class="vfs-btn html-accent" data-name="VFS HTML">VFS HTML</a>
+            <button class="vfs-btn" id="btn-diagram">Show Architecture Map</button>
         </div>
 
-        <!-- Автентичний підпис -->
         <div id="log-output">
             <span class="shell-icon">🐚</span>
             <span class="latin-phrase">Ave, qui in silentio Verbum audis.</span><br>
@@ -252,16 +353,66 @@
         </div>
     </div>
 
+    <div id="diagram-modal" class="modal-overlay">
+        <div class="modal-container">
+            <span id="modal-close-btn" class="modal-close">&times;</span>
+            <div class="mermaid">
+                flowchart TD
+                    V["Will (V)"] --> SY["Synergy"]
+                    F["Action (F)"] --> SY
+                    SY --> FL["Filtrum Lucis"]
+                    R["Resistance (σ)"] --> FL
+
+                    FL --> P["Pleroma/Fullness P(t)"]
+                    P --> S["S(t) = Sum/Being<br>dP/dt"]
+                    S --> A["A(t) = Odinai/Wave<br>d<sup>2</sup>P/dt<sup>2</sup>"]
+                    A --> K["K(t) = Katharsis<br>d<sup>3</sup>P/dt<sup>3</sup>"]
+                    K --> AN["An(t) = Anastasis<br>d<sup>4</sup>P/dt<sup>4</sup>"]
+                    AN --> E["Epektasis"]
+                    E --> B["Brim Ω<sub>P</sub>(t)"]
+                    B --> PC["Pleroma Christi"]
+
+                    R --> SC["Singular crisis"]
+                    SC --> T["Tetelestai"]
+                    T --> K
+                    AN --> TR["Transfiguration"]
+                    TR --> L["λ = Sophia"]
+
+                    G["Open Gate"] --> L
+                    L --> B
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            const buttons = document.querySelectorAll('.vfs-btn');
-            const output = document.getElementById('log-output');
+            const buttons = document.querySelectorAll('.vfs-btn:not(#btn-diagram)');
+            const diagBtn = document.getElementById('btn-diagram');
+            const modal = document.getElementById('diagram-modal');
+            const closeModalBtn = document.getElementById('modal-close-btn');
 
+            // Логування переходів по звичайних кнопках
             buttons.forEach(button => {
-                button.addEventListener('click', (e) => {
-                    const docName = button.getAttribute('data-name');
-                    console.log(`Navigating to: ${button.getAttribute('href')} [${docName}]`);
+                button.addEventListener('click', () => {
+                    console.log(`Navigating to: ${button.getAttribute('href')}`);
                 });
+            });
+
+            // Логіка відкриття модального вікна
+            diagBtn.addEventListener('click', () => {
+                modal.classList.add('active');
+            });
+
+            // Логіка закриття через хрестик
+            closeModalBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+            });
+
+            // Логіка закриття при кліку на оверлей поза контентом
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                }
             });
         });
     </script>
