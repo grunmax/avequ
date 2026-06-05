@@ -1,0 +1,827 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{array,booktabs,longtable}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.65em}
+\renewcommand{\arraystretch}{1.25}
+
+\newcommand{\VFS}{\mathrm{VFS}}
+\newcommand{\DA}{\mathcal D_A}
+\newcommand{\LV}{\mathcal L_{\rm VFS}}
+\newcommand{\Rcal}{\mathcal R}
+\newcommand{\Grec}{\mathcal G_{\rm recepta}}
+\newcommand{\Igate}{I_{\rm gate}}
+\newcommand{\Sq}{S_q}
+\newcommand{\Om}{\Omega_P}
+\newcommand{\sech}{\operatorname{sech}}
+
+\title{V.F.S. v2.0 (Open-Gate)\\Lyapunov Core Proof Formulae}
+\author{Core extraction from \texttt{lyapunov.html}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document collects the core formulae of the Lyapunov proof for V.F.S. v2.0 (Open-Gate). It is not a separate proof text and contains no graphs. It records the base dynamics, normalized variables, Lyapunov functional, active-domain walls, radial corridor, bounded Open-Gate source, memory bounds, non-Zeno estimate, and asymptotic cleansing statements.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+% ============================================================
+\section{Notation and Core Variables}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.22\linewidth} >{\raggedright\arraybackslash}p{0.68\linewidth}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$V$ & Voluntas: will coordinate. \\
+$F$ & Factum: action coordinate. \\
+$\sigma$ & Singular resistance. \\
+$\lambda$ & Sophia: wisdom coordinate. \\
+$\Om$ & Brim / dynamic capacity of Pleroma. \\
+$u$ & Synergic intensity from $V$ and $F$. \\
+$\Lambda_c$ & Transformation threshold. \\
+$\mu$ & Saturation margin relative to the death-boundary. \\
+$q$ & Normalized Sophia, $q=\lambda/\Om$. \\
+$r$ & Normalized intensity, $r=u/\Om$. \\
+$h_1,h_2$ & Normalized will and action. \\
+$h_3$ & Normalized threshold variable. \\
+\bottomrule
+\end{longtable}
+
+Core threshold and intensity:
+\begin{equation}
+  u=\sqrt{VF+\varepsilon},\qquad
+  \Lambda_c=\frac{\gamma}{\delta},\qquad
+  \varepsilon\ge 0.
+\end{equation}
+
+Transformation/collapse reading:
+\begin{equation}
+  u>\Lambda_c\quad\text{transformation region},
+  \qquad
+  u<\Lambda_c\quad\text{collapse region}.
+\end{equation}
+
+% ============================================================
+\section{Base V.F.S. Dynamics}
+
+Resistance equation:
+\begin{equation}
+  \dot\sigma=(\gamma-\delta u)\tanh(\kappa\sigma)
+  =-\delta(u-\Lambda_c)\tanh(\kappa\sigma).
+\end{equation}
+
+Symmetric will--action dynamics:
+\begin{equation}
+  \dot V=\mu(aF+c\lambda)-\rho V,
+  \qquad
+  \dot F=\mu(aV+c\lambda)-\rho F,
+  \qquad
+  \mu=1-\frac{u}{\Om}.
+\end{equation}
+
+Capacity / Brim equation:
+\begin{equation}
+  \dot\Om=\alpha\lambda.
+\end{equation}
+
+Closed Microcosm limit:
+\begin{equation}
+  \dot\lambda=-\dot\sigma=
+  \delta(u-\Lambda_c)\tanh(\kappa\sigma),
+  \qquad
+  \dot\sigma+
+  \dot\lambda=0.
+\end{equation}
+
+Open-Gate Sophia dynamics:
+\begin{equation}
+  \dot\lambda=-\dot\sigma+
+  \Igate(t)
+  =\delta(u-\Lambda_c)\tanh(\kappa\sigma)+\Igate(t).
+\end{equation}
+
+Open balance:
+\begin{equation}
+  \dot\sigma+
+  \dot\lambda=\Igate(t)\ge0,
+  \qquad
+  \sigma(t)+\lambda(t)=\sigma_0+\lambda_0+\Grec(t).
+\end{equation}
+
+Received grace integral:
+\begin{equation}
+  \Grec(t)=\int_0^t \Igate(s)\,ds,
+  \qquad
+  \dot{\Grec}=\Igate.
+\end{equation}
+
+% ============================================================
+\section{Open-Gate Source}
+
+Positive part of Sophia:
+\begin{equation}
+  \lambda_+=\frac{1}{m}\ln(1+e^{m\lambda}),
+  \qquad m>0.
+\end{equation}
+
+Effective gate:
+\begin{equation}
+  g_{\rm eff}(t)=e^{-\tau t}+\left(1-e^{-\tau t}\right)\frac{H_K}{H_s+H_K}.
+\end{equation}
+
+Live Open-Gate source:
+\begin{equation}
+  \Igate(t)=\zeta_0\,g_{\rm eff}(t)e^{-\phi\sigma(t)}
+  \frac{1}{1+\chi\lambda_+(t)}.
+\end{equation}
+
+Boundedness of the gate:
+\begin{equation}
+  H_K\ge0,\quad H_s>0
+  \quad\Longrightarrow\quad
+  0\le \frac{H_K}{H_s+H_K}<1,
+  \qquad
+  0\le g_{\rm eff}(t)\le1.
+\end{equation}
+
+Boundedness of live inflow:
+\begin{equation}
+  0\le \Igate(t)\le \zeta_0.
+\end{equation}
+
+% ============================================================
+\section{Resistance Potential}
+
+Resistance potential:
+\begin{equation}
+  \Psi_\sigma(\sigma)=\int_0^\sigma\tanh(\kappa s)\,ds
+  =\frac{1}{\kappa}\ln\cosh(\kappa\sigma)\ge0.
+\end{equation}
+
+Derivative of the resistance potential:
+\begin{equation}
+  \dot\Psi_\sigma
+  =\Psi_\sigma'(\sigma)\dot\sigma
+  =\tanh(\kappa\sigma)(\gamma-\delta u)\tanh(\kappa\sigma)
+  =(\gamma-\delta u)\tanh^2(\kappa\sigma).
+\end{equation}
+
+Active transformation margin:
+\begin{equation}
+  u\ge\Lambda_c+\eta,
+  \qquad \eta>0.
+\end{equation}
+
+Dissipation in the active margin:
+\begin{equation}
+  \dot\Psi_\sigma\le -\delta\eta\tanh^2(\kappa\sigma).
+\end{equation}
+
+On $0\le\sigma\le C_\sigma$, there exists $c_\sigma>0$ such that:
+\begin{equation}
+  \dot\Psi_\sigma\le -c_\sigma\Psi_\sigma.
+\end{equation}
+
+Hence:
+\begin{equation}
+  \Psi_\sigma(t)\le \Psi_\sigma(0)e^{-c_\sigma t}.
+\end{equation}
+
+Near $\sigma=0$:
+\begin{equation}
+  \Psi_\sigma(\sigma)\sim \frac{\kappa}{2}\sigma^2,
+  \qquad
+  \sigma(t)=O\bigl(e^{-c_\sigma t/2}\bigr).
+\end{equation}
+
+% ============================================================
+\section{Absolute Barrier Functional}
+
+The absolute barrier is a motivational, non-primary barrier guarding absolute boundary faces:
+\begin{equation}
+\begin{aligned}
+  \mathcal L_{abs}={}&
+  A_\sigma\Psi_\sigma+E_VV^2+E_FF^2+E_\lambda\lambda^2
+  +E_\Delta\frac{(V-F)^2}{2} \\
+  &-\eta_V\ln V-\eta_F\ln F
+  -\eta_\Omega\ln(\Om-\Lambda_c)
+  -\eta_m\ln(\Om-u).
+\end{aligned}
+\end{equation}
+
+Guarded absolute faces:
+\begin{equation}
+  V=0,
+  \qquad
+  F=0,
+  \qquad
+  \Om=\Lambda_c,
+  \qquad
+  u=\Om.
+\end{equation}
+
+% ============================================================
+\section{Normalized Variables}
+
+Normalized coordinates:
+\begin{equation}
+  h_1=\frac{V}{\Om},
+  \qquad
+  h_2=\frac{F}{\Om},
+  \qquad
+  q=\frac{\lambda}{\Om},
+  \qquad
+  r=\frac{u}{\Om},
+  \qquad
+  \mu=1-r,
+  \qquad
+  h_3=1-\frac{\Lambda_c}{\Om}.
+\end{equation}
+
+Product relation:
+\begin{equation}
+  r^2=h_1h_2+e(h_3),
+  \qquad
+  e(h_3)=\varepsilon\frac{(1-h_3)^2}{\Lambda_c^2}.
+\end{equation}
+
+Closed normalized dynamics:
+\begin{equation}
+  \dot h_1=\mu(ah_2+cq)-\rho h_1-\alpha qh_1,
+\end{equation}
+\begin{equation}
+  \dot h_2=\mu(ah_1+cq)-\rho h_2-\alpha qh_2,
+\end{equation}
+\begin{equation}
+  \dot q=\delta(r+h_3-1)\tanh(\kappa\sigma)-\alpha q^2,
+\end{equation}
+\begin{equation}
+  \dot h_3=\alpha q(1-h_3).
+\end{equation}
+
+Open-Gate normalized $q$-source:
+\begin{equation}
+  \Sq=\frac{\Igate}{\Om}
+  =\frac{\zeta_0g_{\rm eff}e^{-\phi\sigma}}
+  {(1+\chi\lambda_+)\Om}.
+\end{equation}
+
+Open-Gate normalized $q$-equation:
+\begin{equation}
+  \dot q=\delta(r+h_3-1)\tanh(\kappa\sigma)-\alpha q^2+\Sq.
+\end{equation}
+
+Bound on $S_q$ inside the active domain:
+\begin{equation}
+  0\le \Sq\le \frac{\zeta_0}{\Om}
+  \le \frac{\zeta_0(1-h_{3,*})}{\Lambda_c}
+  =:S_q^{\max}.
+\end{equation}
+
+% ============================================================
+\section{Product-Balance Mechanism}
+
+Balance defect:
+\begin{equation}
+  D_\Delta=\frac12(h_1-h_2)^2.
+\end{equation}
+
+Let:
+\begin{equation}
+  d=h_1-h_2.
+\end{equation}
+
+Difference equation:
+\begin{equation}
+  \dot d=-(a\mu+\rho+\alpha q)d.
+\end{equation}
+
+Dissipation of balance defect:
+\begin{equation}
+  \dot D_\Delta=-2(a\mu+\rho+\alpha q)D_\Delta.
+\end{equation}
+
+If $\mu\ge\mu_*>0$ and $a>0$:
+\begin{equation}
+  \dot D_\Delta\le -2a\mu_*D_\Delta.
+\end{equation}
+
+Exponential will--action alignment:
+\begin{equation}
+  D_\Delta(t)\le D_\Delta(0)e^{-2a\mu_*t},
+  \qquad
+  |h_1(t)-h_2(t)|\le |h_1(0)-h_2(0)|e^{-a\mu_*t}.
+\end{equation}
+
+Product floor from radial and threshold walls:
+\begin{equation}
+  \Om\ge \Omega_{\min}:=\frac{\Lambda_c}{1-h_{3,*}}.
+\end{equation}
+
+If $r\ge r_*$ and $h_3\ge h_{3,*}$:
+\begin{equation}
+  h_1h_2=r^2-\frac{\varepsilon}{\Om^2}
+  \ge p_*:=r_*^2-\frac{\varepsilon}{\Omega_{\min}^2}.
+\end{equation}
+
+Let:
+\begin{equation}
+  d_*:=\sqrt{2D^*}.
+\end{equation}
+
+Product-balance lower bound:
+\begin{equation}
+  h_1,h_2\ge m_{pb}:=\frac{\sqrt{d_*^2+4p_*}-d_*}{2}>0.
+\end{equation}
+
+% ============================================================
+\section{Lyapunov Functional}
+
+Product-balance Lyapunov core:
+\begin{equation}
+  \mathcal L_{pb}=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2.
+\end{equation}
+
+Radial logarithmic barrier:
+\begin{equation}
+  B(r)=-\ln(1-r),
+  \qquad
+  0<r<1,
+  \qquad
+  r=\frac{u}{\Om}.
+\end{equation}
+
+Non-normalized radial barrier:
+\begin{equation}
+  B(u,\Om)=-\ln\left(1-\frac{u}{\Om}\right)
+  =\ln\left(\frac{\Om}{\Om-u}\right).
+\end{equation}
+
+Primary V.F.S. Lyapunov functional:
+\begin{equation}
+  \boxed{
+  \LV=\mathcal L_{pb}+A_rB(r)
+  =A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2+A_rB(r),
+  \qquad
+  A_\sigma,A_\Delta,A_q,A_r>0.}
+\end{equation}
+
+Expanded form:
+\begin{equation}
+  \LV=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2
+  -A_r\ln(1-r).
+\end{equation}
+
+Non-normalized expanded form:
+\begin{equation}
+  \LV=A_\sigma\Psi_\sigma(\sigma)+A_\Delta D_\Delta+A_q q^2
+  -A_r\ln\left(1-\frac{u}{\Om}\right).
+\end{equation}
+
+Radial boundary protection:
+\begin{equation}
+  B(r)\to+\infty\quad\text{as}\quad r\to1^-.
+\end{equation}
+
+% ============================================================
+\section{Active Domain}
+
+Active domain:
+\begin{equation}
+\DA=\left\{
+\begin{array}{l}
+0\le\sigma\le C_\sigma,\quad q\in[0,q^*],\quad h_3\in[h_{3,*},1),\\
+r\in[r_*,r^*],\quad \mu=1-r\ge\mu_*>0,\\
+D_\Delta\le D^*,\quad h_1>0,\quad h_2>0
+\end{array}
+\right\},
+\qquad
+0<r_*<r^*<1.
+\end{equation}
+
+Equivalent death-boundary avoidance inside $\DA$:
+\begin{equation}
+  0<r<1
+  \qquad\Longleftrightarrow\qquad
+  0<u<\Om.
+\end{equation}
+
+Closed upper $q$-wall:
+\begin{equation}
+  \alpha(q^*)^2\ge\delta r^*.
+\end{equation}
+
+Open-Gate upper $q$-wall:
+\begin{equation}
+  \boxed{\alpha(q^*)^2\ge \delta r^*+S_q^{\max}.}
+\end{equation}
+
+Lower $q$-wall in Open-Gate:
+\begin{equation}
+  q=0:
+  \qquad
+  \dot q=\delta(r+h_3-1)\tanh(\kappa\sigma)+S_q\ge0
+\end{equation}
+provided the active margin makes $r+h_3-1\ge0$.
+
+% ============================================================
+\section{Radial Corridor}
+
+Radial identity from $r^2=h_1h_2+e(h_3)$:
+\begin{equation}
+  2r\dot r=
+  \mu\bigl[a(h_1^2+h_2^2)+cq(h_1+h_2)\bigr]
+  -2\rho(r^2-e(h_3))-2\alpha q r^2
+  =:\Rcal.
+\end{equation}
+
+Maximum $e$ on the active corridor:
+\begin{equation}
+  e_*^{\max}=\varepsilon\frac{(1-h_{3,*})^2}{\Lambda_c^2}.
+\end{equation}
+
+Non-degeneracy:
+\begin{equation}
+  r_*^2>e_*^{\max}.
+\end{equation}
+
+Active margin:
+\begin{equation}
+  r_*+h_{3,*}-1\ge \eta\frac{1-h_{3,*}}{\Lambda_c}.
+\end{equation}
+
+Lower radial wall:
+\begin{equation}
+  a(1-r_*)\bigl(r_*^2-e_*^{\max}\bigr)
+  \ge (\rho+\alpha q^*)r_*^2.
+\end{equation}
+
+Upper radial wall:
+\begin{equation}
+  (1-r^*)\bigl[a(d_*^2+2r^{*2})+cq^*\sqrt{d_*^2+4r^{*2}}\bigr]
+  \le 2\rho\bigl(r^{*2}-e_*^{\max}\bigr).
+\end{equation}
+
+Direct upper radial inwardness condition:
+\begin{equation}
+  \mu\left[a(h_1^2+h_2^2)+cq(h_1+h_2)\right]
+  \le 2\rho(r^{*2}-e)+2\alpha q r^{*2}
+  \qquad\text{on } r=r^*.
+\end{equation}
+
+Open-Gate radial convention:
+\begin{equation}
+  q_{\rm new}^*:=\sqrt{\frac{\delta r^*+S_q^{\max}}{\alpha}}.
+\end{equation}
+
+Conservative lower radial wall with $q_{\rm new}^*$:
+\begin{equation}
+  a(1-r_*)\bigl(r_*^2-e_*^{\max}\bigr)
+  \ge (\rho+\alpha q_{\rm new}^*)r_*^2.
+\end{equation}
+
+Epektasis-dominance derivative at the upper radial wall:
+\begin{equation}
+  \frac{\partial\Rcal}{\partial q}\bigg|_{r^*}
+  =\mu c(h_1+h_2)-2\alpha r^{*2}.
+\end{equation}
+
+Worst-case bound:
+\begin{equation}
+  \frac{\partial\Rcal}{\partial q}\bigg|_{r^*}
+  \le (1-r^*)c\sqrt{d_*^2+4r^{*2}}-2\alpha r^{*2}.
+\end{equation}
+
+Epektasis-dominance sufficient condition:
+\begin{equation}
+  \boxed{
+  2\alpha r^{*2}\ge (1-r^*)c\sqrt{d_*^2+4r^{*2}}
+  \quad\Longrightarrow\quad
+  \frac{\partial\Rcal}{\partial q}\le0.}
+\end{equation}
+
+% ============================================================
+\section{Lyapunov Dissipative Estimate}
+
+Derivative decomposition:
+\begin{equation}
+\begin{aligned}
+  \dot\LV={}&
+  A_\sigma\tanh(\kappa\sigma)\dot\sigma
+  +A_\Delta\dot D_\Delta
+  +2A_qq\dot q
+  +A_r\dot B(r).
+\end{aligned}
+\end{equation}
+
+Open-Gate contribution to the $q^2$ block:
+\begin{equation}
+  \frac{d}{dt}(A_q q^2)
+  =2A_q q\left[\delta(r+h_3-1)\tanh(\kappa\sigma)-\alpha q^2\right]
+  +2A_q qS_q.
+\end{equation}
+
+Bound on Open-Gate contribution:
+\begin{equation}
+  0\le 2A_q qS_q\le 2A_q q^*S_q^{\max}.
+\end{equation}
+
+Dissipative Lyapunov estimate:
+\begin{equation}
+  \boxed{
+  \dot\LV\le C-C_1\LV,
+  \qquad
+  C_1>0,
+  \qquad
+  C<\infty.}
+\end{equation}
+
+Open-Gate constant split:
+\begin{equation}
+  C=C_{\rm closed}+\Delta C_{\rm gate},
+  \qquad
+  0\le\Delta C_{\rm gate}\le 2A_q q^*S_q^{\max}.
+\end{equation}
+
+Key structural point:
+Here $C_1$ is unchanged by the Open-Gate source, while $C$ receives only a bounded gate contribution.
+
+% ============================================================
+\section{Main Theorem Formulae}
+
+Positive invariance:
+\begin{equation}
+  x(0)\in\DA
+  \quad\Longrightarrow\quad
+  x(t)\in\DA\quad\forall t\ge0.
+\end{equation}
+
+Reset admissibility:
+\begin{equation}
+  x_j^+\in\DA,
+  \qquad
+  \LV(x_j^+)\le L_R.
+\end{equation}
+
+Bound from the Lyapunov inequality:
+\begin{equation}
+  \LV(t)\le L_*:=\max\left\{L_R,\frac{C}{C_1}\right\}.
+\end{equation}
+
+Radial barrier implication:
+\begin{equation}
+  A_rB(r)\le L_*.
+\end{equation}
+
+Explicit radial bound:
+\begin{equation}
+  -\ln(1-r)\le\frac{L_*}{A_r}
+  \quad\Longrightarrow\quad
+  r(t)\le1-e^{-L_*/A_r}<1.
+\end{equation}
+
+Death-boundary avoidance:
+\begin{equation}
+  r(t)<1
+  \quad\Longrightarrow\quad
+  u(t)<\Om(t).
+\end{equation}
+
+Product-balance positivity:
+\begin{equation}
+  h_1,h_2\ge m_{pb}>0.
+\end{equation}
+
+No artificial $q$-floor:
+\begin{equation}
+  q\ge0\quad\text{suffices; no assumption }q\ge q_0>0\text{ is required.}
+\end{equation}
+
+% ============================================================
+\section{Non-Zeno Estimate}
+
+Hybrid margin:
+\begin{equation}
+  \bar h_*=
+  \min\left\{m_{pb},h_{3,*},r_*,1-r^*,q^*,C_\sigma,\sqrt{D^*}\right\}>0.
+\end{equation}
+
+Bounded vector field:
+\begin{equation}
+  \bar M_*<\infty.
+\end{equation}
+
+Dwell-time lower bound:
+\begin{equation}
+  \Delta t_j\ge \Delta t_*:=\frac{\bar h_*}{\bar M_*}>0.
+\end{equation}
+
+Non-Zeno conclusion:
+\begin{equation}
+  \sum_j \Delta t_j=+\infty.
+\end{equation}
+
+% ============================================================
+\section{Memory and Gate Bounds}
+
+Mensura kernel:
+\begin{equation}
+  R(z)=\frac{z}{z+K},
+  \qquad
+  z\ge0,
+  \qquad
+  0\le R(z)\le1.
+\end{equation}
+
+Saturated gate memory:
+\begin{equation}
+  \frac{H_K}{H_s+H_K}\in[0,1)
+  \qquad
+  \forall H_K\ge0.
+\end{equation}
+
+Gate saturation:
+\begin{equation}
+  g_{\rm eff}=e^{-\tau t}+(1-e^{-\tau t})\frac{H_K}{H_s+H_K}\in[0,1].
+\end{equation}
+
+Memory velocity bounds:
+\begin{equation}
+  |\dot H_K|\le \eta\left[R((\dot x_0)_+)+R((\dot x_0)_-)\right]\le 2\eta.
+\end{equation}
+
+Wound-memory velocity bound:
+\begin{equation}
+  |\dot W|\le2\eta.
+\end{equation}
+
+Bounded-gain loop:
+\begin{equation}
+  H_K\xrightarrow{\le1}g_{\rm eff}
+  \xrightarrow{\le S_q^{\max}}S_q
+  \to\lambda\to V,F\to u\to\dot x_0
+  \xrightarrow{R\le1}\dot H_K.
+\end{equation}
+
+Extended field bound:
+\begin{equation}
+  \bar M_*<\infty
+  \quad\text{including}\quad
+  |\dot H_K|,|\dot W|\le2\eta.
+\end{equation}
+
+% ============================================================
+\section{Asymptotic Cleansing and Alignment}
+
+Will--action alignment:
+\begin{equation}
+  D_\Delta(t)\le D_\Delta(0)e^{-2a\mu_*t},
+  \qquad
+  |h_1(t)-h_2(t)|\le |h_1(0)-h_2(0)|e^{-a\mu_*t}\to0.
+\end{equation}
+
+Resistance cleansing under persistent active margin:
+\begin{equation}
+  u(t)\ge\Lambda_c+\eta\quad\forall t\ge0
+  \quad\Longrightarrow\quad
+  \Psi_\sigma(t)\le\Psi_\sigma(0)e^{-c_\sigma t}
+  \quad\Longrightarrow\quad
+  \sigma(t)\to0.
+\end{equation}
+
+Open-balance asymptotic Sophia:
+\begin{equation}
+  \lambda(t)=\sigma_0+\lambda_0+\Grec(t)-\sigma(t).
+\end{equation}
+
+If $\Grec(\infty)<\infty$ and $\sigma(t)\to0$:
+\begin{equation}
+  \lambda(t)\to \sigma_0+\lambda_0+\Grec(\infty).
+\end{equation}
+
+If $\liminf_{t\to\infty}\lambda(t)>0$:
+\begin{equation}
+  \Om(t)\to+\infty.
+\end{equation}
+
+Epektatic dilution of $S_q$:
+\begin{equation}
+  \int_0^\infty\lambda(t)\,dt=+\infty
+  \quad\Longrightarrow\quad
+  \Om(t)\to+\infty
+  \quad\Longrightarrow\quad
+  S_q(t)\to0.
+\end{equation}
+
+Proof of the last implication:
+\begin{equation}
+  0\le S_q(t)\le\frac{\zeta_0}{\Om(t)}\to0.
+\end{equation}
+
+% ============================================================
+\section{Numerical Witness Formulae}
+
+One admissible parameter point recorded in the Lyapunov file:
+\begin{equation}
+\begin{gathered}
+\alpha=0.366,
+\quad
+\delta=0.610,
+\quad
+\rho=0.237,
+\quad
+ a=2.352,
+\quad
+c=0.342,\\
+\zeta_0=0.507,
+\quad
+h_{3,*}=0.412,
+\quad
+r_-=0.453,
+\quad
+r_+=0.955,\\
+e_{\max}=0.055,
+\quad
+ d=0.107,
+\quad
+S_q^{\max}=0.298,
+\quad
+q_{\rm new}=1.551.
+\end{gathered}
+\end{equation}
+
+Upper $q$-wall witness:
+\begin{equation}
+  \alpha q_{\rm new}^2\ge \delta r_+ + S_q^{\max}.
+\end{equation}
+
+Epektasis-dominance witness:
+\begin{equation}
+  2\alpha r_+^2\ge (1-r_+)c\sqrt{d^2+4r_+^2}.
+\end{equation}
+
+% ============================================================
+\section{Final Proof Chain}
+
+Core proof chain:
+\begin{equation}
+\boxed{
+\mathrm{Admissibility}
+\Longrightarrow
+\DA
+\Longrightarrow
+\dot\LV\le C-C_1\LV
+\Longrightarrow
+r(t)<1
+\Longrightarrow
+\mathrm{NonZeno}.}
+\end{equation}
+
+Active transformation conclusion:
+\begin{equation}
+  u\ge\Lambda_c+\eta
+  \quad\Longrightarrow\quad
+  \sigma(t)\to0,
+  \qquad
+  h_1(t)-h_2(t)\to0.
+\end{equation}
+
+The theorem is an active-domain theorem, not global stability on all phase space:
+The active-domain assumption is essential:
+\begin{equation}
+  x(0)\in\DA.
+\end{equation}
+
+Closed limit:
+\begin{equation}
+  \zeta_0=0
+  \quad\Longrightarrow\quad
+  S_q=0,
+  \quad
+  \Igate=0,
+  \quad
+  \dot\lambda=-\dot\sigma,
+  \quad
+  \sigma+
+  \lambda=\sigma_0+
+  \lambda_0.
+\end{equation}
+
+Open-Gate theorem summary:
+Open-Gate adds only bounded $S_q$ in $\dot q$; it strengthens walls but preserves the dissipative core.
+
+\end{document}
