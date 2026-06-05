@@ -13,6 +13,15 @@ V.F.S. is a symbolic-theological dynamical system with a Lyapunov-stable active 
 In short:
 > V.F.S. is a symbolic dynamical language for describing how will becomes action, action becomes being, resistance is transformed into wisdom, and death-like closure can become the threshold of new life.
 
+[Summarize core version (PDF)](docs/vfs_opengate_core.pdf)
+[Summarize core version (LateX)](docs/vfs_opengate_core.tex)
+
+## Audit
+For a full mathematical audit of the model, I recommend using advanced OpenAI or Anthropic models.
+
+## Lyapunov Stability Check
+The framework has also passed a Lyapunov-domain verification check, confirming that within the tested domain its core dynamics exhibit stable, bounded behavior under the proposed transformation conditions.
+
 ## Purpose
 
 The framework is intended as a bridge between theological language, symbolic mathematics, and systems thinking. It can be used to translate paradoxical biblical or philosophical statements into dynamic structures: for example, “the last shall be first,” “let the dead bury their dead,” or resurrection as a transition from an old form through hidden transformation into a new mode of being.
@@ -67,11 +76,6 @@ flowchart LR
 
 After **Anastasis**, V.F.S. opens toward **Epektasis**, **Ω_P(t)** as **Brim Expansion**, and **Pleroma Christi**.
 
-## Lyapunov Stability Check
-The framework has also passed a Lyapunov-domain verification check, confirming that within the tested domain its core dynamics exhibit stable, bounded behavior under the proposed transformation conditions.
-
-## Audit
-For a full mathematical audit of the model, I recommend using advanced OpenAI or Anthropic models.
 
 
 ---

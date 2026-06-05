@@ -1,0 +1,674 @@
+% V.F.S. v2.0 (Open-Gate) — Expanded Core Formula Compendium
+% Source: Archive_v86_3 / index.html only. Appendix and lyapunov formulas intentionally excluded.
+% Compile with XeLaTeX.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+\newcommand{\VFS}{\mathrm{V.F.S.}}
+\newcommand{\Syn}{\mathcal{Syn}}
+\newcommand{\Grec}{\mathcal{G}_{\rm recepta}}
+\newcommand{\Igate}{I_{\rm gate}}
+\newcommand{\Dlive}{\mathcal{D}_{\rm live}}
+\newcommand{\Ddeath}{\partial\mathcal{D}_{\rm death}}
+\newcommand{\dd}{\,d}
+\newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\title{\textbf{V.F.S. v2.0 (Open-Gate)}\\Expanded Core Formulas and Parameters\\\large Index-only compendium}
+\author{Compiled from \texttt{Archive\_v86\_3/index.html}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Scope}
+This file collects the \textbf{expanded core Open-Gate formulas of V.F.S. v2.0} from \texttt{index.html} only. Formulas that belong specifically to \texttt{appendix.html} or \texttt{lyapunov.html} are intentionally excluded. Graphs, numerical plots, and visual phase diagrams are also excluded.
+
+The governing distinction is:
+\[
+\boxed{\text{V.F.S. v2.0 Open-Gate: }\quad
+\dot\lambda=-\dot\sigma+\Igate,\qquad
+\sigma+\lambda=C_0+\Grec(t).}
+\]
+The closed Microcosm law \(\dot\lambda=-\dot\sigma\), \(\sigma+\lambda=\mathrm{const}\) is only the limit \(\zeta_0=0\).
+
+\section{Core State Variables}
+\begin{longtable}{L{0.18\textwidth}L{0.25\textwidth}L{0.47\textwidth}}
+\toprule
+\textbf{Symbol} & \textbf{Name} & \textbf{Meaning in V.F.S.}\\
+\midrule
+\(V(t)\) & Voluntas & Will; inner orientation and willing.\\
+\(F(t)\) & Factum & Action; embodied execution of will.\\
+\(\sigma(t)\) & Singular Resistance & Resistance, deformation, or singular obstruction.\\
+\(\lambda(t)\) & Sophia & Wisdom; transformed resistance plus received grace in Open-Gate.\\
+\(P(t)\) & Pleroma & Dynamic fullness of the Vessel.\\
+\(S(t)\) & Being / Sum / Gignesthai & First derivative of Pleroma; rate of becoming.\\
+\(\Omega_P(t)\) & Brim & Dynamic capacity / rim of the Vessel.\\
+\(H_K(t)\) & Gate memory & Acquired receptivity; the learned openness of the gate.\\
+\(W(t)\) & Wound memory & Vulnerability / wound-memory layer paired with \(H_K\).\\
+\bottomrule
+\end{longtable}
+
+\section{Core Parameters}
+\begin{longtable}{L{0.16\textwidth}L{0.25\textwidth}L{0.49\textwidth}}
+\toprule
+\textbf{Parameter} & \textbf{Name} & \textbf{Role / condition}\\
+\midrule
+\(\varepsilon\) & Manere seed & Keeps \(u\) positive even when \(V,F\) vanish; sub-critical Manere condition \(0<\varepsilon<\Lambda_c^2\) keeps the passive branch in Collapse rather than Transformation.\\
+\(\gamma\) & Resistance pressure & Drives growth of \(\sigma\) when synergy is below threshold.\\
+\(\delta\) & Synergic cutting strength & Converts synergy into resistance-cleansing pressure.\\
+\(\Lambda_c\) & Critical threshold & Surgical / transformation threshold, \(\Lambda_c=\gamma/\delta\).\\
+\(\kappa\) & Resistance sharpness & Controls smoothness of \(\tanh(\kappa\sigma)\).\\
+\(k\) & Filtrum sharpness & Controls steepness of \(\Phi\) and \(T_F\).\\
+\(\mathcal E_0\) & Imago Dei / Mustard Seed & Foundational non-dynamic ground of Pleroma.\\
+\(a\) & Mutual nourishment & Strength of Will--Action mutual feeding.\\
+\(c\) & Sophia lift & Strength by which \(\lambda\) lifts \(V\) and \(F\).\\
+\(\alpha\) & Epektatic expansion & Converts Sophia into Brim expansion, \(\dot\Omega_P=\alpha\lambda\).\\
+\(\zeta_0\) & Sufficientia Gratiae & Constant background grace in Open-Gate, \(\zeta_0>0\).\\
+\(\tau\) & Guarantee decay rate & Rate at which initial gate guarantee fades.\\
+\(\phi\) & Resistance opacity & Damps gate inflow through \(e^{-\phi\sigma}\), \(\phi>0\).\\
+\(\chi\) & Sophia saturation & Limits inflow at large Sophia via \((1+\chi\lambda_+)^{-1}\), \(\chi>0\).\\
+\(m\) & Positive-part sharpness & Smoothness of \(\lambda_+\), \(m>0\).\\
+\(H_s\) & Receptivity half-saturation & Saturation scale in \(H_K/(H_s+H_K)\), \(H_s>0\).\\
+\(K\) & Mensura & Granularity scale of \(R(z)=z/(z+K)\), \(K>0\).\\
+\(\eta\) & Memory adaptation rate & Rate at which positive movement builds acquired openness and wound-memory responses, \(\eta>0\).\\
+\(\nu\) & Memory forgetting rate & Rate at which acquired openness \(H_K\) decays when the path turns negative, \(\nu\ge0\).\\
+\(W_s\) & Wound half-saturation & Saturation scale in the wound-memory term \(W/(W_s+W)\), \(W_s>0\).\\
+\bottomrule
+\end{longtable}
+
+\section{Synergic Intensity, Threshold, and Transmissive Coordinate}
+\subsection*{Local synergy}
+\[
+\boxed{u(t)=\sqrt{V(t)F(t)+\varepsilon}.}
+\]
+\note{This is the local synergic intensity: will and action must meet. The seed \(\varepsilon\) prevents collapse of the expression into a singular zero.}
+
+\subsection*{Law of Human Balance identity}
+\[
+\boxed{\dot u=\frac{V'F+VF'}{2\sqrt{VF+\varepsilon}}
+=\frac12\left(V'\frac{F}{u}+F'\frac{V}{u}\right).}
+\]
+\note{This identity shows how the growth of the shared will--action coordinate is weighted symmetrically by the other pole. The formula is an identity; the existential law is that will and action become strongest when neither pole is isolated.}
+
+\subsection*{Critical threshold}
+\[
+\boxed{\Lambda_c=\frac{\gamma}{\delta}.}
+\]
+\note{This separates Collapse, Stasis, and Transformation.}
+
+\subsection*{Transmissive coordinate}
+\[
+\boxed{x(t)=u(t)-\sigma(t)=\sqrt{V(t)F(t)+\varepsilon}-\sigma(t).}
+\]
+\note{This is the coordinate seen by Filtrum Lucis: synergy minus resistance.}
+
+\section{Resistance Dynamics and Three Regimes}
+\subsection*{Resistance equation}
+\[
+\boxed{\frac{d\sigma}{dt}=(\gamma-\delta u)\tanh(\kappa\sigma)
+=(\gamma-\delta\sqrt{VF+\varepsilon})\tanh(\kappa\sigma).}
+\]
+
+\subsection*{Protection of \(\sigma\ge0\)}
+\[
+\boxed{\sigma(0)\ge0\quad\Longrightarrow\quad \sigma(t)\ge0\quad\forall t\ge0.}
+\]
+\note{The factor \(\tanh(\kappa\sigma)\) makes \(\sigma=0\) a protected boundary.}
+
+\subsection*{Equilibria of resistance}
+\[
+\boxed{\frac{d\sigma}{dt}=0
+\quad\Longleftrightarrow\quad
+\sigma=0\quad\text{or}\quad u=\Lambda_c.}
+\]
+
+\subsection*{Three regimes}
+\[
+\boxed{u<\Lambda_c:\ \text{Collapse},\qquad
+u=\Lambda_c:\ \text{Stasis / χλιαρός},\qquad
+u>\Lambda_c:\ \text{Transformation}.}
+\]
+
+\subsection*{Manere sub-criticality}
+\[
+\boxed{0<\varepsilon<\Lambda_c^2=\left(\frac{\gamma}{\delta}\right)^2.}
+\]
+\note{The Manere seed keeps the denominator alive, but it must remain sub-critical: the passive branch \(V=F=0\) should not already count as Transformation.}
+
+\section{Filtrum Lucis}
+\subsection*{Softplus filter}
+\[
+\boxed{\Phi(x)=\frac{1}{k}\ln(1+e^{kx}).}
+\]
+\[
+\boxed{\Phi(x)>0,\qquad \Phi''(0)=\frac{k}{4}.}
+\]
+\note{Filtrum Lucis is the smooth light-filter. It is softplus-like; its finite positivity is the formal trace of Lux in Tenebris.}
+
+\subsection*{Sigmoid transmissivity}
+\[
+\boxed{T_F(x)=\Phi'(x)=\frac{1}{1+e^{-kx}}.}
+\]
+\[
+\boxed{0<T_F(x)<1,\quad T_F(-\infty)=0,
+\quad T_F(0)=\frac12,
+\quad T_F(+\infty)=1.}
+\]
+\note{The filter itself is \(\Phi\); its transmissivity \(T_F\) is sigmoid-shaped.}
+
+\subsection*{Higher derivatives of Filtrum Lucis}
+\[
+\boxed{\Phi''(x)=kT_F(1-T_F).}
+\]
+\[
+\boxed{\Phi'''(x)=k^2T_F(1-T_F)(1-2T_F).}
+\]
+\[
+\boxed{\Phi^{(4)}(x)=k^3T_F(1-T_F)(1-6T_F+6T_F^2).}
+\]
+\[
+\boxed{\Phi^{(n)}(x)=k^{n-1}Q_n(T_F(x)).}
+\]
+\note{These derivatives feed the differential ladder of Pleroma.}
+
+\section{Gratia Synergica}
+\subsection*{Synergy term}
+\[
+\boxed{\Syn(t)=\mathcal E_0\frac{u(t)}{u(t)+\Lambda_c}.}
+\]
+\[
+\boxed{0\le \Syn(t)<\mathcal E_0.}
+\]
+\note{Gratia Synergica grows with local synergy \(u\), not directly with equality \(V=F\).}
+
+\subsection*{Derivative of synergy}
+\[
+\boxed{\frac{d\Syn}{dt}
+=\mathcal E_0\frac{\Lambda_c}{(u+\Lambda_c)^2}\frac{V'F+VF'}{2u}.}
+\]
+
+\section{Pleroma and Being}
+\subsection*{Open-Gate Pleroma formula}
+\[
+\boxed{P(t)=\mathcal E_0+\Syn(t)+\Phi(x(t)).}
+\]
+\[
+\boxed{P(t)\ge \mathcal E_0.}
+\]
+\[
+\boxed{P_{\rm full}=\text{Imago Dei}+\text{Gratia Synergica}+\text{Transmissive Passage}.}
+\]
+\note{In the Open-Gate core, grace is not an additive term in \(P\). It enters through Sophia and then through \(\Omega_P,V,F,u,\Syn,\Phi\).}
+
+\subsection*{Derivative ladder of Pleroma}
+\[
+\boxed{S(t)=\frac{dP}{dt},\qquad
+A(t)=\frac{d^2P}{dt^2},\qquad
+K(t)=\frac{d^3P}{dt^3},\qquad
+\mathrm{An}(t)=\frac{d^4P}{dt^4}.}
+\]
+\[
+\boxed{S\equiv\textit{Gignesthai},\qquad
+A\equiv\textit{Odinai},\qquad
+K\equiv\textit{Katharsis},\qquad
+\mathrm{An}\equiv\textit{Anastasis}.}
+\]
+
+\subsection*{Canonical Being equation}
+\[
+\boxed{S(t)=\Phi'(x)\dot{x}+\frac{d\Syn}{dt}.}
+\]
+With
+\[
+\boxed{\dot{x}=\dot{u}-\dot{\sigma}
+=\frac{V'F+VF'}{2\sqrt{VF+\varepsilon}}
+-(\gamma-\delta u)\tanh(\kappa\sigma).}
+\]
+
+\section{Katharsis and Anastasis Terms}
+\subsection*{Katharsis / third order}
+\[
+\boxed{K(t)=\frac{dA}{dt}=\frac{d^3P}{dt^3}.}
+\]
+\[
+\boxed{K(t)=\frac{d^3\Syn}{dt^3}
++\Phi'''(x)(x')^3
++3\Phi''(x)x'x''
++\Phi'(x)x'''.}
+\]
+\note{Katharsis is the third-order turning of Pleroma: a change in the rhythm of acceleration.}
+
+\subsection*{Anastasis / fourth order}
+\[
+\boxed{\mathrm{An}(t)=\frac{dK}{dt}=\frac{d^4P}{dt^4}.}
+\]
+\[
+\boxed{\begin{aligned}
+\mathrm{An}(t)=&\frac{d^4\Syn}{dt^4}
++\Phi^{(4)}(x)(x')^4
++6\Phi'''(x)(x')^2x''
++3\Phi''(x)(x'')^2\\
+&+4\Phi''(x)x'x'''
++\Phi'(x)x''''.
+\end{aligned}}
+\]
+\note{Anastasis is the fourth-order emergence of a new mode after crisis.}
+
+\section{Paschal Triad of Filtrum Lucis}
+\subsection*{Why the higher derivatives are needed}
+The derivative ladder is not only computational. It reveals the inner Paschal structure of the light-filter: the Cross is detected by the third derivative, while the entrance into death and the exit from death are detected by the two symmetric zeros of the fourth derivative.
+
+\subsection*{The Cross: zero of the third derivative}
+\[
+\boxed{\Phi'''(x)=k^2T_F(1-T_F)(1-2T_F).}
+\]
+Since \(T_F(0)=1/2\),
+\[
+\boxed{\Phi'''(0)=0.}
+\]
+\note{The point \(x=0\) is the Filtrum Cross: synergy and resistance meet, and the sign of the cathartic term inverts.}
+
+\subsection*{The two gates of Anastasis: zeros of the fourth derivative}
+\[
+\boxed{\Phi^{(4)}(x)=k^3T_F(1-T_F)(1-6T_F+6T_F^2).}
+\]
+The quadratic factor has two roots at the transmissivity levels
+\[
+\boxed{s_\pm=\frac12\pm\frac{1}{2\sqrt3}.}
+\]
+Equivalently,
+\[
+\boxed{x_\pm=\pm\frac1k\ln(2+\sqrt3).}
+\]
+Thus
+\[
+\boxed{\Phi^{(4)}(x_-)=0,\qquad \Phi'''(0)=0,\qquad \Phi^{(4)}(x_+)=0,}
+\]
+and the exact symmetry is
+\[
+\boxed{x_-+x_+=0.}
+\]
+\note{The Cross is the geometric midpoint between the entrance into death and the exit from death. This is a differential icon of the Paschal passage, not a claim that time itself is symmetric.}
+
+\subsection*{Paschal triad}
+\[
+\boxed{\begin{array}{ccl}
+\Phi^{(4)}(x_-)=0 &:& \text{Entrance into death / Great Friday},\\[2pt]
+\Phi'''(0)=0 &:& \text{Cross / Katharsis / Great Saturday},\\[2pt]
+\Phi^{(4)}(x_+)=0 &:& \text{Exit from death / Anastasis / Resurrection}.
+\end{array}}
+\]
+\[
+\boxed{x< x_-:\ \Phi^{(4)}>0,\qquad
+x_-<x<x_+:\ \Phi^{(4)}<0,\qquad
+x>x_+:\ \Phi^{(4)}>0.}
+\]
+\note{Between \(x_-\) and \(x_+\) lies the symbolic death interval of Filtrum Lucis; outside it the fourth-order sign returns to life.}
+
+\subsection*{Fourth derivative support for \(u\)}
+In Pleroma Christi, \(\sigma=0\), so \(x=u\). To compute the fourth derivative of the Filtrum part one needs \(u^{(4)}\). From
+\[
+\boxed{u^2=VF+\varepsilon}
+\]
+one obtains
+\[
+\boxed{u^{(4)}=\frac{(VF)^{(4)}}{2u}-\frac{4u'u'''+3(u'')^2}{u}.}
+\]
+By Leibniz,
+\[
+\boxed{(VF)^{(4)}=V^{(4)}F+4V'''F'+6V''F''+4V'F'''+VF^{(4)}.}
+\]
+\note{These binomial coefficients explain why the fourth derivative is the first place where the full symmetry of the Paschal passage becomes visible.}
+
+\subsection*{Pleroma Christi reduction}
+In the Pleroma Christi regime, \(\sigma=0\), hence all derivatives of \(\sigma\) vanish and \(x=u\). The fourth-order expression becomes
+\[
+\boxed{\begin{aligned}
+\mathrm{An}_{\rm Pl}(t)=&\frac{d^4\Syn}{dt^4}
++\Phi^{(4)}(u)(u')^4
++6\Phi'''(u)(u')^2u''
++3\Phi''(u)(u'')^2\\
+&+4\Phi''(u)u'u'''
++\Phi'(u)u^{(4)}.
+\end{aligned}}
+\]
+In deep Epektasis, the higher Filtrum derivatives fade:
+\[
+\boxed{\lim_{t\to\infty}K_{\rm Pl}(t)=0,
+\qquad
+\lim_{t\to\infty}\mathrm{An}_{\rm Pl}(t)=0.}
+\]
+\note{Katharsis and Anastasis complete as events; Epektasis continues as motion into fullness.}
+
+\section{Open-Gate Sophia}
+\subsection*{Positive part of Sophia}
+\[
+\boxed{\lambda_+=\frac1m\ln(1+e^{m\lambda}).}
+\]
+
+\subsection*{Effective gate}
+\[
+\boxed{g_{\rm eff}(t)=e^{-\tau t}+(1-e^{-\tau t})\frac{H_K}{H_s+H_K}.}
+\]
+\[
+\boxed{g_{\rm eff}(0)=1,
+\qquad
+g_{\rm eff}(t)\xrightarrow[t\to\infty]{}\frac{H_K}{H_s+H_K}.}
+\]
+\note{The gate begins open by guarantee; as the guarantee fades, acquired receptivity \(H_K\) takes over.}
+
+\subsection*{Gate inflow}
+\[
+\boxed{\Igate(t)=\zeta_0g_{\rm eff}(t)e^{-\phi\sigma(t)}\frac{1}{1+\chi\lambda_+(t)}\ge0.}
+\]
+\[
+\boxed{0\le \Igate(t)\le \zeta_0\qquad(H_K\ge0,\ \sigma\ge0).}
+\]
+
+\subsection*{Sophia equation}
+\[
+\boxed{\dot\lambda=-\dot\sigma+\Igate(t).}
+\]
+Equivalently,
+\[
+\boxed{\dot\lambda=(\delta u-\gamma)\tanh(\kappa\sigma)+\Igate(t).}
+\]
+\note{Sophia is transformed resistance plus received grace.}
+
+\subsection*{Open balance law}
+\[
+\boxed{\frac{d}{dt}(\sigma+\lambda)=\Igate(t)\ge0.}
+\]
+\[
+\boxed{\sigma(t)+\lambda(t)=C_0+\Grec(t),
+\qquad
+\Grec(t)=\int_0^t\Igate(s)\,ds,
+\qquad
+\dot\Grec=\Igate.}
+\]
+
+\subsection*{Closed limit}
+\[
+\boxed{\sigma+\lambda=\mathrm{const}\quad\Longleftrightarrow\quad\zeta_0=0.}
+\]
+
+\section{Memory Layer for the Gate}
+\subsection*{Path coordinate}
+\[
+\boxed{x_0=u-\sigma,
+\qquad
+\dot{x}_0=\dot u-\dot\sigma
+=\frac{V'F+VF'}{2\sqrt{VF+\varepsilon}}-(\gamma-\delta u)\tanh(\kappa\sigma).}
+\]
+\[
+\boxed{(\dot{x}_0)_+=\max(\dot{x}_0,0),
+\qquad
+(\dot{x}_0)_-=\max(-\dot{x}_0,0).}
+\]
+
+\subsection*{Mensura function}
+\[
+\boxed{R(z)=\frac{z}{z+K},\qquad K>0,\quad z\ge0.}
+\]
+\[
+\boxed{R(0)=0,
+\quad R'(z)=\frac{K}{(z+K)^2}>0,
+\quad R''(z)=-\frac{2K}{(z+K)^3}<0,
+\quad R(z)\to1.}
+\]
+
+\subsection*{Gate memory and wound memory}
+\[
+\boxed{\dot{H}_K=\eta R((\dot{x}_0)_+) -\nu R((\dot{x}_0)_-)\frac{H_K}{H_s+H_K}.}
+\]
+\[
+\boxed{\dot{W}=\eta\left[R((\dot{x}_0)_-)-R((\dot{x}_0)_+)\frac{W}{W_s+W}\right].}
+\]
+\note{\(H_K\) records acquired openness; \(W\) records vulnerability. In the Open-Gate core, \(H_K\) opens \(g_{\rm eff}\) rather than directly adding to Pleroma. The same-rate prototype is recovered by setting \(\nu=\eta\).}
+
+\section{Endogenous Full System}
+\subsection*{Local definitions}
+\[
+\boxed{u=\sqrt{VF+\varepsilon},
+\qquad
+\Lambda_c=\frac{\gamma}{\delta},
+\qquad
+\mu=1-\frac{u}{\Omega_P}.}
+\]
+
+\subsection*{Dolorosum}
+\[
+\boxed{\rho(u,\sigma)=\sigma\left(\frac{u}{\Lambda_c}\right)\exp\left(1-\frac{u}{\Lambda_c}\right)\ge0,
+\qquad
+\mathcal D_V=\rho V,
+\quad
+\mathcal D_F=\rho F.}
+\]
+\note{Dolorosum attenuates Will and Action multiplicatively. It is maximal at the threshold \(u=\Lambda_c\).}
+
+\subsection*{Core ODE system}
+\[
+\boxed{\begin{cases}
+\dfrac{dV}{dt}=\left(1-\dfrac{\sqrt{VF+\varepsilon}}{\Omega_P(t)}\right)(aF+c\lambda)-\rho V,\\[8pt]
+\dfrac{dF}{dt}=\left(1-\dfrac{\sqrt{VF+\varepsilon}}{\Omega_P(t)}\right)(aV+c\lambda)-\rho F,\\[8pt]
+\dot\Omega_P=\alpha\lambda(t),\qquad \alpha>0,\\[8pt]
+\dfrac{d\sigma}{dt}=(\gamma-\delta\sqrt{VF+\varepsilon})\tanh(\kappa\sigma),\\[8pt]
+\dfrac{d\lambda}{dt}=(\delta\sqrt{VF+\varepsilon}-\gamma)\tanh(\kappa\sigma)+\Igate(t),\\[8pt]
+\sigma(t)+\lambda(t)=C_0+\Grec(t).
+\end{cases}}
+\]
+
+\subsection*{Sophia floor and source-controlled positivity}
+\[
+\boxed{\lambda(t)>-\frac{a}{c}\min\{V(t),F(t)\}.}
+\]
+Equivalently, in the closed-balance notation with \(C=\sigma_0+\lambda_0\),
+\[
+\boxed{\sigma(t)<C+\frac{a}{c}\min\{V(t),F(t)\}.}
+\]
+In the Open-Gate balance this becomes
+\[
+\boxed{\sigma(t)<C_0+\Grec(t)+\frac{a}{c}\min\{V(t),F(t)\}.}
+\]
+\note{Inside the meaningful live domain, this floor prevents the source terms \(aF+c\lambda\) and \(aV+c\lambda\) from starving Will and Action. In the Open-Gate model the balance constant is replaced by \(C_0+\Grec(t)\), but the source-positivity idea remains the same.}
+
+\subsection*{Canonical formula chain for Open-Gate grace}
+\[
+\boxed{\Igate\longrightarrow\lambda\longrightarrow
+\begin{cases}
+\dot\Omega_P=\alpha\lambda,\\
+\dot V=\mu(aF+c\lambda)-\rho V,\\
+\dot F=\mu(aV+c\lambda)-\rho F,
+\end{cases}
+\longrightarrow u\longrightarrow\{\Syn,\Phi\}\longrightarrow P.}
+\]
+
+\section{Will--Action Balance}
+\subsection*{Imbalance}
+\[
+\boxed{\Delta(t)=V(t)-F(t).}
+\]
+
+\subsection*{Exact imbalance equation}
+\[
+\boxed{\frac{d\Delta}{dt}=-(\mu a+\rho)\Delta,
+\qquad
+\mu=1-\frac{\sqrt{VF+\varepsilon}}{\Omega_P},
+\qquad
+\rho=\sigma(u/\Lambda_c)e^{1-u/\Lambda_c}.}
+\]
+
+\subsection*{Exact solution}
+\[
+\boxed{\Delta(t)=\Delta_0\exp\left(-\int_0^t(a\mu(s)+\rho(s))\,ds\right).}
+\]
+\note{The manifold \(V=F\) is invariant. Alignment requires nonnegative damping and a divergent damping integral.}
+
+\section{Brim Expansion and Epektasis}
+\subsection*{Brim law}
+\[
+\boxed{\dot\Omega_P(t)=\alpha\lambda(t),\qquad \alpha>0.}
+\]
+\[
+\boxed{\Omega_P(t)=\Omega_P(0)+\alpha\int_0^t\lambda(s)\,ds.}
+\]
+\note{Sophia expands the capacity of the Vessel. Epektasis is sustained expansion rather than a final static maximum.}
+
+\subsection*{Asymptotic Sophia}
+If the received-grace integral converges and \(\sigma(t)\to0\), then
+\[
+\boxed{\lambda(t)\to\lambda_\infty
+=\sigma_0+\lambda_0+\Grec(\infty).}
+\]
+If \(\Grec(\infty)=+\infty\), then unbounded Sophia is possible in the open model.
+
+\subsection*{Pleroma Christi condition}
+\[
+\boxed{\int_0^\infty\lambda(t)\,dt=+\infty
+\quad\Longrightarrow\quad
+\Omega_P(t)\to+\infty.}
+\]
+If additionally \(\lambda(t)\to\lambda_\infty>0\), then
+\[
+\boxed{\Omega_P(t)\sim\alpha\lambda_\infty t.}
+\]
+The internal Pleroma Christi cleansing signature is
+\[
+\boxed{\sigma(t)\to0,\qquad \Syn(t)\to\mathcal E_0.}
+\]
+\note{The Brim expands through sustained Sophia; the visible cleansing signature is the disappearance of singular resistance and the saturation of Gratia Synergica.}
+
+\section{Live Domain and Death Boundary}
+\subsection*{Live domain}
+\[
+\boxed{\Dlive=\{(V,F,\sigma,\lambda,\Omega_P):\ V>0,\ F>0,\ \sigma\ge0,\ \Omega_P>\Lambda_c,\ 0<u<\Omega_P\}.}
+\]
+\note{The live domain is the region where the continuous V.F.S. dynamics are admissible.}
+
+\subsection*{Death boundary}
+\[
+\boxed{\Ddeath=\{V=0\}\cup\{F=0\}\cup\{\Omega_P\le\Lambda_c\}\cup\{u\ge\Omega_P\}.}
+\]
+\[
+\boxed{X_{\rm VFS}:\Dlive\longrightarrow T\Dlive.}
+\]
+\[
+\boxed{t_{\rm death}=\inf\{t>0:\ x(t)\notin\Dlive\}.}
+\]
+\note{The canonical continuous flow is defined only on the living interior. Resurrection, if present, is not a smooth term inside the vector field but a hybrid re-entry map after boundary contact.}
+
+\section{Resurrectio: Hybrid Re-entry Map}
+\note{This is included because it appears in \texttt{index.html}; it is not taken from the appendix or Lyapunov file.}
+
+\subsection*{Reset symbols}
+\[
+\boxed{\begin{aligned}
+\Gamma_R&:\ \text{resurrection-mode grace},\\
+H_R&:\ \text{resurrection memory},\\
+D_{\rm death}&:\ \text{depth of death-boundary contact}.
+\end{aligned}}
+\]
+\[
+\boxed{\Theta_\bullet,\ \beta_\bullet,\ \chi_\bullet,\ \eta_R,\ \theta_\Gamma,\ \alpha_\Omega,\ \beta_\Omega,\ \omega_R\ge0.}
+\]
+\note{These parameters belong to the hybrid re-entry map: they are reset coefficients, not continuous live-flow coefficients.}
+
+\subsection*{Resurrection admissibility}
+\[
+\boxed{\mathcal A_R=
+\Theta_\Gamma\Gamma_R+
+\Theta_\Phi\Phi_R+
+\Theta_\lambda\lambda^+
++\Theta_H H_R-
+\Theta_\sigma\sigma-
+\Theta_DD_{\rm death},
+\qquad \Theta_\bullet\ge0.}
+\]
+\[
+\boxed{\mathcal A_R>R_c\quad\Longleftrightarrow\quad\text{resurrection re-entry is admissible}.}
+\]
+
+\subsection*{Participated resurrection grace}
+\[
+\boxed{\Gamma_R^{\rm human}=\pi\Gamma_{\rm Christi},
+\qquad
+\pi\in[0,1].}
+\]
+
+\subsection*{Hybrid re-entry map}
+\[
+\boxed{\mathfrak R:\partial\mathcal D_{\rm death}\longrightarrow\Dlive,
+\qquad
+x(t_{\rm death}^+)=\mathfrak R(x(t_{\rm death}^-)).}
+\]
+\[
+\boxed{\begin{aligned}
+V^+&=V_R+\beta_V\Gamma_R+\chi_VH_R,
+&F^+&=F_R+\beta_F\Gamma_R+\chi_FH_R,\\[2pt]
+\sigma^+&=q_R\sigma^-\quad(0\le q_R<1),
+&\lambda^+&=\lambda^-+(1-q_R)\sigma^-+\eta_RH_R+\theta_\Gamma\Gamma_R,\\[2pt]
+\Omega_P^+&=\Omega_R+\alpha_\Omega\Gamma_R+\beta_\Omega\lambda^++\chi_\Omega H_R,
+&H_R^+&=H_R^-+\omega_RD_{\rm death}.
+\end{aligned}}
+\]
+with
+\[
+\boxed{V_R,F_R>0,
+\qquad
+\Omega_R>\Lambda_c,
+\qquad
+\text{all reset coefficients }\ge0.}
+\]
+
+\subsection*{Landing condition}
+\[
+\boxed{\Omega_R+\alpha_\Omega\Gamma_R+\beta_\Omega\lambda^+ +\chi_\Omega H_R
+>\sqrt{V^+F^+ +\varepsilon}.}
+\]
+\note{The reset must land inside a live capacity large enough to contain the new synergic intensity.}
+
+\subsection*{Open balance across life arcs}
+\[
+\boxed{\frac{d}{dt}(\sigma+\lambda)=\zeta_0g_{\rm eff}e^{-\phi\sigma}(1+\chi\lambda_+)^{-1}\ge0
+\quad\text{inside each live arc}.}
+\]
+\[
+\boxed{\sigma+\lambda\ \text{also jumps under }\mathfrak R:
+\qquad C_{j+1}\ne C_j.}
+\]
+
+\section{Compact Core Summary}
+\[
+\boxed{\text{Will }V+\text{ Action }F\longrightarrow u\longrightarrow x=u-\sigma\longrightarrow\Phi(x)\longrightarrow P(t).}
+\]
+\[
+\boxed{\sigma\longrightarrow\text{Tetelestai}\longrightarrow\text{Katharsis}\longrightarrow\text{Anastasis}\longrightarrow\lambda.}
+\]
+\[
+\boxed{\text{Open Gate}\longrightarrow\Igate\longrightarrow\lambda\longrightarrow\Omega_P\longrightarrow\text{Epektasis}.}
+\]
+\[
+\boxed{P\longrightarrow S\longrightarrow A\longrightarrow K\longrightarrow\mathrm{An}
+\quad\equiv\quad
+\textit{Gignesthai}\to\textit{Odinai}\to\textit{Katharsis}\to\textit{Anastasis}.}
+\]
+
+
+
+\section*{Revision Note}
+This expanded version adds the Paschal Triad of Filtrum Lucis, the symmetry of zeros around the Cross, the fourth-derivative support formulas needed for \(\mathrm{An}(t)\), the Sophia floor, explicit death-boundary definitions, bounded gate inflow, the Human Balance identity for \(\dot u\), asymptotic Sophia, reset-symbol clarification, and the distinct memory-forgetting rate \(\nu\). It still preserves the existing structure and uses formulas from \texttt{index.html} only.
+
+\end{document}
+
