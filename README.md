@@ -71,7 +71,7 @@ flowchart LR
 ### Derivative Ladder of Pleroma
 
 * **S(t)** — **Being / Sum / Gignesthai**: the first dynamic expression of Pleroma.
-* **A(t)** — **Odinai**: the birth-pang acceleration of becoming.
+* **A(t)** — **Odinai**: marks the painful entrance into transition, where resistance begins to press against the system.
 * **K(t)** — **Katharsis**: the cathartic turn of transformation.
 * **An(t)** — **Anastasis**: the resurrectional emergence of a new mode of being.
 
