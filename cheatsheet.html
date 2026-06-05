@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V.F.S. LXXXVII — Cheatsheet (English)</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<script>
+MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }, options: { skipHtmlTags: ['script','noscript','style','textarea','pre','annotation','annotation-xml'] }, svg: { fontCache: 'global' } };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<style>
+  :root{
+    --gold:#c9a84c; --gold-light:#e8c97a; --gold-dim:#7a6030;
+    --ink:#0e0c08; --parchment:#f5f0e4; --parchment-dark:#e8e0cc; --parchment-mid:#ede6d4;
+    --red:#8b1a1a; --stone:#3a3530; --stone-light:#5a5248; --blue-dim:#1a2a3a;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--parchment); color:var(--ink);
+    font-family:'Lora',Georgia,serif; font-size:17px; line-height:1.55;
+    background-image:radial-gradient(circle at 50% 0%, rgba(201,168,76,0.06), transparent 60%);}
+  .wrap{max-width:1180px; margin:0 auto; padding:48px 28px 90px;}
+  header{text-align:center; border-bottom:2px solid var(--gold); padding-bottom:22px; margin-bottom:14px;}
+  h1{font-family:'Cinzel',serif; font-weight:900; font-size:30px; letter-spacing:3px; color:var(--stone); margin:0 0 6px;}
+  .sub{font-family:'Cinzel',serif; font-size:14px; letter-spacing:2px; color:var(--gold-dim); text-transform:uppercase;}
+  .lead{max-width:820px; margin:18px auto 4px; text-align:center; color:var(--stone-light); font-size:15.5px; font-style:italic;}
+  .legend{max-width:860px; margin:14px auto 24px; font-size:13.5px; color:var(--gold-dim); text-align:center;}
+  .legend b{color:var(--stone);}
+  .spine{max-width:900px; margin:24px auto 8px; padding:18px 22px; border:1px solid var(--gold);
+    background:rgba(201,168,76,0.07); border-radius:4px; font-size:15px; color:var(--stone); line-height:1.9;}
+  .spine .ttl{font-family:'Cinzel',serif; font-size:12px; letter-spacing:2px; color:var(--gold-dim); text-transform:uppercase; display:block; margin-bottom:8px;}
+  .spine .ar{color:var(--gold); font-weight:700;} .spine .loop{color:var(--red); font-weight:700;}
+  .spine .lbl{color:var(--gold-dim); font-style:italic;}
+  h2{font-family:'Cinzel',serif; font-size:18px; letter-spacing:2px; color:var(--gold);
+     margin:46px 0 4px; padding-bottom:6px; border-bottom:1px solid rgba(201,168,76,0.4);}
+  h2 .num{color:var(--gold-dim); font-weight:600; margin-right:10px;}
+  h2 .tag{display:block; font-family:'Lora',serif; font-style:italic; font-size:13px; letter-spacing:0; color:var(--stone-light); text-transform:none; margin-top:3px;}
+  table{width:100%; border-collapse:collapse; margin-top:12px;}
+  thead th{font-family:'Cinzel',serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase;
+    color:var(--gold-dim); text-align:left; padding:8px 12px; border-bottom:1.5px solid var(--gold);}
+  td{padding:11px 12px; vertical-align:top; border-bottom:1px solid rgba(122,96,48,0.22); font-size:15.5px;}
+  tbody tr:nth-child(even){background:rgba(201,168,76,0.05);}
+  tbody tr:hover{background:rgba(201,168,76,0.11);}
+  .obj{white-space:nowrap;} .sym{font-size:18px; color:var(--stone);}
+  .nm{display:block; font-size:12.5px; color:var(--gold-dim); font-style:italic; margin-top:2px; white-space:normal;}
+  .col-obj{width:19%;} .col-exp{width:49%;} .col-aff{width:32%;}
+  .aff{font-size:14px; color:var(--stone-light);}
+  .step{display:inline-block; min-width:20px; color:var(--gold-dim); font-family:'Cinzel',serif; font-size:12px; margin-right:6px;}
+  .aff code, .exp code{background:rgba(201,168,76,0.12); padding:0 4px; border-radius:3px; font-family:'Lora',serif; font-style:normal;}
+  .from{color:var(--gold); font-weight:600;} .arrow{color:var(--gold); font-weight:600;}
+  .legacy td{background:rgba(58,53,48,0.05); color:var(--stone-light);} .legacy .sym{color:var(--stone-light);}
+  .target td{background:rgba(139,26,26,0.06);} .target .sym{color:var(--red); font-weight:600;}
+  .note{font-size:13px; color:var(--gold-dim); font-style:italic; margin:8px 0 0;}
+  footer{margin-top:60px; text-align:center; font-family:'Cinzel',serif; font-size:12px; letter-spacing:2px; color:var(--gold-dim); border-top:1px solid rgba(201,168,76,0.4); padding-top:20px;}
+  footer a{color:var(--gold); text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div style="text-align:center; margin:40px 0;"><a href="index.html" style="color:var(--gold); text-decoration:none; font-size:13px; letter-spacing:2px;">&#8592; Return to the main page</a></div>
+  <h1>V.F.S. &middot; Cheatsheet</h1>
+  <div class="sub">Editio LXXXVII &middot; Open-Gate </div>
+</header>
+
+<p class="lead">A registry of objects in their <strong>order of construction</strong>: read from top to bottom, each row uses only what has already been defined above. The culmination is \(P(t)\); after that come the derivatives and the engine that closes the loop.</p>
+
+<p class="legend"><b>Columns:</b> <b>Object</b> &middot; <b>Explanation / formula</b> (inputs are visible in the formula) &middot; <b>What it affects</b>. <span style="color:var(--red);">Red</span> marks the target \(P\); grey marks the legacy closed model \(\zeta_0=0\).</p>
+
+<div class="spine">
+  <span class="ttl">Construction spine (within-instant DAG + loop)</span>
+  <span class="lbl">givens</span> constants + primitives &nbsp; <span class="ar">+</span> &nbsp; <span class="lbl">state</span> {V, F, σ, λ, Ω<sub>P</sub>, H<sub>K</sub>}<br>
+  &nbsp;&nbsp;V, F, ε <span class="ar">→</span> u=√(VF+ε) <span class="ar">→</span> x=u−σ <span class="ar">→</span> Φ &nbsp;&nbsp;⌍<br>
+  &nbsp;&nbsp;u, Λ<sub>c</sub>=γ/δ <span class="ar">────────────→</span> Syn &nbsp;&nbsp;⌎<span class="ar">→</span> <strong style="color:var(--red);">P = ℰ₀ + Syn + Φ</strong> <span class="ar">→</span> S=dP/dt <span class="ar">→</span> A <span class="ar">→</span> K <span class="ar">→</span> An<br>
+  &nbsp;&nbsp;<span class="lbl">engine:</span> H<sub>K</sub>, σ, λ <span class="ar">→</span> g<sub>eff</sub>, I<sub>gate</sub> <span class="ar">→</span> σ̇, λ̇, Ω̇<sub>P</sub>, V̇, Ḟ &nbsp;<span class="loop">↺</span>&nbsp; <span class="lbl">updates the state (next instant)</span>
+</div>
+
+<h2><span class="num">A.</span>Givens — constants and primitives
+  <span class="tag">Declared once; they do not evolve. This is the reference layer on which the whole recipe rests.</span></h2>
+<table>
+<thead><tr><th class="col-obj">Object</th><th class="col-exp">Explanation / formula</th><th class="col-aff">What it affects</th></tr></thead>
+<tbody>
+<tr><td class="obj"><span class="sym">\(\mathcal E_0\)</span><span class="nm">Imago Dei</span></td><td class="exp">The mustard seed — the indestructible floor of being (Mt 13:31). <code>\(\mathcal E_0&gt;0\)</code>.</td><td class="aff"><span class="arrow">→</span> <code>Syn</code>, <code>P</code></td></tr>
+<tr><td class="obj"><span class="sym">\(k\)</span><span class="nm">Lux in Tenebris</span></td><td class="exp">The depth of light through darkness (Jn 1:5): <code>\(\Phi=\tfrac1k\ln(1+e^{kx})\)</code>; finite \(k\Rightarrow\Phi&gt;0\).</td><td class="aff"><span class="arrow">→</span> <code>Φ</code></td></tr>
+<tr><td class="obj"><span class="sym">\(\kappa\)</span><span class="nm">Filtrum Tetelestai</span></td><td class="exp">Sharpness of the boundary <code>\(\tanh(\kappa\sigma)\)</code> near \(\sigma=0\).</td><td class="aff"><span class="arrow">→</span> <code>\(\dot\sigma\)</code></td></tr>
+<tr><td class="obj"><span class="sym">\(\varepsilon\)</span><span class="nm">Manere</span></td><td class="exp">Regularizer in <code>\(u=\sqrt{VF+\varepsilon}\)</code>; prevents \(u\) from vanishing.</td><td class="aff"><span class="arrow">→</span> <code>u</code></td></tr>
+<tr><td class="obj"><span class="sym">\(\gamma,\ \delta\)</span><span class="nm">Entropic Pressure / Surgical Efficiency</span></td><td class="exp">Accumulation of resistance \(\gamma\) versus surgical efficiency \(\delta\). Together they define the threshold <code>\(\Lambda_c=\gamma/\delta\)</code>.</td><td class="aff"><span class="arrow">→</span> <code>\(\Lambda_c\)</code>, <code>\(\dot\sigma\)</code></td></tr>
+<tr><td class="obj"><span class="sym">\(a,\ c\)</span><span class="nm">Mutual Nourishment / Elevation</span></td><td class="exp">Mutual nourishment \(V\leftrightarrow F\) through \(a\), and the elevation term \(c\lambda\) from Wisdom.</td><td class="aff"><span class="arrow">→</span> <code>\(\dot V,\dot F\)</code></td></tr>
+<tr><td class="obj"><span class="sym">\(\alpha,\ \tau\)</span><span class="nm">Brim rate / Gate decay</span></td><td class="exp">Expansion of the Vessel <code>\(\dot\Omega_P=\alpha\lambda\)</code>; fading of guaranteed openness <code>\(e^{-\tau t}\)</code>.</td><td class="aff"><span class="arrow">→</span> <code>\(\Omega_P\)</code>, <code>g<sub>eff</sub></code></td></tr>
+<tr><td class="obj"><span class="sym">\(\zeta_0,\phi,\chi\)</span><span class="nm">Open-gate trio</span></td><td class="exp">Background grace \(\zeta_0\); opacity of resistance <code>\(e^{-\phi\sigma}\)</code>; saturation <code>\((1+\chi\lambda_+)^{-1}\)</code>.</td><td class="aff"><span class="arrow">→</span> <code>I<sub>gate</sub></code></td></tr>
+<tr><td class="obj"><span class="sym">\(m,H_s,K,\eta\)</span><span class="nm">Memory / Mensura primitives</span></td><td class="exp">Smoothness of \(\lambda_+\) through \(m\); half-saturation \(H_s\); granularity <code>\(R(z)=z/(z+K)\)</code>; memory rate \(\eta\).</td><td class="aff"><span class="arrow">→</span> <code>g<sub>eff</sub></code>, <code>H<sub>K</sub></code></td></tr>
+</tbody>
+</table>
+
+<h2><span class="num">B.</span>State at time \(t\)
+  <span class="tag">Integrated variables carried from the previous instant; they hold the system's history. Inputs to recipe C.</span></h2>
+<table>
+<thead><tr><th class="col-obj">Object</th><th class="col-exp">Explanation / formula</th><th class="col-aff">What it affects</th></tr></thead>
+<tbody>
+<tr><td class="obj"><span class="sym">\(V,\ F\)</span><span class="nm">Voluntas / Factum</span></td><td class="exp">Will and Action — intention and its embodiment. <code>\(V,F&gt;0\)</code>.</td><td class="aff"><span class="arrow">→</span> <code>u</code></td></tr>
+<tr><td class="obj"><span class="sym">\(\sigma\)</span><span class="nm">Singular Resistance</span></td><td class="exp">Accumulated resistance / sin. <code>\(\sigma\ge0\)</code>.</td><td class="aff"><span class="arrow">→</span> <code>x</code>; <code>I<sub>gate</sub></code></td></tr>
+<tr><td class="obj"><span class="sym">\(\lambda\)</span><span class="nm">Sophia (Pearl)</span></td><td class="exp">Accumulated Wisdom: resistance transmuted plus received grace.</td><td class="aff"><span class="arrow">→</span> <code>\(\dot\Omega_P\)</code>, <code>\(\dot V,\dot F\)</code>, <code>I<sub>gate</sub></code></td></tr>
+<tr><td class="obj"><span class="sym">\(\Omega_P\)</span><span class="nm">Brim of the Vessel</span></td><td class="exp">The ontological capacity of the Vessel. <code>\(\Omega_P&gt;\Lambda_c\)</code>.</td><td class="aff"><span class="arrow">→</span> <code>\(S_q=I_{\rm gate}/\Omega_P\)</code></td></tr>
+<tr><td class="obj"><span class="sym">\(H_K\)</span><span class="nm">Acquired openness</span></td><td class="exp">Acquired openness as memory of the path.</td><td class="aff"><span class="arrow">→</span> <code>g<sub>eff</sub></code></td></tr>
+</tbody>
+</table>
+
+<h2><span class="num">C.</span>The recipe for Pleroma \(P\) at time \(t\)
+  <span class="tag">A strict DAG: everything needed for instantaneous \(P\), and nothing extra. The gate does NOT enter here; it belongs to the engine E.</span></h2>
+<table>
+<thead><tr><th class="col-obj">Step · Object</th><th class="col-exp">Explanation / formula</th><th class="col-aff">Built from / affects</th></tr></thead>
+<tbody>
+<tr><td class="obj"><span class="step">1</span><span class="sym">\(\Lambda_c\)</span><span class="nm">Limen Chirurgiae</span></td><td class="exp"><code>\(\Lambda_c=\gamma/\delta\)</code> — the threshold or “eye” of the filter.</td><td class="aff"><span class="from">from</span> \(\gamma,\delta\) <span class="arrow">→</span> <code>Syn</code>, <code>\(\dot\sigma\)</code></td></tr>
+<tr><td class="obj"><span class="step">2</span><span class="sym">\(u\)</span><span class="nm">Transmissive coordinate</span></td><td class="exp"><code>\(u=\sqrt{VF+\varepsilon}\)</code> — the shared magnitude of will-and-action.</td><td class="aff"><span class="from">from</span> \(V,F,\varepsilon\) <span class="arrow">→</span> <code>x</code>, <code>Syn</code></td></tr>
+<tr><td class="obj"><span class="step">3</span><span class="sym">\(x\)</span><span class="nm">Input of the filter (Cross at \(x=0\))</span></td><td class="exp"><code>\(x=u-\sigma\)</code> — intensity relative to resistance.</td><td class="aff"><span class="from">from</span> \(u,\sigma\) <span class="arrow">→</span> <code>Φ</code></td></tr>
+<tr><td class="obj"><span class="step">4</span><span class="sym">\(\Phi\)</span><span class="nm">Filtrum Lucis</span></td><td class="exp"><code>\(\Phi=\tfrac1k\ln(1+e^{kx})\)</code>, with \(\Phi&gt;0\) always; <code>\(\Phi''(0)=k/4\)</code>.</td><td class="aff"><span class="from">from</span> \(k,x\) <span class="arrow">→</span> <code>P</code></td></tr>
+<tr><td class="obj"><span class="step">5</span><span class="sym">\(\mathcal{Syn}\)</span><span class="nm">Gratia Synergica</span></td><td class="exp"><code>\(\mathcal{Syn}=\mathcal E_0\cdot\dfrac{u}{u+\Lambda_c}\)</code>, \(0\le\mathcal{Syn}&lt;\mathcal E_0\).</td><td class="aff"><span class="from">from</span> \(\mathcal E_0,u,\Lambda_c\) <span class="arrow">→</span> <code>P</code></td></tr>
+<tr class="target"><td class="obj"><span class="step">6</span><span class="sym">\(P(t)\)</span><span class="nm">Pleroma — TARGET</span></td><td class="exp"><code>\(P=\mathcal E_0+\mathcal{Syn}+\Phi\)</code>. <code>\(P\ge\mathcal E_0\)</code>.</td><td class="aff"><span class="from">from</span> \(\mathcal E_0,\mathcal{Syn},\Phi\) <span class="arrow">→</span> ladder D</td></tr>
+</tbody>
+</table>
+
+<h2><span class="num">D.</span>The ladder — derivatives of \(P\)
+  <span class="tag">Once \(P(t)\) exists, it is differentiated in time: each rung is a phase of fullness in motion.</span></h2>
+<table>
+<thead><tr><th class="col-obj">Object</th><th class="col-exp">Explanation / formula</th><th class="col-aff">Meaning</th></tr></thead>
+<tbody>
+<tr><td class="obj"><span class="sym">\(S(t)\)</span><span class="nm">Being / Sum / Gignesthai</span></td><td class="exp"><code>\(S=dP/dt=\Phi'(x)\dot x+\mathcal{Syn}'\)</code>.</td><td class="aff">the speed of fullness becoming lived being</td></tr>
+<tr><td class="obj"><span class="sym">\(A(t)\)</span><span class="nm">Odinai</span></td><td class="exp"><code>\(A=d^2P/dt^2\)</code>.</td><td class="aff">birth-pang acceleration of becoming</td></tr>
+<tr><td class="obj"><span class="sym">\(K(t)\)</span><span class="nm">Katharsis</span></td><td class="exp"><code>\(K=d^3P/dt^3\)</code>; the Filtrum core has <code>\(\Phi'''(0)=0\)</code> at the Cross.</td><td class="aff">the cathartic turn / sign-change of transition</td></tr>
+<tr><td class="obj"><span class="sym">\(\mathrm{An}(t)\)</span><span class="nm">Anastasis</span></td><td class="exp"><code>\(\mathrm{An}=d^4P/dt^4\)</code>; the Filtrum core has two symmetric fourth-derivative zeros around the Cross.</td><td class="aff">resurrectional emergence after the transition</td></tr>
+</tbody>
+</table>
+<p class="note">The Paschal Triad is the signature of this ladder: \(A\) / Odinai enters the pressure of becoming, \(K\) / Katharsis marks the Cross-point of purification, and \(\mathrm{An}\) / Anastasis marks the emergence into a new mode of being.</p>
+
+<h2><span class="num">E.</span>The engine of state evolution
+  <span class="tag">The gate machinery + ODEs that move state B into the next instant. <span style="color:var(--red);">This closes the loop</span> back to B.</span></h2>
+<table>
+<thead><tr><th class="col-obj">Object</th><th class="col-exp">Explanation / formula</th><th class="col-aff">Built from / affects</th></tr></thead>
+<tbody>
+<tr><td class="obj"><span class="sym">\(\lambda_+\)</span><span class="nm">Positive part</span></td><td class="exp"><code>\(\lambda_+=\tfrac1m\ln(1+e^{m\lambda})\)</code>.</td><td class="aff"><span class="from">from</span> \(m,\lambda\) <span class="arrow">→</span> <code>I<sub>gate</sub></code></td></tr>
+<tr><td class="obj"><span class="sym">\(g_{\rm eff}\)</span><span class="nm">Receptivity gate</span></td><td class="exp"><code>\(g_{\rm eff}=e^{-\tau t}+(1-e^{-\tau t})\dfrac{H_K}{H_s+H_K}\)</code>.</td><td class="aff"><span class="from">from</span> \(\tau,H_K,H_s\) <span class="arrow">→</span> <code>I<sub>gate</sub></code></td></tr>
+<tr><td class="obj"><span class="sym">\(I_{\rm gate}\)</span><span class="nm">Gate inflow (Modus I)</span></td><td class="exp"><code>\(I_{\rm gate}=\zeta_0 g_{\rm eff}e^{-\phi\sigma}(1+\chi\lambda_+)^{-1}\ge0\)</code>.</td><td class="aff"><span class="from">from</span> \(\zeta_0,g_{\rm eff},\sigma,\lambda_+\) <span class="arrow">→</span> <code>\(\dot\lambda\)</code></td></tr>
+<tr><td class="obj"><span class="sym">\(\mathcal G_{\rm recepta}\)</span><span class="nm">Received grace</span></td><td class="exp"><code>\(\mathcal G_{\rm recepta}=\int_0^t I_{\rm gate}\,ds\)</code>, monotone.</td><td class="aff"><span class="from">from</span> \(I_{\rm gate}\) <span class="arrow">→</span> balance, <code>\(\lambda_\infty\)</code></td></tr>
+<tr><td class="obj"><span class="sym">\(\dot\sigma\)</span><span class="nm">Resistance core</span></td><td class="exp"><code>\(\dot\sigma=(\gamma-\delta u)\tanh(\kappa\sigma)\)</code> — the dissipative core.</td><td class="aff"><span class="from">from</span> \(\gamma,\delta,u,\kappa,\sigma\) <span class="arrow">→</span> updates \(\sigma\)</td></tr>
+<tr><td class="obj"><span class="sym">\(\dot\lambda\)</span><span class="nm">Sophia</span></td><td class="exp"><code>\(\dot\lambda=-\dot\sigma+I_{\rm gate}\)</code>; regression occurs only when <code>\(I_{\rm gate}&lt;(\gamma-\delta u)\tanh(\kappa\sigma)\)</code>.</td><td class="aff"><span class="from">from</span> \(\dot\sigma,I_{\rm gate}\) <span class="arrow">→</span> updates \(\lambda\)</td></tr>
+<tr><td class="obj"><span class="sym">\(\dot\Omega_P\)</span><span class="nm">Brim</span></td><td class="exp"><code>\(\dot\Omega_P=\alpha\lambda\)</code>.</td><td class="aff"><span class="from">from</span> \(\alpha,\lambda\) <span class="arrow">→</span> updates \(\Omega_P\)</td></tr>
+<tr><td class="obj"><span class="sym">\(\dot V,\dot F\)</span><span class="nm">Will–Action</span></td><td class="exp">Coupled growth: nourishment \(a\), Dolorosum \(\rho\), and elevation \(c\lambda\). The balanced optimum is \(V=F\).</td><td class="aff"><span class="from">from</span> \(a,c,\lambda,\rho\) <span class="arrow">→</span> updates \(V,F\)</td></tr>
+<tr><td class="obj"><span class="sym">\(\dot H_K\)</span><span class="nm">Memory</span></td><td class="exp"><code>\(\dot H_K=\eta R((\dot x_0)_+)-\nu R((-\dot x_0)_+)\tfrac{H_K}{H_s+H_K}\)</code>.</td><td class="aff"><span class="from">from</span> \(\eta,\nu,x,H_K\) <span class="arrow">→</span> updates \(H_K\)</td></tr>
+<tr><td class="obj"><span class="sym">Balance</span><span class="nm">Lex Aequilibrii Aperti</span></td><td class="exp"><code>\(\sigma+\lambda=C_0+\mathcal G_{\rm recepta}\)</code>, <code>\(\tfrac{d}{dt}(\sigma+\lambda)=I_{\rm gate}\ge0\)</code>.</td><td class="aff">accounting law (closed case: \(=C_0\))</td></tr>
+</tbody>
+</table>
+
+<h2><span class="num">F.</span>Long time — regimes, operators, boundaries
+  <span class="tag">Asymptotics and events after many turns of the loop. Closed-model legacy is marked in grey.</span></h2>
+<table>
+<thead><tr><th class="col-obj">Object</th><th class="col-exp">Explanation / formula</th><th class="col-aff">When / what for</th></tr></thead>
+<tbody>
+<tr><td class="obj"><span class="sym">\(\mathfrak R\)</span><span class="nm">Resurrection reset (Modus II)</span></td><td class="exp">Reset at the point of death; participation continues after closure, with \(\Gamma_{\rm Christi}\).</td><td class="aff">terminal closure → turn of the cycle</td></tr>
+<tr><td class="obj"><span class="sym">Katharsis</span><span class="nm">Purification</span></td><td class="exp">Smooth passage through the Cross \(x=0\) (<code>\(\Phi'''(0)=0\)</code>).</td><td class="aff">metastable cathartic layer</td></tr>
+<tr><td class="obj"><span class="sym">Epektasis</span><span class="nm">Infinite expansion</span></td><td class="exp"><code>\(\Omega_P\to\infty \Leftrightarrow \int_0^\infty\lambda\,dt=\infty\)</code>.</td><td class="aff">unbounded growth of the Vessel</td></tr>
+<tr><td class="obj"><span class="sym">\(\lambda_\infty\)</span><span class="nm">Asymptotic Sophia</span></td><td class="exp"><code>\(\lambda_\infty=\sigma_0+\lambda_0+\mathcal G_{\rm recepta}(\infty)\)</code>.</td><td class="aff"><code>\(\Omega_P\sim\alpha\lambda_\infty t\)</code></td></tr>
+<tr><td class="obj"><span class="sym">Pleroma Christi</span><span class="nm">Absolute Fullness</span></td><td class="exp">Asymptotic regime: <code>\(\sigma\to0,\ \mathcal{Syn}\to\mathcal E_0\)</code>.</td><td class="aff">telos of the movement</td></tr>
+<tr class="legacy"><td class="obj"><span class="sym">\(\mathcal G,\mathcal P\)</span><span class="nm">Gratia / Impulse · <em>closed</em></span></td><td class="exp">[Only \(\zeta_0=0\)] The old additive grace / impulse. In v2.0, grace enters through <code>I<sub>gate</sub></code>.</td><td class="aff">not active in LXXXVII</td></tr>
+<tr class="legacy"><td class="obj"><span class="sym">\(\lambda_{\max},\ \sigma{+}\lambda{=}C_0\)</span><span class="nm">closed invariants</span></td><td class="exp">[Only \(\zeta_0=0\)] <code>\(\lambda_{\max}=\sigma_0+\lambda_0\)</code>; exact conservation.</td><td class="aff">valid only in Microcosm</td></tr>
+</tbody>
+</table>
+
+<p class="note">The order is topological in construction: A–B provide inputs, C builds \(P\) as a strict DAG (the gate is intentionally outside C because it is not needed for instantaneous \(P\)), D differentiates, and E moves the state and <span style="color:var(--red);">closes the loop ↺</span> back to B. Circularity is temporal, not within a single instant.</p>
+
+<footer>V.F.S. &middot; Editio LXXXVII</footer>
+
+</div>
+</body>
+</html>
