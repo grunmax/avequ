@@ -28,16 +28,21 @@ flowchart LR
     F["F"] --> SY
     SY --> FL["Filtrum Lucis"]
     R["σ"] --> FL
-    R --> L["λ"]
-    G["Open Gate"] --> L
+
     FL --> P["P(t)"]
-    P --> S["S(t) = Being<br/>dP/dt"]
-    S --> A["A(t) = Odinai<br/>d²P/dt²"]
-    A --> K["K(t) = Katharsis<br/>d³P/dt³"]
-    K --> AN["An(t) = Anastasis<br/>d⁴P/dt⁴"]
+    P --> S["S(t) = Being"]
+    S --> A["A(t) = Odinai"]
+    A --> K["K(t) = Katharsis"]
+    K --> AN["An(t) = Anastasis"]
     AN --> E["Epektasis"]
     E --> B["Brim Ω_P(t)"]
-    B --> PC["Pleroma Christi approx."]
+    B --> PC["Pleroma Christi"]
+
+    R --> T["Tetelestai"]
+    T --> K
+    K --> L["λ = Sophia"]
+
+    G["Open Gate"] --> L
     L --> B
 ```
 
