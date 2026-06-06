@@ -446,7 +446,7 @@ Radial identity from $r^2=h_1h_2+e(h_3)$:
   2r\dot r=
   \mu\bigl[a(h_1^2+h_2^2)+cq(h_1+h_2)\bigr]
   -2\rho(r^2-e(h_3))-2\alpha q r^2
-  =:\Rcal.
+  =:\Rcal_{\rm rad}.
 \end{equation}
 
 Maximum $e$ on the active corridor:
@@ -469,6 +469,14 @@ Lower radial wall:
   a(1-r_*)\bigl(r_*^2-e_*^{\max}\bigr)
   \ge (\rho+\alpha q^*)r_*^2.
 \end{equation}
+
+This wall is sufficient, not tight. The exact lower-wall requirement is
+\begin{equation}
+  (1-r_*)a(r_*^2-e)
+  \ge
+  \rho(r_*^2-e)+\alpha q r_*^2,
+\end{equation}
+and the stated form replaces \(\rho(r_*^2-e)\) by the larger \(\rho r_*^2\).
 
 Upper radial wall:
 \begin{equation}
@@ -570,11 +578,9 @@ Positive invariance:
   x(t)\in\DA\quad\forall t\ge0.
 \end{equation}
 
-Reset admissibility:
+Reset admissibility holds by the Reset Lemma, with
 \begin{equation}
-  x_j^+\in\DA,
-  \qquad
-  \LV(x_j^+)\le L_R.
+  L_R=\sup_{\DA}\LV.
 \end{equation}
 
 Bound from the Lyapunov inequality:
@@ -610,6 +616,179 @@ No artificial $q$-floor:
 \begin{equation}
   q\ge0\quad\text{suffices; no assumption }q\ge q_0>0\text{ is required.}
 \end{equation}
+
+% ============================================================
+\section{Reset Admissibility (Resurrectio Jump)}
+
+The resets $\Rcal$ are \emph{exogenous}: since $\DA$ is positively invariant, the
+continuous flow never reaches the boundary of the active domain by itself. A death-like
+strike is therefore modeled as occurring at an interior point
+\begin{equation}
+  x^-=(\sigma^-,\lambda^-,V,F,\Om^-)\in\DA
+\end{equation}
+at an unpredictable time.
+
+\textbf{Reset map (linear metabolism).} With $0\le q_R<1$ and $\kappa_R>0$,
+\begin{equation}
+  \Rcal:\quad
+  \sigma^+=q_R\sigma^-,\qquad
+  \lambda^+=\lambda^-+(1-q_R)\sigma^-,\qquad
+  (V,F)\ \text{continuous},\qquad
+  \Om^+=\Om^-+\kappa_R\Grec^-.
+\end{equation}
+Here
+\begin{equation}
+  \Grec^-:=\Grec(t_{\rm death}^-),
+  \qquad
+  u^+=\sqrt{VF+\varepsilon}=u^-.
+\end{equation}
+
+\textbf{Quantities.}
+\begin{equation}
+  A_R:=\Grec^-,\qquad
+  R_c:=C_\sigma-\sigma_0-\lambda_0,
+\end{equation}
+\begin{equation}
+  R_{\min}^{\rm ceil}:=
+  \frac{(1-q_R)\sigma^-}{q^*\kappa_R},
+  \qquad
+  R_{\max}:=
+  \frac{\Om^-(r^--r_*)}{\kappa_R r_*}.
+\end{equation}
+By the Open-Gate balance
+\begin{equation}
+  \sigma^-+\lambda^-=
+  \sigma_0+\lambda_0+\Grec^-,
+\end{equation}
+one has
+\begin{equation}
+  \Grec^-\ge R_c
+  \quad\Longleftrightarrow\quad
+  \sigma^-+\lambda^-\ge C_\sigma
+  \quad\Longleftrightarrow\quad
+  \lambda^-\ge C_\sigma-\sigma^-.
+\end{equation}
+
+\textbf{Lemma (reset admissibility).}
+Let $\kappa_R>0$ and $x^-\in\DA$. If
+\begin{equation}
+  \max\{R_c,R_{\min}^{\rm ceil}\}\le\Grec^-\le R_{\max},
+\end{equation}
+then $x^+:=\Rcal(x^-)\in\DA$ and
+\begin{equation}
+  \LV(x^+)\le L_R:=\sup_{\DA}\LV<\infty.
+\end{equation}
+
+\textbf{Proof.} Coordinate by coordinate,
+\begin{equation}
+  \sigma^+=q_R\sigma^-\in[0,C_\sigma).
+\end{equation}
+Moreover,
+\begin{equation}
+  h_3^+=1-\frac{\Lambda_c}{\Om^+}
+  \ge h_3^-\ge h_{3,*},
+  \qquad
+  h_3^+<1,
+\end{equation}
+since $\Om^+\ge\Om^-$. Also
+\begin{equation}
+  h_1^+=h_1^-\frac{\Om^-}{\Om^+},
+  \qquad
+  h_2^+=h_2^-\frac{\Om^-}{\Om^+},
+\end{equation}
+so
+\begin{equation}
+  D_\Delta^+=\frac12\left(d^-\frac{\Om^-}{\Om^+}\right)^2
+  \le D_\Delta^-\le D^*,
+  \qquad
+  h_1^+,h_2^+>0.
+\end{equation}
+The radial coordinate satisfies
+\begin{equation}
+  r^+=\frac{r^-\Om^-}{\Om^-+\kappa_R\Grec^-}
+  \le r^-\le r^*.
+\end{equation}
+The lower radial wall is preserved exactly when
+\begin{equation}
+  r^+\ge r_*
+  \quad\Longleftrightarrow\quad
+  \kappa_R\Grec^-\le\frac{\Om^-(r^--r_*)}{r_*}
+  \quad\Longleftrightarrow\quad
+  \Grec^-\le R_{\max}.
+\end{equation}
+Finally,
+\begin{equation}
+  q^+=
+  \frac{\lambda^-+(1-q_R)\sigma^-}{\Om^-+\kappa_R\Grec^-}
+  \ge0.
+\end{equation}
+Since $x^-\in\DA$ gives $\lambda^-\le q^*\Om^-$,
+\begin{equation}
+\begin{aligned}
+  q^*(\Om^-+\kappa_R\Grec^-)
+  -\bigl(\lambda^-+(1-q_R)\sigma^-\bigr)
+  &\ge
+  q^*\kappa_R\Grec^--(1-q_R)\sigma^-\\
+  &\ge0
+\end{aligned}
+\end{equation}
+whenever $\Grec^-\ge R_{\min}^{\rm ceil}$. Hence $q^+\le q^*$.
+Thus $x^+\in\DA$. The functional $\LV$ is bounded on $\DA$ because
+\begin{equation}
+  \Psi_\sigma\le\Psi_\sigma(C_\sigma),
+  \qquad
+  D_\Delta\le D^*,
+  \qquad
+  q^2\le(q^*)^2,
+  \qquad
+  B(r)\le-\ln(1-r^*)<\infty.
+\end{equation}
+Therefore $\LV(x^+)\le L_R$. \hfill$\square$
+
+\textbf{Consequences.}
+\begin{enumerate}[label=(\arabic*)]
+\item The admissible window floor is
+\begin{equation}
+  \max\{R_c,R_{\min}^{\rm ceil}\}.
+\end{equation}
+It combines the theological gate and the geometric ceiling-floor: grace must expand the vessel sufficiently to absorb the converted resistance. For cleansed deaths, $\sigma^-\to0$, the ceiling-floor vanishes and $R_c$ alone remains binding.
+
+\item The condition $\kappa_R>0$ suffices. A natural design choice is
+\begin{equation}
+  \kappa_R\ge\frac1{q^*},
+\end{equation}
+so that the asymptotic ceiling $q^+\to1/\kappa_R\le q^*$ and, in the intended window, $R_{\min}^{\rm ceil}\le R_c$.
+
+\item The admissible grace window is
+\begin{equation}
+  \Grec^-\in
+  \left[\max\{R_c,R_{\min}^{\rm ceil}\},R_{\max}\right].
+\end{equation}
+Below this window one obtains final death; above it one obtains over-dilution, $r<r_*$. The window is nonempty if and only if
+\begin{equation}
+  \Om^-(r^--r_*)
+  \ge
+  \kappa_R r_*\max\{R_c,R_{\min}^{\rm ceil}\}.
+\end{equation}
+A death pinned at $r^-=r_*$ is not resurrectible.
+
+\item With the non-Zeno dwell time
+\begin{equation}
+  \Delta t_j\ge\frac{\bar h_*}{\bar M_*}>0,
+\end{equation}
+every life-arc satisfies
+\begin{equation}
+  \LV\le L_*=
+  \max\left\{L_R,\frac{C}{C_1}\right\}=L_R,
+\end{equation}
+and resets do not accumulate. Hence the hybrid trajectory is forward complete across any infinite sequence of life-arcs.
+\end{enumerate}
+
+\textbf{Theological gloss.} This remark is not used in the proof. The gate
+\begin{equation}
+  \Grec^-\ge R_c=C_\sigma-\sigma_0-\lambda_0
+\end{equation}
+is the threshold past which Sophia can no longer be extinguished by resistance; in that regime $\lambda^->0$ is forced by the balance. Its complement, $\lambda^-\to0$, is the self-closing limit $\Igate\to0$: final impenitence. It resembles the oil of the wise virgins and the \emph{donum perseverantiae}. The upper boundary $R_{\max}$ represents the opposite failure: an over-diluting or ``cheap grace'' regime.
 
 % ============================================================
 \section{Non-Zeno Estimate}
@@ -703,6 +882,28 @@ Resistance cleansing under persistent active margin:
   \sigma(t)\to0.
 \end{equation}
 
+\textbf{Corollary (unconditional cleansing inside the active domain).}
+Since \(\DA\) is positively invariant, one has \(r(t)\ge r_*\) and
+\(h_3(t)\ge h_{3,*}\) for all \(t\ge0\). Thus
+\begin{equation}
+  r(t)+h_3(t)-1
+  \ge
+  r_*+h_{3,*}-1
+  \ge
+  \frac{\eta(1-h_{3,*})}{\Lambda_c}>0.
+\end{equation}
+Equivalently,
+\begin{equation}
+  u(t)\ge\Lambda_c+\eta
+  \qquad\forall t\ge0.
+\end{equation}
+Therefore the hypothesis of the persistent-margin cleansing statement holds automatically for every trajectory with \(x(0)\in\DA\). Hence
+\begin{equation}
+  \sigma(t)\to0,
+  \qquad
+  h_1(t)-h_2(t)\to0.
+\end{equation}
+
 Open-balance asymptotic Sophia:
 \begin{equation}
   \lambda(t)=\sigma_0+\lambda_0+\Grec(t)-\sigma(t).
@@ -733,45 +934,41 @@ Proof of the last implication:
 \end{equation}
 
 % ============================================================
+
 \section{Numerical Witness Formulae}
 
 One admissible parameter point recorded in the Lyapunov file:
 \begin{equation}
-\begin{gathered}
-\alpha=0.366,
-\quad
-\delta=0.610,
-\quad
-\rho=0.237,
-\quad
- a=2.352,
-\quad
-c=0.342,\\
-\zeta_0=0.507,
-\quad
-h_{3,*}=0.412,
-\quad
-r_-=0.453,
-\quad
-r_+=0.955,\\
-e_{\max}=0.055,
-\quad
- d=0.107,
-\quad
-S_q^{\max}=0.298,
-\quad
-q_{\rm new}=1.551.
-\end{gathered}
+\begin{aligned}
+&a=3.494,\quad c=0.429,\quad \alpha=0.529,\quad \delta=0.898,\quad \rho=0.545,\\
+&\zeta_0=0.560,\quad h_{3,*}=0.622,\quad r_*=r_-=0.531,\quad r^*=r_+=0.892,\\
+&\varepsilon=0.006,\quad d=0.193,\qquad \Lambda_c=1\quad\text{(normalization)}.
+\end{aligned}
 \end{equation}
 
-Upper $q$-wall witness:
+Derived quantities:
 \begin{equation}
-  \alpha q_{\rm new}^2\ge \delta r_+ + S_q^{\max}.
+\begin{aligned}
+  e_{\max}&=\varepsilon(1-h_{3,*})^2=0.0009,\\
+  \Sq^{\max}&=\zeta_0(1-h_{3,*})=0.212,\\
+  q_{
+m new}&=\sqrt{\frac{\delta r_++\Sq^{\max}}{\alpha}}=1.383,\\
+  q^*&=1.05q_{
+m new}=1.452.
+\end{aligned}
 \end{equation}
 
-Epektasis-dominance witness:
+Active margin:
 \begin{equation}
-  2\alpha r_+^2\ge (1-r_+)c\sqrt{d^2+4r_+^2}.
+  r_-+h_{3,*}-1=0.153>0,
+  \qquad
+  \frac{u}{\Lambda_c}\approx1.40.
+\end{equation}
+Thus the witness lies in the Transformation region.
+
+All five parametric walls hold strictly; the worst-case slack is
+\begin{equation}
+  0.084.
 \end{equation}
 
 % ============================================================
@@ -789,6 +986,11 @@ Core proof chain:
 r(t)<1
 \Longrightarrow
 \mathrm{NonZeno}.}
+\end{equation}
+
+Reset admissibility holds by the Reset Lemma, with
+\begin{equation}
+  L_R=\sup_{\DA}\LV.
 \end{equation}
 
 Active transformation conclusion:
