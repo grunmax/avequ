@@ -26,9 +26,18 @@
 \newcommand{\sech}{\operatorname{sech}}
 \newcommand{\Psis}{\Psi_\sigma}
 
+\newcommand{\Rrad}{\mathcal R_{\mathrm{rad}}}
+\newcommand{\reset}{\mathfrak{R}}
+
 \usepackage{amsthm}
-\newtheorem{lemma}{Lemma}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}
 \newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Standing Hypothesis}
 \theoremstyle{remark}
 \newtheorem*{remark}{Remark}
 
@@ -512,13 +521,13 @@ Conservative lower radial wall with $q_{\rm new}^*$:
 
 Epektasis-dominance derivative at the upper radial wall:
 \begin{equation}
-  \frac{\partial\Rcal_{\rm rad}}{\partial q}\bigg|_{r^*}
+  \frac{\partial\Rrad}{\partial q}\bigg|_{r^*}
   =\mu c(h_1+h_2)-2\alpha r^{*2}.
 \end{equation}
 
 Worst-case bound:
 \begin{equation}
-  \frac{\partial\Rcal_{\rm rad}}{\partial q}\bigg|_{r^*}
+  \frac{\partial\Rrad}{\partial q}\bigg|_{r^*}
   \le (1-r^*)c\sqrt{d_*^2+4r^{*2}}-2\alpha r^{*2}.
 \end{equation}
 
@@ -527,7 +536,7 @@ Epektasis-dominance sufficient condition:
   \boxed{
   2\alpha r^{*2}\ge (1-r^*)c\sqrt{d_*^2+4r^{*2}}
   \quad\Longrightarrow\quad
-  \frac{\partial\Rcal_{\rm rad}}{\partial q}\le0.}
+  \frac{\partial\Rrad}{\partial q}\le0.}
 \end{equation}
 
 % ============================================================
@@ -771,7 +780,7 @@ No artificial $q$-floor:
 % ============================================================
 \section{Reset Admissibility (Resurrectio Jump)}
 
-The resets $\Rcal$ are \emph{exogenous}: since $\DA$ is positively invariant, the
+The resets $\reset$ are \emph{exogenous}: since $\DA$ is positively invariant, the
 continuous flow never reaches the boundary of the active domain by itself. A death-like
 strike is therefore modeled as occurring at an interior point
 \begin{equation}
@@ -781,7 +790,7 @@ at an unpredictable time.
 
 \textbf{Reset map (linear metabolism).} With $0\le q_R<1$ and $\kappa_R>0$,
 \begin{equation}
-  \Rcal:\quad
+  \reset:\quad
   \sigma^+=q_R\sigma^-,\qquad
   \lambda^+=\lambda^-+(1-q_R)\sigma^-,\qquad
   (V,F)\ \text{continuous},\qquad
@@ -825,7 +834,7 @@ Let $\kappa_R>0$ and $x^-\in\DA$. If
 \begin{equation}
   \max\{R_c,R_{\min}^{\rm ceil}\}\le\Grec^-\le R_{\max},
 \end{equation}
-then $x^+:=\Rcal(x^-)\in\DA$ and
+then $x^+:=\reset(x^-)\in\DA$ and
 \begin{equation}
   \LV(x^+)\le L_R:=\sup_{\DA}\LV<\infty.
 \end{equation}
@@ -927,23 +936,19 @@ A death pinned at $r^-=r_*$ is not resurrectible.
 \begin{equation}
   \Delta t_j\ge\frac{\bar h_*}{\bar M_*}>0,
 \end{equation}
-every life-arc satisfies the Lyapunov bound
+every life-arc satisfies
 \begin{equation}
-  \LV\le L_*=
+  \LV\le L_*:=
   \max\left\{L_R,\frac{C}{C_1}\right\},
 \end{equation}
-and, since the trajectory remains inside \(\DA\) between admissible resets,
-\begin{equation}
-  \LV\le L_R=\sup_{\DA}\LV.
-\end{equation}
-Resets do not accumulate. Hence the hybrid trajectory is forward complete across any infinite sequence of life-arcs.
+while admissible reset states themselves satisfy \(\LV(x^+)\le L_R\). Resets do not accumulate. Hence the hybrid trajectory is forward complete across any infinite sequence of life-arcs.
 \end{enumerate}
 
 \textbf{Theological gloss.} This remark is not used in the proof. The gate
 \begin{equation}
   \Grec^-\ge R_c=C_\sigma-\sigma_0-\lambda_0
 \end{equation}
-is the threshold past which Sophia can no longer be extinguished by resistance; in that regime $\lambda^-\ge0$ is forced by the balance, and $\lambda^->0$ whenever $\sigma^-<C_\sigma$. Its complement, $\lambda^-\to0$, is the self-closing limit $\Igate\to0$: final impenitence. It resembles the oil of the wise virgins and the \emph{donum perseverantiae}. The upper boundary $R_{\max}$ represents the opposite failure: an over-diluting or ``cheap grace'' regime.
+is the threshold past which Sophia can no longer be extinguished by resistance; in that regime the balance forces $\lambda^-\ge0$, and strictly $\lambda^->0$ whenever $\sigma^-<C_\sigma$. Its complement, $\lambda^-\to0$, is the self-closing limit $\Igate\to0$: final impenitence. It resembles the oil of the wise virgins and the \emph{donum perseverantiae}. The upper boundary $R_{\max}$ represents the opposite failure: an over-diluting or ``cheap grace'' regime.
 
 % ============================================================
 \section{Non-Zeno Estimate}
@@ -1125,58 +1130,225 @@ All five parametric walls hold strictly; the worst-case slack is
 \end{equation}
 
 % ============================================================
-\section{Final Proof Chain}
+\section{Domain Stability Theorem (Complete Proof)}
 
-Core proof chain (the dissipative step is now Proposition~\ref{prop:diss}):
+This final section consolidates the preceding formulae into a single rigorous
+statement: the active domain is positively invariant, forward complete, never
+contacts the death-boundary, and exhibits asymptotic cleansing and alignment,
+with admissible resets continuing the trajectory without Zeno accumulation. The
+dissipative step is Proposition~\ref{prop:diss}; the light-filter constant is
+Lemma~\ref{lem:cpsi}.
+
+\subsection{Setup recap and hypotheses}
+We use the normalized flow (Section~\ref{sec:witness} notation; $\Lambda_c=1$),
+\begin{equation}\label{eq:flow2}
+\begin{aligned}
+  \dot h_1&=\mu(ah_2+cq)-(\rho+\alpha q)h_1, &
+  \dot h_2&=\mu(ah_1+cq)-(\rho+\alpha q)h_2,\\
+  \dot q&=\delta mT-\alpha q^2+\Sq, &
+  \dot h_3&=\alpha q(1-h_3),\\
+  \dot\sigma&=-\delta\,\Om\,m\,T, &
+  \Sq&\in[0,\Sq^{\max}],
+\end{aligned}
+\end{equation}
+with $\Om=1/(1-h_3)$, $T=\tanh(\kappa\sigma)$, $\mu=1-r$, $e=\varepsilon(1-h_3)^2$,
+$r^2=h_1h_2+e$, $m=r+h_3-1$, and the Lyapunov functional
+$\LV=A_\sigma\Psis+A_\Delta D_\Delta+A_qq^2+A_rB(r)$ with
+$\Psis=\tfrac1\kappa\ln\cosh\kappa\sigma$, $D_\Delta=\tfrac12(h_1-h_2)^2$,
+$B(r)=-\ln(1-r)$, weights $A_\bullet>0$.
+
+\begin{definition}[Active domain]\label{def:DAfull}
+\begin{equation*}
+\DA=\left\{(\sigma,h_1,h_2,q,h_3):
+\begin{array}{l}
+\sigma\in[0,C_\sigma],\quad q\in[0,q^*],\quad h_3\in[h_{3,*},1),\quad r\in[r_*,r^*],\\
+D_\Delta\le D^*,\quad h_1,h_2\ge0
+\end{array}
+\right\}.
+\end{equation*}
+Here $\mu_*=1-r^*$, $\Omega_{min}=1/(1-h_{3,*})$, $m_*=r_*+h_{3,*}-1$,
+$e_{\max}=\varepsilon(1-h_{3,*})^2$, $d_*=\sqrt{2D^*}$, and
+$q^*=1.05\sqrt{(\delta r^*+\Sq^{\max})/\alpha}$.
+\end{definition}
+
+\begin{assumption}[Parameters]\label{H:paramF}
+$a,c,\alpha,\delta,\gamma,\zeta_0,\kappa,\varepsilon>0$, $\rho\ge0$.
+\end{assumption}
+\begin{assumption}[Walls]\label{H:wallsF}
+$r_*^2>e_{\max}$; $m_*>0$; $\alpha(q^*)^2\ge\delta r^*+\Sq^{\max}$;
+\begin{equation}
+  (1-r^*)\!\left[a(d_*^2+2r^{*2})+cq^*\sqrt{d_*^2+4r^{*2}}\right]\le2\rho(r^{*2}-e_{\max}),
+  \quad
+  a(1-r_*)(r_*^2-e_{\max})\ge(\rho+\alpha q^*)r_*^2.
+\end{equation}
+\end{assumption}
+\begin{assumption}[Reset window]\label{H:resetF}
+At each death-event $\max\{R_c,R^{\mathrm{ceil}}_{\min}\}\le\Grec^-\le R_{\max}$,
+$R_{\max}=\Om^-(r^--r_*)/(\kappa_R r_*)$, for the jump
+$\sigma^+=q_R\sigma^-$, $\lambda^+=\lambda^-+(1-q_R)\sigma^-$,
+$\Om^+=\Om^-+\kappa_R\Grec^-$, $(V,F)^+=(V,F)^-$, $q_R\in(0,1)$.
+\end{assumption}
+
+\subsection{Identities, regularity, invariance, completeness}
+
+\begin{lemma}[Identities]\label{lem:identF}
+Along \eqref{eq:flow2}, $2r\dot r=\Rrad:=\mu[a(h_1^2+h_2^2)+cq(h_1+h_2)]-2\rho(r^2-e)-2\alpha qr^2$
+and $\dot D_\Delta=-2(a\mu+\rho+\alpha q)D_\Delta$.
+\end{lemma}
+\begin{proof}
+Differentiate $r^2=h_1h_2+e(h_3)$ and use \eqref{eq:flow2}; the $h_1h_2$ and
+$e$ contributions combine via $h_1h_2=r^2-e$ and $e'(h_3)\dot h_3=-2\alpha q\,e$.
+For $D_\Delta$, $\frac{d}{dt}(h_1-h_2)=-(a\mu+\rho+\alpha q)(h_1-h_2)$.
+\end{proof}
+
+\begin{lemma}[Regularity]\label{lem:regF}
+The field \eqref{eq:flow2} is $C^1$ near $\DA$ (since $VF+\varepsilon\ge\varepsilon>0$
+and $h_3<1$), giving unique maximal solutions.
+\end{lemma}
+
+\begin{lemma}[Positive invariance --- whole-face Nagumo]\label{lem:nagumoF}
+Under Hypotheses~\ref{H:paramF}--\ref{H:wallsF}, $\DA$ is positively invariant.
+\end{lemma}
+\begin{proof}
+On $\DA$: $m\ge m_*>0$, $\mu\ge\mu_*$, $\Om\ge\Omega_{min}$, $T\in[0,1]$. We verify
+sub-tangentiality face by face (Nagumo).
+\emph{$\sigma{=}C_\sigma$:} $\dot\sigma=-\delta\Om m\tanh(\kappa C_\sigma)<0$.
+\emph{$\sigma{=}0$:} $\dot\sigma=0$ (tangent).
+\emph{$h_3{=}h_{3,*}$:} $\dot h_3=\alpha q(1-h_3)\ge0$ ($h_3$ non-decreasing).
+\emph{$D_\Delta{=}D^*$:} $\dot D_\Delta\le0$ by Lemma~\ref{lem:identF}.
+\emph{$q{=}0$:} $\dot q=\delta mT+\Sq\ge0$ (no lower $q$-floor needed).
+\emph{$q{=}q^*$:} $\dot q\le\delta r^*+\Sq^{\max}-\alpha(q^*)^2\le0$ by the $q$-wall.
+\emph{$r{=}r^*$:} writing $\Rrad=P-N$ with $P=\mu_*[a(h_1^2+h_2^2)+cq(h_1+h_2)]$,
+$N=2\rho(r^{*2}-e)+2\alpha qr^{*2}$, the face bounds $(h_1-h_2)^2\le d_*^2$,
+$0\le e\le e_{\max}$, $0\le q\le q^*$ give
+$\sup P\le\mu_*[a(d_*^2+2r^{*2})+cq^*\sqrt{d_*^2+4r^{*2}}]$ and
+$\inf N\ge2\rho(r^{*2}-e_{\max})$, so $\sup\Rrad\le\sup P-\inf N\le0$ by the upper
+radial wall; hence $\dot r\le0$.
+\emph{$r{=}r_*$:} symmetrically $\inf P\ge2a(1-r_*)(r_*^2-e_{\max})$,
+$\sup N\le2(\rho+\alpha q^*)r_*^2$, so $\inf\Rrad\ge0$ by the lower radial wall;
+hence $\dot r\ge0$. All faces sub-tangential $\Rightarrow\DA$ invariant.
+\end{proof}
+
+\begin{lemma}[Forward completeness]\label{lem:completeF}
+Every solution from $\DA$ exists on $[0,\infty)$, with
+$1-h_3(t)\ge(1-h_3(0))e^{-\alpha q^*t}>0$, so $h_3<1$ and $\Om<\infty$ on finite
+intervals.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:nagumoF} the orbit stays in $\DA$ (all coordinates but $\Om$
+bounded); from $\dot h_3=\alpha q(1-h_3)$, $q\le q^*$, integrate
+$\frac{d}{dt}(1-h_3)\ge-\alpha q^*(1-h_3)$. No finite-time blow-up, so the orbit
+extends to $[0,\infty)$.
+\end{proof}
+
+\subsection{Dissipation, alignment, cleansing, barrier}
+
+The dissipative estimate $\dot\LV\le C-C_1\LV$ with
+$C_1=\min\{\delta\Omega_{min}m_*c_\Psi,\,2a\mu_*\}>0$ is
+Proposition~\ref{prop:diss} (using Lemma~\ref{lem:cpsi}).
+
+\begin{lemma}[Alignment]\label{lem:alignF}
+$D_\Delta(t)\le D_\Delta(0)e^{-2a\mu_*t}\to0$.
+\end{lemma}
+\begin{proof}
+$\dot D_\Delta=-2(a\mu+\rho+\alpha q)D_\Delta\le-2a\mu_*D_\Delta$; integrate.
+\end{proof}
+
+\begin{lemma}[Cleansing]\label{lem:cleanF}
+$\sigma(t)\to0$ as $t\to\infty$.
+\end{lemma}
+\begin{proof}
+On $\DA$, $\dot\sigma=-\delta\Om m\tanh(\kappa\sigma)\le-\beta\tanh(\kappa\sigma)$,
+$\beta=\delta\Omega_{min}m_*>0$. Thus $\sigma$ is nonincreasing, bounded below by
+$0$, hence $\sigma\to\sigma_\infty\ge0$; comparison with
+$\dot y=-\beta\tanh(\kappa y)$ (whose only, globally attracting, equilibrium is
+$0$) forces $\sigma_\infty=0$.
+\end{proof}
+
+\begin{corollary}[Death-boundary never contacted]\label{cor:barrierF}
+For all $t\ge0$,
+\begin{equation*}
+  r(t)\le r^*<1,\qquad
+  \LV(t)\le\max\{\LV(0),C/C_1\}.
+\end{equation*}
+Consequently $u=r\Om<\Om$ always.
+\end{corollary}
+
+\subsection{Hybrid layer}
+
+\begin{lemma}[Reset admissibility]\label{lem:resetF}
+Under Hypothesis~\ref{H:resetF}, $x^-\in\DA\Rightarrow\reset(x^-)\in\DA$, with
+$r^+\le r^-$, $\sigma^+\le\sigma^-$, $D_\Delta^+\le D_\Delta^-$, $h_3^+\ge h_3^-$.
+\end{lemma}
+\begin{proof}
+$(V,F)$ preserved $\Rightarrow u^+=u^-$, $\Om^+=\Om^-+\kappa_R\Grec^-\ge\Om^-$, so
+$r^+=r^-\Om^-/\Om^+\le r^-$, $h_3^+\ge h_3^-$, $\sigma^+=q_R\sigma^-\le\sigma^-$,
+$D_\Delta^+=(\Om^-/\Om^+)^2D_\Delta^-\le D_\Delta^-$. The window upper bound
+$\Grec^-\le R_{\max}$ is equivalent to $r^+\ge r_*$. Since $x^-\in\DA$ gives $\lambda^-\ge0$, one has $q^+\ge0$; and the ceiling-floor condition gives $q^+\le q^*$. Thus $q^+\in[0,q^*]$. All constraints of $\DA$ hold; the margin
+$m^+\ge m_*$ follows from $r^+\ge r_*$, $h_3^+\ge h_{3,*}$.
+\end{proof}
+
+\begin{lemma}[Non-Zeno]\label{lem:nonzenoF}
+The field is bounded on $\DA$ ($\sup\|f\|=\bar M_*<\infty$) and resets land with a
+uniform interior margin $\bar h_*>0$; hence consecutive resets are separated by
+$\Delta t_j\ge\bar h_*/\bar M_*>0$, so the hybrid trajectory is non-Zeno and
+forward complete.
+\end{lemma}
+
+\subsection{Main theorem}
+
+\begin{theorem}[Domain stability of $\DA$]\label{thm:mainF}
+Assume Hypotheses~\ref{H:paramF}--\ref{H:resetF}. Then for every $x(0)\in\DA$:
+\textnormal{(i)} $x(t)\in\DA\ \forall t\ge0$;
+\textnormal{(ii)} the solution exists on $[0,\infty)$ with $h_3(t)<1$,
+$\Om(t)<\infty$ on finite intervals;
+\textnormal{(iii)} $\LV(t)\le\max\{\LV(0),C/C_1\}$, $C_1>0$, and $r(t)\le r^*<1$
+(death-boundary never contacted);
+\textnormal{(iv)} $\sigma(t)\to0$ and $D_\Delta(t)\to0$;
+\textnormal{(v)} under admissible resets the hybrid trajectory stays in $\DA$, is
+non-Zeno, and forward complete. Schematically,
 \begin{equation}
 \boxed{
-\mathrm{Admissibility}
-\Longrightarrow
-\DA
-\Longrightarrow
-\dot\LV\le C-C_1\LV
-\Longrightarrow
-r(t)<1
-\Longrightarrow
-\mathrm{NonZeno}.}
+\text{Hyp.}~\ref{H:paramF}\text{--}\ref{H:wallsF}
+\Rightarrow\DA\ \text{invariant}
+\Rightarrow\text{complete}
+\Rightarrow\dot\LV\le C-C_1\LV
+\Rightarrow r<1
+\Rightarrow \sigma,D_\Delta\to0.}
 \end{equation}
+\end{theorem}
+\begin{proof}
+(i) Lemma~\ref{lem:nagumoF}; (ii) Lemma~\ref{lem:completeF}; (iii)
+Proposition~\ref{prop:diss} with Corollary~\ref{cor:barrierF}; (iv)
+Lemmas~\ref{lem:alignF},~\ref{lem:cleanF}, using the invariant lower bounds
+$\mu\ge\mu_*$, $m\ge m_*$ from (i); (v) Lemmas~\ref{lem:resetF},~\ref{lem:nonzenoF}.
+\end{proof}
 
-Reset admissibility holds by the Reset Lemma, with
-\begin{equation}
-  L_R=\sup_{\DA}\LV.
-\end{equation}
+\begin{remark}[Nature of the stability]
+This is \emph{set} stability with \emph{partial} convergence: $\DA$ is invariant
+and $(\sigma,D_\Delta)\to0$, while $(q,\Om)$ need not converge ---
+$\dot\Om=\alpha\lambda>0$ for $\lambda>0$, so $\Om\to\infty$ under sustained
+inflow (\emph{epektasis}). There is no equilibrium; $\LV$ is a
+boundedness-and-barrier certificate, not a function vanishing at a rest point.
+The conclusion is strictly domain-conditional ($x(0)\in\DA$), not global or
+automatic.
+\end{remark}
 
-Active transformation conclusion:
-\begin{equation}
-  u\ge\Lambda_c+\eta
-  \quad\Longrightarrow\quad
-  \sigma(t)\to0,
-  \qquad
-  h_1(t)-h_2(t)\to0.
-\end{equation}
+\begin{remark}[Closed limit]
+At $\zeta_0=0$: $\Sq=\Igate=0$, $\dot\lambda=-\dot\sigma$, and
+$\sigma+\lambda=\sigma_0+\lambda_0$ (exact conservation). The Open-Gate model adds
+only the bounded $\Sq$ in $\dot q$: it strengthens the walls (a larger $q^*$) but
+leaves the dissipative core unchanged.
+\end{remark}
 
-The theorem is an active-domain theorem, not global stability on all phase space:
-The active-domain assumption is essential:
-\begin{equation}
-  x(0)\in\DA.
-\end{equation}
-
-Closed limit:
-\begin{equation}
-  \zeta_0=0
-  \quad\Longrightarrow\quad
-  S_q=0,
-  \quad
-  \Igate=0,
-  \quad
-  \dot\lambda=-\dot\sigma,
-  \quad
-  \sigma+
-  \lambda=\sigma_0+
-  \lambda_0.
-\end{equation}
-
-Open-Gate theorem summary:
-Open-Gate adds only bounded $S_q$ in $\dot q$; it strengthens walls but preserves the dissipative core.
+\begin{remark}[Grace enters $C$, never $C_1$]
+$\Igate$ enters \eqref{eq:flow2} only through $\Sq$, feeding the bounded blocks of
+Proposition~\ref{prop:diss}; it never enters $\kappa_\sigma$ or $\kappa_\Delta$.
+Grace raises $C$ by at most $\Delta C_{\mathrm{gate}}\le2A_qq^*\Sq^{\max}$ and can
+neither manufacture nor destroy $C_1>0$: the transforming structure is sustained,
+not replaced. Moreover $\inf C_1=0$ at the admissibility boundary
+($m_*\to0^+$ or $\mu_*\to0^+$): a state pinned on the active margin has zero
+cleansing rate --- stability holds, transfiguration stalls.
+\end{remark}
 
 \end{document}
