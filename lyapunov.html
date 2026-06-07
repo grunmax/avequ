@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>V.F.S. LXXXVII — Lyapunov Stability</title>
-<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&amp;family=Cinzel:wght@400;600;900&amp;family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&amp;family=Cinzel:wght@400;600;900&amp;family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
 <style>
   :root {
@@ -630,6 +630,295 @@
 .radical-edition .recon{border:1px solid var(--gold-light); border-radius:2px; padding:4px 22px 16px; margin:24px 0; background:rgba(232,201,122,0.04);}
 .radical-edition .capstone{border:2px solid var(--gold); border-radius:2px; padding:8px 26px 18px; margin:28px 0; background:linear-gradient(135deg,rgba(201,168,76,0.10),rgba(201,168,76,0.03));}
 .radical-edition img{width:100%; border:1px solid rgba(201,168,76,0.25); border-radius:3px; margin:18px 0;}
+
+
+
+/* ==========================================================
+   VFS Open-Gate light parchment palette — aligned with index
+   Applied after the Lyapunov/Radicalis base styles so content remains intact.
+   ========================================================== */
+:root {
+  --gold: #bfae93;
+  --gold-light: #8f7d66;
+  --gold-dim: #8c7b72;
+  --ink: #fcfbfa;
+  --parchment: #4a3e3d;
+  --parchment-dark: #5c4d4a;
+  --parchment-mid: #f7f3e8;
+  --red: #8b1a1a;
+  --stone: #d5ceb4;
+  --stone-light: #8c7b72;
+  --blue-dim: #5f8273;
+
+  --vfs-bg-main: #fcfbfa;
+  --vfs-bg-paper: #fdfdfc;
+  --vfs-bg-cream: #f4f1ea;
+  --vfs-bg-soft: #faf9f5;
+  --vfs-bg-warm: #f7f3e8;
+  --vfs-border: #e3dec3;
+  --vfs-border-soft: #d5ceb4;
+  --vfs-text: #4a3e3d;
+  --vfs-title: #423532;
+  --vfs-heading: #5c4d4a;
+  --vfs-muted: #8c7b72;
+  --vfs-green: #5f8273;
+  --vfs-green-soft: #8fae9b;
+  --vfs-gold: #c9a84c;
+  --vfs-gold-light: #e8c97a;
+}
+
+body {
+  background-color: var(--vfs-bg-main);
+  background-image: radial-gradient(#ffffff 40%, var(--vfs-bg-cream) 100%);
+  color: var(--vfs-text);
+  font-family: 'Cormorant Garamond', 'Lora', Georgia, serif;
+}
+
+body::before {
+  opacity: 0.16;
+  mix-blend-mode: multiply;
+}
+
+.container {
+  background: var(--vfs-bg-paper);
+  border: 1px solid var(--vfs-border);
+  box-shadow: 0 15px 35px rgba(180, 170, 150, 0.20), inset 0 0 40px #f7f5ee;
+  border-radius: 6px;
+  margin: 40px auto;
+}
+
+.header,
+.section-title,
+.def-table th,
+.summary-table th {
+  border-color: var(--vfs-border);
+}
+
+.header::after,
+.omega-block::before {
+  background: var(--vfs-bg-paper);
+}
+
+.ordo-label,
+.title-edition,
+.section-number,
+.formula-label,
+.omega-label,
+.footer-motto,
+.divider-symbol,
+.toc h2,
+.radical-edition .reledition-sub,
+.radical-edition .note,
+.radical-edition .todo {
+  color: var(--vfs-muted) !important;
+}
+
+.title-main {
+  color: var(--vfs-title) !important;
+  text-shadow: none;
+}
+
+.title-sub,
+p,
+ul,
+ol,
+li,
+.def-table td:nth-child(2),
+.def-table td:nth-child(3),
+.summary-table td:last-child,
+.state-condition,
+.radical-edition td,
+.radical-edition .roadmap {
+  color: var(--vfs-heading) !important;
+  opacity: 1;
+}
+
+.section-title,
+h3,
+.law-title,
+.state-name,
+.regime-name,
+p strong,
+.def-table td:first-child,
+.summary-table td:first-child,
+.radical-edition .sub,
+.radical-edition .locus,
+.radical-edition .ok,
+.radical-edition .now,
+.radical-edition .done,
+.radical-edition .tag,
+.radical-edition .lemma .formula-label {
+  color: var(--vfs-title) !important;
+}
+
+.section-title::before {
+  background: var(--vfs-border-soft);
+}
+
+.formula-block,
+.system-block,
+.toc,
+.regime-card,
+.state-card,
+.radical-edition .roadmap,
+.radical-edition .lemma,
+.radical-edition .axiom,
+.radical-edition .recon,
+.radical-edition .capstone {
+  background: linear-gradient(135deg, rgba(250,249,245,0.95) 0%, rgba(247,243,232,0.65) 100%) !important;
+  border-color: var(--vfs-border-soft) !important;
+}
+
+.formula-block,
+.law-block,
+.highlight-box.gold,
+.radical-edition .axiom {
+  border-left-color: var(--vfs-border-soft) !important;
+}
+
+.formula-block.boxed,
+.formula-block.apex,
+.omega-block,
+.radical-edition .lemma,
+.radical-edition .recon,
+.radical-edition .capstone {
+  border-color: var(--vfs-border-soft) !important;
+  background: linear-gradient(135deg, #faf9f5 0%, #f7f3e8 100%) !important;
+  box-shadow: 0 12px 28px rgba(180,170,150,0.12), inset 0 0 28px rgba(247,245,238,0.9) !important;
+}
+
+.formula-content,
+mjx-container {
+  color: var(--vfs-text) !important;
+}
+
+.highlight-box {
+  background: rgba(139, 26, 26, 0.055) !important;
+  border-color: rgba(139, 26, 26, 0.22) !important;
+  color: var(--vfs-heading) !important;
+}
+
+.highlight-box.gold {
+  background: rgba(247,243,232,0.82) !important;
+  border-color: var(--vfs-border-soft) !important;
+  color: var(--vfs-heading) !important;
+}
+
+table:not(.def-table):not(.summary-table) {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  background: rgba(250,249,245,0.55) !important;
+}
+
+table:not(.def-table):not(.summary-table) th,
+.radical-edition th {
+  font-family: 'Cinzel', serif;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--vfs-muted) !important;
+  text-transform: uppercase;
+  text-align: left;
+  padding: 10px 16px;
+  border-color: var(--vfs-border-soft) !important;
+  border-bottom: 1px solid var(--vfs-border-soft) !important;
+  font-weight: 500;
+  background: rgba(247,243,232,0.55) !important;
+}
+
+table:not(.def-table):not(.summary-table) td,
+.radical-edition td {
+  padding: 12px 16px;
+  border-color: rgba(213,206,180,0.55) !important;
+  color: var(--vfs-text) !important;
+  vertical-align: top;
+}
+
+.def-table td,
+.summary-table td {
+  border-bottom-color: rgba(213,206,180,0.55) !important;
+  color: var(--vfs-text) !important;
+}
+
+.def-table th,
+.summary-table th {
+  color: var(--vfs-muted) !important;
+  border-bottom-color: var(--vfs-border-soft) !important;
+}
+
+.state-card,
+.regime-card {
+  background: rgba(253,253,252,0.75) !important;
+}
+
+.state-card.equilibrium,
+.regime-card.holding {
+  border-top-color: var(--vfs-muted) !important;
+}
+
+.state-card.transform,
+.regime-card.surgery {
+  border-top-color: var(--vfs-gold) !important;
+}
+
+.state-card.collapse .state-name,
+.radical-edition .was,
+.radical-edition .draft {
+  color: var(--red) !important;
+}
+
+.radical-edition .pass {
+  color: var(--vfs-green) !important;
+}
+
+.state-desc,
+.regime-condition,
+.toc a,
+.footer-sigil,
+.radical-edition .flag {
+  color: var(--vfs-muted) !important;
+}
+
+.toc a:hover {
+  color: var(--vfs-title) !important;
+}
+
+.divider::before,
+.divider::after,
+.radical-edition hr {
+  background: var(--vfs-border-soft) !important;
+  border-top-color: var(--vfs-border-soft) !important;
+}
+
+.radical-edition .reledition-divider {
+  color: var(--vfs-title) !important;
+  border-top-color: var(--vfs-border-soft) !important;
+}
+
+.radical-edition .draft {
+  border-color: rgba(139,26,26,0.28) !important;
+  background: rgba(139,26,26,0.035) !important;
+}
+
+.radical-edition .formula-block.strike {
+  border-left-color: var(--red) !important;
+  opacity: 0.78;
+}
+
+.radical-edition img,
+canvas {
+  background: var(--vfs-bg-paper) !important;
+  border-color: var(--vfs-border) !important;
+  box-shadow: 0 8px 22px rgba(180,170,150,0.12);
+}
+
+a {
+  color: var(--vfs-muted) !important;
+}
+
+a:hover {
+  color: var(--vfs-title) !important;
+}
 
 </style>
 </head>
