@@ -1002,6 +1002,39 @@
     <h3 style="margin-top:36px; font-family:'Cinzel',serif; color:var(--gold); font-size:17px; letter-spacing:2px;">Ensemble of Trajectories</h3>
 
     <p>Numerical experiment: <strong>reserved for a future edition</strong>. The base set of V.F.S. simulations (2026) included scans of the behaviour of λ in the Collapse regime (Lemma on the bounded regression of Sophia §5) and the domain of well-posedness of V.F.S. (Lemma §6). A systematic study of the ensemble of trajectories in the phase-map coordinates (θ, r_X, χ_X) &mdash; convergence beams, chiral event hooks, resurrection-oriented attractor structure &mdash; is an open direction for further formalisation of the model.</p>
+  
+
+    <h3 style="margin-top:36px; font-family:'Cinzel',serif; color:var(--gold); font-size:17px; letter-spacing:2px;">Anastasis in Polar Coordinates — Experimental Witness</h3>
+
+    <p>The following polar plot is a first visual witness for the observable \(An=d^4P/dt^4\). It uses the same Phase Map language: the angle is the full phase coordinate \(\Theta\), while the radius is a bounded intensity of Anastasis. Positive chirality marks the outward stabilising branch after the second zero of \(\Phi^{(4)}\).</p>
+
+    <div class="formula-block">
+      <div class="formula-label">Anastasis polar projection</div>
+      <div class="formula-content">
+        \[\Pi_{An}(t)=\bigl(\Theta(t),\,r_{An}(t),\,\chi_{An}(t)\bigr),\qquad
+        r_{An}=r_{\min}+(r_{\max}-r_{\min})\frac{(|An|/An_*)^\beta}{1+(|An|/An_*)^\beta},\qquad
+        \chi_{An}=\operatorname{sign}(An).\]
+      </div>
+    </div>
+
+    <div style="margin:20px 0; display:flex; justify-content:center;">
+      <canvas id="cv_anastasis_polar" width="700" height="720" style="width:100%;max-width:700px;height:auto;background:#0e0c08;border:1px solid #3a3020;border-radius:4px;display:block;"></canvas>
+    </div>
+    <p style="text-align:center;color:#7a6030;font-family:serif;font-size:12px;margin:4px 0 0;font-style:italic;">Anastasis Polar Map · \(An=d^4P/dt^4\) · radius = bounded intensity · outward branch after \(x_+\)</p>
+
+    <div class="highlight-box gold" style="margin-top:24px;">
+      <strong>Reading of the plot.</strong> The dashed golden ray marks the Cross coordinate \(x=0\). The two pale rays mark the intrinsic zeros of \(\Phi^{(4)}\): \(x_-=-(1/k)\ln(2+\sqrt3)\) and \(x_+=(1/k)\ln(2+\sqrt3)\). The highlighted outer arc after \(x_+\) is the <em>Anastasis sector</em>: the passage no longer merely breaks through the Cross, but unfolds into a stabilising outward branch.
+    </div>
+
+    <div class="highlight-box gold" style="margin-top:18px;">
+      <strong>Markers 1–2–3.</strong>
+      <p style="margin:10px 0 8px;"><strong>Angular convention.</strong> In this polar map <strong>0° is strictly at the top</strong>. The angle then increases <strong>clockwise</strong> along the phase cycle.</p>
+      <ol style="margin:12px 0 0 18px; padding-left:18px;">
+        <li style="margin-bottom:8px;"><strong>1 — Entry.</strong> The trajectory enters the Paschal zone: this is the approach to the crisis-geometry, where compression and preparation dominate, but Anastasis has not yet unfolded.</li>
+        <li style="margin-bottom:8px;"><strong>2 — Transition around the Cross.</strong> This is the central passage between \(x_-\) and \(x_+\), with \(x=0\) as the axis of symmetry. Here the trajectory is not yet in full resurrection-expansion; it is crossing the Paschal interval.</li>
+        <li><strong>3 — Anastasis / Exit.</strong> After \(x_+\) the line opens into the outward stabilising branch. This is no longer mere survival after the break, but post-Cross unfolding — the proper Anastasis sector.</li>
+      </ol>
+    </div>
   </div>
 
   <div class="divider"><span class="divider-symbol">✟</span></div>
@@ -1527,6 +1560,129 @@
   ctx.fillStyle='rgba(201,168,76,0.5)';ctx.font='10px serif';ctx.textAlign='left';ctx.fillText('r\u2080',CX+R*r0+4,CY+3);
 })();
 
+
+
+/* ================================================================
+   APPENDIX II — Anastasis Polar Map
+   Experimental witness for An = d^4P/dt^4 in polar coordinates.
+   ================================================================ */
+(function(){
+  var cv=document.getElementById('cv_anastasis_polar');
+  if(!cv) return;
+  var ctx=cv.getContext('2d'), W=cv.width, H=cv.height;
+  var CX=W/2, CY=H/2+18, R=285;
+  var k=1.45, beta=0.72, rMin=0.18, rMax=0.94;
+  var xMinus=-(1/k)*Math.log(2+Math.sqrt(3));
+  var xPlus=(1/k)*Math.log(2+Math.sqrt(3));
+  function sig(z){return 1/(1+Math.exp(-z));}
+  function phi4(x){
+    var s=sig(k*x);
+    return Math.pow(k,3)*s*(1-s)*(1-6*s+6*s*s);
+  }
+  function thetaFromX(x){
+    var t=(x+2.6)/5.2;
+    t=Math.max(0,Math.min(1,t));
+    return 2*Math.PI*t;
+  }
+  function polar(theta,r){
+    return {x:CX+R*r*Math.cos(theta-Math.PI/2), y:CY+R*r*Math.sin(theta-Math.PI/2)};
+  }
+  function pointOnCurve(x){
+    var an=phi4(x);
+    var q=Math.pow(Math.abs(an)/maxAbs,beta);
+    var r=rMin+(rMax-rMin)*(q/(1+q));
+    return {theta:thetaFromX(x), r:r, an:an};
+  }
+  function drawArrow(x1,y1,x2,y2,color){
+    var head=8, ang=Math.atan2(y2-y1,x2-x1);
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2);
+    ctx.strokeStyle=color; ctx.lineWidth=1.2; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(x2,y2);
+    ctx.lineTo(x2-head*Math.cos(ang-Math.PI/6), y2-head*Math.sin(ang-Math.PI/6));
+    ctx.lineTo(x2-head*Math.cos(ang+Math.PI/6), y2-head*Math.sin(ang+Math.PI/6));
+    ctx.closePath(); ctx.fillStyle=color; ctx.fill();
+  }
+  function drawNumberMarker(num,x,offsetX,offsetY,fill,stroke){
+    var c=pointOnCurve(x), p=polar(c.theta,c.r);
+    var mx=p.x+offsetX, my=p.y+offsetY;
+    ctx.beginPath(); ctx.arc(mx,my,13,0,2*Math.PI);
+    ctx.fillStyle=fill; ctx.fill(); ctx.strokeStyle=stroke; ctx.lineWidth=1.4; ctx.stroke();
+    ctx.fillStyle='#0e0c08'; ctx.font='bold 14px Cinzel, serif'; ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.fillText(String(num),mx,my+0.5);
+    drawArrow(mx,my,p.x,p.y,stroke);
+    ctx.textBaseline='alphabetic';
+    return {x:mx,y:my};
+  }
+  var samples=[], maxAbs=0;
+  for(var i=0;i<=520;i++){
+    var x=-2.6+5.2*i/520;
+    var an=phi4(x);
+    maxAbs=Math.max(maxAbs,Math.abs(an));
+    samples.push({x:x,an:an,theta:thetaFromX(x)});
+  }
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#0e0c08';ctx.fillRect(0,0,W,H);
+  [0.2,0.4,0.6,0.8,1.0].forEach(function(rr){
+    ctx.beginPath();ctx.arc(CX,CY,R*rr,0,2*Math.PI);
+    ctx.strokeStyle='rgba(201,168,76,0.12)';ctx.lineWidth=0.7;ctx.stroke();
+  });
+  for(var d=0;d<360;d+=30){
+    var a=(d-90)*Math.PI/180;
+    ctx.beginPath();ctx.moveTo(CX,CY);ctx.lineTo(CX+R*Math.cos(a),CY+R*Math.sin(a));
+    ctx.strokeStyle='rgba(201,168,76,0.08)';ctx.lineWidth=0.5;ctx.stroke();
+  }
+  function rayForX(x,label,style){
+    var th=thetaFromX(x), p=polar(th,1.04);
+    ctx.beginPath();ctx.moveTo(CX,CY);ctx.lineTo(p.x,p.y);
+    ctx.strokeStyle=style.color;ctx.lineWidth=style.width||1;ctx.setLineDash(style.dash||[]);ctx.stroke();ctx.setLineDash([]);
+    ctx.fillStyle=style.text||style.color;ctx.font='11px serif';ctx.textAlign='center';
+    var p2=polar(th,1.12);ctx.fillText(label,p2.x,p2.y);
+  }
+  rayForX(xMinus,'x−  Φ⁽⁴⁾=0',{color:'rgba(232,201,122,0.42)',dash:[4,4],width:1});
+  rayForX(0,'Cross  x=0',{color:'rgba(232,201,122,0.78)',dash:[7,4],width:1.5});
+  rayForX(xPlus,'x+  Anastasis',{color:'rgba(232,201,122,0.58)',dash:[4,4],width:1.2});
+  var th1=thetaFromX(xPlus)-Math.PI/2, th2=thetaFromX(2.6)-Math.PI/2;
+  ctx.beginPath();ctx.moveTo(CX,CY);ctx.arc(CX,CY,R*0.99,th1,th2);ctx.closePath();
+  ctx.fillStyle='rgba(201,168,76,0.045)';ctx.fill();
+  var first=true;
+  ctx.beginPath();
+  samples.forEach(function(s){
+    var q=Math.pow(Math.abs(s.an)/maxAbs,beta);
+    var r=rMin+(rMax-rMin)*(q/(1+q));
+    var p=polar(s.theta,r);
+    if(first){ctx.moveTo(p.x,p.y);first=false;}else ctx.lineTo(p.x,p.y);
+  });
+  ctx.strokeStyle='rgba(232,201,122,0.90)';ctx.lineWidth=2.4;ctx.stroke();
+  samples.forEach(function(s,idx){
+    if(idx%18!==0) return;
+    var q=Math.pow(Math.abs(s.an)/maxAbs,beta);
+    var r=rMin+(rMax-rMin)*(q/(1+q));
+    var p=polar(s.theta,r);
+    ctx.beginPath();ctx.arc(p.x,p.y,3.2,0,2*Math.PI);
+    ctx.fillStyle=s.an>=0?'#e8c97a':'#8b1a1a';ctx.fill();
+  });
+  var pa=polar(thetaFromX(xPlus),0.42);
+  ctx.beginPath();
+  for(var m=0;m<10;m++){
+    var rr=m%2===0?13:5, aa=-Math.PI/2+m*Math.PI/5;
+    if(m===0)ctx.moveTo(pa.x+rr*Math.cos(aa),pa.y+rr*Math.sin(aa));
+    else ctx.lineTo(pa.x+rr*Math.cos(aa),pa.y+rr*Math.sin(aa));
+  }
+  ctx.closePath();ctx.fillStyle='#e8c97a';ctx.fill();ctx.strokeStyle='#0e0c08';ctx.lineWidth=1.3;ctx.stroke();
+  ctx.fillStyle='#c9a84c';ctx.font='bold 14px serif';ctx.textAlign='center';ctx.fillText('ANASTASIS POLAR MAP',CX,36);
+  ctx.fillStyle='rgba(232,201,122,0.72)';ctx.font='12px serif';ctx.fillText('radius = bounded intensity of An = d⁴P/dt⁴',CX,56);
+  ctx.fillStyle='rgba(201,168,76,0.68)';ctx.font='11px serif';ctx.fillText('0° is strictly at the top',CX,74);
+  ctx.fillStyle='rgba(201,168,76,0.62)';ctx.font='11px serif';ctx.fillText('Anastasis sector: outward stabilisation after x+',CX,H-56);
+
+  var m1=drawNumberMarker(1,-1.75,-58,-18,'#d7bf7a','#c9a84c');
+  var m2=drawNumberMarker(2,0,42,-28,'#e8c97a','#c9a84c');
+  var m3=drawNumberMarker(3,1.55,56,16,'#f2d88f','#c9a84c');
+
+  var lx=36, ly=H-112;
+  ctx.textAlign='left';ctx.font='11px serif';
+  ctx.beginPath();ctx.arc(lx,ly,4,0,2*Math.PI);ctx.fillStyle='#e8c97a';ctx.fill();ctx.fillStyle='#a08c5c';ctx.fillText('positive chirality  χAn > 0',lx+14,ly+4);
+  ctx.beginPath();ctx.arc(lx,ly+20,4,0,2*Math.PI);ctx.fillStyle='#8b1a1a';ctx.fill();ctx.fillStyle='#a08c5c';ctx.fillText('negative chirality  χAn < 0',lx+14,ly+24);
+  ctx.fillStyle='#a08c5c';ctx.fillText('1 = entry   2 = transition   3 = Anastasis / exit',lx,ly+46);
+})();
 </script>
 </div>
 
