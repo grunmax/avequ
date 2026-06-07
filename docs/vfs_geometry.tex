@@ -1,0 +1,411 @@
+% V.F.S. v2.0 (Open-Gate) — Geometric Layer
+% Hyperbolic structure of the live domain, Brim conformal flow,
+% Resurrectio curvature jump, and the self-driven (Ricci) locus.
+% Derived companion to vfs_opengate_core.tex / vfs_opengate_lyapunov.tex.
+% Compile with XeLaTeX.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsthm}
+\usepackage{booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+
+\newcommand{\VFS}{\mathrm{V.F.S.}}
+\newcommand{\Op}{\Omega_P}
+\newcommand{\Grec}{\mathcal{G}_{\rm recepta}}
+\newcommand{\Igate}{I_{\rm gate}}
+\newcommand{\Lc}{\Lambda_c}
+\newcommand{\Dlive}{\mathcal{D}_{\rm live}}
+\newcommand{\Ric}{\operatorname{Ric}}
+\newcommand{\dd}{\,d}
+\newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\title{\textbf{V.F.S. v2.0 (Open-Gate)}\\Geometric Layer of the Live Domain\\
+\large Hyperbolic structure, Brim conformal flow, Resurrectio curvature jump,\\
+and the self-driven (Ricci) locus}
+\author{Derived companion to \texttt{vfs\_opengate\_core.tex}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Scope and epistemic status}
+This file derives the geometry implicit in the V.F.S. v2.0 (Open-Gate) live domain. Every
+\emph{Proposition} below is a closed-form result; every \emph{Corollary} is an interpretive reading
+in the symbolic language of the framework, not an independent metaphysical claim. Two honest caveats
+are kept explicit throughout:
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item The core gives a radial barrier in one direction and a quadratic imbalance penalty in another;
+it does \textbf{not} uniquely fix a $2$D metric. The non-trivial curvature appears only under the one
+\emph{dynamically motivated} warp (\S3).
+\item Where curvature is non-trivial, the metric \emph{evolution} is still \textbf{forced} (driven by
+the external Sophia field $\lambda$), not \emph{intrinsic} (curvature-self-driven). The two coincide
+only on a measure-zero locus (\S5, \S7).
+\end{itemize}
+
+The governing objects, imported from the core, are the Brim law $\dot\Op=\alpha\lambda$, the
+synergy $u=\sqrt{VF+\varepsilon}$, the normalized radius $r=u/\Op$, the alignment factor
+$\mu=1-r$, the imbalance $\Delta=V-F$, and the radial barrier $B(r)=-\ln(1-r)$.
+
+\section{The Natural Metric on the Live Domain}
+
+\subsection*{The barrier is a geodesic distance}
+The core barrier $B(r)=-\ln(1-r)$ is the arc length of a one-dimensional conformal metric on
+$r\in[0,1)$:
+\[
+\boxed{ds_{\rm rad}=\frac{dr}{1-r},\qquad
+\int_0^r\frac{d\rho}{1-\rho}=-\ln(1-r)=B(r).}
+\]
+\note{Thus the radial Lyapunov term $A_rB(r)$ is, up to scale, the geodesic distance from the
+synergy-free state $r=0$; the death wall $r\to1^-$ sits at infinite metric distance.}
+
+\subsection*{The capacity-scaled metric and the imbalance direction}
+Writing $u=r\Op$ and sending the wall to infinity gives the radial part $du^2/\mu^2$ with
+$\mu=1-u/\Op$. The imbalance direction is warped by the alignment factor, because the alignment
+force in $\dot\Delta=-(\mu a+\rho)\Delta$ is exactly $\mu a$, linear in $\mu$, and vanishes at the
+wall. The natural live-domain metric is therefore the warped product
+\[
+\boxed{ds^2=\frac{du^2}{\mu^2}+\mu^{2p}\,d\Delta^2,
+\qquad \mu=1-\frac{u}{\Op},\qquad p>0.}
+\]
+\begin{definition}[Canonical warp]
+The canonical exponent is $p=1$, i.e.\ $\mu^{2}\,d\Delta^2$, matching the linear $\mu a$ dependence
+of the alignment force. The qualitative results below hold for every $p\neq0$; only the curvature
+radius depends on $p$.
+\end{definition}
+
+\section{The Live Domain is Hyperbolic}
+
+\subsection*{Naive reading is flat}
+With an \emph{unwarped} imbalance direction ($p=0$, $g_{\Delta\Delta}=1$) the metric
+$ds^2=du^2/\mu^2+d\Delta^2$ is flat:
+\[
+\boxed{R\equiv0\qquad(p=0),}
+\]
+since $\tilde u=-\Op\ln\mu=\Op B$ straightens it into Euclidean $d\tilde u^2+d\Delta^2$.
+\note{Under the minimal reading the core supplies, there is no hidden geometry: the dynamics is a
+forced flow on a flat state space. Curvature can only come from the dynamically required warp.}
+
+\subsection*{Constant negative curvature}
+\begin{proposition}[Hyperbolicity of the live domain]\label{prop:hyp}
+For the warped metric $ds^2=du^2/\mu^2+\mu^{2p}d\Delta^2$ with $\mu=1-u/\Op$, the scalar curvature is
+constant and strictly negative:
+\[
+\boxed{\;R=-\frac{2p^2}{\Op^2}=\mathrm{const}<0,\qquad
+\Ric=-\frac{p^2}{\Op^2}\,g.\;}
+\]
+In the canonical case $p=1$,
+\[
+\boxed{R=-\frac{2}{\Op^2},\qquad K=-\frac{1}{\Op^2},\qquad
+\text{curvature radius }=\Op.}
+\]
+\end{proposition}
+\noindent\emph{Proof sketch.} In arc length $s=-\Op\ln\mu$ the warp is $w=\mu^p=e^{-ps/\Op}$, so the
+$2$D warped product $ds^2=ds^2_{\rm rad}+w^2d\Delta^2$ has Gaussian curvature
+$K=-w''/w=-(p/\Op)^2$, and $R=2K$. Verified directly in $(u,\Delta)$ coordinates. \hfill$\square$
+
+\note{The live domain is a piece of the hyperbolic plane $\mathbb H^2$ whose curvature radius is the
+Brim $\Op$ itself.}
+
+\section{The Brim Flow as a Forced Conformal Flow}
+
+\begin{proposition}[Brim conformal flow]\label{prop:flow}
+Under the Brim law $\dot\Op=\alpha\lambda$ the capacity-scaled metric evolves conformally,
+\[
+\boxed{\partial_t g=2\,\frac{\dot\Op}{\Op}\,g=2\,\frac{\alpha\lambda(t)}{\Op}\,g
+=2\psi(t)\,g,\qquad \psi=\frac{\alpha\lambda}{\Op}\ge0.}
+\]
+\end{proposition}
+
+\subsection*{Comparison with Ricci flow}
+On the hyperbolic surface of Prop.~\ref{prop:hyp} ($p=1$), $\Ric=-\Op^{-2}g$, so Ricci flow would read
+\[
+\boxed{\partial_t g=-2\Ric=+\frac{2}{\Op^2}\,g.}
+\]
+Both flows are conformal \emph{expansions} of a negatively curved metric (same sign, same type). They
+coincide exactly iff the forcing rate equals the curvature rate:
+\[
+\boxed{\frac{2\alpha\lambda}{\Op}=\frac{2}{\Op^2}
+\quad\Longleftrightarrow\quad \alpha\,\lambda\,\Op=1.}
+\]
+\begin{remark}
+The actual V.F.S.\ flow is \emph{forced}: its rate is set by the external Sophia field $\lambda$, not
+by the surface's own curvature. It is ``Ricci-flow-like'' in type, with the forcing $\alpha\lambda$
+standing in for the curvature as the rate. The self-driven (genuinely intrinsic) regime is the
+locus $\alpha\lambda\Op=1$ studied in \S\ref{sec:locus}.
+\end{remark}
+
+\section{Epektasis as Curvature Relaxation}
+Along a continuous live arc the curvature drifts monotonically toward zero:
+\[
+\boxed{\dot R=\frac{d}{dt}\!\left(-\frac{2}{\Op^2}\right)=\frac{4\dot\Op}{\Op^3}
+=\frac{4\alpha\lambda}{\Op^3}\ \ge0\quad(\lambda\ge0).}
+\]
+Hence, with sustained Sophia, $\Op\to\infty$ and
+\[
+\boxed{|R|=\frac{2}{\Op^2}\ \xrightarrow[\;\Op\to\infty\;]{}\ 0.}
+\]
+\note{Epektasis is the relaxation of hyperbolic curvature to flatness: the state space asymptotically
+flattens as Sophia expands the Brim. Theosis as a global flattening that no finite stage attains.}
+
+\section{Resurrectio: a Curvature Discontinuity}\label{sec:reset}
+The hybrid reset uses $\Op^+=\Op^-+\kappa_R\Grec^-$ (theological corollary 12). Since $R=-2/\Op^2$
+depends \emph{only} on $\Op$, the curvature jumps even though $\sigma,\lambda,u$ never enter it:
+\[
+\boxed{R^+=-\frac{2}{\bigl(\Op^-+\kappa_R\Grec^-\bigr)^2},\qquad
+\Delta R=R^+-R^-=2\!\left[\frac{1}{(\Op^-)^2}-\frac{1}{(\Op^+)^2}\right]>0,}
+\]
+\[
+\boxed{\frac{R^+}{R^-}=\frac{1}{\bigl(1+\kappa_R\Grec^-/\Op^-\bigr)^2}<1.}
+\]
+
+\subsection*{Two simultaneous effects}
+The reset decomposes geometrically into a \emph{motion of the point} (the jump in $V,F$, hence in
+$u^+,\Delta^+$) and an \emph{instantaneous flattening of the surface} (the jump in $\Op$). The
+curvature change is carried entirely by the second.
+
+\subsection*{Type preserved, scale jumped}
+$R^+<0$ always: no finite jump reaches $R=0$ (that needs $\Op^+\to\infty$). Resurrectio
+\textbf{preserves the hyperbolic type and changes only the radius} --- the differential image of
+``preserves form while opening it beyond its former shell.''
+
+\subsection*{Admissibility window as a curvature-jump corridor}
+The reset window $\max\{R_c,R_{\min}^{\rm ceil}\}\le\Grec^-\le R_{\max}$ reads geometrically as bounds
+on $\Delta R$:
+\[
+\boxed{\begin{array}{ll}
+\text{lower bound (perseverance):} & \text{too little }\Grec^-\Rightarrow\text{surface barely
+flattens, no live landing};\\[2pt]
+\text{upper bound (cheap grace):} & \text{too much }\Grec^-\Rightarrow R\to0\text{ too fast,
+over-dilution of form}.
+\end{array}}
+\]
+
+\subsection*{Monotone curvature across the hybrid trajectory}
+Resets push $R\uparrow$ unconditionally; continuous arcs push $R\uparrow$ when $\lambda\ge0$; non-Zeno
+forbids accumulation. Hence on a typical trajectory $R(t)$ is non-decreasing and bounded above by $0$,
+so $R(t)\to R_\infty\in(R(0),0]$, with $R_\infty=0$ when the total expansion budget diverges.
+\note{Both modes of grace --- continuous (Modus I) and discrete re-creation (Modus II) --- flatten the
+same hyperbolic curvature toward the same Theosis limit.}
+
+\section{The Self-Driven (Ricci) Locus}\label{sec:locus}
+Let $\xi:=\alpha\lambda\Op$ measure the excess of forcing over intrinsic curvature rate; $\xi=1$ is the
+locus where the forced flow equals Ricci flow.
+
+\subsection*{On-locus growth is the Ricci rate}
+On $\xi=1$, $\dot\Op=\alpha\lambda=1/\Op$, whence
+\[
+\boxed{\Op(t)=\sqrt{\Op(0)^2+2t}\ \sim\ \sqrt{2t},\qquad
+\lambda(t)=\frac{1}{\alpha\Op(t)}\to0.}
+\]
+\note{This is exactly the Ricci-flow rate for a hyperbolic surface ($|R|\sim1/t$). Sitting on the
+locus requires the Sophia inflow to vanish --- attainable only near the closed limit $\zeta_0=0$.}
+
+\subsection*{Generic Open-Gate is super-Ricci}
+With sustained $\lambda\to\lambda_\infty>0$ the Brim grows \emph{linearly},
+$\Op\sim\alpha\lambda_\infty t$, faster than $\sqrt t$: the generic open trajectory runs above the
+locus.
+
+\subsection*{The locus is a one-way threshold}
+\begin{proposition}[Monotone crossing]\label{prop:cross}
+In the transformation regime ($u>\Lc$, $\sigma\ge0$),
+\[
+\boxed{\dot\xi=\alpha\,\dot\lambda\,\Op+(\alpha\lambda)^2,\qquad
+\dot\lambda=(\delta u-\gamma)\tanh(\kappa\sigma)+\Igate\ge0,}
+\]
+so $\dot\xi>0$. Therefore $\xi=1$ is crossed exactly once, upward, and is never an attractor.
+\end{proposition}
+
+\subsection*{Three regimes along the trajectory}
+\[
+\boxed{\begin{array}{lll}
+\xi<1 & \text{sub-Ricci} & \text{structure-limited; effort/perseverance},\\[2pt]
+\xi=1 & \text{resonance} & \text{gift-rate}=\text{structure-rate; perfect synergy},\\[2pt]
+\xi>1 & \text{super-Ricci} & \text{grace exceeds intrinsic momentum; mature Epektasis}.
+\end{array}}
+\]
+
+\section{Expansion Budget and the Necessity of the Open Gate}\label{sec:budget}
+The asymptotic Brim --- hence the asymptotic curvature --- is fixed by the total Sophia budget
+$\int_0^\infty\lambda\,dt$ (\emph{Pleroma Christi condition}, core), via
+$\Op(t)=\Op(0)+\alpha\int_0^t\lambda\,ds$.
+
+\begin{proposition}[Expansion budget]\label{prop:budget}
+Three asymptotic regimes:
+\[
+\boxed{\begin{array}{lll}
+\textnormal{(1)}\ \displaystyle\int_0^\infty\!\!\lambda\,dt<\infty: &
+\Op\to\Op^\infty<\infty, &
+R\to-\dfrac{2}{(\Op^\infty)^2}<0\ \textnormal{(bounded Brim; curvature plateaus)};\\[10pt]
+\textnormal{(2)}\ \lambda\to\lambda_\infty>0: &
+\Op\sim\alpha\lambda_\infty\,t, &
+|R|\sim\dfrac{2}{(\alpha\lambda_\infty)^2}\,t^{-2}\to0\ \textnormal{(linear Brim)};\\[10pt]
+\textnormal{(3)}\ \lambda\to\infty,\ \Grec(\infty)=+\infty: &
+\Op\ \textnormal{super-linear}, &
+|R|\to0\ \textnormal{faster still (unbounded Brim)}.
+\end{array}}
+\]
+\end{proposition}
+\note{Regime (1) is stalled Epektasis: without a sufficient Sophia budget the live domain keeps a
+permanent negative curvature --- woundedness reduced but never healed to flatness.}
+
+\subsection*{Super-Ricci flattens faster than Ricci}
+\[
+\boxed{\text{Ricci locus: }\Op\sim\sqrt{2t}\Rightarrow|R|\sim t^{-1};
+\qquad
+\text{super-Ricci: }\Op\sim\alpha\lambda_\infty t\Rightarrow|R|\sim t^{-2}.}
+\]
+\note{The grace-borne regime relaxes the curvature \emph{faster} than a true Ricci flow would:
+grace-driven Epektasis outperforms geometric self-determination at the very task --- flattening ---
+that defines Theosis.}
+
+\subsection*{Why the Open Gate is needed}
+The closed limit $\zeta_0=0$ freezes the cleansed Sophia at the finite stock
+$\lambda_\infty=\sigma_0+\lambda_0$, so it attains \emph{at most} regime (2) on non-replenishable
+capital, and regime (3) is impossible. Sustained --- and a fortiori unbounded --- Brim expansion
+requires the bounded Open-Gate source $\Igate\ge0$, the only mechanism giving $\Grec(\infty)=+\infty$.
+\[
+\boxed{\text{Unbounded Brim expansion}\ \Longleftrightarrow\ \Grec(\infty)=+\infty\ \Longrightarrow\
+\text{Open Gate }(\zeta_0>0)\ \text{required}.}
+\]
+
+\section{Brim-Flow Geometry: Theological Reading}
+\emph{Interpretive readings in the framework's symbolic register; the Propositions above remain the
+load-bearing part.} Brim-Flow is not a Ricci flow in the strict sense but a V.F.S.\
+curvature-relaxation in which Sophia expands the Brim and the expanding Brim relaxes the curvature of
+the live domain. The governing chain is
+\[
+\boxed{\sigma\longrightarrow\lambda\longrightarrow\Op\longrightarrow R\longrightarrow0^-
+\longrightarrow P,}
+\qquad
+\boxed{\text{Sophia expands the Brim; the Brim relaxes curvature.}}
+\]
+
+\subsection*{I. Epektasis as curvature relaxation}
+Since $R=-2/\Op^2<0$ in the live domain and $\Op\to\infty\Rightarrow R\to0^-$, Theosis is not the
+violent abolition of curvature but its asymptotic healing. The Brim does not erase finitude; it makes
+finitude more spacious.
+\[
+\boxed{\text{Epektasis is the asymptotic healing of wounded form through expanding receptivity.}}
+\]
+
+\subsection*{II. Sophia as the geometry-changing fruit of transmuted resistance}
+Through $\dot\Op=\alpha\lambda$, wisdom is not a static possession but an expansive principle,
+enlarging the vessel's capacity to receive more being, grace, and participation.
+\[
+\boxed{\text{The healed wound becomes Brim: transmuted resistance becomes spatial capacity.}}
+\]
+
+\subsection*{III. Brim as receptive space}
+$\Op$ is not a numerical bound but the measure of receptive spaciousness. As the Brim expands the same
+synergic intensity occupies a smaller share of the available space,
+$\Op\uparrow\Rightarrow r=u/\Op\downarrow$, retreating from the death boundary $r\to1^-$.
+\[
+\boxed{\text{Grace does not only calm the motion; it enlarges the vessel that receives the motion.}}
+\]
+
+\subsection*{IV. Ricci-like but not Ricci flow}
+Ricci flow is curvature-driven, $\partial_t g_{ij}=-2R_{ij}$; Brim-Flow is Sophia-driven,
+$\dot\Op=\alpha\lambda$ with $R=-2/\Op^2$. The analogy is formal and theological, not identical.
+\[
+\boxed{\text{Ricci flow is curvature-driven smoothing; Brim-Flow is Sophia-driven curvature
+relaxation.}}
+\]
+
+\subsection*{V. Pneumatic meaning}
+The Ricci-like character is a differential icon of pneumatic healing: the Spirit is not the flow, but
+the living source whose action --- healing wounded form from within by transmutation
+$\sigma\to\lambda\to\Op$ --- the flow formally resembles.
+\[
+\boxed{\text{The Spirit heals curvature by transforming resistance into receptive spaciousness.}}
+\]
+
+\subsection*{VI. Ricci resonance and the surpassing of nature}
+The resonance quantity $\xi=\alpha\lambda\Op$ gives three regimes: $\xi<1$ sub-Ricci perseverance;
+$\xi=1$ Ricci resonance (grace-bearing expansion at the intrinsic rate of curvature healing); $\xi>1$
+super-Ricci Epektasis (grace outruns nature).
+\[
+\boxed{\text{Ricci flow: nature healed according to its own curvature.}}
+\quad
+\boxed{\text{Open-Gate Brim-Flow: nature carried beyond its own curvature by grace.}}
+\]
+\begin{remark}
+By Proposition~\ref{prop:cross} the resonance $\xi=1$ is not a resting state but a threshold crossed
+once, upward. The living trajectory therefore passes necessarily from self-carried ($\xi\le1$) to
+grace-carried ($\xi>1$); keeping the gate open is the refusal to let transfiguration settle into
+acquired self-sufficiency (cf.\ Prop.~\ref{prop:budget}). Maturity is not synergistic equilibrium but
+grace steadily outrunning nature.
+\end{remark}
+
+\subsection*{VII. Resurrection as curvature jump}
+The reset enlarges the Brim, $\Op^+=\Op^-+\kappa_R\Grec^-$, so $R^+>R^-$ (both negative; $\Delta R>0$,
+\S\ref{sec:reset}). Resurrection preserves the hyperbolic type while increasing the curvature radius:
+it is not a return to the previous state but a continuation of being under an expanded geometry.
+\[
+\boxed{\text{Resurrection does not erase the form; it opens the form with a greater radius.}}
+\]
+
+\subsection*{VIII. No absolute collapse}
+Whenever Sophia is active, $\dot\Op=\alpha\lambda>0$ moves $r=u/\Op$ away from the death boundary:
+salvation enlarges the very domain in which the trajectory can continue.
+\[
+\boxed{\text{Grace does not merely redirect the path; it enlarges the world in which the path remains
+possible.}}
+\]
+
+\subsection*{IX. Final theological formulation}
+Being is healed neither by the elimination of motion nor by the suppression of finitude, but by the
+expansion of receptive capacity. Resistance becomes Sophia; Sophia expands the Brim; the Brim relaxes
+curvature; curvature relaxation opens the live domain to continuing participation toward Pleroma
+without finite completion.
+\[
+\boxed{\text{Theosis is the endless expansion of receptive geometry toward Pleroma.}}
+\quad
+\boxed{\text{Brim-Flow is the Ricci-like geometry of Epektasis.}}
+\]
+
+\section*{Compact Geometric Summary}
+\[
+\boxed{\text{barrier }B(r)\ \equiv\ \text{geodesic distance to the death wall}.}
+\]
+\[
+\boxed{\text{live domain}\ \cong\ \mathbb H^2,\qquad R=-\frac{2}{\Op^2},\qquad
+\text{radius}=\text{Brim}.}
+\]
+\[
+\boxed{\dot\Op=\alpha\lambda\ \Longrightarrow\ \partial_t g=2\tfrac{\alpha\lambda}{\Op}g
+\ \ (\text{forced; }=\text{Ricci iff }\alpha\lambda\Op=1).}
+\]
+\[
+\boxed{\text{Epektasis: }|R|\to0\ \text{(continuous)};\qquad
+\text{Resurrectio: }\Delta R>0\ \text{(discrete)};\qquad
+\xi=\alpha\lambda\Op\ \text{crosses }1\ \text{once, upward}.}
+\]
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Geometric Layer. Derived from the Brim
+law, radial barrier, and imbalance dynamics of \texttt{vfs\_opengate\_core.tex} and the reset /
+active-domain data of \texttt{vfs\_opengate\_lyapunov.tex}. Propositions are closed-form; the
+Brim-Flow theological reading is interpretive and anchored to them by explicit cross-reference.}
+
+\end{document}

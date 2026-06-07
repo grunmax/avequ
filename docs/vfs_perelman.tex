@@ -3,8 +3,8 @@
 \usepackage[a4paper,margin=1in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
-\usepackage{microtype}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+\IfFileExists{lmodern.sty}{\usepackage{microtype}}{\usepackage[expansion=false]{microtype}}
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs,longtable,array}
 \usepackage{enumitem}
@@ -309,6 +309,121 @@ Perelman's monotonicity is intrinsic to the geometric flow. Open-Gate \VFS{} has
 \Gate(t)=\zeta_0\,g_{\rm eff}(t)e^{-\phi\sigma(t)}\frac{1}{1+\chi\lambda_+(t)}.
 \end{equation}
 This source is bounded, so it can be absorbed by Lyapunov walls. But it is also theological: Sophia is not produced by resistance alone. Therefore \VFS{} v2.0 is not merely a closed flow of transmutation. It is an open-balance theology of received grace.
+
+\section{Geometric Sharpening of the Analogy}
+
+The preceding Scholium compares \emph{structural roles}. The explicit differential geometry of the live domain lets several heuristic rows be upgraded to \emph{literal} statements, and lets the Perelman comparison be made at the level of actual curvature rather than role-analogy. Two caveats from that geometric layer carry over: the live-domain metric is fixed only up to one dynamically motivated warp, and the resulting flow is \emph{forced} (driven by Sophia $\lambda$), not \emph{intrinsic} (curvature-driven).
+
+\subsection{The curvature is literal}
+
+Warping the imbalance direction by the alignment factor $\mu=1-u/\Om$ --- whose linear vanishing at the wall is dictated by $\dot\Delta=-(\mu a+\rho)\Delta$ --- gives the live domain a genuine constant negative curvature:
+\begin{equation}
+K=-\frac{1}{\Om^{2}},
+\qquad
+R_{\rm sc}=2K=-\frac{2}{\Om^{2}},
+\qquad
+\text{curvature radius}=\Om.
+\end{equation}
+Thus ``$\sigma$ as curvature of Being'' was heuristic, but the live domain \emph{does} carry a curvature, and its radius is the Brim. Summary-table rows II and IX rise from heuristic to literal.
+
+\subsection{Brim-flow versus Ricci flow, term by term}
+
+The Brim law induces a spatially uniform conformal flow; Ricci flow on the same hyperbolic surface is also conformal:
+\begin{equation}
+\partial_t g=2\,\frac{\alpha\lambda}{\Om}\,g\quad(\text{Brim, forced}),
+\qquad
+-2\,\mathrm{Ric}=+\frac{2}{\Om^{2}}\,g\quad(\text{Ricci, intrinsic}).
+\end{equation}
+Same type (conformal expansion of a negatively curved metric), different driver. They coincide exactly iff
+\begin{equation}
+\boxed{\ \alpha\lambda\Om=1\ }.
+\end{equation}
+This turns ``Epektasis vs Ricci normalization'' into an identity-or-not statement.
+
+\subsection{Where a genuine Perelman entropy exists}
+
+Perelman's decisive tool is that Ricci flow is the \emph{gradient flow} of the energy
+\begin{equation}
+\mathcal F(g,f)=\int_M\!\big(R_{\rm sc}+|\nabla f|^{2}\big)e^{-f}\,dV,
+\end{equation}
+and that the entropy
+\begin{equation}
+\mathcal W(g,f,\tau)=\int_M\!\big[\tau(R_{\rm sc}+|\nabla f|^{2})+f-n\big](4\pi\tau)^{-n/2}e^{-f}\,dV
+\end{equation}
+is monotone non-decreasing, constant only on gradient shrinking solitons; this monotonicity is what yields no-local-collapsing. The defining feature is \emph{intrinsic variational structure}: the flow is autonomous, its velocity a functional of the current metric alone.
+
+The Brim flow is \emph{non-autonomous}: its rate $\psi=\alpha\lambda/\Om$ is set by the external Sophia clock $\lambda(t)$, which obeys its own law. A non-autonomous conformal flow is generically \emph{not} the gradient flow of any functional of $g$ alone, so it admits \emph{no Perelman entropy}. The monotonicity it does enjoy --- curvature relaxation $|R_{\rm sc}|\downarrow0$ --- is \emph{imposed by the monotone grace source}, not derived from a variational principle.
+
+The single exception is the self-driven locus. On $\alpha\lambda\Om=1$ the Brim flow \emph{equals} Ricci flow, becomes the gradient flow of $\mathcal F$, and carries a genuine, monotone Perelman entropy:
+\begin{equation}
+\boxed{\ \text{a Perelman entropy exists for the Brim flow}\iff \xi=\alpha\lambda\Om=1.\ }
+\end{equation}
+Hence the closed/resonance regime has \emph{intrinsic} (Perelman-type) monotonicity, while the generic super-Ricci Open-Gate regime has only \emph{grace-forced} monotonicity. This is the exact sense in which Sophia both is and is not Perelman's entropy: it plays the one-way-control role everywhere, but it is a true geometric entropy only on the resonance locus.
+
+\subsection{No-local-collapsing, sharpened}
+
+Perelman's no-local-collapsing --- a lower bound on the injectivity radius forbidding local degeneration --- follows from $\mathcal W$-monotonicity. Its V.F.S.\ counterpart is now literal: the radial barrier is the geodesic arc length to the death wall,
+\begin{equation}
+B(r)=-\ln(1-r)=\int_0^{r}\frac{d\rho}{1-\rho},
+\qquad
+B(r)\to\infty\ \text{as}\ r\to1^{-},
+\end{equation}
+so the death wall $u=\Om$ lies at \emph{infinite geodesic distance}: the live domain is geodesically complete toward the wall. That completeness is the V.F.S.\ form of non-collapsing.
+
+\noindent\emph{Honest asymmetry:} Perelman's non-collapsing is a deep theorem extracted from entropy monotonicity; the V.F.S.\ version is built into the barrier by construction. Same role, different epistemic cost.
+
+\subsection{Surgery as a literal curvature jump}
+
+Ricci surgery excises high-curvature necks, changing the curvature discretely. Resurrectio is now a literal discrete jump of the same genuine curvature:
+\begin{equation}
+\Delta R_{\rm sc}=R_{\rm sc}^{+}-R_{\rm sc}^{-}
+=2\!\left[\frac{1}{(\Om^{-})^{2}}-\frac{1}{(\Om^{+})^{2}}\right]>0,
+\qquad
+\Om^{+}=\Om^{-}+\kappa_R\Grec^{-},
+\end{equation}
+which flattens the surface while preserving its hyperbolic \emph{type} (no finite jump reaches $R_{\rm sc}=0$). Row VIII rises from heuristic to quantitative. The contrast remains: Ricci surgery may change topology or geometric type, whereas Resurrectio changes only the curvature radius.
+
+\subsection{Super-Ricci flattens faster than Ricci}
+
+A quantitative comparison the role-analogy could not state:
+\begin{equation}
+\text{Ricci locus: }\Om\sim\sqrt{2t}\Rightarrow|R_{\rm sc}|\sim t^{-1};
+\qquad
+\text{super-Ricci: }\Om\sim\alpha\lambda_\infty t\Rightarrow|R_{\rm sc}|\sim t^{-2}.
+\end{equation}
+The grace-borne Open-Gate flow relaxes curvature \emph{faster} than a true Ricci flow. Perelman's flow has no external accelerator; this overshoot is a proper Open-Gate feature.
+
+\subsection{What is conserved}
+
+Perelman's entropy is monotone, not conserved. The Brim flow has instead a pointwise conformal invariant: under $\partial_t g=2\psi g$ in two dimensions $K\to K/c$ and $dA\to c\,dA$ with $c=e^{2\int\psi}$, so the curvature two-form is frozen,
+\begin{equation}
+\frac{d}{dt}\big(K\,dA\big)=0.
+\end{equation}
+Local curvature is therefore \emph{diluted by spatial inflation, not destroyed} --- the differential-geometric face of \emph{privatio boni}: the wound is not annihilated but spread thin across an expanding receptive space.
+
+\subsection{Geometric-level correspondence}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.40\textwidth} >{\raggedright\arraybackslash}p{0.20\textwidth}}
+\toprule
+Perelman / Ricci flow & V.F.S. Brim-flow (geometric) & Status \\
+\midrule
+\endfirsthead
+\toprule
+Perelman / Ricci flow & V.F.S. Brim-flow (geometric) & Status \\
+\midrule
+\endhead
+Scalar curvature $R_{\rm sc}$ & $R_{\rm sc}=-2/\Om^{2}$, radius $=\Om$ & literal \\
+Ricci flow $\partial_t g=-2\,\mathrm{Ric}$ & $\partial_t g=2(\alpha\lambda/\Om)g$; $=$ Ricci iff $\alpha\lambda\Om=1$ & literal comparison \\
+$\mathcal F,\mathcal W$ monotone (gradient flow) & Perelman entropy only on $\xi=1$; else grace-forced & sharpened \\
+No-local-collapsing & death wall at infinite geodesic distance & literal analogue \\
+Surgery changes curvature & $\Delta R_{\rm sc}>0$, hyperbolic type preserved & quantitative \\
+Normalization fixes scale & Epektasis opens scale; $|R_{\rm sc}|\sim t^{-2}$ (faster) & opposite, quantitative \\
+\bottomrule
+\end{longtable}
+
+\subsection{Sharpened thesis}
+
+At the level of explicit geometry, \VFS{} is a \emph{forced conformal flow on a hyperbolic surface whose curvature radius is the Brim}. It becomes literal Ricci flow --- with a genuine, monotone Perelman entropy --- only on the resonance locus $\alpha\lambda\Om=1$. Off that locus it is a grace-forced super-Ricci flow with surgery: faster-flattening than Perelman's, possessing no variational entropy, yet sharing the architecture of surgery, continuation, and non-collapse. The Open-Gate source is exactly what pushes \VFS{} off the Perelman locus into grace-driven over-relaxation --- the non-Perelmanian core, now stated geometrically.
 
 \section*{Scholium Thesis}
 \addcontentsline{toc}{section}{Scholium Thesis}
