@@ -65,6 +65,14 @@ The governing objects, imported from the core, are the Brim law $\dot\Op=\alpha\
 synergy $u=\sqrt{VF+\varepsilon}$, the normalized radius $r=u/\Op$, the alignment factor
 $\mu=1-r$, the imbalance $\Delta=V-F$, and the radial barrier $B(r)=-\ln(1-r)$.
 
+\noindent\textbf{Geometry before cosmology.} This file studies the \emph{spatial} live-surface
+$\Sigma_{\Op}$ --- the intrinsic geometry of the slice at a fixed Brim, and its conformal deformation
+under the Brim law, with $\Op$ playing the role of flow-time. It does \textbf{not} define the
+Lorentzian cosmology of the Vessel; that lift, $ds^2_{\rm Vessel}=-dt^2+\Op(t)^2h_{2D}$ with $\Op$ the
+timelike scale factor, is treated in the companion \texttt{vfs\_cosmology.tex}. In short,
+$\text{Geometry}=\Sigma_{\Op}$ (the shape of the slice), $\text{Cosmology}=\Sigma_{\Op(t)}$ (its
+expansion in time); see \S\ref{sec:cosmo-bridge}.
+
 \section{The Natural Metric on the Live Domain}
 
 \subsection*{The barrier is a geodesic distance}
@@ -165,6 +173,9 @@ Hence, with sustained Sophia, $\Op\to\infty$ and
 \]
 \note{Epektasis is the relaxation of hyperbolic curvature to flatness: the state space asymptotically
 flattens as Sophia expands the Brim. Theosis as a global flattening that no finite stage attains.}
+\note{This concerns the \emph{spatial} live-surface only. In the cosmological lift the full spacetime
+curvature also depends on $\ddot\Op$ (equivalently $\dot\lambda$), not on $\Op$ alone --- see
+\S\ref{sec:cosmo-bridge}.}
 
 \section{Resurrectio: a Curvature Discontinuity}\label{sec:reset}
 The hybrid reset uses $\Op^+=\Op^-+\kappa_R\Grec^-$ (theological corollary 12). Since $R=-2/\Op^2$
@@ -286,6 +297,31 @@ requires the bounded Open-Gate source $\Igate\ge0$, the only mechanism giving $\
 \boxed{\text{Unbounded Brim expansion}\ \Longleftrightarrow\ \Grec(\infty)=+\infty\ \Longrightarrow\
 \text{Open Gate }(\zeta_0>0)\ \text{required}.}
 \]
+
+\section{Relation to the Cosmological Layer}\label{sec:cosmo-bridge}
+The spatial geometry above and the Lorentzian lift share the same hyperbolic surface $h_{2D}$ but are
+distinct objects. As a slice of fixed Brim, $\Op$ is a scale parameter; as the cosmology, $\Op(t)$ is
+the timelike scale factor:
+\[
+\boxed{\;ds^2_{\Sigma}=\Op^2\,h_{2D}\quad(\text{spatial}),\qquad
+ds^2_{\rm Vessel}=-dt^2+\Op(t)^2\,h_{2D}\quad(\text{Lorentzian }2{+}1).\;}
+\]
+Their curvatures differ accordingly and do \textbf{not} contradict:
+\[
+\boxed{\;R_{\Sigma}=-\frac{2}{\Op^2}\ \ (\text{slice}),\qquad
+R_{\rm Vessel}=\frac{2\bigl(2\Op\ddot\Op+\dot\Op^2-1\bigr)}{\Op^2}\ \ (\text{spacetime}).\;}
+\]
+The slice curvature depends on $\Op$ alone; the spacetime curvature also carries $\ddot\Op$
+(equivalently $\dot\lambda$), since the Lorentzian object records the \emph{dynamics} of expansion, not
+only its instantaneous scale.
+\begin{remark}
+The static Riemannian cone $d\Op^2+\Op^2h_{2D}$ (with scalar $-4/\Op^2$) is yet a \emph{third} object
+and is \textbf{not} the Vessel spacetime: promoting $\Op$ to a spacelike coordinate misassigns its
+dynamical role. The Brim is the flow-time here and the timelike scale factor there; any
+three-dimensional rendering is a visualization, not a formal model. The cosmological layer ---
+Friedmann content, equation of state, energy conditions, eras --- is developed in
+\texttt{vfs\_cosmology.tex}.
+\end{remark}
 
 \section{Brim-Flow Geometry: Theological Reading}
 \emph{Interpretive readings in the framework's symbolic register; the Propositions above remain the
