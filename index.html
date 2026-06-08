@@ -355,8 +355,15 @@
 
         .shell-icon {
             font-size: 1.4rem;
-            display: block;
+            display: inline-block;
             margin-bottom: 8px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            transform-origin: center;
+        }
+
+        .shell-icon.playing {
+            transform: rotate(90deg);
         }
 
         .latin-phrase {
@@ -517,7 +524,7 @@ different levels of strictness.</p>
        
         <div id="log-output">
             <span class="latin-phrase">Ave, qui in silentio Verbum audis.</span><br>
-            <span class="shell-icon">🐚</span>
+            <span class="shell-icon" id="shell-audio-btn">🐚</span>
             <span class="eternal-truth">Verità Eterna</span>
         </div>
     </div>
@@ -726,6 +733,27 @@ different levels of strictness.</p>
                     resetModal.classList.remove('active');
                 }
             });
+
+            const shellBtn = document.getElementById('shell-audio-btn');
+            const audio = new Audio('docs/echoes.mp3');
+
+            shellBtn.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play()
+                        .then(() => {
+                            shellBtn.classList.add('playing');
+                        })
+                        .catch(error => console.log("Playing error: ", error));
+                } else {
+                    audio.pause();
+                    shellBtn.classList.remove('playing');
+                }
+            });
+
+            audio.addEventListener('ended', () => {
+                shellBtn.classList.remove('playing');
+            })
+
         });
     </script>
 
