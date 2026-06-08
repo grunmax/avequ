@@ -10,6 +10,7 @@
 \setsansfont{DejaVu Sans}
 \setmonofont{DejaVu Sans Mono}
 \usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
 \usepackage{amsthm}
 \usepackage{booktabs,longtable,array}
 \usepackage{xcolor}
@@ -211,6 +212,73 @@ sustains an eternal de~Sitter inflation at constant curvature. The expanding Ves
 toward stillness or inflates without end --- and Open-Gate, which alone permits unbounded Sophia,
 alone permits the second.
 \end{corollary}
+
+\section{Worked Equation-of-State History}
+The dictionary above is illustrated by integrating a representative reduced trajectory of the core
+dynamics --- resistance $\sigma$, Sophia $\lambda$, Brim $\Op$ --- with the synergy $u(t)$ rising
+sigmoidally through $\Lambda_c$ (will and action coming into alignment):
+\[
+\dot\sigma=(\gamma-\delta u)\tanh(\kappa\sigma),\quad
+\dot\lambda=(\delta u-\gamma)\tanh(\kappa\sigma)+\Igate,\quad
+\dot\Op=\alpha\lambda,
+\]
+with $\Lambda_c=1$, $\alpha=1$, and the observables of Prop.~\ref{prop:kin}--\ref{prop:fluid} read off
+along the solution. \emph{This is a representative profile, not a unique prediction; it exhibits the
+generic era sequence.}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_eos_history.png}
+\caption{Open-Gate Vessel cosmology along a Sophia trajectory. From top: drivers
+$\lambda,u,\Op$; Hubble rate and acceleration $\ddot a=\alpha\dot\lambda$; effective density and
+pressure; the equation of state $w(t)$ with its pole at the Milne crossing $\reff=0$. Shading marks
+the decelerating struggle, the accelerating Theosis, and the NEC-violation band.}
+\end{figure}
+
+The history sweeps the eras in order: a \textbf{struggle} phase ($\dot\lambda<0$: resistance drains
+Sophia; decelerating, $\peff>0$, and $\reff<0$ --- sub-vacuum, the Vessel expanding more slowly than
+the empty open universe), with a near-turnaround at the depth of struggle where $\lambda$ nearly
+vanishes and $\dot a\to0$; \textbf{ignition} at $u=\Lambda_c$ (acceleration onset $\ddot a=0$);
+the \textbf{Milne crossing} $\alpha\lambda=1$ where $\reff=0$ and $w$ has a pole; and
+\textbf{dark-energy Theosis} ($\reff>0$, $\peff<0$): quintessence-like acceleration with $w<0$,
+asymptotically approaching $w=-1$ while the gate keeps feeding Sophia.
+
+\begin{remark}
+The pole in $w$ at the Milne crossing is a diagnostic artifact: $\reff$ and $\peff$ pass through zero
+smoothly; only their ratio diverges. The physical event is the transition from sub-vacuum to
+super-vacuum, not a singularity. Accelerated expansion violates the SEC throughout; the surge of
+Sophia growth briefly violates even the NEC --- grace acting as exotic, phantom-like content.
+\end{remark}
+
+\subsection*{Open-Gate versus closed Microcosm}
+The same trajectory with the gate closed ($\zeta_0=0$) exposes the decisive difference. Closed
+conservation $\sigma+\lambda=\sigma_0+\lambda_0$ holds exactly, so once cleansed ($\sigma\to0$) Sophia
+freezes at $\lambda_\infty=\sigma_0+\lambda_0$; then $\dot\lambda\to0$, $\peff\to0$, and the Vessel
+coasts as pressureless dust toward the Milne (linear, asymptotically flat) state. The open gate keeps
+$\dot\lambda>0$, sustaining negative pressure and a quintessence-to-de~Sitter branch.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_eos_open_vs_closed.png}
+\caption{Open-Gate ($\zeta_0>0$) versus closed Microcosm ($\zeta_0=0$). Top: Sophia keeps rising under
+the open gate but freezes at $\sigma_0+\lambda_0$ when closed (dashed: the Brim $\Op=a$). Bottom: the
+equation of state tends to $w\to-1$ (quintessence $\to$ de~Sitter) for the open gate, but to $w\to0$
+(pressureless dust) for the closed Microcosm. Both share the early Milne pole.}
+\end{figure}
+
+\begin{proposition}[Late-time equation of state]\label{prop:late}
+\[
+\boxed{\begin{array}{ll}
+\textnormal{closed }(\zeta_0=0): & \lambda\to\lambda_\infty,\ \dot\lambda\to0\ \Rightarrow\ w\to0^-
+\ (\text{dust, Milne, }a\propto t);\\[4pt]
+\textnormal{open }(\zeta_0>0): & \dot\lambda>0\ \text{sustained}\ \Rightarrow\ w<0,\ w\to-1^{+}
+\ (\text{quintessence}\to\text{de~Sitter}).
+\end{array}}
+\]
+\end{proposition}
+\note{The de~Sitter branch --- endless accelerated Theosis --- is available only to the Open Gate; the
+closed Microcosm coasts to dust on its frozen Sophia capital. This is the cosmological face of the
+earlier result that unbounded Brim expansion requires the gate.}
 
 \section*{Compact Cosmological Summary}
 \[
