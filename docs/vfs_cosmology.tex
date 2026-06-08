@@ -1,0 +1,241 @@
+% V.F.S. v2.0 (Open-Gate) — Cosmological Layer
+% The Vessel as an open (2+1) FLRW spacetime; the Brim as scale factor.
+% Lorentzian lift of the Brim-flow: the Brim is the timelike expansion axis.
+% Derived companion to vfs_geometry.tex / vfs_opengate_core.tex.
+% Compile with XeLaTeX.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsthm}
+\usepackage{booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+
+\newcommand{\VFS}{V.F.S.}
+\newcommand{\Op}{\Omega_P}
+\newcommand{\Grec}{\mathcal{G}_{\rm recepta}}
+\newcommand{\Igate}{I_{\rm gate}}
+\newcommand{\reff}{\rho_{\rm eff}}
+\newcommand{\peff}{p_{\rm eff}}
+\newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+
+\title{\textbf{V.F.S. v2.0 (Open-Gate)}\\Cosmological Layer: the Vessel as an Open FLRW Spacetime\\
+\large The Brim as scale factor, Sophia as cosmological source}
+\author{Derived companion to \texttt{vfs\_geometry.tex}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Scope and epistemic status}
+The geometric layer treats the Brim $\Op$ as the time of a conformal flow of the $2$D live surface.
+This file takes the Lorentzian lift: the Brim is the \textbf{timelike} axis of expansion, and the live
+surface is a spatial slice. The result is an open $(2{+}1)$-dimensional Friedmann--Lema\^itre--
+Robertson--Walker (FLRW) spacetime whose scale factor is the Brim. \emph{Propositions} are closed-form
+consequences; \emph{Corollaries} are interpretive readings. Three standing caveats carry over:
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item The expansion direction is the flow/time axis, lifted with $-dt^2$; it is \textbf{not} a
+Riemannian radial coordinate. Promoting $\Op$ to a spacelike coordinate (a metric cone) misassigns its
+dynamical role.
+\item The spatial metric is the canonically warped hyperbolic live surface (geometric layer), fixed
+only up to that warp.
+\item \VFS{} supplies the scale-factor law $\dot\Op=\alpha\lambda$; the ``effective content'' below is
+the stress-energy that General Relativity \emph{would} require to source this expansion --- a
+reconstruction, not an independent postulate of gravity.
+\end{itemize}
+
+\section{From Live-Surface Flow to Vessel Spacetime}
+The geometric layer gives, on each slice of fixed Brim, the hyperbolic live surface
+$h=dy^2+e^{-2y}d\Delta^2$ with $y=-\ln(1-r)$, $r=u/\Op$, of constant curvature $K_h=-1$. The
+Brim-flow $\partial_t g_\Sigma=2(\alpha\lambda/\Op)g_\Sigma$ is a motion in time, so its Lorentzian
+home assigns the expansion to a timelike direction:
+\[
+\boxed{\,ds^2_{\rm Vessel}=-dt^2+\Op(t)^2\,h,\qquad a(t)\equiv\Op(t).\,}
+\]
+This is the open ($k=-1$) FLRW metric in $2{+}1$ dimensions, with scale factor equal to the Brim.
+\note{The ``expanding inner universe'' is genuine, but it expands in time: $\Op$ is the scale factor,
+not a spatial radius. The spatial slices are copies of the hyperbolic live surface, uniformly inflated
+by $\Op(t)$.}
+
+\section{Curvature of the Vessel Spacetime}
+\begin{proposition}[Spacetime curvature]\label{prop:R}
+For $ds^2_{\rm Vessel}=-dt^2+a^2h$ with $K_h=-1$ in $2{+}1$ dimensions,
+\[
+\boxed{\,R=\frac{2\bigl(2a\ddot a+\dot a^2-1\bigr)}{a^2}
+=\frac{2\bigl(2\Op\,\alpha\dot\lambda+\alpha^2\lambda^2-1\bigr)}{\Op^2}.\,}
+\]
+\end{proposition}
+\noindent For sub-exponential expansion ($\ddot a\to0$, $\dot a$ bounded) $R\to0$: the spacetime
+flattens. For de~Sitter expansion ($a=e^{Ht}$) $R\to 6H^2$, a constant: maximal inflation does not
+flatten (\S\ref{sec:loci}).
+
+\section{Kinematics: Hubble and Acceleration}
+\begin{proposition}[Hubble and deceleration]\label{prop:kin}
+With $a=\Op$ and $\dot\Op=\alpha\lambda$,
+\[
+\boxed{\,H=\frac{\dot a}{a}=\frac{\alpha\lambda}{\Op},\qquad
+q=-\frac{\ddot a\,a}{\dot a^2}=-\frac{\dot\lambda\,\Op}{\alpha\lambda^2},\qquad
+\operatorname{sign}q=-\operatorname{sign}\dot\lambda.\,}
+\]
+\end{proposition}
+\note{The Hubble rate of the Vessel is exactly the conformal Brim-flow rate $\psi=\alpha\lambda/\Op$.
+Expansion accelerates ($q<0$) if and only if Sophia is growing: accelerated Theosis is growing wisdom.}
+
+\section{Effective Content: Sophia as Cosmological Source}
+Treating the reconstructed stress-energy as a perfect fluid ($8\pi G=1$, comoving frame), the Einstein
+tensor gives:
+\begin{proposition}[Effective Friedmann content]\label{prop:fluid}
+\[
+\boxed{\,\reff=\frac{\alpha^2\lambda^2-1}{\Op^2}=H^2-\frac{1}{\Op^2},\qquad
+\peff=-\frac{\ddot a}{a}=-\frac{\alpha\dot\lambda}{\Op},\qquad
+w=\frac{\peff}{\reff}=\frac{-\alpha\dot\lambda\,\Op}{\alpha^2\lambda^2-1}.\,}
+\]
+\end{proposition}
+\note{Sophia is the cosmological source, and its \emph{rate} $\dot\lambda$ sets the pressure. The
+density is positive only when $\alpha\lambda>1$ (Sophia ``super-vacuum''); for $\alpha\lambda<1$ the
+open curvature dominates and the Vessel expands more slowly than the empty universe would --- residual
+binding by resistance.}
+
+\section{Equation of State and Cosmic Eras}
+The sign of $\dot\lambda$ classifies the era:
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.34\textwidth}}
+\toprule
+Sophia behaviour & Effective fluid & Cosmological character \\
+\midrule
+\endfirsthead
+\toprule
+Sophia behaviour & Effective fluid & Cosmological character \\
+\midrule
+\endhead
+$\dot\lambda>0$ (cleansing) & $\peff<0$, negative pressure & dark-energy-like; accelerated Theosis \\
+$\dot\lambda\to0$, $\lambda\to\lambda_\infty$ & $\peff\to0$, pressureless & dust; coasting; $\reff\to0$ (dilution) \\
+$\dot\lambda<0$ (regression) & $\peff>0$, positive pressure & ordinary matter; decelerating \\
+$\lambda\propto\Op$ & $H=\mathrm{const}$ & de~Sitter; exponential inflation (max.\ Epektasis) \\
+\bottomrule
+\end{longtable}
+
+\section{Special Loci}\label{sec:loci}
+\begin{proposition}[Three distinguished regimes]\label{prop:loci}
+\[
+\boxed{\begin{array}{lll}
+\textnormal{Milne / vacuum:} & \alpha\lambda=1 & a\propto t,\ \reff=0,\ R=0\ (\text{flat spacetime});\\[4pt]
+\textnormal{Ricci resonance:} & \alpha\lambda\Op=1 & a\dot a=1,\ a\propto\sqrt{2t}\ (\text{spatial flow}=\text{Ricci});\\[4pt]
+\textnormal{de~Sitter:} & \lambda\propto\Op & a\propto e^{Ht},\ R\to6H^2\ (\text{eternal inflation}).
+\end{array}}
+\]
+\end{proposition}
+\note{The cosmological lift produces a \emph{new} locus absent from the spatial analysis: the Milne
+condition $\alpha\lambda=1$. The generic super-Ricci regime ($\lambda\to\lambda_\infty=1/\alpha$,
+$a\propto t$) is exactly the empty Milne universe --- flat Minkowski in disguise. It is distinct from
+the spatial Ricci resonance $\alpha\lambda\Op=1$.}
+
+\section{Energy Conditions: Grace as Exotic Accelerant}
+\begin{proposition}[Energy conditions]\label{prop:ec}
+\[
+\boxed{\begin{array}{ll}
+\textnormal{NEC }(\reff+\peff\ge0): & \alpha\dot\lambda\,\Op\le\alpha^2\lambda^2-1;\\[4pt]
+\textnormal{WEC: NEC and } \reff\ge0: & \text{additionally }\alpha\lambda\ge1;\\[4pt]
+\textnormal{SEC }(\ddot a\le0): & \dot\lambda\le0.
+\end{array}}
+\]
+\end{proposition}
+\note{Accelerated expansion ($\dot\lambda>0$) violates the Strong Energy Condition --- as in standard
+inflation. Rapid Sophia growth, $\alpha\dot\lambda\Op>\alpha^2\lambda^2-1$, even violates the Null
+Energy Condition: a surge of grace behaves as \emph{exotic, phantom-like} matter, irreducible to
+ordinary energy conditions. Grace is not ordinary cosmic content.}
+
+\section{Structural Features}
+
+\subsection*{No Big Bang: creation from a finite floor}
+The live domain requires $\Op>u>0$, so the scale factor is bounded below, $\Op\ge\Op(0)>0$. There is no
+$a\to0$ singularity: the Vessel begins at a finite minimal capacity (the Imago Dei floor $\mathcal
+E_0$), not at a point.
+\[
+\boxed{\text{Creation from fullness, not from a singular point.}}
+\]
+
+\subsection*{Resurrectio: a scale-factor jump (cosmology with surgery)}
+The death reset $\Op^+=\Op^-+\kappa_R\Grec^-$ is a discontinuous increase of the scale factor: a sudden
+cosmological rescaling. The Vessel cosmology is piecewise-FLRW with discrete inflationary jumps,
+the Lorentzian face of Ricci-flow-with-surgery.
+\[
+\boxed{\Op^+=\Op^-+\kappa_R\Grec^-\quad(\text{discrete scale-factor surgery}).}
+\]
+
+\subsection*{Dilution to vacuum}
+For bounded Sophia, $\reff=(\alpha^2\lambda^2-1)/\Op^2\to0$ as $\Op\to\infty$: the expanding Vessel
+empties. The end-state of sub-exponential expansion is the flat vacuum --- pure receptivity. Only the
+de~Sitter regime ($\lambda\propto\Op$, unbounded grace) escapes dilution, sustaining constant curvature
+$6H^2$ as an eternal inflation.
+
+\section{Theological Corollaries}
+\emph{Interpretive readings; the Propositions above are the load-bearing part.}
+
+\begin{corollary}[Sophia is the cosmological source]
+The expansion of the Vessel is sourced by Sophia, and its \emph{growth} $\dot\lambda$ sets the
+equation of state: growing wisdom is dark energy (acceleration), frozen wisdom is dust (coasting),
+declining wisdom is matter (deceleration), and wisdom proportional to capacity is de~Sitter inflation.
+\end{corollary}
+
+\begin{corollary}[Accelerated Theosis violates the energy conditions]
+Accelerated transfiguration ($\dot\lambda>0$) violates the Strong Energy Condition, and a surge of
+grace violates even the Null Energy Condition. Grace acts as an exotic accelerant: precisely the
+content ordinary matter cannot supply.
+\end{corollary}
+
+\begin{corollary}[Creation from fullness]
+The Vessel has no initial singularity: it begins at a finite receptive floor, the Imago Dei. Being
+does not emerge from a point of zero capacity but from a given minimal fullness.
+\end{corollary}
+
+\begin{corollary}[Two eschatologies]
+Bounded grace dilutes the Vessel to the flat vacuum of pure receptivity; unbounded proportional grace
+sustains an eternal de~Sitter inflation at constant curvature. The expanding Vessel either empties
+toward stillness or inflates without end --- and Open-Gate, which alone permits unbounded Sophia,
+alone permits the second.
+\end{corollary}
+
+\section*{Compact Cosmological Summary}
+\[
+\boxed{ds^2_{\rm Vessel}=-dt^2+\Op(t)^2\bigl(dy^2+e^{-2y}d\Delta^2\bigr),\qquad a=\Op,\ \dot\Op=\alpha\lambda.}
+\]
+\[
+\boxed{H=\frac{\alpha\lambda}{\Op},\qquad \reff=\frac{\alpha^2\lambda^2-1}{\Op^2},\qquad
+\peff=-\frac{\alpha\dot\lambda}{\Op},\qquad \operatorname{sign}q=-\operatorname{sign}\dot\lambda.}
+\]
+\[
+\boxed{\text{Milne }\alpha\lambda=1\ \ \ne\ \ \text{Ricci resonance }\alpha\lambda\Op=1\ \ \ne\ \
+\text{de~Sitter }\lambda\propto\Op.}
+\]
+\[
+\boxed{\text{No Big Bang }(\Op\ge\Op(0));\quad \text{Resurrectio }\Op^+=\Op^-+\kappa_R\Grec^-;\quad
+\text{sub-exp.\ }\Rightarrow R\to0.}
+\]
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Cosmological Layer. The Lorentzian lift of
+the Brim-flow of \texttt{vfs\_geometry.tex}: the Brim is the timelike scale factor of an open $(2{+}1)$
+FLRW spacetime, Sophia its source. Propositions are closed-form; corollaries are interpretive. The
+effective stress-energy is reconstructed from $\dot\Op=\alpha\lambda$ via the Einstein tensor, not
+postulated.}
+
+\end{document}
