@@ -643,19 +643,24 @@
                     S --> A["A(t) = Odinai/Wave<br>d<sup>2</sup>P/dt<sup>2</sup>"]
                     A --> K["K(t) = Katharsis<br>d<sup>3</sup>P/dt<sup>3</sup>"]
                     K --> AN["An(t) = Anastasis<br>d<sup>4</sup>P/dt<sup>4</sup>"]
-                    AN --> E["Epektasis"]
-                    E --> B["Brim Ω<sub>P</sub>(t)"]
-                    B --> PC["Pleroma Christi"]
+
+                    AN --> E["Epektasis<br>(continuous regime)"]
+                    AN --> TR["Transfiguration<br>(tomb-process)"]
 
                     R --> SC["Singular crisis"]
                     SC --> KE["Kenosis"]
                     KE --> T["Tetelestai"]
                     T --> K
-                    AN --> TR["Transfiguration<br>(tomb-process)"]
-                    TR --> L["λ = Sophia"]
 
-                    G["Grace<br>Open-Gate"] --> L
-                    L --> B
+                    G["Grace<br>Open-Gate"] --> L["λ = Sophia"]
+                    TR --> L
+                    E --> L
+
+                    L -->|"continuous: Ω̇<sub>P</sub> = αλ"| B["Brim Ω<sub>P</sub>(t)"]
+                    AN -.->|"discrete reset: + κ<sub>R</sub>·G_recepta"| B
+
+                    B --> PC["Pleroma Christi"]
+                    B -.->|"feedback: enables more P"| P
             </div>
         </div>
     </div>
