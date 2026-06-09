@@ -1064,8 +1064,23 @@
 
             const shellBtn = document.getElementById('shell-audio-btn');
             const audio = new Audio('docs/ten_li.mp3');
+            let clickTimeout;
 
             shellBtn.addEventListener('click', () => {
+                if (clickTimeout) return;
+
+                clickTimeout = setTimeout(() => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    clickTimeout = null;
+                }, 250);
+            });
+
+            shellBtn.addEventListener('dblclick', () => {
+                clearTimeout(clickTimeout);
+                clickTimeout = null;
                 if (audio.paused) {
                     audio.play()
                         .then(() => {
