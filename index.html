@@ -11,9 +11,8 @@
     
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <script>
-        // Налаштування теми Mermaid під колір нашого пергаменту
         mermaid.initialize({
-            startOnLoad: false, // Вимикаємо автозапуск, щоб шрифти встигли завантажитися
+            startOnLoad: false,
             theme: 'base',
             themeVariables: {
                 background: '#fdfdfc',
@@ -27,7 +26,6 @@
             }
         });
 
-        // Чекаємо повної готовності шрифтів у браузері перед малюванням діаграми
         document.fonts.ready.then(() => {
             setTimeout(() => {
                 mermaid.run();
@@ -36,7 +34,6 @@
     </script>
     
     <style>
-        /* Світла палітра: слонова кістка та м'який крем */
         body {
             background-color: #fcfbfa; 
             background-image: radial-gradient(#ffffff 40%, #f4f1ea 100%);
@@ -51,7 +48,6 @@
             box-sizing: border-box;
         }
 
-        /* Елегантний світлий пергамент */
         .parchment {
             background: #fdfdfc;
             border: 1px solid #e3dec3;
@@ -66,7 +62,6 @@
             box-sizing: border-box;
         }
 
-        /* Тонка внутрішня рамка */
         .parchment::before {
             content: "";
             position: absolute;
@@ -75,7 +70,6 @@
             pointer-events: none;
         }
 
-        /* Типографіка заголовків у римському стилі */
         h1 {
             font-family: 'Cinzel', serif;
             font-size: 2.0rem;
@@ -86,7 +80,6 @@
             text-align: center;
         }
 
-        /* Латинський девіз під заголовком */
         .motto {
             font-style: italic;
             color: #8c7b72;
@@ -143,7 +136,6 @@
             line-height: 1.7;
         }
 
-        /* Контейнер для кнопок */
         .btn-group {
             display: flex;
             gap: 12px;
@@ -151,7 +143,6 @@
             margin: 18px 0 25px 0;
         }
 
-        /* Кнопки */
         .vfs-btn {
             display: inline-block;
             text-decoration: none;
@@ -175,7 +166,6 @@
             box-shadow: 0 5px 12px rgba(97, 82, 78, 0.15);
         }
 
-        /* Особливий стиль для кнопки HTML */
         .vfs-btn.html-accent {
             background-color: #f7f3e8;
             border-color: #bfae93;
@@ -187,7 +177,6 @@
             border-color: #8f7d66;
         }
 
-        /* Стилі для великого модального вікна діаграми */
         .modal-overlay {
             display: flex; 
             position: fixed;
@@ -203,7 +192,6 @@
             transition: opacity 0.3s ease, pointer-events 0.3s ease;
         }
 
-        /* Активація модального вікна */
         .modal-overlay.active {
             opacity: 1;
             pointer-events: auto; 
@@ -217,7 +205,7 @@
             max-width: 95%;
             max-height: 90vh;
             width: 700px;
-            overflow-y: auto; /* Дозволяємо вертикальний скрол */
+            overflow-y: auto;
             overflow-x: hidden;
             border-radius: 8px;
             position: relative;
@@ -230,7 +218,6 @@
             transform: scale(1);
         }
 
-        /* Кнопка закриття (хрестик) */
         .modal-close {
             position: absolute;
             top: 15px; right: 20px;
@@ -247,7 +234,6 @@
             transform: scale(1.1);
         }
 
-        /* Адаптивність карти Mermaid */
         .mermaid {
             width: 100%;
             display: flex;
@@ -261,16 +247,12 @@
             overflow: visible !important;
         }
 
-        /* Ультимативний фікс для скасування обрізання тексту в контейнерах Mermaid */
         .mermaid foreignObject, 
         .mermaid foreignObject div {
             overflow: visible !important;
             white-space: nowrap !important;
         }
 
-
-
-        /* Modal content for Filtrum Lucis polar heart */
         .fl-modal-container {
             width: 720px;
             max-width: 95%;
@@ -299,8 +281,6 @@
             line-height: 1.55;
         }
 
-
-        /* Modal content for Resurrectio reset chart */
         .reset-modal-container {
             width: 820px;
             max-width: 95%;
@@ -343,7 +323,6 @@
             font-weight: 600;
         }
 
-        /* Modal content for Paschal Triad / In Sepulchro chart */
         .paschal-modal-container {
             width: 980px;
             max-width: 95%;
@@ -450,7 +429,6 @@
             }
         }
 
-        /* Нижній блок сакрального підпису */
         #log-output {
             margin-top: 50px;
             border-top: 1px solid #f0ede4;
@@ -488,37 +466,34 @@
             color: #9c8a82;
         }
 
-                /* Контейнер підказки */
         .tooltip {
             position: relative;
             display: inline-block;
-            border-bottom: 1px dashed #8c7b72; /* Пунктирне підкреслення тексту, на який можна навести */
-            cursor: help; /* Зміна курсору при наведенні */
+            border-bottom: 1px dashed #8c7b72;
+            cursor: help;
         }
 
-        /* Текст підказки (прихований за замовчуванням) */
         .tooltip .tooltiptext {
             visibility: hidden;
             width: 200px;
-            background-color: #faf9f5; /* Світлий тон під колір вашого пергаменту */
-            color: #4a3e3d; /* Колір тексту */
+            background-color: #faf9f5;
+            color: #4a3e3d;
             text-align: center;
             border: 1px solid #d5ceb4;
             border-radius: 4px;
             padding: 8px;
             position: absolute;
             z-index: 10;
-            bottom: 125%; /* Поява над текстом */
+            bottom: 125%;
             left: 50%;
             margin-left: -100px;
             opacity: 0;
-            transition: opacity 0.3s; /* Плавна поява */
+            transition: opacity 0.3s;
             box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
-            font-family: 'Cormorant Garamond', serif; /* Ваша основна гарнітура */
+            font-family: 'Cormorant Garamond', serif;
             font-size: 0.9rem;
         }
 
-        /* Стрілочка під підказкою */
         .tooltip .tooltiptext::after {
             content: "";
             position: absolute;
@@ -530,12 +505,11 @@
             border-color: #d5ceb4 transparent transparent transparent;
         }
 
-        /* Показ підказки при наведенні курсору */
         .tooltip:hover .tooltiptext {
             visibility: visible;
             opacity: 1;
         }
-        /* Стиль для самого тексту-тригера */
+
         .tooltip-trigger {
             position: relative;
             display: inline-block;
@@ -543,13 +517,12 @@
             cursor: help;
         }
 
-        /* Стиль для динамічного блоку підказки */
         .custom-tooltip-box {
             position: absolute;
-            width: 480px; /* Можна збільшити, якщо текст великий */
+            width: 480px;
             background-color: #faf9f5;
             color: #4a3e3d;
-            text-align: left; /* Для великого тексту краще вирівнювання по лівому краю */
+            text-align: left;
             border: 1px solid #d5ceb4;
             border-radius: 4px;
             padding: 10px;
@@ -561,10 +534,9 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 0.95rem;
             line-height: 1.3;
-            pointer-events: none; /* Щоб блок не заважав мишці */
+            pointer-events: none;
         }
 
-        /* Стрілочка */
         .custom-tooltip-box::after {
             content: "";
             position: absolute;
@@ -1018,84 +990,68 @@
             const paschalModal = document.getElementById('paschal-modal');
             const closePaschalModalBtn = document.getElementById('paschal-modal-close-btn');
 
-            // Логування переходів по звичайних кнопках
             buttons.forEach(button => {
                 button.addEventListener('click', () => {
                     console.log(`Navigating to: ${button.getAttribute('href')}`);
                 });
             });
 
-            // Логіка відкриття модального вікна
             diagBtn.addEventListener('click', () => {
                 modal.classList.add('active');
             });
 
-            // Логіка закриття через хрестик
             closeModalBtn.addEventListener('click', () => {
                 modal.classList.remove('active');
             });
 
-            // Логіка закриття при кліку на оверлей поза контентом
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
                     modal.classList.remove('active');
                 }
             });
 
-            // Логіка відкриття модального вікна Filtrum Lucis
             flBtn.addEventListener('click', () => {
                 flModal.classList.add('active');
             });
 
-            // Логіка закриття Filtrum Lucis через хрестик
             closeFlModalBtn.addEventListener('click', () => {
                 flModal.classList.remove('active');
             });
 
-            // Логіка закриття Filtrum Lucis при кліку на оверлей поза контентом
             flModal.addEventListener('click', (e) => {
                 if (e.target === flModal) {
                     flModal.classList.remove('active');
                 }
             });
 
-
-            // Логіка відкриття модального вікна Paschal Triad / In Sepulchro
             paschalBtn.addEventListener('click', () => {
                 paschalModal.classList.add('active');
             });
 
-            // Логіка закриття Paschal Triad через хрестик
             closePaschalModalBtn.addEventListener('click', () => {
                 paschalModal.classList.remove('active');
             });
 
-            // Логіка закриття Paschal Triad при кліку на оверлей поза контентом
             paschalModal.addEventListener('click', (e) => {
                 if (e.target === paschalModal) {
                     paschalModal.classList.remove('active');
                 }
             });
 
-
-            // Логіка відкриття модального вікна Resurrectio reset chart
             resetBtn.addEventListener('click', () => {
                 resetModal.classList.add('active');
             });
 
-            // Логіка закриття Resurrectio через хрестик
             closeResetModalBtn.addEventListener('click', () => {
                 resetModal.classList.remove('active');
             });
 
-            // Логіка закриття Resurrectio при кліку на оверлей поза контентом
             resetModal.addEventListener('click', (e) => {
                 if (e.target === resetModal) {
                     resetModal.classList.remove('active');
                 }
             });
 
-            // Закриття активного модального вікна клавішею Escape
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'Escape') {
                     modal.classList.remove('active');
