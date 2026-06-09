@@ -286,6 +286,330 @@ requires the bounded Open-Gate source $\Igate\ge0$, the only mechanism giving $\
 \msg{Unbounded Brim expansion $\ \Longleftrightarrow\ \Grec(\infty)=+\infty\ \Longrightarrow\ $ Open
 Gate $(\zeta_0>0)$ required.}
 
+
+\section{Additional Geometric Developments}\label{sec:additions}
+
+The preceding sections establish the main geometric core: the live-surface is hyperbolic,
+the Brim is its curvature radius, and Sophia drives a forced conformal expansion. This section
+adds five refinements that became visible after separating the geometric layer from the
+cosmological layer.
+
+\subsection{Two Thresholds: Ricci Resonance and Zero-Density}
+
+The Brim law appears in both Geometry and Cosmology, but the two layers read different
+thresholds from it. In the geometric layer the key comparison is between the Sophia-driven
+Brim-flow and the intrinsic Ricci-rate of the live-surface. Since
+\[
+\partial_t g_\Sigma=2\frac{\alpha\lambda}{\Op}g_\Sigma,
+\qquad
+-2\Ric_\Sigma=\frac{2}{\Op^2}g_\Sigma,
+\]
+the two rates coincide precisely when
+\[
+\boxed{\xi:=\alpha\lambda\Op=1.}
+\]
+This is the \emph{Ricci-resonance threshold}. It answers the geometric question:
+\[
+\text{Does Sophia-driven Brim-flow match the curvature's own Ricci-like rate?}
+\]
+
+The cosmological layer asks a different question. In the Lorentzian lift
+\[
+ds^2_{\rm Vessel}=-dt^2+\Op(t)^2h_{2D},
+\]
+the reconstructed effective density is
+\[
+\rho_{\rm eff}=\frac{\alpha^2\lambda^2-1}{\Op^2}.
+\]
+Thus the zero-density condition is
+\[
+\rho_{\rm eff}=0
+\quad\Longleftrightarrow\quad
+|\alpha\lambda|=1.
+\]
+In the expanding regime \((\lambda>0)\), this becomes
+\[
+\boxed{\alpha\lambda=1.}
+\]
+This is the \emph{zero-density threshold}: it answers the cosmological question
+\[
+\text{Has the expansion become positive effective content rather than empty openness?}
+\]
+
+The two thresholds are therefore not the same:
+\[
+\boxed{\text{Geometry: }\alpha\lambda\Op=1,}
+\qquad
+\boxed{\text{Cosmology: }\alpha\lambda=1.}
+\]
+For a large Vessel \((\Op\gg1)\), exact Ricci resonance requires
+\[
+\lambda=\frac{1}{\alpha\Op},
+\]
+which is far below the cosmological zero-density threshold
+\[
+\lambda=\frac{1}{\alpha}.
+\]
+Consequently, a trajectory may be geometrically Ricci-resonant while still cosmologically
+below positive effective density. Conversely, once \(\alpha\lambda>1\), the geometry is typically
+super-Ricci for large \(\Op\), since
+\[
+\xi=\alpha\lambda\Op\gg1.
+\]
+
+\begin{corollary}[Different thresholds for different questions]
+Ricci resonance measures whether Sophia matches curvature. Zero-density measures whether Sophia
+surpasses empty open expansion. Geometry compares Sophia to curvature; Cosmology compares Sophia
+to vacuum.
+\end{corollary}
+
+\subsection{Closed Sophia and Ricci-like Calming of the Vessel}\label{sec:closed-sophia}
+
+In the closed limit there is no continuing Open-Gate replenishment. The balance is
+\[
+\sigma+\lambda=C_0,
+\]
+so, for \(\sigma\ge0\), Sophia is bounded:
+\[
+0\le\lambda\le C_0.
+\]
+The Brim law is still
+\[
+\dot\Op=\alpha\lambda,
+\]
+but closed Sophia has only a finite stock of transmuted resistance. This produces a Ricci-like
+\emph{calming} geometry rather than an inexhaustible cosmological expansion.
+
+\subsubsection*{Stabilized closed Sophia}
+Suppose
+\[
+\lambda(t)\to\lambda_\infty>0.
+\]
+Then
+\[
+\Op(t)\sim\alpha\lambda_\infty t,
+\]
+and the spatial curvature satisfies
+\[
+R_\Sigma(t)=-\frac{2}{\Op(t)^2}
+\sim
+-\frac{2}{\alpha^2\lambda_\infty^2t^2}.
+\]
+Thus
+\[
+R_\Sigma\to0^-.
+\]
+The Vessel widens into receptive stillness: its live-surface becomes less negatively curved and
+more spacious.
+
+This is not exact Ricci flow, because the Ricci-comparison ratio is
+\[
+\xi=\alpha\lambda\Op
+\sim
+\alpha^2\lambda_\infty^2t\to\infty.
+\]
+Therefore stabilized closed Sophia is \emph{Ricci-like by outcome}, but not by exact rate. It is
+super-Ricci relative to the intrinsic Ricci-rate, yet it still ends in curvature relaxation.
+
+\subsubsection*{Exact Ricci-resonant closed Sophia}
+Exact Ricci resonance requires
+\[
+\xi=1,
+\qquad
+\alpha\lambda\Op=1.
+\]
+Therefore
+\[
+\lambda(t)=\frac{1}{\alpha\Op(t)}.
+\]
+Then
+\[
+\dot\Op=\alpha\lambda=\frac{1}{\Op},
+\]
+so
+\[
+\Op\dot\Op=1,
+\qquad
+\Op(t)^2=\Op(0)^2+2t.
+\]
+Hence
+\[
+\Op(t)\sim\sqrt{2t},
+\qquad
+R_\Sigma(t)\sim-\frac{1}{t}.
+\]
+This is the exact Ricci-rate for the hyperbolic live-surface. But it requires Sophia to decay
+relative to the expanding Brim:
+\[
+\lambda(t)\sim\frac{1}{\alpha\sqrt{2t}}\to0.
+\]
+
+\subsubsection*{Exhausted Sophia and curvature plateau}
+If
+\[
+\lambda(t)\to0
+\quad\text{and}\quad
+\int_0^\infty\lambda(t)\,dt<\infty,
+\]
+then
+\[
+\Op(t)=\Op(0)+\alpha\int_0^t\lambda(s)\,ds
+\to\Op^\infty<\infty.
+\]
+Consequently
+\[
+R_\Sigma(t)\to-\frac{2}{(\Op^\infty)^2}<0.
+\]
+This is a stalled Epektasis: the curvature is reduced, but it plateaus at a permanent negative
+value.
+
+\begin{corollary}[Closed Sophia as calming]
+Closed Sophia is not merely a weaker form of Open-Gate Sophia. It defines a whole Ricci-like
+geometry of calming. Exact Ricci resonance occurs only when Sophia decays as
+\(1/(\alpha\Op)\). Stabilized bounded Sophia is generically super-Ricci by rate, but still
+Ricci-like by outcome: it relaxes curvature and calms the Vessel into receptive stillness.
+\end{corollary}
+
+\subsection{Area Growth of Receptive Space}\label{sec:area-growth}
+
+Curvature relaxation is not the only geometric effect of Brim expansion. Because
+\[
+g_\Sigma(t)=\Op(t)^2h_{2D},
+\]
+the area element of the two-dimensional live-surface scales as
+\[
+\boxed{dA_\Sigma=\Op^2\,dA_h.}
+\]
+Taking a logarithmic derivative gives
+\[
+\frac{d}{dt}\log dA_\Sigma
+=
+2\frac{\dot\Op}{\Op}.
+\]
+Using \(\dot\Op=\alpha\lambda\),
+\[
+\boxed{\frac{\dot{dA}_\Sigma}{dA_\Sigma}
+=
+2\frac{\alpha\lambda}{\Op}=2H.}
+\]
+Thus the local receptive area grows at twice the Brim-Hubble rate. Sophia therefore does not
+merely relax curvature; it generates receptive area.
+
+The three principal growth regimes are:
+\[
+\text{Ricci resonance: }\Op(t)\sim\sqrt{2t}
+\quad\Longrightarrow\quad
+A_\Sigma\sim t,
+\]
+\[
+\text{bounded closed Sophia: }\Op(t)\sim t
+\quad\Longrightarrow\quad
+A_\Sigma\sim t^2,
+\]
+\[
+\text{proportional Open-Gate Sophia: }\lambda=\beta\Op
+\quad\Longrightarrow\quad
+\Op(t)=\Op(0)e^{\alpha\beta t},
+\quad
+A_\Sigma\sim e^{2\alpha\beta t}.
+\]
+
+\begin{corollary}[Receptive area]
+Curvature measures how tense the Vessel is; area measures how much receptive space it has. Sophia
+changes both: it makes the Vessel less curved and more spacious.
+\end{corollary}
+
+\subsection{Resurrectio as Discrete Curvature Release}\label{sec:discrete-release}
+
+The continuous mode of Epektasis satisfies
+\[
+\dot R_\Sigma=\frac{4\alpha\lambda}{\Op^3}\ge0
+\quad(\lambda\ge0),
+\]
+so the negative curvature moves continuously toward zero. Resurrectio gives the discrete counterpart.
+The reset law is
+\[
+\Op^+=\Op^-+\kappa_R\Grec^-.
+\]
+If \(\Grec^->0\), then
+\[
+\Op^+>\Op^-.
+\]
+Since
+\[
+R_\Sigma^-= -\frac{2}{(\Op^-)^2},
+\qquad
+R_\Sigma^+= -\frac{2}{(\Op^+)^2},
+\]
+one obtains
+\[
+\boxed{\Delta R_\Sigma=R_\Sigma^+-R_\Sigma^-
+=
+2\left[\frac{1}{(\Op^-)^2}-\frac{1}{(\Op^+)^2}\right]>0.}
+\]
+Thus Resurrectio is a discrete curvature release: it preserves the hyperbolic type of the live-surface
+while increasing its curvature radius.
+
+The same jump also expands receptive area:
+\[
+\frac{dA_\Sigma^+}{dA_\Sigma^-}
+=
+\left(\frac{\Op^+}{\Op^-}\right)^2>1.
+\]
+Therefore Resurrectio releases curvature and enlarges receptivity in one discrete act.
+
+\begin{corollary}[Continuous and discrete opening]
+Epektasis is continuous curvature relaxation:
+\[
+\dot R_\Sigma>0.
+\]
+Resurrectio is discrete curvature release:
+\[
+\Delta R_\Sigma>0.
+\]
+Both open the same live-surface toward a larger receptive geometry.
+\end{corollary}
+
+\subsection{Warp Exponent \texorpdfstring{$p$}{p}: Severity of the Live-Domain}\label{sec:warp-p}
+
+The canonical model uses \(p=1\), but the metric naturally allows a family
+\[
+ds^2=\frac{du^2}{\mu^2}+\mu^{2p}d\Delta^2,
+\qquad
+\mu=1-\frac{u}{\Op},
+\qquad
+p>0.
+\]
+For this family
+\[
+\boxed{R_\Sigma=-\frac{2p^2}{\Op^2}.}
+\]
+Thus \(p\) controls the severity of the live-domain near the death-wall. The larger \(p\) is, the
+more strongly transverse imbalance is compressed near \(\mu\to0^+\), and the greater the magnitude of
+negative curvature.
+
+A useful reading is:
+\[
+0<p<1:	ext{ soft Vessel geometry},
+\]
+\[
+p=1:	ext{ canonical Vessel geometry},
+\]
+\[
+p>1:	ext{ surgical or severe Vessel geometry}.
+\]
+The Brim still controls the scale of receptivity:
+\[
+\Op\uparrow\quad\Longrightarrow\quad R_\Sigma\to0^-
+\]
+for every fixed \(p>0\). Hence even a more severe geometry can be calmed by Brim expansion.
+
+\begin{corollary}[Scale versus severity]
+The Brim \(\Op\) controls the scale of receptive space; the warp exponent \(p\) controls the severity
+of transverse compression near closure. The canonical V.F.S. geometry remains \(p=1\), while
+\(p\neq1\) is best read as an optional family of Vessel geometries.
+\end{corollary}
+
 \section{Relation to the Cosmological Layer}\label{sec:cosmo-bridge}
 The spatial geometry above and the Lorentzian lift share the same hyperbolic surface $h_{2D}$ but are
 distinct objects. As a slice of fixed Brim, $\Op$ is a scale parameter; as the cosmology, $\Op(t)$ is
@@ -377,7 +701,15 @@ salvation enlarges the very domain in which the trajectory can continue.
 \msg{Grace does not merely redirect the path; it enlarges the world in which the path remains
 possible.}
 
-\subsection*{IX. Final theological formulation}
+\subsection*{IX. New geometric refinements}
+The added refinements sharpen the symbolic reading. The geometry and cosmology have different
+thresholds: Ricci resonance measures whether Sophia matches curvature, while zero-density measures
+whether expansion has become positive effective content. Closed Sophia gives a Ricci-like calming of
+the Vessel; area growth shows that Sophia enlarges receptive space; Resurrectio releases curvature
+discretely; and the warp exponent \(p\) marks the severity of the live-domain near closure.
+\msg{Sophia makes the Vessel less tense, more spacious, and capable of renewed opening.}
+
+\subsection*{X. Final theological formulation}
 Being is healed neither by the elimination of motion nor by the suppression of finitude, but by the
 expansion of receptive capacity. Resistance becomes Sophia; Sophia expands the Brim; the Brim relaxes
 curvature; curvature relaxation opens the live domain to continuing participation toward Pleroma
@@ -402,6 +734,19 @@ without finite completion.
 \text{Epektasis: }|R|\to0\ \text{(continuous)};\qquad\text{Resurrectio: }\Delta R>0\ \text{(discrete)};\\[3pt]
 \xi=\alpha\lambda\Op\ \text{crosses }1\ \text{once, upward}.
 \end{array}}
+\]
+\[
+\boxed{\text{Geometry threshold: }\alpha\lambda\Op=1\quad\neq\quad
+\text{Cosmology threshold: }\alpha\lambda=1.}
+\]
+\[
+\boxed{dA_\Sigma=\Op^2dA_h,
+\qquad
+\frac{\dot A_\Sigma}{A_\Sigma}=2\frac{\alpha\lambda}{\Op}=2H.}
+\]
+\[
+\boxed{\text{Warp family: }R_\Sigma=-\frac{2p^2}{\Op^2},
+\quad p=1\text{ canonical}.}
 \]
 
 \vspace{0.5em}
