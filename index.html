@@ -774,35 +774,44 @@
         <div class="modal-container">
             <span id="modal-close-btn" class="modal-close">&times;</span>
             <div class="mermaid">
-                flowchart TD
-                    V["Will (V)"] --> SY["Synergy"]
-                    F["Action (F)"] --> SY
-                    SY --> FL["Filtrum Lucis"]
-                    R["Resistance (σ)"] --> FL
+            flowchart TD
+                V["Will (V)"] --> SY["Synergy<br>u = √(VF+ε)"]
+                F["Action (F)"] --> SY
 
-                    FL --> P["Pleroma/Fullness P(t)"]
-                    P --> S["S(t) = Sum/Being<br>dP/dt"]
-                    S --> A["A(t) = Odinai/Wave<br>d<sup>2</sup>P/dt<sup>2</sup>"]
-                    A --> K["K(t) = Katharsis<br>d<sup>3</sup>P/dt<sup>3</sup>"]
-                    K --> AN["An(t) = Anastasis<br>d<sup>4</sup>P/dt<sup>4</sup>"]
+                SY --> SYN["Gratia Synergica<br>Syn(u)"]
+                SY --> FL["Filtrum Lucis"]
+                R["Resistance (σ)"] --> FL
 
-                    AN --> E["Epektasis<br>(continuous regime)"]
-                    AN --> TR["Transfiguration<br>(tomb-process)"]
+                E0["Imago Dei<br>ℰ₀"] --> P["Pleroma / Fullness<br>P(t)"]
+                SYN --> P
+                FL --> P
 
-                    R --> SC["Singular crisis"]
-                    SC --> KE["Kenosis"]
-                    KE --> T["Tetelestai"]
-                    T --> K
+                P --> S["S(t) = Sum / Being<br>dP/dt"]
+                S --> A["A(t) = Odinai / Wave<br>d²P/dt²"]
+                A --> K["K(t) = Katharsis<br>d³P/dt³"]
+                K --> AN["An(t) = Anastasis<br>d⁴P/dt⁴<br>marker / emergence"]
 
-                    G["Grace<br>Open-Gate"] --> L["λ = Sophia"]
-                    TR --> L
-                    E --> L
+                AN -->|"opens"| E["Epektasis<br>expanding receptivity"]
+                AN -->|"initiates reset:<br>+ κR · G_recepta"| B["Brim<br>ΩP(t)"]
+                AN -.->|"signals resurrectional structure"| TR["Transfiguration<br>In Sepulchro"]
 
-                    L -->|"continuous: Ω̇<sub>P</sub> = αλ"| B["Brim Ω<sub>P</sub>(t)"]
-                    AN -.->|"discrete reset: + κ<sub>R</sub>·G_recepta"| B
+                R --> SC["Singular crisis"]
+                SC --> KE["Kenosis"]
+                KE --> T["Tetelestai"]
+                T --> K
+                T -->|"tomb-process"| TR
 
-                    B --> PC["Pleroma Christi"]
-                    B -.->|"feedback: enables more P"| P
+                G["Grace<br>Open-Gate"] --> IG["I_gate<br>received grace"]
+                IG --> L["λ = Sophia"]
+                R -->|"transmutation"| L
+                TR -->|"metabolizes crisis"| L
+                AN -->|"resurrectional fruit"| L
+
+                L -->|"continuous: Ω̇P = αλ"| B
+                B -->|"continuous expansion"| E
+                E -->|"opens toward"| PC["Pleroma Christi"]
+
+                B -.->|"expanded capacity<br>enables more P"| P
             </div>
         </div>
     </div>
