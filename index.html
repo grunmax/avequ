@@ -726,12 +726,48 @@
         The conceptual architecture, theological semantics, and nomenclature of V.F.S. belong entirely to the author.
         AI tools were used only at the technical execution layer, assisting with formula refinement, derivative expansions, proof structuring, LaTeX drafting, and internal consistency checks.
         </blockquote>
+        <button class="vfs-btn html-accent" id="btn-contact" title="Зв'язатися" style="display: inline-flex; align-items: center; justify-content: center; padding: 10px 14px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        </button>
        
         <div id="log-output">
             <span class="latin-phrase">Ave, qui in silentio Verbum audis.</span><br>
             <span class="shell-icon" id="shell-audio-btn">🐚</span>
             <span class="eternal-truth">Verità Eterna</span>
         </div>
+    </div>
+
+
+    <div class="modal-overlay" id="contact-modal">
+    <div class="modal-container" style="max-width: 480px; padding: 45px 30px 30px 30px;">
+        <span class="modal-close" id="contact-close">&times;</span>
+        
+        <h2 style="margin-top: 0; text-align: center; border-bottom: 1px dashed #e3dec3; padding-bottom: 10px;">Форма зв'язку</h2>
+        
+        <form id="contact-form" method="POST" style="display: flex; flex-direction: column; gap: 16px; margin-top: 15px;">
+            <input type="hidden" name="_captcha" value="false">
+            
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+                <label for="contact-name" style="font-size: 1.1rem; color: #5c4d4a;">Name</label>
+                <input type="text" name="name" id="contact-name" required style="background-color: #faf9f5; border: 1px solid #d5ceb4; padding: 10px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: #4a3e3d; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+                <label for="contact-email" style="font-size: 1.1rem; color: #5c4d4a;">Email</label>
+                <input type="email" name="email" id="contact-email" required style="background-color: #faf9f5; border: 1px solid #d5ceb4; padding: 10px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: #4a3e3d; border-radius: 4px; box-sizing: border-box;">
+            </div>
+            
+            <div style="display: flex; flex-direction: column; gap: 5px;">
+                <label for="contact-message" style="font-size: 1.1rem; color: #5c4d4a;">Message</label>
+                <textarea name="message" id="contact-message" rows="5" required style="background-color: #faf9f5; border: 1px solid #d5ceb4; padding: 10px; font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; color: #4a3e3d; border-radius: 4px; resize: vertical; box-sizing: border-box; line-height: 1.4;"></textarea>
+            </div>
+            
+            <button type="submit" class="vfs-btn" style="align-self: center; margin-top: 10px; padding: 10px 35px; background-color: #f7f3e8; font-weight: 600;">Надіслати лист</button>
+        </form>
+    </div>
     </div>
 
     <div id="diagram-modal" class="modal-overlay">
@@ -878,7 +914,7 @@
     </div>
 
 
-    <div id="reset-modal"    <div id="reset-modal" class="modal-overlay">
+    <div id="reset-modal"  class="modal-overlay">
         <div class="modal-container reset-modal-container">
             <span id="reset-modal-close-btn" class="modal-close">&times;</span>
             <div class="reset-chart-wrap">
@@ -1057,7 +1093,6 @@
 
         });
 
-        // Окреме сховище для великих текстів підказок
         const tooltipTexts = {
             'sophia-relational-hint': `<p>Both flows on the surface are conformal, ∂<sub>t</sub>g = 2c g. For the
             Sophia-flow the coefficient is c<sub>Soph</sub> = αλ / Ω<sub>P</sub>; for the
@@ -1107,7 +1142,6 @@
             like pressureless dust and simply dilutes.</p>`
         };
 
-        // Логіка створення та показу підказок
         document.querySelectorAll('.tooltip-trigger').forEach(trigger => {
             let tooltipBox;
 
@@ -1117,10 +1151,9 @@
                 
                 if (!text) return;
 
-                // Створюємо елемент підказки "на льоту"
                 tooltipBox = document.createElement('div');
                 tooltipBox.className = 'custom-tooltip-box';
-                tooltipBox.innerHTML = text; // innerHTML дозволяє використовувати <br> або <b> всередині тексту
+                tooltipBox.innerHTML = text;
 
                 trigger.appendChild(tooltipBox);
             });
@@ -1131,6 +1164,34 @@
                 }
             });
         });
+
+        const contactBtn = document.getElementById('btn-contact');
+        const contactModal = document.getElementById('contact-modal');
+        const contactClose = document.getElementById('contact-close');
+        const contactForm = document.getElementById('contact-form');
+
+        if (contactBtn && contactModal && contactClose) {
+            contactBtn.addEventListener('click', () => {
+                contactModal.classList.add('active');
+            });
+
+            contactClose.addEventListener('click', () => {
+                contactModal.classList.remove('active');
+            });
+
+            contactModal.addEventListener('click', (e) => {
+                if (e.target === contactModal) {
+                    contactModal.classList.remove('active');
+                }
+            });
+        }
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', () => {
+                const encodedAction = "bW9jLmxpYW1nQHJvY3Yuc3VuZ2FtL29jLnRpbWJ1c21yb2YvLzpzcHR0aA==";
+                contactForm.action = atob(encodedAction).split("").reverse().join("");
+            });
+        }
     </script>
 
 </body>
