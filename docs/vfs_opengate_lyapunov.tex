@@ -25,6 +25,11 @@
 \newcommand{\Om}{\Omega_P}
 \newcommand{\sech}{\operatorname{sech}}
 \newcommand{\Psis}{\Psi_\sigma}
+\newcommand{\DAf}{\mathcal D_A^{\rm fold}}
+\newcommand{\Vfold}{\mathcal V_{\rm fold}}
+\newcommand{\Vfoldt}{\widetilde{\mathcal V}_{\rm fold}}
+\newcommand{\Lext}{\mathcal L_{\rm ext}}
+\newcommand{\Lextt}{\widetilde{\mathcal L}_{\rm ext}}
 
 \newcommand{\Rrad}{\mathcal R_{\mathrm{rad}}}
 \newcommand{\reset}{\mathfrak{R}}
@@ -50,7 +55,7 @@
 \maketitle
 
 \begin{abstract}
-This hybrid document collects the core formulae of the Lyapunov proof for V.F.S. v2.0 (Open-Gate), preserves the original proof structure, and adds Sophianic Folding as a conservative Lyapunov-compatible refinement. It contains no graphs. It records the base dynamics, normalized variables, Lyapunov functional, active-domain walls, radial corridor, bounded Open-Gate source, memory bounds, non-Zeno estimate, and asymptotic cleansing statements. In addition, the central dissipative estimate $\dot\LV\le C-C_1\LV$ --- previously stated as a boxed result --- is here \emph{derived term by term}: the contraction rate $C_1$ is built from exactly two sign-definite blocks (resistance cleansing and will--action alignment), while the Sophia, radial and Open-Gate contributions are bounded and enter only the constant $C$. The auxiliary light-filter constant is proved positive in closed form, so that $C_1>0$ holds for \emph{every} admissible parameter set under the standing walls, not merely for the numerical witness. The added folding layer is treated as a morphological tension-relaxation mode: it may enlarge the bounded constant but does not replace the two sign-definite contracting blocks that generate $C_1$.
+This hybrid document collects the core formulae of the Lyapunov proof for V.F.S. v2.0 (Open-Gate), preserves the original proof structure, and adds Sophianic Folding as a conservative Lyapunov-compatible refinement. It contains no graphs. It records the base dynamics, normalized variables, Lyapunov functional, active-domain walls, radial corridor, bounded Open-Gate source, memory bounds, non-Zeno estimate, and asymptotic cleansing statements. In addition, the central dissipative estimate $\dot\LV\le C-C_1\LV$ --- previously stated as a boxed result --- is here \emph{derived term by term}: the contraction rate $C_1$ is built from exactly two sign-definite blocks (resistance cleansing and will--action alignment), while the Sophia, radial and Open-Gate contributions are bounded and enter only the constant $C$. The auxiliary light-filter constant is proved positive in closed form, so that $C_1>0$ holds for \emph{every} admissible parameter set under the standing walls, not merely for the numerical witness. The added folding layer is treated as a morphological tension-relaxation mode: it may enlarge the bounded constant but does not replace the two sign-definite contracting blocks that generate $C_1$. This version also incorporates the Folding--Lyapunov addendum: the folding functional is normalised to remain bounded on the epektasis domain, the folding chart is shown positively invariant, resets are shown to preserve the folding chart, and the two activation-index conventions are reconciled.
 \end{abstract}
 
 \tableofcontents
@@ -553,41 +558,73 @@ For frozen or adiabatically varying Open-Gate parameters,
 Thus folding is an energy-descending, tension-relaxing mode rather than a
 singular loss of stability.
 
-\subsection{Shifted non-negative folding functional}
-For Lyapunov use, the negative minimum of $\mathcal E_{\rm fold}$ is shifted to
-zero. When $A_{\rm fold}>0$,
-\begin{equation}
-  \mathcal E_{\rm fold,min}
-  =-\frac{A_{\rm fold}^{2}}{4B_{\rm fold}},
-\end{equation}
-so that
+\subsection{Normalised non-negative folding functional}
+For Lyapunov use, the negative minimum of $\mathcal E_{\rm fold}$ may be shifted
+to zero. On a fixed compact parameter box this gives the familiar shifted
+functional
 \begin{equation}
   \mathcal V_{\rm fold}
-  :=\mathcal E_{\rm fold}-\mathcal E_{\rm fold,min}
   =\frac{B_{\rm fold}}{4}
-  \left(q_{\rm fold}^{2}-\frac{A_{\rm fold}}{B_{\rm fold}}\right)^2
-  \ge0.
+  \left(q_{\rm fold}^{2}-Q_{\rm fold}^{*}\right)^2,
+  \qquad
+  Q_{\rm fold}^{*}:=\frac{A_{\rm fold}}{B_{\rm fold}}.
 \end{equation}
-When $A_{\rm fold}\le0$, one may simply take
+However the Open-Gate epektasis domain does not necessarily bound $\lambda$;
+indeed $\lambda\le q^*\Omega_P$ may grow with the Brim. Since
 \begin{equation}
-  \mathcal V_{\rm fold}
-  =\frac12|A_{\rm fold}|q_{\rm fold}^{2}
-  +\frac14B_{\rm fold}q_{\rm fold}^{4}
-  \ge0,
+  B_{\rm fold}=b+2c_1\eta_{\rm fold}\lambda,
 \end{equation}
-with the minimum at $q_{\rm fold}=0$.
-
-\subsection{Extended Lyapunov candidate}
-The folding-compatible Lyapunov candidate is
+the unnormalised shifted functional can become unbounded even when
+$q_{\rm fold}$ and $Q_{\rm fold}^{*}$ stay inside the regular folding chart. The
+bounded Lyapunov object is therefore the $B_{\rm fold}$-normalised tension
+functional
 \begin{equation}
   \boxed{
-  \mathcal L_{\rm ext}
-  =\LV+w_{\rm fold}\mathcal V_{\rm fold},
+  \widetilde{\mathcal V}_{\rm fold}
+  :=\frac{\mathcal V_{\rm fold}}{B_{\rm fold}}
+  =\frac14\left(q_{\rm fold}^{2}-Q_{\rm fold}^{*}\right)^2\ge0.}
+\end{equation}
+This is the same morphological distance from the folded branch, but without the
+unbounded epektatic weight $B_{\rm fold}$.
+
+Along the frozen-parameter folding flow,
+\begin{equation}
+  \dot q_{\rm fold}
+  =-B_{\rm fold}q_{\rm fold}\left(q_{\rm fold}^{2}-Q_{\rm fold}^{*}\right),
+\end{equation}
+one obtains
+\begin{equation}
+  \boxed{
+  \dot{\widetilde{\mathcal V}}_{\rm fold}
+  =-B_{\rm fold}q_{\rm fold}^{2}
+  \left(q_{\rm fold}^{2}-Q_{\rm fold}^{*}\right)^2\le0.}
+\end{equation}
+For slowly moving parameters,
+\begin{equation}
+  \dot{\widetilde{\mathcal V}}_{\rm fold}
+  =-B_{\rm fold}q_{\rm fold}^{2}
+  \left(q_{\rm fold}^{2}-Q_{\rm fold}^{*}\right)^2
+  -\frac12\left(q_{\rm fold}^{2}-Q_{\rm fold}^{*}\right)
+  \dot Q_{\rm fold}^{*},
+\end{equation}
+and the last term is bounded whenever $q_{\rm fold}$, $Q_{\rm fold}^{*}$ and
+$\dot Q_{\rm fold}^{*}$ are bounded. This is the adiabatic regularity assumption
+used below.
+
+\subsection{Extended Lyapunov candidate}
+The folding-compatible Lyapunov candidate is therefore taken to be
+\begin{equation}
+  \boxed{
+  \widetilde{\mathcal L}_{\rm ext}
+  =\LV+w_{\rm fold}\widetilde{\mathcal V}_{\rm fold},
   \qquad
   w_{\rm fold}>0.}
 \end{equation}
 This construction preserves the original $\LV$ as the core certificate, while
-adding a non-negative measure of distance from the stable folded morphology.
+adding a non-negative bounded measure of distance from the stable folded
+morphology. The earlier unnormalised $\mathcal V_{\rm fold}$ remains useful as a
+local shape-energy expression, but the global epektasis-domain certificate uses
+$\widetilde{\mathcal V}_{\rm fold}$.
 
 
 % ============================================================
@@ -906,79 +943,214 @@ guaranteed value, as expected.
 
 
 % ============================================================
-\section{Folding-Compatible Dissipative Estimate}
+\section{Folding-Compatible Dissipative Estimate and Addendum Closure}
 
 This section explains why the addition of Sophianic Folding does not destroy the
 Open-Gate Lyapunov estimate. The old estimate
 \begin{equation}
   \dot\LV\le C-C_1\LV
 \end{equation}
-remains the base certificate. Folding contributes an additional non-negative
-shape functional whose own flow is descending.
+remains the base certificate. Folding contributes the normalised non-negative
+shape functional $\widetilde{\mathcal V}_{\rm fold}$, whose own flow is
+descending on continuous arcs.
 
-\begin{proposition}[Lyapunov compatibility of Sophianic Folding]
-Assume that the trajectory remains in the regular folding domain
+\subsection{Regular folding wall and chart invariance}
+Define the folding-extended active domain
 \begin{equation}
-  0\le Q_{\rm fold}\le Q_{\max}<\infty,
-  \qquad
-  B_{\rm fold}\ge B_{\min}>0,
+  \boxed{
+  \mathcal D_A^{\rm fold}:=\mathcal D_A\times[0,q_{\max}].}
 \end{equation}
-and that $A_{\rm fold}$ and $B_{\rm fold}$ are frozen or vary adiabatically on the
-folding relaxation scale. Then the extended functional
+The standing folding wall is
 \begin{equation}
-  \mathcal L_{\rm ext}=\LV+w_{\rm fold}\mathcal V_{\rm fold}
+  \boxed{
+  q_{\max}^{2}\ge Q^{*,\sup}:=\sup_{\mathcal D_A}Q_{\rm fold}^{*}.}
+\end{equation}
+In the minimal geometric surrogate
+\begin{equation}
+  A_{\rm fold}=(c_0-c_1\gamma)\lambda+c_1k_\sigma\sigma+c_1I_{\rm gate}-a_0,
+  \qquad
+  B_{\rm fold}=b+2c_1\eta_{\rm fold}\lambda,
+\end{equation}
+this supremum is finite; a sufficient explicit bound is
+\begin{equation}
+  Q^{*,\sup}\le
+  \max\left\{
+  \frac{c_1(k_\sigma C_\sigma+\zeta_0)-a_0}{b},\;\;
+  \frac{c_0-c_1\gamma}{2c_1\eta_{\rm fold}}
+  \right\}.
+\end{equation}
+In the canonical core-rate convention, finiteness is imposed by the same wall
+hypothesis and the boundedness/adiabatic regularity of $Q_{\rm fold}^{*}$ on the
+operating domain.
+
+\begin{lemma}[Folding-chart invariance]
+Under the folding wall, the interval $0\le q_{\rm fold}\le q_{\max}$ is forward
+invariant for the folding flow.
+\end{lemma}
+\begin{proof}
+The folding equation can be written as
+\begin{equation}
+  \dot q_{\rm fold}
+  =-B_{\rm fold}q_{\rm fold}
+  \left(q_{\rm fold}^{2}-Q_{\rm fold}^{*}\right).
+\end{equation}
+At $q_{\rm fold}=0$, one has $\dot q_{\rm fold}=0$, so the lower face is tangent.
+At $q_{\rm fold}=q_{\max}$,
+\begin{equation}
+  \dot q_{\rm fold}\big|_{q_{\max}}
+  =-B_{\rm fold}q_{\max}
+  \left(q_{\max}^{2}-Q_{\rm fold}^{*}\right)\le0
+\end{equation}
+by $B_{\rm fold}>0$ and the wall $q_{\max}^2\ge Q_{\rm fold}^{*}$. Hence the upper
+face is inward-pointing. Together with the base positive invariance of
+$\mathcal D_A$, this proves invariance of $\mathcal D_A^{\rm fold}$.
+\end{proof}
+
+\subsection{Reset bound for the folding coordinate}
+The Resurrectio reset acts on the core variables but not on the folding
+amplitude:
+\begin{equation}
+  q_{\rm fold}^{+}=q_{\rm fold}^{-}.
+\end{equation}
+Therefore if $x^{-}\in\mathcal D_A^{\rm fold}$ and the base reset lemma gives
+$x^{+}\in\mathcal D_A$, then automatically $x^{+}\in\mathcal D_A^{\rm fold}$.
+Moreover, since $q_{\rm fold}\in[0,q_{\max}]$ and $Q_{\rm fold}^{*}$ is bounded,
+there is a finite constant
+\begin{equation}
+  \widetilde M_{\rm fold}
+  :=\frac14\sup_{\mathcal D_A^{\rm fold}}
+  \left(q_{\rm fold}^{2}-Q_{\rm fold}^{*}\right)^2<\infty
+\end{equation}
+with
+\begin{equation}
+  \widetilde{\mathcal V}_{\rm fold}\le\widetilde M_{\rm fold}.
+\end{equation}
+Thus the reset bound extends to the folding certificate:
+\begin{equation}
+  \boxed{
+  \widetilde{\mathcal L}_{\rm ext}(x^+)
+  \le L_R+w_{\rm fold}\widetilde M_{\rm fold}<\infty.}
+\end{equation}
+
+\subsection{Dissipative estimate for the normalised extended functional}
+\begin{proposition}[Lyapunov compatibility of Sophianic Folding]
+Assume the regular folding conditions: $\mathcal D_A^{\rm fold}$ is invariant,
+$B_{\rm fold}\ge B_{\min}>0$, $Q_{\rm fold}^{*}$ is bounded, and
+$\dot Q_{\rm fold}^{*}$ is bounded on the folding relaxation scale. Then the
+normalised extended functional
+\begin{equation}
+  \widetilde{\mathcal L}_{\rm ext}
+  =\LV+w_{\rm fold}\widetilde{\mathcal V}_{\rm fold}
 \end{equation}
 satisfies a dissipative bound of the same form
 \begin{equation}
   \boxed{
-  \dot{\mathcal L}_{\rm ext}
-  \le C_{\rm ext}-C_1\mathcal L_{\rm ext}}
+  \dot{\widetilde{\mathcal L}}_{\rm ext}
+  \le \widetilde C_{\rm ext}-C_1\widetilde{\mathcal L}_{\rm ext}}
 \end{equation}
-on the regular folding domain, for some finite constant $C_{\rm ext}$.
+on the regular folding domain, for some finite constant $\widetilde C_{\rm ext}$.
 \end{proposition}
 
 \begin{proof}
-For frozen folding parameters,
+By the normalised descent formula,
 \begin{equation}
-  \dot{\mathcal V}_{\rm fold}
-  =\dot{\mathcal E}_{\rm fold}
-  =-\left(\partial_{q_{\rm fold}}\mathcal E_{\rm fold}\right)^2\le0.
+  \dot{\widetilde{\mathcal V}}_{\rm fold}
+  \le R_{\rm fold}
 \end{equation}
-Hence
+where $R_{\rm fold}<\infty$ bounds the adiabatic remainder
+$-\frac12(q_{\rm fold}^{2}-Q_{\rm fold}^{*})\dot Q_{\rm fold}^{*}$. Hence
 \begin{equation}
-  \dot{\mathcal L}_{\rm ext}
-  =\dot\LV+w_{\rm fold}\dot{\mathcal V}_{\rm fold}
-  \le \dot\LV
-  \le C-C_1\LV.
+  \dot{\widetilde{\mathcal L}}_{\rm ext}
+  =\dot\LV+w_{\rm fold}\dot{\widetilde{\mathcal V}}_{\rm fold}
+  \le C-C_1\LV+w_{\rm fold}R_{\rm fold}.
 \end{equation}
-On the regular folding domain, $\mathcal V_{\rm fold}$ is bounded above by a
-finite constant $M_{\rm fold}$. Therefore
+Since
 \begin{equation}
-  \LV=\mathcal L_{\rm ext}-w_{\rm fold}\mathcal V_{\rm fold}
-  \ge \mathcal L_{\rm ext}-w_{\rm fold}M_{\rm fold}.
+  \LV=\widetilde{\mathcal L}_{\rm ext}
+  -w_{\rm fold}\widetilde{\mathcal V}_{\rm fold}
+  \ge \widetilde{\mathcal L}_{\rm ext}
+  -w_{\rm fold}\widetilde M_{\rm fold},
 \end{equation}
-Substitution gives
+substitution gives
 \begin{equation}
-  \dot{\mathcal L}_{\rm ext}
-  \le C-C_1\mathcal L_{\rm ext}+C_1w_{\rm fold}M_{\rm fold}
-  =C_{\rm ext}-C_1\mathcal L_{\rm ext},
+  \dot{\widetilde{\mathcal L}}_{\rm ext}
+  \le
+  C+C_1w_{\rm fold}\widetilde M_{\rm fold}
+  +w_{\rm fold}R_{\rm fold}
+  -C_1\widetilde{\mathcal L}_{\rm ext}
+  =\widetilde C_{\rm ext}-C_1\widetilde{\mathcal L}_{\rm ext}.
 \end{equation}
-where $C_{\rm ext}:=C+C_1w_{\rm fold}M_{\rm fold}<\infty$.
-For slowly moving parameters, extra terms
-\begin{equation}
-  -\frac12q_{\rm fold}^2\dot A_{\rm fold}
-  +\frac14q_{\rm fold}^4\dot B_{\rm fold}
-\end{equation}
-are bounded on the regular domain and are absorbed into $C_{\rm ext}$. Thus the
-contracting rate $C_1$ is not replaced by folding; only the bounded constant is
-enlarged.
+Thus the contracting rate $C_1$ is not replaced by folding; only the bounded
+constant is enlarged.
 \end{proof}
+
+\begin{corollary}[Hybrid forward completeness with folding]
+Combined with the base reset lemma and non-Zeno dwell-time bound, the preceding
+estimate gives
+\begin{equation}
+  \boxed{
+  \widetilde{\mathcal L}_{\rm ext}(t)
+  \le
+  \widetilde L_*:=
+  \max\left\{L_R+w_{\rm fold}\widetilde M_{\rm fold},
+  \widetilde C_{\rm ext}/C_1\right\}.}
+\end{equation}
+The folding coordinate adds no new reset-triggering death face; therefore the
+hybrid trajectory remains forward complete and non-Zeno in the folding-extended
+state.
+\end{corollary}
 
 \textbf{Interpretation.} Sophianic Folding is a Lyapunov-compatible
 morphological stabilization. It does not generate a new death-boundary, and it
 is not a Perelman-type singular surgery. It is a regular form-transition in
 which excess available Sophia is relaxed into a lower-tension Vessel morphology.
 
+
+
+% ============================================================
+\section{Activation-Index Conventions}
+
+Two activation-index conventions occur in the surrounding manuscript. The
+canonical core-rate convention uses the already-defined Open-Gate production
+law:
+\begin{equation}
+  \boxed{
+  A_{\rm fold}=c_0\lambda+c_1\dot\lambda^{(0)}-a_0,
+  \qquad
+  \dot\lambda^{(0)}=-\dot\sigma+I_{\rm gate}.}
+\end{equation}
+A geometric minimal-rate surrogate writes instead
+\begin{equation}
+  A_{\rm fold}^{\rm geom}
+  =(c_0-c_1\gamma)\lambda+c_1k_\sigma\sigma+c_1I_{\rm gate}-a_0.
+\end{equation}
+The first convention is primary in this Lyapunov/core file because $\lambda$ and
+$\dot\lambda$ are already part of the Open-Gate dynamics. The second convention
+is an effective linear surrogate useful in the geometry and cosmology layers.
+It should not be read as an exact reparametrisation of the core law.
+
+The invariance and reset results above do not depend on which convention is
+used. They require only the gradient form
+\begin{equation}
+  \dot q_{\rm fold}
+  =-B_{\rm fold}q_{\rm fold}
+  (q_{\rm fold}^{2}-Q_{\rm fold}^{*}),
+\end{equation}
+the wall $Q_{\rm fold}^{*}\le q_{\max}^{2}$, bounded adiabatic variation of
+$Q_{\rm fold}^{*}$, and the fact that the reset is inert on $q_{\rm fold}$. What
+is convention-specific is the closed-form expression for critical levels such as
+$Q_{\rm crit}$.
+
+\begin{remark}[Reset contraction in the geometric surrogate]
+In the geometric convention, resistance metabolism
+$m_R=(1-q_R)\sigma^{-}$ gives a simple affine update of the target
+$Q_{\rm fold}^{*}$ and can be read as contraction toward an effective critical
+level. In the canonical core-rate convention, the update includes the nonlinear
+term $\tanh(\kappa\sigma)$ through $\dot\lambda^{(0)}$, so the contraction is
+state-dependent rather than toward a single constant. The Lyapunov conclusion is
+unchanged: resets preserve the folding chart and the normalised extended
+functional stays bounded.
+\end{remark}
 
 % ============================================================
 \section{Main Theorem Formulae}
