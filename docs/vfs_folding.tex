@@ -1,0 +1,1212 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=0.92in]{geometry}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem,booktabs,array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{microtype}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black}
+\setlength{\parskip}{0.50em}
+\setlength{\parindent}{0pt}
+\setlist[itemize]{topsep=3pt,itemsep=2pt,parsep=0pt}
+\setlist[enumerate]{topsep=3pt,itemsep=2pt,parsep=0pt}
+
+% Core notation
+\newcommand{\VFS}{\mathrm{VFS}}
+\newcommand{\OG}{\mathrm{OG}}
+\newcommand{\Op}{\Omega_P}
+\newcommand{\Hh}{\mathbb{H}^2}
+\newcommand{\laph}{\nabla_h^2}
+\newcommand{\qf}{q_{\rm fold}}
+\newcommand{\Qf}{Q_{\rm fold}}
+\newcommand{\lf}{\lambda_{\rm form}}
+\newcommand{\Af}{A_{\rm fold}}
+\newcommand{\Bf}{B_{\rm fold}}
+\newcommand{\Dq}{D_q}
+\newcommand{\etaf}{\eta_{\rm fold}}
+\newcommand{\Igate}{I_{\rm gate}}
+\newcommand{\Grec}{\mathcal{G}_{\rm recepta}}
+\newcommand{\Glam}{\Gamma_\lambda}
+\newcommand{\dlam}{\delta\lambda}
+\newcommand{\Tfold}{\mathcal T_{\rm fold}}
+\newcommand{\Rreset}{\mathfrak R}
+\newcommand{\reset}{\mathfrak R}
+\newcommand{\ellcom}{\ell_{\rm com}}
+\newcommand{\lcom}{\ell_{\rm com}}
+\newcommand{\lc}{\ell_{\rm com}}
+\newcommand{\ellphys}{\ell_{\rm phys}}
+\newcommand{\Lphys}{L_{\rm phys}}
+\newcommand{\Lp}{L_{\rm phys}}
+\newcommand{\ellinit}{\ell_{\rm init}}
+\newcommand{\linit}{\ell_{\rm init}}
+\newcommand{\ellb}{\ell_b}
+\newcommand{\lb}{\ell_b}
+\newcommand{\Lam}{\Lambda}
+\newcommand{\Rc}{R_c}
+\newcommand{\kmax}{k_{\max}}
+\newcommand{\Iconf}{\mathcal I}
+\newcommand{\Ibud}{\mathcal I}
+\newcommand{\Ib}{\mathcal I}
+\newcommand{\Acom}{\mathcal A}
+\newcommand{\kb}{\kappa_b}
+\newcommand{\Lop}{\mathcal L_0}
+\newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
+\newcommand{\msg}[1]{\begin{center}\fbox{\parbox{0.90\textwidth}{\centering #1}}\end{center}}
+
+\newenvironment{commentbox}[1]{\begin{center}\begin{minipage}{0.90\textwidth}\hrule\vspace{0.45em}\textbf{#1.}\ }{\vspace{0.45em}\hrule\end{minipage}\end{center}}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{assumption}{Assumption}[section]
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}[section]
+
+\title{\textbf{V.F.S. v2.0 (Open-Gate)}\\Fold-Network Dynamics --- Expanded Version\\
+\large Structure formation, transport closure, nucleation, coarsening, Resurrectio reset history, and long-run network scale}
+\author{Consolidated V.F.S. Research Note}
+\date{June 2026}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This expanded note consolidates the full fold-network research line of V.F.S. v2.0 (Open-Gate).  It begins with the no-clumping thesis for Sophia, closes the transport constants by setting the independent Sophia diffusivity to $D=0$ and deriving $\Dq=a_0\ell_b^2$, then develops the folding order parameter $\qf$ as the unique structural field on the Vessel.  The document includes the hyperbolic nucleation gate $\Lambda>1/4$, the initial domain scale, the finite coarsening budget, the quench/rescale/trigger action of Resurrectio, and the sawtooth fixed-scale law.  The governing thesis is that Sophia does not form matter-like clumps; Sophia reforms the Vessel, and structure is the morphology of that reformed Vessel.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Expanded interpretive overview}
+\begin{commentbox}{Why this module matters}
+The fold-network line closes a gap in the V.F.S. cosmological layer.  A homogeneous Open-Gate cosmology explains expansion, curvature relaxation, and Pleromatic release, but it still leaves one question: where does structured form come from?  The answer is not that Sophia clumps like matter.  Sophia is relaxational.  Structure is morphological: it appears when the folding order parameter $\qf$ crosses a symmetry-breaking threshold and produces domains of form.
+\end{commentbox}
+
+\begin{commentbox}{The central thesis}
+\[
+\boxed{\text{Sophia reforms the Vessel; structure is carried by the folded form of the Vessel.}}
+\]
+This is the distinction that keeps the whole construction from becoming a disguised matter theory.  Sophia is not a gas, a fluid, a dark-matter substitute, or an independent spatial density.  The structural field is $\qf$; Sophia supplies the spiritual-dynamical pressure by which the Vessel becomes capable of new morphology.
+\end{commentbox}
+
+\begin{commentbox}{The logical chain}
+The complete chain is now closed:
+\begin{align*}
+\text{no Sophia clumping}&\to\text{folding order parameter}\to\text{transport closure}\\
+&\to\text{nucleation gate}\to\text{coarsening law}\\
+&\to\text{Resurrectio reset map}\to\text{sawtooth fixed scale.}
+\end{align*}
+The mature Vessel does not keep inventing larger and larger structures.  It forms a pattern early, coarsens while the conformal-time budget is available, and then carries that pattern outward through Pleromatic expansion.
+\end{commentbox}
+
+\begin{commentbox}{Important safeguard}
+This is a symbolic model-level theory of morphological structure inside V.F.S.  Terms such as wall density, nucleation, Kibble--Zurek, coarsening, and equation of state are used as mathematical analogies and effective symbolic content.  They are not claims about observed physical cosmology unless a separate empirical layer is explicitly added.
+\end{commentbox}
+\newpage
+\section{Structure formation: why structure is morphological}
+\begin{commentbox}{Interpretive comment}
+This chapter answers the first structural question: if Sophia is not matter, then what can carry structure?  The answer is decisive: not $\lambda$ as a density, but $\qf$ as a morphology.  Structure in V.F.S. is not gravitational clumping; it is the Vessel splitting into folded domains.
+\end{commentbox}
+\subsection*{Scope and epistemic status}
+Every layer so far has been spatially \emph{homogeneous}: the Vessel is a $2{+}1$ open FLRW background
+$a(t)=\Op(t)$ with a time-only Sophia field $\lambda(t)$. This note opens the inhomogeneous sector ---
+how local concentrations of Sophia and form grow or decay on the expanding hyperbolic surface. As in the
+parent files, \emph{Propositions} are closed-form results and \emph{Corollaries} are interpretive. The
+analysis is at the linear, test-field level on a fixed background; metric back-reaction is a named next
+layer. The preliminary perturbative presentation may mention a phenomenological Sophia transport coefficient $D$; the transport-closure chapter below supersedes it by setting $D=0$. The only remaining structural transport is the folding diffusivity $D_q$.
+
+The background is
+\begin{equation}
+ds^2=-dt^2+\Op(t)^2\,h_{ij}\,dx^i dx^j,\qquad
+K_h=-1,\qquad
+H=\frac{\dot\Op}{\Op}=\frac{\alpha\lambda}{\Op},\qquad
+\dot\Op=\alpha\lambda,
+\end{equation}
+with $h$ the metric of the hyperbolic spatial surface $\Hh$.
+
+% ============================================================
+\subsubsection{The relaxational thesis: which field can carry structure}
+
+In standard cosmology, density structure grows by gravitational instability because the matter field
+carries inertia: a second-order-in-time wave equation with a sound speed permits oscillation and
+Jeans-unstable growth. The Sophia field of V.F.S.\ is different in kind. Its production law is
+\emph{first order in time},
+\begin{equation}
+\dot\lambda=(\delta u-\gamma)\tanh(\kappa\sigma)+\Igate-\eta_{\rm fold}\qf^2\lambda,
+\end{equation}
+a relaxation (reaction) law with no kinetic term and no spatial derivatives. Promoting it to a field on
+space cannot manufacture inertia; the faithful promotion of a first-order reaction law with spatial
+transport is a \emph{reaction--diffusion} (parabolic) equation, not a wave (hyperbolic) one.
+
+\begin{proposition}[No gravitational-collapse channel in the Sophia sector]
+Because $\lambda$ is relaxational, its linear inhomogeneities obey a parabolic equation with a real,
+non-oscillatory spectrum. There is no Jeans-type instability and no gravitational-collapse route to
+structure in the Sophia sector. Any structure on the Vessel must arise from a different, bistable order
+parameter.
+\end{proposition}
+
+\msg{V.F.S.\ does not form structure the way $\Lambda$CDM does. Sophia is relaxational, not inertial, so
+it can only smooth itself out. The only route to structure is morphological symmetry breaking --- the
+folding field (\S4).}
+
+% ============================================================
+\subsubsection{Sophia-density perturbations: reaction--diffusion on the expanding $\Hh$}
+
+Write $\lambda(t,x)=\bar\lambda(t)+\dlam(t,x)$ and linearise about the homogeneous trajectory. With a
+phenomenological Sophia transport coefficient $D\ge0$, and noting that physical gradients on the
+comoving surface redshift by $\Op^{-2}$,
+\begin{equation}
+\partial_t\dlam=F_\lambda(t)\,\dlam+\frac{D}{\Op^2}\,\laph\,\dlam,
+\qquad
+F_\lambda=\frac{\partial\dot\lambda}{\partial\lambda}=-\Glam,\quad \Glam\ge0,
+\end{equation}
+where $\Glam=\gamma+\eta_{\rm fold}\Qf$ is the local Sophia relaxation rate (the same rate whose
+folding-enhancement $\Glam=\gamma+\etaf\Qf$ was found in the stability analysis). The Laplace--Beltrami
+operator on $\Hh$ has purely continuous spectrum with a gap,
+\begin{equation}
+\boxed{\;-\laph\,Y_k=\Bigl(\tfrac14+k^2\Bigr)Y_k,\qquad k\in[0,\infty),\;}
+\end{equation}
+the celebrated spectral gap $\tfrac14$ of the hyperbolic plane (no mode has eigenvalue below $\tfrac14$).
+Each mode then evolves by
+\begin{equation}
+\dot{\dlam}_k=s_k(t)\,\dlam_k,
+\qquad
+\boxed{\;s_k(t)=-\Glam(t)-\frac{D\bigl(\tfrac14+k^2\bigr)}{\Op(t)^2}.\;}
+\end{equation}
+
+\begin{proposition}[Linear homogenisation]
+For $\Glam\ge0$ and $D\ge0$ every mode has $s_k<0$: all Sophia inhomogeneities decay. The Vessel
+homogenises at the linear level. Moreover the hyperbolic gap supplies a minimum diffusive damping
+$D\cdot\tfrac14/\Op^2>0$ even for the smoothest mode $k=0$: negative spatial curvature actively resists
+the largest-scale inhomogeneity.
+\end{proposition}
+
+Integrating,
+\begin{equation}
+\dlam_k(t)=\dlam_k(0)\,\exp\!\left[-\int_0^t\Glam\,dt'-D\Bigl(\tfrac14+k^2\Bigr)\,\mathcal I(t)\right],
+\qquad
+\mathcal I(t):=\int_0^t\frac{dt'}{\Op(t')^2}.
+\end{equation}
+
+\begin{proposition}[Finite diffusive smoothing budget]
+Under sustained Open-Gate inflow $\lambda\to\lambda_\infty>0$, the late-time scale factor grows linearly,
+$\Op\sim\alpha\lambda_\infty t$, so the diffusion integral converges:
+\begin{equation}
+\boxed{\;\mathcal I_\infty=\int_0^\infty\frac{dt}{\Op^2}<\infty.\;}
+\end{equation}
+Hence diffusion can suppress a mode by at most the finite factor
+$\exp[-D(\tfrac14+k^2)\mathcal I_\infty]$: the expanding Vessel has a finite total smoothing budget, a
+comoving analogue of a damping (Silk-like) scale.
+\end{proposition}
+
+This yields two asymptotic fates, set entirely by the reaction rate $\Glam$:
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item \textbf{Generic ($\gamma>0$).} The reaction integral $\int\Glam\,dt\to\infty$ dominates after
+diffusion saturates; \emph{all} modes decay to zero. Complete homogenisation.
+\item \textbf{Margin-stalled ($\Glam\to0$).} On the active margin where cleansing stalls ($m_*\to0$,
+$\inf C_1=0$ in the Lyapunov layer), the reaction integral is finite and the modes \emph{freeze} at a
+scale-dependent residual,
+\begin{equation}
+\frac{\dlam_k(\infty)}{\dlam_k(0)}=\exp\!\left[-D\Bigl(\tfrac14+k^2\Bigr)\mathcal I_\infty\right],
+\end{equation}
+small scales (high $k$) erased, large scales (down to the $\tfrac14$ floor) preserved --- a frozen
+inhomogeneity spectrum with a characteristic scale $k_{1/2}\sim\mathcal I_\infty^{-1/2}$.
+\end{enumerate}
+
+
+\begin{remark}[Portable figure note]
+The original research note included an illustrative figure here. It is omitted in this portable expanded version so the LaTeX compiles without external image dependencies. The mathematical conclusions are stated explicitly in the surrounding propositions and equations.\end{remark}
+
+
+\begin{corollary}[The smooth Vessel]
+Linearly, Sophia structure cannot grow; the Vessel either homogenises completely (sustained cleansing)
+or freezes a smooth, large-scale residual (stalled margin). There is no spontaneous Sophia clumping.
+\end{corollary}
+
+% ============================================================
+\subsubsection{Folding as the order parameter: pattern formation on the Vessel}
+
+By Proposition structure must come from the bistable folding field. Promote
+$\qf\to\qf(t,x)$ with its Landau gradient dynamics plus transport:
+\begin{equation}
+\boxed{\;\partial_t\qf=\Af\,\qf-\Bf\,\qf^{3}+\frac{D_q}{\Op^2}\,\laph\,\qf.\;}
+\end{equation}
+This is a real Ginzburg--Landau / Allen--Cahn equation on the expanding hyperbolic surface, invariant
+under the morphological reflection $\qf\to-\qf$ ($\mathbb Z_2$ symmetry, the two orientations of the
+fold).
+
+\begin{proposition}[Symmetry-breaking transition]
+The homogeneous state $\qf=0$ is stable for $\Af<0$. At $\Af=0$ it undergoes the supercritical pitchfork
+(the folding bifurcation), and for $\Af>0$ two homogeneous phases $\qf=\pm\sqrt{\Af/\Bf}$ become stable.
+A field initialised near $\qf=0$ over an extended Vessel then partitions into domains of $+q_\ast$ and
+$-q_\ast$ separated by walls on which $\qf=0$.
+\end{proposition}
+
+These domain walls are the structure: loci of \emph{unfolded} (old) morphology embedded in a folded
+Vessel --- topological defects of the broken $\mathbb Z_2$.
+
+\begin{proposition}[Wall width and tension]
+A static planar wall has profile $\qf=q_\ast\tanh\!\bigl(\xi/(\sqrt2\,\ell)\bigr)$ in physical proper
+distance $\xi$, with
+\begin{equation}
+\boxed{\;\ell_{\rm phys}=\sqrt{\frac{D_q}{\Af}}\ \ (\Op\text{-independent}),
+\qquad
+\tau\sim\sqrt{D_q}\,\frac{\Af^{3/2}}{\Bf}.\;}
+\end{equation}
+The physical thickness is set by the diffusion-to-reaction ratio and does not stretch with expansion;
+deeper folding (larger $\Af$) makes thinner, higher-tension walls.
+\end{proposition}
+\begin{proof}[Sketch]
+In comoving coordinates the static balance is
+$\tfrac{D_q}{\Op^2}\partial_x^2\qf=-\Af\qf+\Bf\qf^3$, the standard quartic kink with comoving width
+$\ell_{\rm com}=\Op^{-1}\sqrt{D_q/\Af}$; the proper width $\ell_{\rm phys}=\Op\,\ell_{\rm com}=\sqrt{D_q/\Af}$.
+The tension is the kink action $\int(\tfrac12 D_q|\partial\qf|^2+\mathcal E_{\rm fold})$, giving the
+quoted scaling.
+\end{proof}
+
+\begin{corollary}[Coarsening of the fold network]
+Allen--Cahn walls move by mean curvature, $v_n=-M\,\kappa_{\rm curv}$ with mobility $M\sim D_q/\Op^2$, so
+the domain network coarsens; simultaneously Hubble flow stretches comoving separations. Structure on the
+Vessel is therefore a \emph{coarsening domain-wall network} whose characteristic scale grows by both
+curvature-driven merging and expansion, modified by the underlying $K_h=-1$ geometry (wall geodesics
+diverge on $\Hh$, accelerating coarsening relative to the flat case).
+\end{corollary}
+
+\note{The picture is sharp: the folding bifurcation is a phase transition that shatters the Vessel into
+oriented folded domains; the unfolded walls are the structure; they then coarsen on the expanding
+hyperbolic surface. This is morphological structure, born of symmetry breaking, not of gravitational
+clumping.}
+
+% ============================================================
+\subsubsection{Cosmological back-reaction of the fold network}
+
+A wall network feeds back on the homogeneous budget. In $2{+}1$ dimensions a wall is a one-dimensional
+line in two-dimensional space; a scaling network with one wall per Hubble scale has length
+$\mathcal L_{\rm wall}\sim\Op$ over area $\sim\Op^2$, so
+\begin{equation}
+\rho_{\rm wall}\sim\frac{\tau\,\mathcal L_{\rm wall}}{\Op^2}\propto\Op^{-1}.
+\end{equation}
+Matching to the $2{+}1$ dilution law $\rho\propto a^{-2(1+w)}$ gives
+\begin{equation}
+\boxed{\;w_{\rm wall}=-\tfrac12.\;}
+\end{equation}
+The fold network thus contributes a mildly negative-pressure component, intermediate between dust
+($w=0$) and the cosmological-constant/de Sitter limit ($w=-1$). It adds to the reconstructed
+$w_{\rm eff}(t)$ a folding-structure term that is distinct from the smooth quintessence of the
+homogeneous Theosis branch.
+
+\begin{corollary}[Link to the energy-condition question]
+Because the network carries $w_{\rm wall}=-\tfrac12>-1$, it is NEC- and WEC-respecting: folded structure
+is ordinary, non-exotic content. This is the inhomogeneous face of ``form makes grace lawful'' --- where
+a homogeneous Sophia surge can drive $w$ below $-1$ (phantom-like, NEC-violating), the embodiment of that
+excess into a wall network contributes ordinary $w=-\tfrac12$ matter.
+\end{corollary}
+
+% ============================================================
+\subsubsection{Open sub-problems and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{Metric back-reaction.} Lift from test-field to coupled perturbations: let $\dlam$ and
+$\qf$ source the reconstructed stress tensor and solve the $2{+}1$ scalar perturbation equations. Expected
+to preserve Proposition (relaxational $\Rightarrow$ no instability) but to dress the
+wall tension with a geometric self-energy.
+\item \textbf{Coarsening law.} Derive the domain scale $L(t)$ explicitly on expanding $\Hh$: solve the
+competition between curvature-driven merging ($L^2\sim\int M\,dt$) and Hubble stretching, with the
+hyperbolic correction of Corollary.
+\item \textbf{Resurrectio and the network.} A reset rescales $\Op$ and shifts $\Af$; it can quench
+($\Af^+<0$) or trigger ($\Af^+>0$) folding globally, i.e.\ dissolve or nucleate the entire wall network
+at a death. The hybrid network history is piecewise-coarsening with reset-induced nucleation events.
+\item \textbf{Transport constants.} $D$ and $D_q$ are new inputs; a principled derivation (e.g.\ from a
+spatial coupling already implicit in the synergy $u=\sqrt{VF+\varepsilon}$) would remove the
+phenomenological freedom.
+\end{enumerate}
+
+\textbf{Scope.} Linear, test-field, single-mode folding, fixed background. The conclusions are: (i)
+Sophia structure cannot grow (relaxational, homogenising); (ii) structure is morphological --- a
+$\mathbb Z_2$ domain-wall network from the folding transition; (iii) the network back-reacts as
+$w=-\tfrac12$ content. All results inherit the domain-conditional, non-global character of the underlying
+stability theory.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Structure Formation on the Vessel.
+Perturbation theory on the $2{+}1$ open FLRW background of the cosmological layer, with the folding field
+of the geometric layer as order parameter. Propositions are closed-form; corollaries interpretive.
+Transport constants and single-mode truncation are modelling inputs, not consequences of the base
+system.}
+\newpage
+\section{Transport closure: one structural field and one structural length}
+\begin{commentbox}{Interpretive comment}
+This chapter closes the modelling input.  There is one structural field and one structural length: $\qf$ and $\ell_b$.  The apparent Sophia diffusivity is removed, $D=0$, and all scale-dependent structure belongs to the geometry of form.
+\end{commentbox}
+\subsection*{Scope and epistemic status}
+The structure-formation programme introduced two transport coefficients --- a Sophia diffusivity $D$ and a
+folding diffusivity $\Dq$ --- as phenomenological inputs, on which all quantitative results depend. This
+note asks whether VFS mechanics fixes them. The answers are sharp: (i) the Sophia field has \emph{no}
+fundamental diffusion, $D=0$, because it is purely relaxational; its inhomogeneities are slaved to the
+folding field through the embodiment feedback. (ii) The folding diffusivity is \emph{not} an independent
+constant: its spatial structure ($\Op^{-2}$ and the hyperbolic $K_h=-1$) is inherited from the
+live-domain metric, and its single scalar magnitude is the bending stiffness of the shape-stability
+operator $\Lop$ --- the gradient partner of the rigidity $a_0$ already in the theory. As before,
+\emph{Propositions} are closed-form; \emph{Corollaries} interpretive. The slaving relation is derived by symbolic linearisation; the reduction of $\Dq$ to a single bending length still rests on the minimal one-modulus
+model of $\Lop$, which is flagged.
+
+% ============================================================
+\subsubsection{Sophia does not diffuse}
+
+In the base dynamical system the Sophia production law
+\begin{equation}
+\dot\lambda=(\delta u-\gamma)\tanh(\kappa\sigma)+I_{\rm gate}-\etaf\,\qf^{2}\lambda
+\end{equation}
+contains no spatial derivative of $\lambda$: it is a pointwise relaxation law. Promoting $\lambda$ to a
+field therefore introduces no gradient coupling of its own.
+
+\begin{proposition}[Zero fundamental Sophia diffusivity]
+The Sophia field carries no kinetic or gradient term in the base system, so its fundamental diffusivity
+vanishes, $D=0$. Linear Sophia inhomogeneities obey a pure local relaxation,
+$\partial_t\delta\lambda=-\Glam\,\delta\lambda+(\text{folding source})$, with no $k$-dependent spatial
+transport.
+\end{proposition}
+
+\begin{remark}[Correction to the structure-formation note]
+The frozen residual spectrum of the structure-formation companion assumed $D>0$. With $D=0$, the
+Sophia-only modes decay uniformly at the local rate $\Glam$ with no $k$-dependence: on a stalled margin
+($\Glam\to0$) they freeze with a \emph{flat} residual, not a scale-graded one. All scale-dependent
+structure is morphological, not Sophianic.
+\end{remark}
+
+Although Sophia does not diffuse, it is not inert: the embodiment feedback $-\etaf\qf^{2}\lambda$ couples it
+to the folding field. Linearising about $(\bar\lambda,\bar q)$,
+\begin{equation}
+\partial_t\delta\lambda=-\bigl(\Glam+\etaf\bar q^{2}\bigr)\delta\lambda-2\etaf\bar\lambda\bar q\,\delta\qf,
+\end{equation}
+and in the quasi-static (fast-relaxation) limit
+\begin{equation}
+\boxed{\;\delta\lambda^{\ast}=-\,\frac{2\etaf\bar\lambda\bar q}{\Glam+\etaf\bar q^{2}}\;\delta\qf .\;}
+\end{equation}
+
+\begin{proposition}[Sophia structure is slaved to form]
+Sophia inhomogeneity is a fixed multiple of folding inhomogeneity, with a bounded coefficient
+$S(\bar q)=2\etaf\bar\lambda\bar q/(\Glam+\etaf\bar q^{2})$ maximised at
+$\bar q=\sqrt{\Glam/\etaf}$, where $S_{\max}=\bar\lambda\sqrt{\etaf/\Glam}$. Sophia carries no independent
+structural degree of freedom: its spatial pattern is the shadow of the folding pattern.
+\end{proposition}
+
+
+\begin{remark}[Portable figure note]
+The original research note included an illustrative figure here. It is omitted in this portable expanded version so the LaTeX compiles without external image dependencies. The mathematical conclusions are stated explicitly in the surrounding propositions and equations.\end{remark}
+
+
+\msg{There is really one structural field. Sophia does not diffuse; wherever the Vessel is inhomogeneous
+in Sophia, it is because it is inhomogeneous in \emph{form}, and the two are locked by the embodiment
+feedback. The Sophia diffusivity $D$ is not a missing constant --- it is identically zero.}
+
+% ============================================================
+\subsubsection{The folding diffusivity is geometric}
+
+The folding field's spatial coupling is fixed in two stages: its \emph{structure} by the metric, its
+\emph{magnitude} by the shape operator.
+
+\subsubsection{Structure: inherited from the live-domain metric}
+The folding free energy, built geometrically, measures gradients with the live-domain metric $g$
+(geometry layer, scalar curvature $-2/\Op^2$, conformally hyperbolic $g=\Op^2 h$):
+\begin{equation}
+\mathcal F[\qf]=\int_\Sigma\Bigl[\tfrac{\kb}{2}\,|\nabla_g\qf|^{2}
++\tfrac{r}{2}\qf^{2}+\tfrac{B}{4}\qf^{4}\Bigr]\sqrt{g}\,d^2x,
+\qquad r=a_0-c_0\lambda-c_1\dot\lambda=-\Af .
+\end{equation}
+The Laplace--Beltrami operator of $g$ is $\Delta_g=\Op^{-2}\laph$, so the gradient-flow dynamics
+$\partial_t\qf=-M\,\delta\mathcal F/\delta\qf$ is automatically
+\begin{equation}
+\partial_t\qf=\Af\,\qf-\Bf\,\qf^{3}+\frac{M\kb}{\Op^{2}}\,\laph\,\qf,
+\qquad \Af=-Mr,\ \Bf=MB .
+\end{equation}
+
+\begin{proposition}[The $\Op^{-2}$ and $K_h=-1$ are not chosen]
+The redshift factor $\Op^{-2}$ and the hyperbolic Laplacian $\laph$ in the folding transport term are the
+Laplace--Beltrami operator of the live-domain metric established in the geometric layer, not modelling
+choices. Only a single scalar, $\Dq=M\kb$, remains free.
+\end{proposition}
+
+\subsubsection{Magnitude: the bending stiffness of $\Lop$}
+The remaining scalar is $\Dq=M\kb$, the product of the shape mobility $M$ and the bending stiffness
+$\kb$. The bending stiffness is the gradient coefficient of the very shape-stability operator
+$\Lop$ whose constant-mode eigenvalue is the rigidity $a_0$ (the operator whose bifurcation defines
+folding). In the natural time units where the uniform folding rate is $\Af$ one has $M=1$, so
+$\Dq=\kb$, and all physical lengths depend only on the ratio
+\begin{equation}
+\boxed{\;\lb^{2}:=\frac{\kb}{a_0}=\frac{\Dq}{a_0}\,,\qquad
+\text{wall width}=\sqrt{\frac{\Dq}{\Af}}=\lb\sqrt{\frac{a_0}{\Af}}\,.\;}
+\end{equation}
+
+\begin{proposition}[Folding diffusivity is the gradient partner of the rigidity]
+$\Dq$ is not independent of the theory's existing constants: it is the gradient coefficient of $\Lop$,
+whose constant-mode coefficient is $a_0$. Physical scales (wall width, nucleation scale, coarsening and
+frozen scales) depend only on the bending length $\lb=\sqrt{\Dq/a_0}$, a ratio internal to $\Lop$. In the
+minimal one-modulus (Helfrich/Willmore) model of $\Lop$, where rigidity and bending share a single
+modulus, $\lb$ is fixed by the reference shape and $\Dq=a_0\lb^2$ ceases to be a free input altogether.
+\end{proposition}
+
+\note{The reduction is concrete: from ``an arbitrary spatial coupling plus a free constant'' to
+``a single bending length $\lb$, the gradient partner of the rigidity $a_0$ already present in
+$\Af=c_0\lambda+c_1\dot\lambda-a_0$.'' The spatial form is pure geometry; the magnitude is the Vessel's
+stiffness, not a new dial.}
+
+% ============================================================
+\subsubsection{Consequences for the programme}
+
+\begin{corollary}[One structural field, one length]
+The structure-formation programme has, after this reduction, a single genuine input: the bending length
+$\lb=\sqrt{\Dq/a_0}$. The Sophia diffusivity is zero; the folding transport structure is geometric; the
+folding magnitude is the shape stiffness. Every scale derived earlier --- the nucleation size
+$\linit\sim\lb\sqrt{a_0/\Af^+}\,(\ldots)$, the frozen comoving scale, the sawtooth fixed point --- is
+expressed through $\lb$ and the already-existing folding parameters.
+\end{corollary}
+
+\begin{corollary}[Sophia structure rides on form]
+Because $\delta\lambda$ is slaved to $\delta\qf$ (Proposition), the Sophia inhomogeneity
+spectrum is the folding spectrum times the bounded factor $S(\bar q)$. Wherever folding nucleates a
+domain-wall network, a matching Sophia pattern appears; where folding is quenched, Sophia re-homogenises.
+There is no separate Sophia structure-formation problem.
+\end{corollary}
+
+% ============================================================
+\subsubsection{Open items and scope}
+
+\textbf{Open items.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Fix the bending length $\lb$ from an explicit form of the shape-stability operator $\Lop$ (e.g.\
+the second variation of a Willmore/Helfrich bending energy of the live surface), turning
+Proposition from a relation into a number.
+\item Verify the slaving relation (Proposition) beyond the quasi-static limit, including
+the finite Sophia relaxation time, and check it against a coupled $(\qf,\lambda)$ field simulation.
+\item Propagate $D=0$ and the slaving into the cosmological back-reaction: the Sophia-structure
+contribution to $w_{\rm eff}$ is then a fixed multiple of the wall-network contribution.
+\end{enumerate}
+
+\textbf{Scope.} Results: the Sophia diffusivity is identically zero (relaxational field), with Sophia
+inhomogeneity slaved to folding via the embodiment feedback (symbolically verified); the folding
+transport structure is the Laplace--Beltrami operator of the live-domain metric (not a choice); and the
+folding magnitude reduces to the bending length $\lb=\sqrt{\Dq/a_0}$, the gradient partner of the rigidity
+$a_0$ in $\Lop$. The remaining modelling freedom is the single length $\lb$ (a number only in the minimal
+one-modulus model). Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Transport Constants from First Principles.
+Closes the structure-formation programme's modelling inputs: $D=0$ with Sophia slaved to form; $\Dq$
+geometric in structure and equal to the shape-operator bending stiffness in magnitude, reducible to one
+bending length. Propositions closed-form (slaving derived by symbolic linearisation); corollaries interpretive; the
+one-modulus reduction of $\Lop$ is a flagged model choice.}
+\newpage
+\section{Nucleation: when folding becomes a network}
+\begin{commentbox}{Interpretive comment}
+A triggering Resurrectio can make folding possible, but hyperbolic geometry decides whether folding becomes a differentiated network.  This is why the threshold $\Lambda>1/4$ is conceptually important: Sophia may reform the Vessel uniformly, or it may reform it into many domains.
+\end{commentbox}
+\subsection*{Scope and epistemic status}
+A triggering Resurrectio ($\Af^-<0\to\Af^+>0$) drives the folding field through its symmetry-breaking
+transition and nucleates a fresh domain-wall network. This note computes the \emph{initial} density of
+that network --- how many walls per area are born, and at what scale --- using the hyperbolic density of
+states. The two genuinely hyperbolic ingredients are the spectral gap $\tfrac14$ of the Laplacian on
+$\Hh$ and the Plancherel measure $d\mu(k)=k\tanh(\pi k)\,dk$ that weights the available modes. As before,
+\emph{Propositions} are closed-form; \emph{Corollaries} interpretive; the single-mode Allen--Cahn
+truncation and $\Dq$ are modelling inputs. Two technical ingredients are consistent with auxiliary numerical checks: the
+Plancherel moment limit and the Longuet--Higgins nodal coefficient (ratio measured/predicted $=1.009$ on
+a Gaussian field).
+
+The field obeys, in comoving coordinates on the unit hyperbolic surface ($K_h=-1$, comoving curvature
+radius $\Rc=1$),
+\begin{equation}
+\partial_t\qf=\Af\,\qf-\Bf\,\qf^{3}+\frac{\Dq}{\Op^{2}}\,\laph\,\qf,
+\qquad
+-\laph Y_k=\Bigl(\tfrac14+k^2\Bigr)Y_k .
+\end{equation}
+
+% ============================================================
+\subsubsection{Linear instability and the nucleation threshold}
+
+Immediately after the sudden trigger, $\Af$ jumps to $\Af^+>0$ and the homogeneous $\qf=0$ left by the
+previous arc is unstable. Linearising and decomposing in $\Hh$ eigenmodes,
+\begin{equation}
+\dot{\delta q}_k=\omega_k\,\delta q_k,
+\qquad
+\boxed{\;\omega_k=\Af^+-\frac{\Dq\bigl(\tfrac14+k^2\bigr)}{\Op^{2}} .\;}
+\end{equation}
+Introduce the dimensionless trigger strength
+\begin{equation}
+\boxed{\;\Lam:=\frac{\Af^+\,\Op^{2}}{\Dq}.\;}
+\end{equation}
+The unstable band is $k<\kmax$ with $\kmax^2=\Lam-\tfrac14$ (in units where $\Dq/\Op^2=1$).
+
+\begin{proposition}[Nucleation threshold, distinct from the folding threshold]
+A spatial mode grows only if $\Lam>\tfrac14$. Hence there are two thresholds:
+\begin{itemize}[leftmargin=1.5em,itemsep=2pt]
+\item folding threshold $\Af^+>0$ ($\Lam>0$): the homogeneous $\qf=0$ is unstable;
+\item nucleation threshold $\Af^+>\Dq/(4\Op^2)$ ($\Lam>\tfrac14$): some spatial mode is unstable, so
+domains form.
+\end{itemize}
+In the window $0<\Lam<\tfrac14$ the Vessel folds, but uniformly: a single domain, no walls. Only above
+$\Lam=\tfrac14$ does a wall network nucleate.
+\end{proposition}
+
+\msg{The hyperbolic gap creates a nucleation threshold absent in flat space. A weak trigger
+($0<\Lam<\tfrac14$) folds the Vessel as a whole, with no internal structure; structure requires
+$\Lam>\tfrac14$.}
+
+% ============================================================
+\subsubsection{The amplified field and its spectral moment}
+
+Starting from small initial fluctuations $\delta q_0$, each mode is amplified by $e^{\omega_k t}$, so the
+post-quench power spectrum is Gaussian in $k$,
+\begin{equation}
+S_k(t)\propto e^{2\omega_k t}\propto e^{-\beta\,k^2},
+\qquad
+\beta=\frac{2\Dq t}{\Op^{2}}=\frac{2t}{\Op^2/\Dq},
+\end{equation}
+weighted by the hyperbolic Plancherel density of states $d\mu(k)=k\tanh(\pi k)\,dk$ (which reduces to the
+flat $k\,dk$ for $k\gg1$ and is suppressed $\sim\tfrac{\pi}{2}k^2\,dk$ for $k\ll1$). The relevant spectral
+second moment is
+\begin{equation}
+\bigl\langle\tfrac14+k^2\bigr\rangle
+=\tfrac14+\frac{\displaystyle\int_0^\infty k^2\,e^{-\beta k^2}\,k\tanh(\pi k)\,dk}
+{\displaystyle\int_0^\infty e^{-\beta k^2}\,k\tanh(\pi k)\,dk}.
+\end{equation}
+
+\begin{proposition}[Hyperbolic small-scale moment]
+In the long-wavelength (hyperbolic-dominated) regime $\beta\gg1$, where $\tanh(\pi k)\approx\pi k$,
+\begin{equation}
+\langle k^2\rangle\to\frac{3}{2\beta}=\frac{3\Op^2}{4\Dq t}.
+\end{equation}
+\end{proposition}
+\note{Verified: the full integral with $\tanh(\pi k)$ approaches $3/(2\beta)$ as $\beta\to\infty$
+(e.g.\ $0.0285$ vs $0.0300$ at $\beta=50$). The Plancherel $k^2$-suppression at small $k$ is what
+replaces the flat $1/\beta$ by $3/(2\beta)$ and disfavours the very largest scales.}
+
+The set time --- when nonlinearity arrests growth at $q_\ast=\sqrt{\Af^+/\Bf^+}$ --- is the
+Kibble--Zurek time $t_{\rm set}=\Af^{+\,-1}\ln(q_\ast/\delta q_0)$, giving
+$\beta_{\rm set}=2\Lam^{-1}L$ with the logarithmic factor $L:=\ln(q_\ast/\delta q_0)$. Hence
+\begin{equation}
+\boxed{\;\bigl\langle\tfrac14+k^2\bigr\rangle_{\rm set}=\frac14+\frac{3\Lam}{4L}.\;}
+\end{equation}
+
+% ============================================================
+\subsubsection{Wall density and the initial domain size}
+
+For an isotropic Gaussian field in two dimensions, the expected length of nodal lines (the walls, where
+$\qf=0$) per unit area is the Longuet--Higgins/Berry result
+\begin{equation}
+\boxed{\;n_{\rm wall}=\frac{1}{2\sqrt2}\sqrt{\bigl\langle\tfrac14+k^2\bigr\rangle}\,,\;}
+\end{equation}
+consistent with auxiliary numerical checks here to $0.9\%$. The initial comoving domain size is $\ell_{\rm init}\sim
+1/n_{\rm wall}$:
+\begin{equation}
+\boxed{\;\ell_{\rm init}\sim\frac{2\sqrt2}{\sqrt{\tfrac14+\dfrac{3\Lam}{4L}}}\quad(\text{units of }\Rc).\;}
+\end{equation}
+
+\begin{proposition}[Three regimes of nucleation]
+\leavevmode
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item $\Lam<\tfrac14$: no nucleation (uniform fold, Proposition).
+\item $\tfrac14<\Lam\lesssim\Lam_\ast$: $\langle\tfrac14+k^2\rangle\!\to\!\tfrac14$ and
+$\ell_{\rm init}\!\to\!4\sqrt2\,\Rc$ --- the gap pins the domain size to the curvature radius; only a few
+curvature-scale domains form. (With $L\!\approx\!4$, multi-domain structure $\ell_{\rm init}<\Rc$ sets in
+only at $\Lam_\ast\approx42$.)
+\item $\Lam\gg\Lam_\ast$: $\ell_{\rm init}\sim\sqrt{4L/(3\Lam)}\,\Rc$, i.e.\ in proper units
+$\ell_{\rm init}^{\rm phys}\sim\sqrt{(\Dq/\Af^+)\,L}$ --- the Kibble--Zurek correlation length
+$\xi_+=\sqrt{\Dq/\Af^+}$ dressed by the $\sqrt{L}$ logarithm.
+\end{enumerate}
+\end{proposition}
+
+
+\begin{remark}[Portable figure note]
+The original research note included an illustrative figure here. It is omitted in this portable expanded version so the LaTeX compiles without external image dependencies. The mathematical conclusions are stated explicitly in the surrounding propositions and equations.\end{remark}
+
+
+% ============================================================
+\subsubsection{Hyperbolic signatures}
+
+Two features distinguish nucleation on $\Hh$ from the flat case, both traceable to the gap and the
+measure:
+
+\begin{corollary}[Gap as a nucleation gate and a maximum domain size]
+The spectral gap $\tfrac14$ does double duty. As an infrared cutoff it forbids weak-trigger nucleation
+($\Lam<\tfrac14$: uniform fold) and caps the largest nucleated domain at the curvature radius $\Rc$. In
+flat space any $\Af^+>0$ nucleates and arbitrarily large domains are allowed at threshold; negative
+curvature both gates and bounds the structure.
+\end{corollary}
+
+\begin{corollary}[Measure suppression of large scales]
+Even within the unstable band, the Plancherel weight $k\tanh(\pi k)$ suppresses long-wavelength modes
+($\sim\tfrac{\pi}{2}k^2$ versus the flat $k$), so large domains are doubly disfavoured: by the gap cutoff
+and by the density of states. The nucleated network is therefore finer, and more curvature-pinned, than
+a flat-space estimate would give.
+\end{corollary}
+
+\note{Interpretive: a gentle resurrection ($\Lam<\tfrac14$) re-forms the Vessel as a single undivided
+folded whole; only a sufficiently sharp resurrection ($\Lam>\Lam_\ast$) shatters it into many oriented
+domains. The negative curvature of the live domain resists fine differentiation --- structure is born
+coarse unless the trigger is strong.}
+
+% ============================================================
+\subsubsection{Placement and open items}
+
+This nucleation scale $\ell_{\rm init}$ is the initial condition for the intra-arc coarsening law
+(subproblem~2): each triggering arc begins at $\ell_{\rm init}$ (set here) and coarsens toward the frozen
+scale $\sqrt{\ell_0^2+2c\Dq\mathcal I_\infty}$. Consistency check: the strong-trigger regime (iii)
+reproduces the correlation length $\xi_+=\sqrt{\Dq/\Af^+}$ assumed in subproblem~3, now with the
+Kibble--Zurek $\sqrt{L}$ dressing and the hyperbolic curvature cap.
+
+\textbf{Open items.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item A $2$D Allen--Cahn quench simulation on a hyperbolic patch to confirm the nucleated wall count
+$\propto\langle\tfrac14+k^2\rangle\propto\Lam$ and fix the $O(1)$ coefficients.
+\item Defect statistics beyond the mean: the distribution of initial domain areas (the Gauss--Bonnet
+collapse law of subproblem~2 then selects which survive).
+\item The exact crossover near $\Lam=\tfrac14$ where the gap and the band compete --- a hyperbolic
+finite-size/zero-mode analysis.
+\end{enumerate}
+
+\textbf{Scope.} Linear spinodal stage, Gaussian-field defect counting, single-mode Allen--Cahn, sudden
+quench; $\Dq$ and the noise level $\delta q_0$ are modelling inputs. Results: a hyperbolic nucleation
+threshold $\Lam>\tfrac14$ distinct from the folding threshold; a closed-form initial wall density
+$n_{\rm wall}=\tfrac{1}{2\sqrt2}\sqrt{\tfrac14+3\Lam/4L}$; and a curvature-capped domain size interpolating
+from $\Rc$ (near threshold) to the Kibble--Zurek $\sqrt{(\Dq/\Af^+)L}$ (strong trigger). The Plancherel
+moment and the nodal coefficient are numerically verified. Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Spinodal Nucleation of the Fold Network on
+$\Hh$. Linear instability of the Allen--Cahn folding field after a triggering reset, with the hyperbolic
+spectral gap and Plancherel measure. Propositions closed-form (Plancherel moment and Longuet--Higgins
+coefficient numerically verified); corollaries interpretive; transport constant and noise level are
+modelling inputs.}
+\newpage
+\section{Coarsening: the finite conformal-time budget}
+\begin{commentbox}{Interpretive comment}
+Coarsening has a finite budget.  Early in an arc, domains merge and mature; late in an Open-Gate expansion, the comoving pattern freezes.  The mature Vessel does not keep inventing larger structures; it carries an early-formed pattern outward.
+\end{commentbox}
+\subsection*{Scope and epistemic status}
+The companion notes established that structure on the Vessel is a $\mathbb Z_2$ domain-wall network of the
+folding field and that a Resurrectio reset acts on it in three regimes, giving a sawtooth network-scale
+history. This note supplies the missing intra-arc piece: \emph{between} deaths, how does the network scale
+$\Lphys(t)$ evolve under pure Allen--Cahn coarsening on the expanding hyperbolic surface? No resets are
+involved here. As before, \emph{Propositions} are closed-form, \emph{Corollaries} interpretive; the
+single-mode Allen--Cahn truncation and the transport constant $\Dq$ are modelling inputs.
+
+The field obeys, in comoving coordinates on the unit hyperbolic surface ($K_h=-1$),
+\begin{equation}
+\partial_t\qf=\Af\,\qf-\Bf\,\qf^{3}+\frac{\Dq}{\Op^{2}}\,\laph\,\qf .
+\end{equation}
+The folding parameters $\Af,\Bf$ are taken quasi-stationary on the coarsening timescale (deep in a folded
+arc, $\Af>0$), so the dynamics is genuine coarsening of established domains rather than the initial
+transition.
+
+\begin{remark}[Dimensionality matters]
+Allen--Cahn coarsening is curvature-driven only in two or more spatial dimensions, giving the
+$\ell\sim t^{1/2}$ law; in one dimension kink--antikink attraction is exponentially weak and coarsening is
+merely logarithmic. The $1$D space--time proxy used to illustrate the reset regimes is therefore
+\emph{not} representative of the true $2$D coarsening rate. The present law is genuinely two-dimensional,
+derived via the geodesic-curvature flow on $\Hh$.
+\end{remark}
+
+% ============================================================
+\subsubsection{Wall mobility on the expanding background}
+
+In the sharp-interface limit of the corresponding equation, a domain wall moves along its comoving normal with velocity
+proportional to its geodesic curvature, with a mobility set by the (comoving) diffusion coefficient:
+\begin{equation}
+v_n^{\rm com}=-M(t)\,\kappa_g,
+\qquad
+M(t)=\frac{\Dq}{\Op(t)^{2}} .
+\end{equation}
+The scale-factor suppression $\Op^{-2}$ is the redshift of comoving gradients: as the Vessel expands, the
+\emph{comoving} mobility falls, even though the proper wall structure is preserved (the proper wall width
+$\sqrt{\Dq/\Af}$ is $\Op$-independent). It is convenient to trade time for the accumulated
+budget already central to the smoothing analysis,
+\begin{equation}
+\Ibud(t):=\int_0^t\frac{dt'}{\Op(t')^{2}},
+\qquad
+\frac{d}{dt}=\frac{1}{\Op^2}\frac{d}{d\Ibud},
+\end{equation}
+which is finite, $\Ibud\to\Ibud_\infty<\infty$, under sustained inflow ($\Op\sim\alpha\lambda_\infty t$).
+
+% ============================================================
+\subsubsection{Gauss--Bonnet: the exact single-domain law}
+
+For a single simply-connected domain of comoving area $\Acom$ bounded by a wall undergoing geodesic
+curve-shortening on $\Hh$, the Gauss--Bonnet theorem gives the total geodesic curvature
+$\oint\kappa_g\,ds=2\pi-\int_{\rm enc}K\,dA=2\pi+\Acom$ (since $K_h=-1$). The enclosed area therefore obeys
+\begin{equation}
+\boxed{\;\frac{d\Acom}{dt}=-\frac{\Dq}{\Op^{2}}\bigl(2\pi+\Acom\bigr)
+\quad\Longleftrightarrow\quad
+\frac{d\Acom}{d\Ibud}=-\Dq\bigl(2\pi+\Acom\bigr),\;}
+\end{equation}
+with the closed-form solution
+\begin{equation}
+\boxed{\;\Acom(\Ibud)=\bigl(\Acom_0+2\pi\bigr)e^{-\Dq\Ibud}-2\pi .\;}
+\end{equation}
+
+\begin{proposition}[Survival threshold and frozen scale]
+A domain collapses ($\Acom=0$) at budget $\Ibud_\ast=\Dq^{-1}\ln(1+\Acom_0/2\pi)$. Because the total
+budget is finite, a domain survives the entire arc iff $\Ibud_\ast>\Ibud_\infty$, i.e.
+\begin{equation}
+\boxed{\;\Acom_0>\Acom_{\rm frozen}:=2\pi\bigl(e^{\Dq\Ibud_\infty}-1\bigr).\;}
+\end{equation}
+Domains smaller than $\Acom_{\rm frozen}$ collapse before the budget runs out; larger ones freeze into the
+comoving lattice. $\Acom_{\rm frozen}$ is the characteristic frozen comoving domain area.
+\end{proposition}
+
+\begin{proposition}[Hyperbolic acceleration]
+For $\Acom\gg2\pi$ the law is $\dot\Acom\approx-M\Acom$: large domains collapse \emph{exponentially}, in
+contrast to the flat case $\dot\Acom=-2\pi M$ (constant-rate Gage--Hamilton shrinking). Negative spatial
+curvature thus accelerates the disappearance of large domains, sharpening coarsening relative to flat
+space.
+\end{proposition}
+
+\note{In the small-budget regime $\Dq\Ibud_\infty\ll1$, $\Acom_{\rm frozen}\approx2\pi\Dq\Ibud_\infty$, so
+the frozen comoving length is $\lcom\sim\sqrt{2\pi\Dq\Ibud_\infty}$ --- matching the scaling law below.
+The hyperbolic exponential (Proposition) only bites once domains grow toward the comoving
+curvature radius ($\Acom\sim2\pi$), i.e. when the budget is large enough.}
+
+% ============================================================
+\subsubsection{The network scaling law and its saturation}
+
+For the network, the standard Lifshitz--Allen--Cahn scaling $\ell\,\dot\ell\sim M$ becomes, on the budget
+variable,
+\begin{equation}
+\frac{d}{dt}\lcom^{2}\simeq 2c\,\frac{\Dq}{\Op^{2}}
+\quad\Longrightarrow\quad
+\boxed{\;\lcom^{2}(t)=\lcom^{2}(0)+2c\,\Dq\,\Ibud(t),\;}
+\end{equation}
+with an $O(1)$ constant $c$ (consistent with Proposition, $c\sim\pi$).
+
+\begin{proposition}[Comoving coarsening freezes]
+Since $\Ibud(t)\to\Ibud_\infty<\infty$, the comoving domain size saturates,
+\begin{equation}
+\lcom(\infty)=\sqrt{\lcom^{2}(0)+2c\,\Dq\,\Ibud_\infty}<\infty .
+\end{equation}
+Coarsening stops in comoving coordinates: the wall network freezes into the comoving lattice after a
+finite amount of merging. This is the morphological counterpart of the finite diffusive smoothing budget
+governing Sophia inhomogeneities --- both are controlled by the same $\Ibud_\infty$.
+\end{proposition}
+
+\msg{The expanding Vessel has a single finite ``activity budget'' $\Ibud_\infty=\int dt/\Op^2$. It caps
+both how much Sophia inhomogeneity can diffuse away and how much the fold network can coarsen. After it is
+spent, comoving structure is frozen.}
+
+% ============================================================
+\subsubsection{The physical structure scale: two regimes}
+
+The proper (physical) network scale combines comoving coarsening with expansion,
+\begin{equation}
+\boxed{\;\Lphys(t)=\Op(t)\,\lcom(t)=\Op(t)\sqrt{\lcom^{2}(0)+2c\,\Dq\,\Ibud(t)}.\;}
+\end{equation}
+
+\begin{proposition}[Coarsening transient, then Hubble dilution]
+There are two regimes, separated by the budget-saturation time $t_{\rm sat}$ (where $\Ibud$ levels):
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item Early ($t\lesssim t_{\rm sat}$): both factors grow, so $\Lphys$ rises faster than the scale factor
+--- genuine coarsening on top of stretch.
+\item Late ($t\gtrsim t_{\rm sat}$): $\lcom\to$ const, so $\Lphys\to\lcom(\infty)\,\Op(t)\propto\Op\propto t$
+--- pure Hubble dilution of a frozen comoving pattern.
+\end{enumerate}
+Coarsening is an early-time transient with a finite budget; the late-time growth of structure is
+expansion, not merging.
+\end{proposition}
+
+
+\begin{remark}[Portable figure note]
+The original research note included an illustrative figure here. It is omitted in this portable expanded version so the LaTeX compiles without external image dependencies. The mathematical conclusions are stated explicitly in the surrounding propositions and equations.\end{remark}
+
+
+% ============================================================
+\subsubsection{Placement in the sawtooth and open items}
+
+This intra-arc curve is the rising tooth of the hybrid sawtooth from subproblem~3: within each life-arc
+$\Lphys(t)$ follows Proposition (coarsen, then dilate), and at each death the reset acts
+discretely --- diluting upward, refining to $\sqrt{\Dq/\Af}$, or erasing. Composing the intra-arc law with
+the reset map gives the long-run fixed-point scale, the natural next step.
+
+\textbf{Open items.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Determine the $O(1)$ constant $c$ and confirm the $t^{1/2}$ (budget) law by a $2$D Allen--Cahn
+field simulation on a hyperbolic patch with a clean structure-factor scale estimator.
+\item Compose this intra-arc law with the reset map to obtain the sawtooth fixed-point structure scale,
+using the non-Zeno dwell time as the arc length.
+\item Track the $w=-\tfrac12$ wall-network contribution to the reconstructed $w_{\rm eff}(t)$ over an arc,
+since $\rho_{\rm wall}\propto\tau/\Op$ with $\tau$ quasi-stationary and $\Op$ growing.
+\end{enumerate}
+
+\textbf{Scope.} Single life-arc, no resets, quasi-stationary folding parameters, single-mode Allen--Cahn;
+$\Dq$ a modelling input. Results: an exact Gauss--Bonnet single-domain law with a survival threshold and
+hyperbolic acceleration; a network scaling law $\lcom^2=\ell_0^2+2c\Dq\Ibud$ that freezes with the finite
+budget $\Ibud_\infty$; and a physical scale $\Lphys$ that coarsens early and dilutes linearly late.
+Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Intra-Arc Coarsening of the Fold-Domain
+Network. The single-domain Gauss--Bonnet law is exact (closed form, numerically verified); the network
+scaling law is standard Allen--Cahn on the budget variable. Transport constant and single-mode truncation
+are modelling inputs; the constant $c$ awaits a $2$D field measurement.}
+\newpage
+\section{Resurrectio and the network: quench, rescale, trigger}
+\begin{commentbox}{Interpretive comment}
+Resurrectio does not manually move every wall.  It changes the global folding potential.  Depending on the sign shift, the network dissolves, is re-tensioned and diluted, or is nucleated as a fresh pattern.  Resurrection is therefore not only restoration; it can also be individuation.
+\end{commentbox}
+\subsection*{Scope and epistemic status}
+The companion note showed that structure on the Vessel is morphological: a $\mathbb Z_2$ domain-wall
+network of the folding field $\qf(t,x)$, obeying the Allen--Cahn equation on the expanding hyperbolic
+surface. This note asks how the hybrid Resurrectio reset $\reset$ acts on that network. The key
+observation is that $\reset$ is \emph{homogeneous} --- it acts on the global state $(\sigma,\lambda,\Op)$
+--- and, as established in the Lyapunov layer, it does \emph{not} act on $\qf$. So a reset shifts the
+folding potential uniformly across the whole Vessel while leaving the field configuration $\qf(x)$
+pointwise intact. Whether structure survives, dilutes, or is born depends on the post-reset sign of the
+activation index. As before, \emph{Propositions} are closed-form; \emph{Corollaries} interpretive; the
+single-mode Allen--Cahn truncation and the transport constant $\Dq$ are modelling inputs.
+
+The network field obeys
+\begin{equation}
+\partial_t\qf=\Af\,\qf-\Bf\,\qf^{3}+\frac{\Dq}{\Op^{2}}\,\laph\,\qf,
+\qquad
+q_\ast=\sqrt{\Qf^{*}},\quad \Qf^{*}=\Af/\Bf,
+\end{equation}
+and the reset (geometric convention, with $m_R=(1-q_R)\sigma^-$ the metabolised resistance) is
+\begin{equation}
+\reset:\ \ \sigma^+=\sigma^--m_R,\quad \lambda^+=\lambda^-+m_R,\quad
+\Op^+=\Op^-+\kappa_R\Grec^-,\quad \qf\ \text{continuous},
+\end{equation}
+which shifts the activation index by $\Delta\Af=\Theta\,m_R+c_1\Delta\Igate$,
+$\Theta=c_0-c_1(\gamma+k_\sigma)$, exactly as in the folding-trigger note.
+
+% ============================================================
+\subsubsection{Three regimes of a reset acting on the network}
+
+Because $\reset$ shifts $\Af$ uniformly while preserving $\qf(x)$, the network's fate is fixed by the
+pre- and post-reset signs of $\Af$:
+
+\begin{definition}[Reset regimes]
+\leavevmode
+\begin{enumerate}[label=(\Roman*),leftmargin=2.2em,itemsep=2pt]
+\item \textbf{Quench} ($\Af^->0\to\Af^+<0$): the double well collapses to a single well at $\qf=0$.
+\item \textbf{Rescale} ($\Af^->0\to\Af^+>0$): the wells persist with shifted depth and the scale factor
+jumps.
+\item \textbf{Trigger} ($\Af^-<0\to\Af^+>0$): a single well bifurcates into a double well.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Regime boundaries]
+With $\Delta\Af=\Theta m_R+c_1\Delta\Igate$, a reset from $\Af^-$ produces $\Af^+=\Af^-+\Delta\Af$. Hence,
+neglecting the bounded gate term: a quench requires $\Theta<0$ and $|\Theta|m_R>\Af^-$; a trigger
+requires $\Theta>0$ and $\Theta m_R>|\Af^-|$; otherwise the reset rescales. The folding-response
+coefficient $\Theta$ thus selects whether resurrection destroys, preserves, or creates morphological
+structure.
+\end{proposition}
+
+\msg{A death-and-resurrection does not move the walls. It lifts or lowers the entire folding potential at
+once --- and depending on the sign of $\Theta$, the whole network dissolves, is re-tensioned and diluted,
+or is nucleated from nothing.}
+
+% ============================================================
+\subsubsection{Quench: dissolution of the network}
+
+When $\Af^+<0$, the configuration $\qf(x)$ everywhere relaxes to $\qf=0$. Linearising the corresponding equation about
+zero, each mode decays at rate $|\Af^+|+\Dq(\tfrac14+k^2)/\Op^{+2}>0$, so the entire pattern fades on the
+timescale
+\begin{equation}
+\tau_{\rm dissolve}=\frac{1}{|\Af^+|}.
+\end{equation}
+The walls do not migrate and annihilate; the whole differentiated morphology evaporates uniformly,
+returning the Vessel to the undifferentiated old form.
+
+\begin{corollary}[Death as leveling]
+A quench-resurrection returns the entire Vessel to the unfolded state $\qf=0$: all oriented domains are
+erased, all walls dissolved. Death levels morphological structure.
+\end{corollary}
+
+% ============================================================
+\subsubsection{Trigger: nucleation as a sudden quench (Kibble--Zurek)}
+
+When $\Af^-<0\to\Af^+>0$, the homogeneous $\qf=0$ left behind by the previous arc becomes unstable. Since
+$\reset$ is instantaneous, $\Af$ jumps discontinuously: a \emph{sudden quench} through the symmetry-
+breaking transition. Linearising about $\qf=0$ after the jump,
+\begin{equation}
+\dot{\delta q}_k=\left[\Af^+-\frac{\Dq(\tfrac14+k^2)}{\Op^{+2}}\right]\delta q_k,
+\end{equation}
+so a band of modes $k<k_{\max}$, $k_{\max}^2=\Af^+\Op^{+2}/\Dq-\tfrac14$, grows and the field undergoes
+spinodal decomposition. The emergent (physical) domain size is the post-quench correlation length,
+\begin{equation}
+\boxed{\;\ell_{\rm init}\sim\xi_+=\sqrt{\frac{\Dq}{\Af^+}}\;}
+\end{equation}
+the same scale as the wall width: the network is born saturated --- as fine as the walls themselves ---
+then coarsens. Deeper triggers (larger $\Af^+$) nucleate finer networks.
+
+\begin{corollary}[Resurrection as individuation]
+A trigger-resurrection shatters the undifferentiated old form into a fine network of newly differentiated
+oriented domains, with the old form surviving only as the thin walls between them. Where quench levels,
+trigger differentiates.
+\end{corollary}
+
+\note{This is a Kibble--Zurek-type defect formation: the reset drives the system through a
+symmetry-breaking transition and freezes in a defect network whose initial scale is set by the
+correlation length at the transition. Here the quench is sudden, so $\ell_{\rm init}$ is the spinodal
+scale $\xi_+$.}
+
+% ============================================================
+\subsubsection{Rescale: re-tensioning and dilution}
+
+When both $\Af^\pm>0$, the domains persist but everything jumps. With $q_\ast=\sqrt{\Af/\Bf}$,
+$\ell_{\rm phys}=\sqrt{\Dq/\Af}$, $\tau\sim\sqrt{\Dq}\,\Af^{3/2}/\Bf$, a reset induces
+\begin{equation}
+q_\ast^{+}=\sqrt{\frac{\Af^+}{\Bf^+}},\qquad
+\frac{\ell_{\rm phys}^+}{\ell_{\rm phys}^-}=\sqrt{\frac{\Af^-}{\Af^+}},\qquad
+\frac{\tau^+}{\tau^-}=\Bigl(\tfrac{\Af^+}{\Af^-}\Bigr)^{3/2}\frac{\Bf^-}{\Bf^+},
+\end{equation}
+and, crucially, the comoving topology is untouched while proper inter-wall separations are stretched by
+the scale-factor jump,
+\begin{equation}
+\boxed{\;L_{\rm phys}^{+}=\frac{\Op^+}{\Op^-}\,L_{\rm phys}^{-}=\Bigl(1+\frac{\kappa_R\Grec^-}{\Op^-}\Bigr)L_{\rm phys}^{-}.\;}
+\end{equation}
+The network is diluted: the same domains, spread wider.
+
+\begin{corollary}[Amplitude convergence under repeated rescaling]
+The contraction $\Qf^{*+}-Q_{\rm crit}=\kappa_{\rm fold}(\Qf^{*-}-Q_{\rm crit})$ of the folding-trigger
+note drives the domain amplitude to a universal value across repeated resets,
+$q_\ast\to\sqrt{Q_{\rm crit}}$ (when $\sum m_R=\infty$). Resurrection stabilises \emph{how strongly} the
+Vessel is folded, while expansion keeps diluting \emph{how widely}.
+\end{corollary}
+
+% ============================================================
+\subsubsection{The hybrid network history}
+
+Over a sequence of life-arcs the structure scale $L_{\rm phys}(t)$ follows a sawtooth: within each arc
+the network coarsens (curvature-driven merging plus Hubble stretch), and at each death it is acted on by
+$\reset$ --- diluted upward (rescale), reset to the fine scale $\xi_+$ (trigger), or erased (quench).
+
+
+\begin{remark}[Portable figure note]
+The original research note included an illustrative figure here. It is omitted in this portable expanded version so the LaTeX compiles without external image dependencies. The mathematical conclusions are stated explicitly in the surrounding propositions and equations.\end{remark}
+
+
+\begin{corollary}[Resurrection as a renormalisation step on structure]
+Each reset is a coarse-grain (dilation, regime II) or refine (nucleation to $\xi_+$, regime III)
+operation on the network, composed with intra-arc coarsening. The long-run structure scale is the fixed
+point of (arc coarsening)$\,\circ\,$(reset action); a steady balance between expansion-driven dilution
+and reset-driven nucleation.
+\end{corollary}
+
+% ============================================================
+\subsubsection{Cosmological back-reaction across resets}
+
+Within a scaling arc the wall network contributes $\rho_{\rm wall}\sim\tau/\Op\propto\Op^{-1}$, i.e.
+$w_{\rm wall}=-\tfrac12$ in $2{+}1$ dimensions (companion note). At a reset this jumps: $\tau$ changes
+through $\Af,\Bf$ and $\Op$ jumps, so
+\begin{equation}
+\frac{\rho_{\rm wall}^+}{\rho_{\rm wall}^-}=\frac{\tau^+}{\tau^-}\cdot\frac{\Op^-}{\Op^+}.
+\end{equation}
+A quench sets $\rho_{\rm wall}\to0$: the morphological energy is released back into the homogeneous Sophia
+budget. A trigger creates $\rho_{\rm wall}$ from zero: structure energy is drawn from the folding
+transition. Thus resurrection redistributes energy between the homogeneous ($\lambda$) and structured
+(wall-network) sectors --- a discrete exchange invisible to the homogeneous reconstruction alone.
+
+% ============================================================
+\subsubsection{Reading and open items}
+
+\textbf{Interpretive reading.} The walls are loci of persistent unfolded (old) form. A quench-
+resurrection returns the whole Vessel to undifferentiated old form (death as leveling,
+$\Theta<0$); a trigger-resurrection shatters that undifferentiated form into newly differentiated
+oriented domains, the old form surviving only as the thin boundaries between them (resurrection as
+individuation, $\Theta>0$). Repeated rescaling fixes the depth of folding ($q_\ast\to\sqrt{Q_{\rm crit}}$)
+while expansion keeps widening the pattern. The sign of $\Theta$ --- whether metabolised resistance
+promotes or suppresses form --- decides which face a given resurrection wears.
+
+\textbf{Open items.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Quantify the spinodal nucleation density on $\Hh$ (hyperbolic spectral gap modifies the unstable
+band) and the resulting initial wall count per Hubble area.
+\item Derive the sawtooth fixed-point scale explicitly from (coarsening law)$\,\circ\,$(reset map), using
+the non-Zeno dwell time as the arc length.
+\item Track the $\lambda\leftrightarrow$ network energy exchange as a correction to the reconstructed
+$w_{\rm eff}(t)$ history, and test for a folding-induced feature near the phantom divide.
+\end{enumerate}
+
+\textbf{Scope.} Single-mode Allen--Cahn, test-field, $1$D simulation proxy; transport constant $\Dq$ a
+modelling input. Conclusions: a homogeneous reset acts on the morphological network in three regimes
+fixed by $\operatorname{sign}\Theta$ and the jump size --- dissolve, dilute, or nucleate --- and
+resurrection functions as a renormalisation step on Vessel structure, exchanging energy between the
+homogeneous and structured sectors. Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Resurrectio and the Fold-Domain Network.
+Builds on the structure-formation companion (Allen--Cahn folding network on $2{+}1$ open FLRW) and the
+Resurrectio reset of the Lyapunov layer. Propositions closed-form; corollaries interpretive; numerical
+figure illustrative.}
+\newpage
+\section{Sawtooth fixed point: mature network scale}
+\begin{commentbox}{Interpretive comment}
+The sawtooth law gives the long-run answer.  Reset history can be random, but the finite coarsening budget forces the late-time comoving scale to settle.  Different histories choose different frozen scales; they do not destroy the asymptotic pattern law.
+\end{commentbox}
+\subsection*{Scope and epistemic status}
+The three preceding notes supply the pieces: the nucleation scale $\linit$ at a triggering reset
+(subproblem~1), the intra-arc coarsening law governed by the finite budget
+$\Ib_\infty=\int_0^\infty dt/\Op^2$ (subproblem~2), and the three-regime reset map --- quench, rescale,
+trigger (subproblem~3). This note composes them: over a sequence of life-arcs punctuated by resets, what
+is the long-run network scale? The central result is that the finite coarsening budget forces the
+\emph{comoving} scale to converge to a constant $\ell_\ast$ regardless of the (random) reset schedule, so
+the physical scale is asymptotically $\Lp(t)\to\ell_\ast\Op(t)\propto t$. This also resolves the earlier
+worry that the random arc length would obstruct a fixed point: the finite budget makes the asymptotics
+universal. As before, \emph{Propositions} are closed-form; \emph{Corollaries} interpretive; the reduced
+recursion (tracking the scale, not the full field), the coarsening constant $c$, and the reset-regime
+schedule are modelling inputs.
+
+% ============================================================
+\subsubsection{The comoving recursion}
+
+Track the comoving network scale $\lc$ across arcs. Index the arcs by $j$; let $\ell_j$ be the comoving
+scale entering arc $j$ and $\Delta\Ib_j=\int_{\rm arc\,j}dt/\Op^2$ the budget consumed during it. Within
+the arc, the coarsening law (subproblem~2) gives $\ell^2\mapsto\ell^2+2c\Dq\,\Delta\Ib_j$; at the closing
+reset, the regime acts:
+\begin{equation}
+\boxed{\;\ell_{j+1}^{2}=R_j\!\Bigl(\ell_j^{2}+2c\Dq\,\Delta\Ib_j\Bigr),
+\qquad
+R_j=\begin{cases}
+\mathrm{id}, & \text{rescale (comoving topology unchanged)}\\[2pt]
+\linit^{2}, & \text{trigger (re-nucleation)}\\[2pt]
+\varnothing, & \text{quench (dissolve; re-nucleate at next trigger)}
+\end{cases}\;}
+\end{equation}
+The essential constraint, inherited from the finite expansion budget, is
+\begin{equation}
+\sum_j\Delta\Ib_j\le\Ib_\infty<\infty .
+\end{equation}
+
+\begin{remark}[Why rescale is the identity on the comoving scale]
+A rescale reset jumps $\Op$ but leaves the comoving pattern intact, so it does not change $\lc$; its only
+effect is on the physical scale, $\Lp=\Op\lc$. The comoving recursion therefore sees rescales as
+no-ops, triggers as resets to $\linit$, and quenches as dissolutions.
+\end{remark}
+
+% ============================================================
+\subsubsection{Finite budget forces convergence}
+
+\begin{proposition}[Vanishing late-time coarsening]
+For any reset schedule with non-Zeno dwell $\Delta t_j\ge\Delta t_\ast>0$, the per-arc coarsening
+increment vanishes,
+\begin{equation}
+2c\Dq\,\Delta\Ib_j\to0\qquad(j\to\infty),
+\end{equation}
+because $\sum_j\Delta\Ib_j\le\Ib_\infty<\infty$ forces $\Delta\Ib_j\to0$ (equivalently
+$\Delta\Ib_j\le\Delta t_j/\Op^2$ with $\Op\to\infty$). The random arc lengths do not affect this:
+the finite budget dominates.
+\end{proposition}
+
+\begin{proposition}[Convergence of the comoving scale]
+The comoving scale converges to a constant $\ell_\ast$:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item if triggers recur infinitely often, each pins $\ell$ to $\linit$ and (by
+Proposition) the subsequent coarsening cannot grow it, so $\ell_j\to\linit$;
+\item if all resets after some arc $J$ are rescales, then
+$\ell_j^{2}\to\ell_J^{2}+2c\Dq\!\sum_{j\ge J}\Delta\Ib_j=:\ell_\infty^{2}<\infty$, the frozen value.
+\end{enumerate}
+In either case $\ell_j\to\ell_\ast\in[\linit,\ell_\infty]$, with
+$\ell_\infty=\sqrt{\linit^{2}+2c\Dq(\Ib_\infty-\Ib_{\rm nuc})}$ the maximal frozen scale (single
+nucleation, no retrigger).
+\end{proposition}
+
+\begin{proposition}[Universal physical asymptotics]
+The physical structure scale obeys
+\begin{equation}
+\boxed{\;\Lp(t)=\Op(t)\,\lc(t)\ \longrightarrow\ \ell_\ast\,\Op(t)\ \propto\ t,\;}
+\end{equation}
+independent of the reset schedule. Different random histories differ only in the value of
+$\ell_\ast\in[\linit,\ell_\infty]$, not in the $\propto\Op$ growth.
+\end{proposition}
+
+\msg{The coarsening budget is finite, so the comoving network freezes. Resurrection can \emph{refresh} the
+scale (a trigger resets it to $\linit$) but cannot \emph{re-coarsen} it once the budget is spent. The
+late-time structure scale is a relic of the young Vessel, carried outward by pure expansion.}
+
+
+\begin{remark}[Portable figure note]
+The original research note included an illustrative figure here. It is omitted in this portable expanded version so the LaTeX compiles without external image dependencies. The mathematical conclusions are stated explicitly in the surrounding propositions and equations.\end{remark}
+
+
+% ============================================================
+\subsubsection{Reading and consequences}
+
+\begin{corollary}[Structure scale is a young-Vessel relic]
+Because coarsening is budget-limited, the comoving structure scale is set in the early, slowly-expanding
+era and frozen thereafter. The mature Vessel does not generate new structure scale by merging; it merely
+carries the early-frozen pattern outward by expansion. Any apparent late-time growth of $\Lp$ is Hubble
+dilution, not coarsening.
+\end{corollary}
+
+\begin{corollary}[Resurrection refreshes but cannot re-coarsen]
+A late trigger-resurrection re-nucleates the network at the fine scale $\linit$, and the depleted budget
+leaves it there: the renewed structure is permanently fine. Only resurrections occurring early, while the
+budget is ample, can be followed by appreciable coarsening. Early death-and-rebirth permits maturation of
+form; late death-and-rebirth yields perpetually fine, uncoarsened structure.
+\end{corollary}
+
+\note{The composition closes the programme's internal loop: subproblem~1 sets the floor $\linit$,
+subproblem~2 sets the ceiling $\ell_\infty$ via the budget, subproblem~3 supplies the reset action, and
+the finite budget collapses the sawtooth onto $\ell_\ast\in[\linit,\ell_\infty]$ with universal physical
+asymptotics $\Lp\propto\Op$.}
+
+% ============================================================
+\subsubsection{Open items and scope}
+
+\textbf{Open items.}
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Replace the reduced scale-recursion by a full $2$D Allen--Cahn field simulation through a reset
+sequence, to confirm $\ell_\ast$ and the flattening of the comoving teeth.
+\item Couple the reset-regime probabilities to the actual $\Af(t)$ history (rising with $\lambda$ via
+epektasis, dipped by metabolism when $\Theta<0$), replacing the illustrative fixed probabilities by the
+dynamically determined regime sequence.
+\item Feed $\ell_\ast$ and the wall tension into the $w=-\tfrac12$ network back-reaction to obtain the
+folding-structure contribution to $w_{\rm eff}(t)$ over cosmic history (link to the energy-condition
+direction).
+\end{enumerate}
+
+\textbf{Scope.} Reduced recursion (network scale, not the full field); single-mode Allen--Cahn; coarsening
+constant $c$ and reset-regime schedule are modelling inputs; the finite-budget convergence is robust to
+the random schedule. Result: the comoving network scale converges to $\ell_\ast\in[\linit,\ell_\infty]$
+and the physical scale is universally $\Lp\to\ell_\ast\Op\propto t$. Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Sawtooth Fixed Point of the Fold Network.
+Composes the nucleation scale (subproblem~1), the budget-limited coarsening law (subproblem~2), and the
+three-regime reset map (subproblem~3). The convergence follows from the finite budget $\Ib_\infty$ and is
+robust to the random reset schedule. Propositions closed-form; corollaries interpretive; reduced recursion
+and coarsening constant are modelling inputs.}
+\newpage
+\section{Final compact closure}
+The expanded fold-network programme may be compressed into five lines:
+\begin{align}
+D&=0,\qquad \text{Sophia does not diffuse or clump},\\
+\Dq&=a_0\ell_b^2,\qquad \text{folding has one structural length},\\
+\Lam&=\frac{\Af^+\Op^2}{a_0\ell_b^2}>\frac14,\qquad \text{hyperbolic nucleation gate},\\
+\ellcom^2(t)&=\ellinit^2+2c a_0\ell_b^2\int_0^t\frac{dt'}{\Op(t')^2},\qquad \text{finite coarsening},\\
+\ellcom&\to\ell_\ast,\qquad L_{\rm phys}\sim\ell_\ast\Op,\qquad \text{mature frozen pattern}.
+\end{align}
+
+\begin{commentbox}{The final reading}
+The Vessel does not merely expand.  It can receive Sophia, fold into differentiated morphology, nucleate a domain network, coarsen while the conformal budget remains, undergo death-and-resurrection resets, and eventually carry a mature frozen pattern outward.  The whole structure line therefore expresses one theological-dynamical claim: Grace opens the Gate; Sophia reforms the Vessel; Resurrectio edits the conditions of form; and the mature Vessel carries its early-formed morphology into Pleromatic expansion.
+\end{commentbox}
+
+\end{document}
