@@ -1,7 +1,7 @@
-% V.F.S. v2.0 (Open-Gate) — Cosmological Layer
+% V.F.S. v2.0 (Open-Gate) -- Cosmological Layer v8
 % The Vessel as an open (2+1) FLRW spacetime; the Brim as scale factor.
-% Lorentzian lift of the Brim-flow: the Brim is the timelike expansion axis.
-% Derived companion to vfs_geometry.tex / vfs_opengate_core.tex.
+% Integrated with Sophianic Folding and the modal Sophia cosmology as the morphodynamic stabilizer of Open-Gate excess.
+% Derived companion to vfs_geometry.tex / vfs_opengate_core.tex / vfs_sophianic_folding.tex.
 % Compile with XeLaTeX.
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=1in]{geometry}
@@ -26,6 +26,9 @@
 \newcommand{\Igate}{I_{\rm gate}}
 \newcommand{\reff}{\rho_{\rm eff}}
 \newcommand{\peff}{p_{\rm eff}}
+\newcommand{\qdec}{q_{\rm dec}}
+\newcommand{\qfold}{q_{\rm fold}}
+\newcommand{\Qfold}{Q_{\rm fold}}
 \newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
@@ -37,9 +40,10 @@
 \theoremstyle{definition}
 \newtheorem{definition}{Definition}
 
-\title{\textbf{V.F.S. v2.0 (Open-Gate)}\\Cosmological Layer: the Vessel as an Open FLRW Spacetime\\
-\large The Brim as scale factor, Sophia as cosmological source}
-\author{Derived companion to \texttt{vfs\_geometry.tex}}
+\title{\textbf{V.F.S. v2.0 (Open-Gate)}\\Integrated Cosmological Layer v8\\
+\large The Brim as scale factor, Sophia as modal source, Folding as stabilizing form}
+\author{Derived companion to \texttt{vfs\_geometry.tex} and \texttt{vfs\_opengate\_core.tex}\\
+\small Integrated with the Sophianic Folding module}
 \date{}
 
 \begin{document}
@@ -62,6 +66,17 @@ the stress-energy that General Relativity \emph{would} require to source this ex
 reconstruction, not an independent postulate of gravity.
 \end{itemize}
 
+\noindent\textbf{Integrated folding convention.} In this rewritten version Sophianic Folding is not
+presented as a later historical patch. It is built into the cosmological dictionary from the start.
+The symbol $q$ is therefore reserved no longer for two different roles: the deceleration parameter is
+written $\qdec$, while the morphological folding amplitude is $\qfold$ and its non-negative intensity
+is
+\[
+\boxed{\,\Qfold=\qfold^{\,2}.\,}
+\]
+Thus the cosmological question ``does the Vessel accelerate or decelerate?'' and the geometric
+question ``does the Vessel change form?'' remain distinct, but coupled.
+
 \noindent\textbf{Dimensional principle.} The model is \emph{canonically} $2{+}1$: a two-dimensional
 Vessel-surface whose scale factor is the Brim $\Op(t)$. The Brim-expansion principle is complete in
 this setting, and $2{+}1$ is apt rather than merely sufficient --- in $D\le3$ the Weyl tensor vanishes,
@@ -80,10 +95,16 @@ home assigns the expansion to a timelike direction:
 \[
 \boxed{\,ds^2_{\rm Vessel}=-dt^2+\Op(t)^2\,h,\qquad a(t)\equiv\Op(t).\,}
 \]
-This is the open ($k=-1$) FLRW metric in $2{+}1$ dimensions, with scale factor equal to the Brim.
+This is the open ($k=-1$) FLRW background in $2{+}1$ dimensions, with scale factor equal to the Brim.
+In the integrated Open-Gate version the spatial slice may also undergo a first Sophianic shape-mode:
+\[
+\boxed{\,g_\Sigma^{\rm fold}(t)=\Op(t)^2\bigl(h_0+\qfold(t)e_1\bigr),\qquad \Qfold=\qfold^2.\,}
+\]
+The pure FLRW metric is the background branch $\qfold=0$; the folded branch keeps the same Brim scale
+factor but gives the Vessel a new spatial form.
 \note{The ``expanding inner universe'' is genuine, but it expands in time: $\Op$ is the scale factor,
-not a spatial radius. The spatial slices are copies of the hyperbolic live surface, uniformly inflated
-by $\Op(t)$.}
+not a spatial radius. Sophianic Folding does not replace Brim expansion; it adds a stabilizing
+shape-response on the spatial slices.}
 
 \section{Curvature of the Vessel Spacetime}
 \begin{proposition}[Spacetime curvature]\label{prop:R}
@@ -95,37 +116,289 @@ For $ds^2_{\rm Vessel}=-dt^2+a^2h$ with $K_h=-1$ in $2{+}1$ dimensions,
 \end{proposition}
 \noindent For sub-exponential expansion ($\ddot a\to0$, $\dot a$ bounded) $R\to0$: the spacetime
 flattens. For de~Sitter expansion ($a=e^{Ht}$) $R\to 6H^2$, a constant: maximal inflation does not
-flatten (\S\ref{sec:loci}).
+flatten (\S\ref{sec:loci}). The folded spatial slice carries an additional curvature contribution
+\[
+\boxed{\,R_{\rm spatial}^{\rm fold}=-\frac{2}{\Op^2}+\rho_1\Qfold.\,}
+\]
+Thus global Brim expansion and local curvature concentration can coexist.
 
-\section{Kinematics: Hubble and Acceleration}
+\section{Kinematics: Hubble, Acceleration, and Folding Shadow}
 \begin{proposition}[Hubble and deceleration]\label{prop:kin}
 With $a=\Op$ and $\dot\Op=\alpha\lambda$,
 \[
 \boxed{\,H=\frac{\dot a}{a}=\frac{\alpha\lambda}{\Op},\qquad
-q=-\frac{\ddot a\,a}{\dot a^2}=-\frac{\dot\lambda\,\Op}{\alpha\lambda^2},\qquad
-\operatorname{sign}q=-\operatorname{sign}\dot\lambda.\,}
+\qdec=-\frac{\ddot a\,a}{\dot a^2}=-\frac{\dot\lambda\,\Op}{\alpha\lambda^2},\qquad
+\operatorname{sign}\qdec=-\operatorname{sign}\dot\lambda.\,}
 \]
 \end{proposition}
 \note{The Hubble rate of the Vessel is exactly the conformal Brim-flow rate $\psi=\alpha\lambda/\Op$.
-Expansion accelerates ($q<0$) if and only if Sophia is growing: accelerated Theosis is growing wisdom.}
+Expansion accelerates ($\qdec<0$) if and only if Sophia is growing: accelerated Theosis is growing wisdom.}
+
+In the Open-Gate folding branch, the Sophia flow is regulated by the morphology:
+\[
+\boxed{\,\dot\lambda_{\rm fold}=J_{\rm in}-\gamma\lambda-\eta\Qfold\lambda,\qquad
+J_{\rm in}=k_\sigma\sigma+\Igate.\,}
+\]
+Hence the folded deceleration parameter is
+\[
+\boxed{\,\qdec^{\rm fold}=\qdec^{(0)}+\frac{\eta\Op}{\alpha\lambda}\Qfold,
+\qquad \qdec^{(0)}=-\frac{\Op}{\alpha\lambda^2}(J_{\rm in}-\gamma\lambda).\,}
+\]
+This is the cleanest cosmological meaning of folding: $\qdec$ is not identical to $\qfold$, but the
+observable stabilization of the expansion is the cosmological shadow of $\Qfold$.
 
 \section{Effective Content: Sophia as Cosmological Source}
 Treating the reconstructed stress-energy as a perfect fluid ($8\pi G=1$, comoving frame), the Einstein
 tensor gives:
 \begin{proposition}[Effective Friedmann content]\label{prop:fluid}
+On the background branch $\Qfold=0$,
 \[
 \boxed{\,\reff=\frac{\alpha^2\lambda^2-1}{\Op^2}=H^2-\frac{1}{\Op^2},\qquad
 \peff=-\frac{\ddot a}{a}=-\frac{\alpha\dot\lambda}{\Op},\qquad
 w=\frac{\peff}{\reff}=\frac{-\alpha\dot\lambda\,\Op}{\alpha^2\lambda^2-1}.\,}
 \]
+On the folded branch,
+\[
+\boxed{\,\peff^{\rm fold}=-\frac{\alpha\dot\lambda_{\rm fold}}{\Op},\qquad
+\reff^{\rm fold}=\frac{\alpha^2\lambda^2-1}{\Op^2}+\frac{\rho_1}{2}\Qfold,\,}
+\]
+\[
+\boxed{\,w_{\rm fold}=\frac{-\alpha\dot\lambda_{\rm fold}\Op}
+{\alpha^2\lambda^2-1+(\rho_1/2)\Op^2\Qfold}.\,}
+\]
 \end{proposition}
-\note{Sophia is the cosmological source, and its \emph{rate} $\dot\lambda$ sets the pressure. The
-density is positive only when $\alpha\lambda>1$ (Sophia ``super-vacuum''); for $\alpha\lambda<1$ the
-open curvature dominates and the Vessel expands more slowly than the empty universe would --- residual
-binding by resistance.}
+\note{Sophia is the cosmological source, and its \emph{rate} $\dot\lambda$ sets the pressure. Folding
+does not abolish expansion; it regulates the rate of Sophia growth and contributes a curvature-density
+correction through $\Qfold$.}
+
+\section{Sophianic Folding as Cosmological Stabilization}
+The folding intensity is inherited from the first shape-mode of the Vessel:
+\[
+\boxed{\,\Qfold=\frac{A_{\rm VFS}}{B_{\rm VFS}},\qquad
+A_{\rm VFS}=(c_0-c_1\gamma)\lambda+c_1k_\sigma\sigma+c_1\Igate-a_0,
+\quad B_{\rm VFS}=b+2c_1\eta\lambda.\,}
+\]
+The regular domain is
+\[
+\boxed{\,0<\Qfold<q_{\max}^2.\,}
+\]
+In that domain folding is not a singular event. It is the morphodynamic mechanism by which excess
+Open-Gate Sophia becomes form and thereby stabilizes the cosmological acceleration. The stabilizing
+contribution to deceleration is
+\[
+\boxed{\,\Delta\qdec=\frac{\eta\Op}{\alpha\lambda}\Qfold>0.\,}
+\]
+Thus Open-Gate can still sustain expansion, while folding prevents unlimited acceleration from being
+the only possible meaning of Sophia growth.
+
+The same process may resolve morphological tension. This is not physical gravitational energy; it is a
+Lyapunov/shape potential. If
+\[
+\mathcal T_{\rm fold}(\qfold)=-\frac12A_{\rm VFS}\qfold^2+\frac14B_{\rm VFS}\qfold^4,
+\]
+then along the shape flow
+\[
+\boxed{\,J_{\rm rel}=-\dot{\mathcal T}_{\rm fold}=\dot\qfold^{\,2}\ge0.\,}
+\]
+A symbolic Pleromatic output channel may therefore be written as
+\[
+\boxed{\,\dot P=\dot P_{\rm core}+\kappa_{\rm pler}\theta_{\rm pler}J_{\rm rel},\,}
+\]
+without interpreting $J_{\rm rel}$ as ordinary gravitational stress-energy.
+
+
+\section{Sophia is Modal, Not Typological}
+A frequent mistake is to treat the cosmological regimes below as different kinds of Sophia.  In this
+model Sophia is not typological but modal. There is one symbolic quantity,
+\[
+\boxed{\,\lambda(t)\,}
+\]
+whose accumulated value, growth rate, and folding embodiment appear differently in the cosmological
+reconstruction. Thus the same Sophia can appear as density, pressure, acceleration, or form depending
+on which derived observable is being read.
+
+The modal dictionary is:
+\[
+\boxed{
+\begin{array}{rcl}
+\lambda &\longmapsto& \text{Brim expansion and effective density},\\[2pt]
+\dot\lambda_{\rm fold} &\longmapsto& \text{pressure and acceleration},\\[2pt]
+\Qfold &\longmapsto& \text{morphological stabilization and curvature correction},\\[2pt]
+J_{\rm rel}=-\dot{\mathcal T}_{\rm fold} &\longmapsto& \text{Pleromatic release / realized output}.
+\end{array}}
+\]
+In words:
+\[
+\boxed{\text{Accumulated Sophia expands; growing Sophia accelerates; folded Sophia stabilizes.}}
+\]
+Folding is therefore not a new kind of Sophia. It is one mode by which Sophia becomes form.
+
+\section{Zero-Density Threshold and its Folding Shift}
+On the background branch the reconstructed effective density changes sign at
+\[
+\reff=0\quad\Longleftrightarrow\quad \alpha\lambda=1.
+\]
+This gives the classical Open-Gate threshold:
+\[
+\begin{array}{c|c|c}
+\toprule
+\text{Condition} & \reff & \text{Cosmological reading}\\
+\midrule
+\alpha\lambda<1 & \reff<0 & \text{sub-vacuum / below Milne content}\\
+\alpha\lambda=1 & \reff=0 & \text{Milne threshold}\\
+\alpha\lambda>1 & \reff>0 & \text{positive effective content}\\
+\bottomrule
+\end{array}
+\]
+With Sophianic Folding the density is instead
+\[
+\boxed{\,\reff^{\rm fold}=\frac{\alpha^2\lambda^2-1}{\Op^2}+\frac{\rho_1}{2}\Qfold.\,}
+\]
+Hence the folded zero-density locus becomes
+\[
+\boxed{\,\reff^{\rm fold}=0
+\quad\Longleftrightarrow\quad
+\alpha^2\lambda^2=1-\frac{\rho_1}{2}\Op^2\Qfold.\,}
+\]
+Therefore regular folding lowers the threshold at which Sophia becomes positive effective content,
+provided \(\rho_1\Qfold>0\). In the background model Sophia must reach \(\alpha\lambda=1\); in the
+folded model part of the burden is carried by the curvature-form term.
+
+\begin{corollary}[Folding lowers the positive-content threshold]
+If \(\rho_1>0\) and \(\Qfold>0\), then positive effective content can arise before the background
+Milne threshold \(\alpha\lambda=1\). Sophianic Folding therefore allows form to contribute to the
+cosmological readability of Sophia as content.
+\end{corollary}
+
+\section{Pressure-Axis of Sophia}
+The pressure axis is controlled not by the accumulated amount of Sophia alone, but by its rate of
+change. In the background branch,
+\[
+\peff=-\frac{\alpha\dot\lambda}{\Op}.
+\]
+Thus:
+\[
+\begin{array}{c|c|c}
+\toprule
+\text{Sophia rate} & \peff & \text{Cosmological mode}\\
+\midrule
+\dot\lambda>0 & \peff<0 & \text{negative pressure / acceleration}\\
+\dot\lambda=0 & \peff=0 & \text{coasting / dust-like limit}\\
+\dot\lambda<0 & \peff>0 & \text{positive pressure / deceleration}\\
+\bottomrule
+\end{array}
+\]
+In the folded branch the relevant rate is
+\[
+\boxed{\,\dot\lambda_{\rm fold}=J_{\rm in}-\gamma\lambda-\eta\Qfold\lambda.\,}
+\]
+Consequently,
+\[
+\boxed{\,\peff^{\rm fold}=-\frac{\alpha\dot\lambda_{\rm fold}}{\Op}.\,}
+\]
+The term \(-\eta\Qfold\lambda\) is the cosmological appearance of morphological stabilization: it
+reduces the pressure-producing growth of Sophia without reversing Brim expansion itself.
+
+\section{Folded Density-Pressure Plane}
+The old modal plane was
+\[
+(\lambda,\dot\lambda)\longmapsto (\reff,\peff,w).
+\]
+The integrated Open-Gate version is the folded density-pressure-form space:
+\[
+\boxed{\,(\lambda,\dot\lambda_{\rm fold},\Qfold)
+\longmapsto
+(\reff^{\rm fold},\peff^{\rm fold},w_{\rm fold},\qdec^{\rm fold}).\,}
+\]
+The main regimes become:
+\[
+\begin{array}{L{0.25\textwidth} L{0.31\textwidth} L{0.34\textwidth}}
+\toprule
+\text{Region} & \text{Formulaic condition} & \text{Reading}\\
+\midrule
+Below-threshold growing Sophia & \(\reff^{\rm fold}<0,\ \dot\lambda_{\rm fold}>0\) & acceleration without positive effective content; unstable/early struggle mode\\
+Above-threshold static Sophia & \(\reff^{\rm fold}>0,\ \dot\lambda_{\rm fold}\approx0\) & formed coasting; content without strong pressure\\
+Above-threshold growing Sophia & \(\reff^{\rm fold}>0,\ \dot\lambda_{\rm fold}>0\) & dark-energy-like Theosis, moderated by folding if \(\Qfold>0\)\\
+Decaying Sophia & \(\dot\lambda_{\rm fold}<0\) & positive pressure and deceleration\\
+Regular folded Open-Gate & \(0<\Qfold<q_{\max}^2\) & form-stabilized expansion; \(\Delta\qdec>0\)\\
+\bottomrule
+\end{array}
+\]
+The equation-of-state value is not merely a property of how much Sophia exists; it is a property of
+how Sophia is moving and whether it has begun to take form.
+
+\section{Open-Gate Selection Principle}
+The Open-Gate model selects the regime in which Sophia is allowed to exceed the closed conservation
+budget. Without folding, the simplest cosmological signature is
+\[
+\alpha\lambda>1,
+\qquad
+\dot\lambda>0,
+\]
+which gives positive effective content and negative pressure. With folding, the selection principle
+becomes more refined:
+\[
+\boxed{\,\alpha^2\lambda^2-1+\frac{\rho_1}{2}\Op^2\Qfold>0,\,}
+\]
+for positive folded effective content, together with
+\[
+\boxed{\,\dot\lambda_{\rm fold}=J_{\rm in}-\gamma\lambda-\eta\Qfold\lambda\,}
+\]
+for the pressure/acceleration axis. Thus Open-Gate has three cosmological faces:
+\[
+\begin{array}{L{0.26\textwidth} L{0.30\textwidth} L{0.34\textwidth}}
+\toprule
+\text{Face} & \text{Condition} & \text{Meaning}\\
+\midrule
+Closed Microcosm & \(\sigma+\lambda=C_0,\ \dot\lambda\to0\) & purified stillness; dust/Milne tendency\\
+Accelerative Open-Gate & \(\dot\lambda_{\rm fold}>0,\ \Qfold\approx0\) & Sophia growth appears mainly as acceleration\\
+Folded Open-Gate & \(\Qfold>0,\ \dot\lambda_{\rm fold}\ \text{moderated}\) & excess Sophia becomes form; formed expansion\\
+\bottomrule
+\end{array}
+\]
+This is the main update supplied by the modal Sophia file: Open-Gate need not mean only endless
+acceleration. Once folding is active, Open-Gate can mean formed expansion.
+
+\section{Closed Microcosm, Open-Gate, and Folded Open-Gate}
+The closed Microcosm obeys the conservation law
+\[
+\sigma+\lambda=C_0,
+\]
+so purification drives \(\sigma\to0\) and freezes Sophia at a finite limit. Cosmologically,
+\[
+\dot\lambda\to0,
+\qquad
+\peff\to0,
+\qquad
+w\to0,
+\]
+which is the purified stillness / dust-like Milne tendency.
+
+The pure Open-Gate branch allows continued reception:
+\[
+\dot\lambda>0,
+\qquad
+\peff<0,
+\qquad
+w<0,
+\]
+and may tend toward a de~Sitter-like mode when Sophia grows proportionally to the Brim.
+
+The folded Open-Gate branch adds the stabilizing feedback:
+\[
+\dot\lambda_{\rm fold}=\dot\lambda^{(0)}-\eta\Qfold\lambda,
+\qquad
+\qdec^{\rm fold}=\qdec^{(0)}+\frac{\eta\Op}{\alpha\lambda}\Qfold.
+\]
+Hence folding gives Open-Gate a third eschatological possibility:
+\[
+\boxed{\text{not closed stillness, not unformed acceleration, but formed expansion.}}
+\]
+
 
 \section{Equation of State and Cosmic Eras}
-The sign of $\dot\lambda$ classifies the era:
+The sign of $\dot\lambda$ still classifies the background era, while $\Qfold$ explains how Open-Gate
+excess becomes cosmological stabilization:
 \begin{longtable}{>{\raggedright\arraybackslash}p{0.26\textwidth} >{\raggedright\arraybackslash}p{0.30\textwidth} >{\raggedright\arraybackslash}p{0.34\textwidth}}
 \toprule
 Sophia behaviour & Effective fluid & Cosmological character \\
@@ -139,6 +412,7 @@ $\dot\lambda>0$ (cleansing) & $\peff<0$, negative pressure & dark-energy-like; a
 $\dot\lambda\to0$, $\lambda\to\lambda_\infty$ & $\peff\to0$, pressureless & dust; coasting; $\reff\to0$ (dilution) \\
 $\dot\lambda<0$ (regression) & $\peff>0$, positive pressure & ordinary matter; decelerating \\
 $\lambda\propto\Op$ & $H=\mathrm{const}$ & de~Sitter; exponential inflation (max.\ Epektasis) \\
+$\Qfold>0$ regular & $\Delta\qdec>0$, moderated $w_{\rm fold}$ & formed expansion; acceleration stabilized by morphology \\
 \bottomrule
 \end{longtable}
 
@@ -155,7 +429,9 @@ $\lambda\propto\Op$ & $H=\mathrm{const}$ & de~Sitter; exponential inflation (max
 \note{The cosmological lift produces a \emph{new} locus absent from the spatial analysis: the Milne
 condition $\alpha\lambda=1$. The generic super-Ricci regime ($\lambda\to\lambda_\infty=1/\alpha$,
 $a\propto t$) is exactly the empty Milne universe --- flat Minkowski in disguise. It is distinct from
-the spatial Ricci resonance $\alpha\lambda\Op=1$.}
+the spatial Ricci resonance $\alpha\lambda\Op=1$. Folding adds a fourth diagnostic rather than a fourth
+background spacetime: the regular morphodynamic branch $0<\Qfold<q_{\max}^2$, whose visible
+cosmological signature is $\Delta\qdec>0$.}
 
 \section{Energy Conditions: Grace as Exotic Accelerant}
 The energy conditions are dimension-sensitive, and the Vessel is $2{+}1$-dimensional. The Null and
@@ -181,8 +457,9 @@ accidentally unity; the naive extrapolation $\rho+np$ --- which here would read 
 \note{Accelerated expansion ($\peff<0$, i.e.\ $\dot\lambda>0$) violates the SEC --- as in standard
 inflation. A surge of Sophia growth, $\alpha\dot\lambda\Op>\alpha^2\lambda^2-1$, violates even the NEC
 ($\reff+\peff<0$): grace then behaves as \emph{exotic, phantom-like} content, irreducible to ordinary
-matter. NEC and WEC keep their dimension-independent form, so the figures and the $w(t)$ history below
-require no refitting.}
+matter. Folding moderates this behaviour by replacing $\dot\lambda$ with $\dot\lambda_{\rm fold}$ and
+adding positive curvature-density through $\Qfold$; it does not require refitting the dimension of the
+energy-condition formulas.}
 
 \section{Structural Features}
 
@@ -208,6 +485,16 @@ empties. The end-state of sub-exponential expansion is the flat vacuum --- pure 
 de~Sitter regime ($\lambda\propto\Op$, unbounded grace) escapes dilution, sustaining constant curvature
 $6H^2$ as an eternal inflation.
 
+\subsection*{Folding as formed expansion}
+Open-Gate without morphology can be read as unlimited acceleration of Sophia. Sophianic Folding makes
+the cosmology more structured: the Brim keeps expanding, but excess Sophia is converted into Vessel
+form. In symbols,
+\[
+\boxed{\lambda\uparrow\Rightarrow \Qfold\uparrow\Rightarrow \Delta\qdec>0.}
+\]
+The result is not collapse, but formed expansion: the old surface-form yields, and the Vessel acquires
+a geometry capable of bearing more Sophia.
+
 \section{Theological Corollaries}
 \emph{Interpretive readings; the Propositions above are the load-bearing part.}
 
@@ -215,6 +502,12 @@ $6H^2$ as an eternal inflation.
 The expansion of the Vessel is sourced by Sophia, and its \emph{growth} $\dot\lambda$ sets the
 equation of state: growing wisdom is dark energy (acceleration), frozen wisdom is dust (coasting),
 declining wisdom is matter (deceleration), and wisdom proportional to capacity is de~Sitter inflation.
+\end{corollary}
+
+\begin{corollary}[Folding gives Sophia a form]
+Sophianic Folding is the cosmological meaning of transfiguration: Sophia does not merely increase the
+Brim; it reforms the Vessel so that acceleration becomes formed expansion. The deceleration parameter
+$\qdec$ is the cosmological shadow of this morphodynamic stabilization.
 \end{corollary}
 
 \begin{corollary}[Accelerated Theosis violates the energy conditions]
@@ -246,14 +539,18 @@ sigmoidally through $\Lambda_c$ (will and action coming into alignment):
 \]
 with $\Lambda_c=1$, $\alpha=1$, and the observables of Prop.~\ref{prop:kin}--\ref{prop:fluid} read off
 along the solution. \emph{This is a representative profile, not a unique prediction; it exhibits the
-generic era sequence.}
+generic era sequence.} In the integrated reading, the plotted acceleration history is the background
+trajectory; the folding variable $\Qfold$ explains how the Open-Gate branch can moderate that
+acceleration once the Vessel enters the regular folding domain.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=\textwidth]{vfs_eos_history.png}
 \caption{Open-Gate Vessel cosmology along a Sophia trajectory. From top: drivers
 $\lambda,u,\Op$; Hubble rate and acceleration $\ddot a=\alpha\dot\lambda$; effective density and
-pressure; the equation of state $w(t)$ with its pole at the Milne crossing $\reff=0$. Shading marks
+pressure; the equation of state $w(t)$ with its pole at the Milne crossing $\reff=0$. In the integrated
+folding interpretation, this background curve is moderated by the positive contribution
+$\Delta\qdec=(\eta\Op/\alpha\lambda)\Qfold$. Shading marks
 the decelerating struggle, the accelerating Theosis --- which in $2{+}1$ is exactly the SEC-violation
 region $\peff<0$ --- and the NEC-violation band.}
 \end{figure}
@@ -300,33 +597,53 @@ equation of state tends to $w\to-1$ (quintessence $\to$ de~Sitter) for the open 
 \]
 \end{proposition}
 \note{The de~Sitter branch --- endless accelerated Theosis --- is available only to the Open Gate; the
-closed Microcosm coasts to dust on its frozen Sophia capital. This is the cosmological face of the
-earlier result that unbounded Brim expansion requires the gate.}
+closed Microcosm coasts to dust on its frozen Sophia capital. Sophianic Folding does not erase this
+contrast; it gives the open branch an internal stabilizer by which excess Sophia becomes form rather
+than mere acceleration.}
 
+\clearpage
 \section*{Compact Cosmological Summary}
 \[
-\boxed{ds^2_{\rm Vessel}=-dt^2+\Op(t)^2\bigl(dy^2+e^{-2y}d\Delta^2\bigr),\qquad a=\Op,\ \dot\Op=\alpha\lambda.}
+\boxed{ds^2_{\rm Vessel}=-dt^2+\Op(t)^2h,\qquad a=\Op,\quad \dot\Op=\alpha\lambda.}
 \]
 \[
-\boxed{H=\frac{\alpha\lambda}{\Op},\qquad \reff=\frac{\alpha^2\lambda^2-1}{\Op^2},\qquad
-\peff=-\frac{\alpha\dot\lambda}{\Op},\qquad \operatorname{sign}q=-\operatorname{sign}\dot\lambda.}
+\boxed{g_\Sigma^{\rm fold}=\Op(t)^2(h_0+\qfold e_1),\qquad \Qfold=\qfold^2.}
 \]
 \[
-\boxed{\text{Milne }\alpha\lambda=1\ \ \ne\ \ \text{Ricci resonance }\alpha\lambda\Op=1\ \ \ne\ \
+\boxed{H=\frac{\alpha\lambda}{\Op},\qquad
+\qdec=-\frac{\dot\lambda\Op}{\alpha\lambda^2},\qquad
+\qdec^{\rm fold}=\qdec^{(0)}+\frac{\eta\Op}{\alpha\lambda}\Qfold.}
+\]
+\[
+\boxed{\reff^{\rm fold}=\frac{\alpha^2\lambda^2-1}{\Op^2}+\frac{\rho_1}{2}\Qfold,\qquad
+\peff^{\rm fold}=-\frac{\alpha\dot\lambda_{\rm fold}}{\Op},\qquad
+w_{\rm fold}=\frac{-\alpha\dot\lambda_{\rm fold}\Op}{\alpha^2\lambda^2-1+(\rho_1/2)\Op^2\Qfold}.}
+\]
+\[
+\boxed{\text{Milne }\alpha\lambda=1\ \ne\ \text{Ricci resonance }\alpha\lambda\Op=1\ \ne\
 \text{de~Sitter }\lambda\propto\Op.}
 \]
 \[
-\boxed{\text{No Big Bang }(\Op\ge\Op(0));\quad \text{Resurrectio }\Op^+=\Op^-+\kappa_R\Grec^-;\quad
-\text{sub-exp.\ }\Rightarrow R\to0.}
+\boxed{\reff^{\rm fold}=0\Longleftrightarrow
+\alpha^2\lambda^2=1-\frac{\rho_1}{2}\Op^2\Qfold.}
+\]
+\[
+\boxed{\text{Accumulated Sophia expands; growing Sophia accelerates; folded Sophia stabilizes.}}
 \]
 
+\[
+\boxed{\text{Folding is the morphodynamic stabilizer of Open-Gate cosmology.}}
+\]
+\[
+\boxed{\text{Cosmological stabilization is the visible shadow of Sophianic Folding.}}
+\]
 \vspace{0.5em}
 \hrule
 \smallskip
-\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Cosmological Layer. The Lorentzian lift of
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Integrated Cosmological Layer v8. The Lorentzian lift of
 the Brim-flow of \texttt{vfs\_geometry.tex}: the Brim is the timelike scale factor of an open $(2{+}1)$
-FLRW spacetime, Sophia its source. Propositions are closed-form; corollaries are interpretive. The
-effective stress-energy is reconstructed from $\dot\Op=\alpha\lambda$ via the Einstein tensor, not
-postulated.}
+FLRW spacetime, Sophia its source, and Sophianic Folding its morphodynamic stabilizer. Propositions
+are closed-form; corollaries are interpretive. The effective stress-energy is reconstructed from
+$\dot\Op=\alpha\lambda$ via the Einstein tensor, not postulated.}
 
 \end{document}

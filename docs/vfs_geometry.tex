@@ -1,6 +1,6 @@
 % V.F.S. v2.0 (Open-Gate) — Geometric Layer
 % Hyperbolic structure of the live domain, Brim conformal flow,
-% Resurrectio curvature jump, and the self-driven (Ricci) locus.
+% Resurrectio curvature jump, Sophianic Folding, and the self-driven (Ricci) locus.
 % Derived companion to vfs_opengate_core.tex / vfs_opengate_lyapunov.tex.
 % Compile with XeLaTeX.
 \documentclass[11pt,a4paper]{article}
@@ -19,7 +19,7 @@
 \setlength{\parskip}{0.55em}
 \setlength{\parindent}{0pt}
 
-\newcommand{\VFS}{\mathrm{V.F.S.}}
+\newcommand{\VFS}{\ensuremath{\mathrm{V.F.S.}}}
 \newcommand{\Op}{\Omega_P}
 \newcommand{\Grec}{\mathcal{G}_{\rm recepta}}
 \newcommand{\Igate}{I_{\rm gate}}
@@ -30,6 +30,7 @@
 \newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
 \newcommand{\msg}[1]{\begin{center}\fbox{\parbox{0.86\textwidth}{\centering #1}}\end{center}}
 \newcommand{\msgl}[1]{\begin{center}\fbox{\parbox{0.86\textwidth}{#1}}\end{center}}
+\newcommand{\conceptbox}[1]{\msg{#1}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
 \theoremstyle{plain}
@@ -42,7 +43,7 @@
 
 \title{\textbf{V.F.S. v2.0 (Open-Gate)}\\Geometric Layer of the Live Domain\\
 \large Hyperbolic structure, Brim conformal flow, Resurrectio curvature jump,\\
-and the self-driven (Ricci) locus}
+Sophianic Folding, and the self-driven (Ricci) locus}
 \author{Derived companion to \texttt{vfs\_opengate\_core.tex}}
 \date{}
 
@@ -62,6 +63,13 @@ it does \textbf{not} uniquely fix a $2$D metric. The non-trivial curvature appea
 the external Sophia field $\lambda$), not \emph{intrinsic} (curvature-self-driven). The two coincide
 only on a measure-zero locus (\S5, \S7).
 \end{itemize}
+
+
+\medskip
+\noindent\textbf{Folding update.} In this integrated version, the Sophianic Folding module is no
+longer treated as a separate note. It is incorporated as the shape-dynamical branch of the same
+geometric layer: Brim flow controls scale, while folding controls the admissible transformation of
+surface-form under accumulated Sophia.
 
 The governing objects, imported from the core, are the Brim law $\dot\Op=\alpha\lambda$, the
 synergy $u=\sqrt{VF+\varepsilon}$, the normalized radius $r=u/\Op$, the alignment factor
@@ -610,6 +618,1293 @@ of transverse compression near closure. The canonical V.F.S. geometry remains \(
 \(p\neq1\) is best read as an optional family of Vessel geometries.
 \end{corollary}
 
+
+\section{Status of Sophianic Folding inside the Geometric Layer}\label{sec:fold-status}
+The following development integrates the separate Sophianic Folding note into the geometric layer.
+It should be read as a \textbf{functional-spectral toy theorem} inside the Open-Gate geometry, not as
+a full global theorem on the space of all metrics. Its purpose is to test a new geometric regime:
+the old surface-form may lose stability while the Brim continues to expand.
+
+The guiding hypothesis is:
+\msg{accumulated and growing Sophia can destabilize the old surface-form without decreasing $\Op$.}
+Thus the proposed collapse is morphological rather than scalar:
+\[
+\dot\Op>0,\qquad q=0\longrightarrow q\ne0.
+\]
+Here $q$ is a shape-mode amplitude. The state $q=0$ denotes the old symmetric surface-form;
+$q\ne0$ denotes a folded morphology. In later cosmological notation this amplitude may be denoted
+$q_{\rm fold}$ to avoid collision with the deceleration parameter $q_{\rm dec}$.
+
+
+\section{Sophianic Folding: Scale versus shape}
+The first step is to separate the global Brim-scale from the intrinsic shape of the surface:
+\[
+ g(t)=\Op(t)^2\,\widehat g(t).
+\]
+In the ordinary geometric layer, the shape is effectively fixed:
+\[
+ \widehat g(t)=\widehat g_0.
+\]
+For Sophianic Folding we allow a shape perturbation:
+\[
+ \widehat g(t)=\widehat g_0+q(t)\widehat h,
+\]
+so that
+\[
+\boxed{
+ g(t)=\Op(t)^2\bigl(\widehat g_0+q(t)\widehat h\bigr).
+}
+\]
+The Brim law remains the Open-Gate law
+\[
+\dot\Op=\alpha\lambda,
+\]
+so for $\alpha>0$ and $\lambda>0$ the global scale expands. Any collapse below is therefore a
+collapse of the old shape branch, not a collapse of the Brim.
+
+\section{Folding energy and the loss of old-form stability}
+Let $q(t)$ be the scalar amplitude of a selected folding mode. A minimal Landau-type shape energy is
+\[
+\mathcal E_{\rm shape}(q;\lambda,\dot\lambda)
+=
+\frac12\Bigl(a_0-c_0\lambda-c_1\dot\lambda\Bigr)q^2
++
+\frac14 b q^4,
+\qquad b>0.
+\]
+The constants have the following roles:
+\begin{center}
+\begin{tabular}{@{}L{0.18\textwidth}L{0.68\textwidth}@{}}
+\toprule
+Symbol & Role \\
+\midrule
+$a_0>0$ & rigidity of the old surface-form \\
+$c_0>0$ & influence of accumulated Sophia $\lambda$ on shape instability \\
+$c_1>0$ & influence of growing Sophia $\dot\lambda$ on shape instability \\
+$b>0$ & nonlinear saturation preventing unbounded folding \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Define the folding index
+\[
+\boxed{
+S(t)=c_0\lambda(t)+c_1\dot\lambda(t)-a_0.
+}
+\]
+Then the quadratic term of the shape energy is negative exactly when $S(t)>0$.
+The gradient dynamics is
+\[
+\dot q=-\frac{\partial\mathcal E_{\rm shape}}{\partial q},
+\]
+hence
+\[
+\boxed{
+\dot q=S(t)q-bq^3.
+}
+\]
+
+\begin{proposition}[Basic folding threshold]
+For fixed $\lambda$ and $\dot\lambda$, the old surface-form $q=0$ is locally stable if
+\[
+ c_0\lambda+c_1\dot\lambda<a_0,
+\]
+and unstable if
+\[
+ c_0\lambda+c_1\dot\lambda>a_0.
+\]
+When the latter inequality holds, two locally stable folded forms exist:
+\[
+\boxed{
+q_\ast=\pm\sqrt{\frac{c_0\lambda+c_1\dot\lambda-a_0}{b}}.
+}
+\]
+\end{proposition}
+
+\begin{proof}
+The vector field is $f(q)=S q-bq^3$. Its derivative is $f'(q)=S-3bq^2$.
+At $q=0$, $f'(0)=S$, so $q=0$ is stable for $S<0$ and unstable for $S>0$.
+For $S>0$, the additional equilibria satisfy $q_\ast^2=S/b$. At these equilibria,
+$f'(q_\ast)=S-3b(S/b)=-2S<0$, hence they are locally stable.
+\end{proof}
+
+\begin{corollary}[Growth lowers the folding threshold]
+Without the growth term, the static threshold is
+\[
+\lambda_{\rm fold}^{(0)}=\frac{a_0}{c_0}.
+\]
+With $\dot\lambda>0$, the effective threshold becomes
+\[
+\boxed{
+\lambda_{\rm fold}^{\rm eff}
+=
+\frac{a_0-c_1\dot\lambda}{c_0}.
+}
+\]
+Therefore
+\[
+\dot\lambda>0
+\quad\Longrightarrow\quad
+\lambda_{\rm fold}^{\rm eff}<\lambda_{\rm fold}^{(0)}.
+\]
+Growing Sophia can therefore trigger folding before accumulated Sophia reaches the static threshold.
+\end{corollary}
+
+\section{Functional-spectral formulation of the shape operator}
+The scalar variable $q$ can be interpreted as the amplitude of the first unstable eigenmode of the
+surface-form. Let $\mathcal M_{\rm shape}$ denote the local space of admissible shape metrics and let
+\[
+\widehat g=\widehat g_0+h,
+\qquad
+h\in T_{\widehat g_0}\mathcal M_{\rm shape}.
+\]
+Assume that the old shape $\widehat g_0$ is a critical point of a shape functional
+\[
+\mathcal E_{\rm shape}[\widehat g;\lambda,\dot\lambda],
+\qquad
+\delta\mathcal E_{\rm shape}[\widehat g_0;\lambda,\dot\lambda]=0.
+\]
+Its second variation is represented by a self-adjoint stability operator:
+\[
+\boxed{
+\delta^2\mathcal E_{\rm shape}[\widehat g_0;\lambda,\dot\lambda](h,h)
+=
+\langle h,\mathcal L_{\lambda,\dot\lambda}h\rangle_{\widehat g_0}.
+}
+\]
+One possible inner product is
+\[
+\langle h,k\rangle_{\widehat g_0}
+=
+\int_\Sigma \operatorname{tr}_{\widehat g_0}(h\cdot k)\,d\mu_{\widehat g_0}.
+\]
+
+The minimal V.F.S. spectral ansatz is
+\[
+\boxed{
+\mathcal L_{\lambda,\dot\lambda}
+=
+\mathcal L_0-\lambda\mathcal S_0-\dot\lambda\mathcal S_1.
+}
+\]
+Here $\mathcal L_0$ is the old-form rigidity operator, while $\mathcal S_0$ and $\mathcal S_1$
+measure how accumulated Sophia and growing Sophia reduce stability of the old form.
+
+Let
+\[
+\mathcal L_{\lambda,\dot\lambda}e_n
+=
+\mu_n(\lambda,\dot\lambda)e_n,
+\qquad
+\mu_1\le \mu_2\le\cdots,
+\]
+with normalized eigenmodes
+\[
+\langle e_i,e_j\rangle_{\widehat g_0}=\delta_{ij}.
+\]
+If
+\[
+\langle e_1,\mathcal L_0e_1\rangle=a_0,
+\qquad
+\langle e_1,\mathcal S_0e_1\rangle=c_0,
+\qquad
+\langle e_1,\mathcal S_1e_1\rangle=c_1,
+\]
+then
+\[
+\boxed{
+\mu_1(\lambda,\dot\lambda)=a_0-c_0\lambda-c_1\dot\lambda.
+}
+\]
+Thus the folding condition is the zero-crossing of the first eigenvalue:
+\[
+\boxed{
+\mu_1(\lambda,\dot\lambda)<0
+\quad\Longleftrightarrow\quad
+c_0\lambda+c_1\dot\lambda>a_0.
+}
+\]
+
+Near the first crossing, assume only $e_1$ becomes unstable while $\mu_n>0$ for $n\ge2$.
+Then
+\[
+h=q e_1,
+\qquad
+\widehat g=\widehat g_0+q e_1,
+\]
+and the metric becomes
+\[
+\boxed{
+g(t)=\Op(t)^2\bigl(\widehat g_0+q(t)e_1\bigr).
+}
+\]
+The one-mode energy is
+\[
+\mathcal E_1(q)
+=
+\frac12\mu_1 q^2+\frac14bq^4.
+\]
+For $\mu_1<0$ its stable branches are
+\[
+\boxed{
+\widehat g_\pm
+=
+\widehat g_0
+\pm
+\sqrt{\frac{-\mu_1(\lambda,\dot\lambda)}{b}}\,e_1
+=
+\widehat g_0
+\pm
+\sqrt{\frac{c_0\lambda+c_1\dot\lambda-a_0}{b}}\,e_1.
+}
+\]
+
+\begin{proposition}[Spectral single-mode folding]
+Assume $\widehat g_0$ is a critical point of $\mathcal E_{\rm shape}$ and the first stability
+eigenvalue is $\mu_1=a_0-c_0\lambda-c_1\dot\lambda$. If $\mu_1>0$, the old form is stable in the
+first mode. If $\mu_1<0$ and $b>0$, the old branch loses stability and two stable folded branches
+appear along $e_1$.
+\end{proposition}
+
+\section{Energy-consistent embedding in Sophia dynamics}
+To connect the folding index to V.F.S. variables, use the minimal Sophia-production law
+\[
+\dot\lambda=k_\sigma\sigma+
+\Igate-
+\gamma\lambda-
+\eta q^2\lambda.
+\]
+The terms represent kathartic production, Open-Gate input, integration/decay, and embodiment of Sophia
+into folded form. Substituting this into the first eigenvalue gives
+\[
+\mu_1
+=
+a_0-c_0\lambda-c_1\dot\lambda
+=
+a_0
+-(c_0-c_1\gamma)\lambda
+-c_1k_\sigma\sigma
+-c_1\Igate
++c_1\eta q^2\lambda.
+\]
+The one-mode energy becomes
+\[
+\mathcal E_1(q)
+=
+\frac12
+\left[
+a_0
+-(c_0-c_1\gamma)\lambda
+-c_1k_\sigma\sigma
+-c_1\Igate
++c_1\eta q^2\lambda
+\right]q^2
++
+\frac14bq^4.
+\]
+Equivalently,
+\[
+\boxed{
+\mathcal E_1(q)
+=
+-\frac12A_{\VFS}q^2+
+\frac14B_{\VFS}q^4,
+}
+\]
+where
+\[
+\boxed{
+A_{\VFS}=(c_0-c_1\gamma)\lambda+c_1k_\sigma\sigma+c_1\Igate-a_0,
+}
+\]
+and, in the energy-consistent normalization,
+\[
+\boxed{
+B_{\VFS}=b+2c_1\eta\lambda.
+}
+\]
+The factor $2$ appears because the feedback term $c_1\eta q^2\lambda$ enters the quadratic coefficient
+of $\mathcal E_1$ and therefore contributes $\frac12c_1\eta\lambda q^4$ to the total energy.
+
+The gradient flow is
+\[
+\dot q=-\frac{\partial\mathcal E_1}{\partial q}
+=A_{\VFS}q-B_{\VFS}q^3.
+\]
+Since $b>0$, $c_1>0$, $\eta>0$, and $\lambda\ge0$, one has $B_{\VFS}>0$.
+
+\begin{proposition}[Energy-consistent feedback-stabilized folding]
+If $A_{\VFS}<0$, the old surface-form $q=0$ is locally stable. If $A_{\VFS}>0$, the old
+surface-form loses stability and the stable folded states are
+\[
+\boxed{
+q_\ast=\pm\sqrt{\frac{A_{\VFS}}{B_{\VFS}}}
+=
+\pm
+\sqrt{
+\frac{(c_0-c_1\gamma)\lambda+c_1k_\sigma\sigma+c_1\Igate-a_0}
+{b+2c_1\eta\lambda}}
+}.
+\]
+\end{proposition}
+
+\begin{proof}
+The derivative of $\mathcal E_1$ is $-A_{\VFS}q+B_{\VFS}q^3$. Hence the gradient flow is
+$\dot q=A_{\VFS}q-B_{\VFS}q^3$. The cubic stability test gives the stated equilibria and their
+stability because $B_{\VFS}>0$.
+\end{proof}
+
+\begin{corollary}[Sophia both triggers and limits folding]
+The numerator $A_{\VFS}$ is the activation index for folding, while the denominator $B_{\VFS}$
+stabilizes its amplitude. Thus Sophia can trigger folding through $\lambda$ and $\dot\lambda$, while
+also limiting the amplitude by being embodied into the new form through the term $\eta q^2\lambda$.
+\end{corollary}
+
+\section{Geometric admissibility and the fold-boundary}
+The metric
+\[
+\widehat g(t)=\widehat g_0+q(t)e_1
+\]
+must remain positive definite. In the one-mode spectral model this is represented by an admissible range
+\[
+ |q|<q_{\max}.
+\]
+Hence the folded equilibrium is geometrically regular when
+\[
+\boxed{
+0<\frac{A_{\VFS}}{B_{\VFS}}<q_{\max}^2.
+}
+\]
+The critical fold-boundary is
+\[
+\boxed{
+\frac{A_{\VFS}}{B_{\VFS}}=q_{\max}^2.
+}
+\]
+When
+\[
+\boxed{
+\frac{A_{\VFS}}{B_{\VFS}}>q_{\max}^2,
+}
+\]
+the one-chart model predicts a folded amplitude beyond the admissible metric range. This does not
+necessarily mean destruction; it signals that the old geometric chart is insufficient and that a new
+chart, a richer shape-mode expansion, or a topology-transition description may be required.
+
+\section{Non-Perelmanian character of Sophianic Folding}
+Sophianic Folding should not be identified with a Perelman-type singularity of Ricci flow. In
+Perelman's setting, surgery is introduced to remove pathological singular regions that arise under
+the evolution of the metric. By contrast, Sophianic Folding is formulated here as a regular
+morphological bifurcation of the surface-form.
+
+The transition
+\[
+q=0\longrightarrow q_\pm\ne0
+\]
+does not mean that the metric has become singular. It means that the old symmetric branch $q=0$ has
+lost dynamical stability, while new folded branches become stable:
+\[
+q_\pm=\pm\sqrt{\frac{A_{\VFS}}{B_{\VFS}}}.
+\]
+Thus the folding event is not a cutting operation and does not require surgery as long as
+\[
+\boxed{
+0<\frac{A_{\VFS}}{B_{\VFS}}<q_{\max}^2.
+}
+\]
+The boundary
+\[
+\frac{A_{\VFS}}{B_{\VFS}}=q_{\max}^2
+\]
+should therefore be interpreted not as a Perelmanian singularity, but as the boundary of the current
+morphological chart. Beyond this boundary the one-mode ansatz
+\[
+\widehat g(t)=\widehat g_0+q(t)e_1
+\]
+may cease to be sufficient. A new geometric chart or a richer shape-mode expansion may be required.
+
+\begin{center}
+\fbox{\parbox{0.86\textwidth}{
+\centering
+Sophianic Folding is a collapse of the old form-branch, not a singular collapse of the surface.\\[0.35em]
+Folding is spectral bifurcation, not Perelman surgery.
+}}
+\end{center}
+
+\section{Curvature correction under folding}
+The unfurled V.F.S. live surface has scalar curvature
+\[
+R_0=-\frac{2}{\Op^2}.
+\]
+Thus global Brim expansion moves the background curvature toward zero. Folding, however, can produce
+a local curvature correction. For a symmetric folding mode $q\leftrightarrow -q$, the leading
+correction is quadratic:
+\[
+\boxed{
+R_{\rm folded}= -\frac{2}{\Op^2}+\rho_1 q^2+O(q^4).
+}
+\]
+The parameter $\rho_1$ measures the curvature concentration of the first unstable mode $e_1$. The
+surface-collapse regime considered here assumes
+\[
+\rho_1>0.
+\]
+At the stable folded branch,
+\[
+q_\ast^2=\frac{A_{\VFS}}{B_{\VFS}},
+\]
+so
+\[
+\boxed{
+R_{\rm folded}
+=
+-\frac{2}{\Op^2}
++
+\rho_1\frac{A_{\VFS}}{B_{\VFS}}
++O(q_\ast^4).
+}
+\]
+Neglecting higher-order corrections and using the energy-consistent denominator,
+\[
+\boxed{
+R_{\rm folded}
+=
+-\frac{2}{\Op^2}
++
+\rho_1
+\frac{(c_0-c_1\gamma)\lambda+c_1k_\sigma\sigma+c_1\Igate-a_0}
+{b+2c_1\eta\lambda}.
+}
+\]
+
+\begin{proposition}[Global expansion with local curvature concentration]
+Assume $\lambda>0$, $\alpha>0$, $\rho_1>0$, and $A_{\VFS}>0$. Then the Brim expands globally:
+\[
+\dot\Op=\alpha\lambda>0,
+\]
+while folding creates a positive curvature correction
+\[
+\Delta R_{\rm fold}=\rho_1\frac{A_{\VFS}}{B_{\VFS}}>0.
+\]
+Thus global expansion and local curvature concentration can occur simultaneously.
+\end{proposition}
+
+\section{Positive curvature pockets}
+A particularly strong transition occurs when the folding correction overcomes the background negative
+curvature. The threshold is
+\[
+R_{\rm folded}=0.
+\]
+Using the leading-order expression,
+\[
+-\frac{2}{\Op^2}+\rho_1\frac{A_{\VFS}}{B_{\VFS}}=0.
+\]
+Thus the positive curvature-pocket criterion is
+\[
+\boxed{
+\frac{A_{\VFS}}{B_{\VFS}}>\frac{2}{\rho_1\Op^2}.
+}
+\]
+This means that an open/hyperbolic background can locally fold into a positive-curvature pocket even
+while the global Brim continues to expand.
+
+
+\section{Lyapunov compatibility: folding as morphological stabilization}
+The folding module should not be interpreted as a destabilizing singular event. In the regular
+folding domain it is a Lyapunov-compatible relaxation of the surface-form. For fixed V.F.S.
+parameters, the one-mode folding energy is
+\[
+\mathcal E_{\rm fold}(q)
+=
+-\frac12A_{\VFS}q^2+
+\frac14B_{\VFS}q^4,
+\qquad B_{\VFS}>0.
+\]
+The shape dynamics is the gradient flow
+\[
+\dot q=-\partial_q\mathcal E_{\rm fold}
+=A_{\VFS}q-B_{\VFS}q^3.
+\]
+Therefore, when $A_{\VFS}$ and $B_{\VFS}$ are frozen or vary adiabatically,
+\[
+\boxed{
+\frac{d}{dt}\mathcal E_{\rm fold}(q)
+=
+-\left(\partial_q\mathcal E_{\rm fold}\right)^2
+\le 0.
+}
+\]
+Equivalently, since $\dot q=-\partial_q\mathcal E_{\rm fold}$,
+\[
+\boxed{
+\dot{\mathcal E}_{\rm fold}=-\dot q^{\,2}\le0.
+}
+\]
+Thus folding is an energy-descending process: the old form does not explode into a singularity, but
+relaxes toward a lower-energy morphology.
+
+The stable folded branches have energy
+\[
+\mathcal E_{\rm fold}(q_\pm)
+=-\frac{A_{\VFS}^2}{4B_{\VFS}}<0
+\qquad (A_{\VFS}>0),
+\]
+while the old branch has
+\[
+\mathcal E_{\rm fold}(0)=0.
+\]
+Hence the folded morphology is energetically preferred once $A_{\VFS}>0$.
+
+To write the folding contribution as a non-negative Lyapunov component, shift the energy by its
+minimum. For $A_{\VFS}>0$ define
+\[
+\boxed{
+\mathcal V_{\rm fold}
+=
+\mathcal E_{\rm fold}-\mathcal E_{{\rm fold},\min}
+=
+\frac{B_{\VFS}}{4}
+\left(q^2-\frac{A_{\VFS}}{B_{\VFS}}\right)^2
+\ge0.
+}
+\]
+For $A_{\VFS}<0$, the minimum is at $q=0$ and one may use
+\[
+\mathcal V_{\rm fold}
+=
+\frac12|A_{\VFS}|q^2+
+\frac14B_{\VFS}q^4.
+\]
+A natural extended Lyapunov candidate is therefore
+\[
+\boxed{
+\mathcal L_{\rm ext}
+=
+\mathcal L_{\VFS}+w_q\mathcal V_{\rm fold},
+\qquad w_q>0.
+}
+\]
+If the base Open-Gate Lyapunov functional satisfies
+\[
+\dot{\mathcal L}_{\VFS}\le C-C_1\mathcal L_{\VFS},
+\qquad C_1>0,
+\]
+and if $\mathcal V_{\rm fold}$ remains bounded in the regular folding domain, then
+\[
+\boxed{
+\dot{\mathcal L}_{\rm ext}
+\le
+C_{\rm ext}-C_1\mathcal L_{\rm ext}
+}
+\]
+for a modified constant $C_{\rm ext}$. Thus the folding extension preserves dissipative boundedness.
+
+When the parameters move, one has
+\[
+\dot{\mathcal E}_{\rm fold}
+=
+-\left(\partial_q\mathcal E_{\rm fold}\right)^2
+-\frac12q^2\dot A_{\VFS}
++\frac14q^4\dot B_{\VFS}.
+\]
+The first term is strictly dissipative. The last two terms represent slow variation of the V.F.S.
+background. Hence the compatibility statement is adiabatic: if $|\dot A_{\VFS}|+|\dot B_{\VFS}|$ is
+bounded relative to the shape-relaxation rate, the folding module remains Lyapunov-compatible.
+
+\begin{center}
+\fbox{\parbox{0.86\textwidth}{
+\centering
+In the regular domain, Sophianic Folding is morphological stabilization: an obsolete form relaxes
+into a lower-energy folded morphology while the Brim continues to expand.
+}}
+\end{center}
+
+
+\section{Regime classification of the folded live-surface}
+The model is most compact when written in terms of the folding quotient
+\[
+\boxed{
+Q_{\rm fold}
+=
+\frac{A_{\VFS}}{B_{\VFS}}
+=
+\frac{(c_0-c_1\gamma)\lambda+c_1k_\sigma\sigma+c_1\Igate-a_0}
+{b+2c_1\eta\lambda}.
+}
+\]
+Then
+\[
+q_\ast^2=Q_{\rm fold},
+\qquad
+R_{\rm folded}=-\frac{2}{\Op^2}+\rho_1Q_{\rm fold}.
+\]
+Define the curvature-pocket threshold
+\[
+\boxed{
+q_{\rm curv}^2=\frac{2}{\rho_1\Op^2}.
+}
+\]
+The single-mode chart has an admissibility bound
+\[
+|q|<q_{\max}.
+\]
+Thus the sequence of regimes is:
+
+\begin{center}
+\begin{longtable}{@{}L{0.28\textwidth}L{0.30\textwidth}L{0.30\textwidth}@{}}
+\toprule
+Regime & Criterion & Meaning \\
+\midrule
+Old-form stable & $Q_{\rm fold}<0$ & $q=0$ is stable; no real folded branch exists. \\
+Folding threshold & $Q_{\rm fold}=0$ & The first shape-stability eigenvalue crosses zero. \\
+Regular hyperbolic folding & $0<Q_{\rm fold}<q_{\rm curv}^2$ & The form folds, but $R_{\rm folded}<0$. \\
+Curvature-pocket transition & $Q_{\rm fold}=q_{\rm curv}^2$ & Folding exactly cancels the background negative curvature. \\
+Positive curvature pocket & $q_{\rm curv}^2<Q_{\rm fold}<q_{\max}^2$ & Local positive curvature appears while the Brim still expands. \\
+Fold-chart boundary & $Q_{\rm fold}=q_{\max}^2$ & The current one-mode chart reaches its admissible boundary. \\
+Beyond single-mode domain & $Q_{\rm fold}>q_{\max}^2$ & A new chart, higher-mode expansion, or richer geometry is required. \\
+\bottomrule
+\end{longtable}
+\end{center}
+
+The positive-curvature pocket is available inside the regular one-mode domain only if
+\[
+q_{\rm curv}^2<q_{\max}^2.
+\]
+Equivalently,
+\[
+\boxed{
+\rho_1\Op^2q_{\max}^2>2.
+}
+\]
+This gives two geometric types:
+\[
+\boxed{
+\rho_1\Op^2q_{\max}^2>2
+\quad\text{pocket-admitting geometry},
+}
+\]
+\[
+\boxed{
+\rho_1\Op^2q_{\max}^2\le2
+\quad\text{pocket-forbidden single-mode geometry}.
+}
+\]
+In the second case, regular folding may still occur, but the one-mode chart reaches its boundary
+before a positive-curvature pocket can be resolved.
+
+This classification separates four questions that should not be conflated:
+\begin{enumerate}[label=(\roman*)]
+\item whether folding is activated: $A_{\VFS}>0$;
+\item how large the folded amplitude is: $Q_{\rm fold}=A_{\VFS}/B_{\VFS}$;
+\item whether folding changes the curvature sign: $Q_{\rm fold}>q_{\rm curv}^2$;
+\item whether the one-mode chart is still valid: $Q_{\rm fold}<q_{\max}^2$.
+\end{enumerate}
+In the regular domain, folding is a stabilizing transition. Beyond the fold-chart boundary, the
+model does not assert singular destruction; it only says that the current spectral chart is no longer
+sufficient.
+
+
+\section{Coupling back to the V.F.S. core}
+The folding module is not an isolated geometric add-on. It can be coupled back into the V.F.S.
+core as a feedback mechanism acting on the accumulation of Sophia. In the minimal coupled model,
+the basic synergistic intensity and Brim-flow remain
+\[
+u=\sqrt{VF+\varepsilon},
+\qquad
+\dot\Op=\alpha\lambda.
+\]
+The new ingredient is that the shape-mode $q$ feeds back into the Sophia-flow:
+\[
+\boxed{
+\dot\lambda
+=
+k_\sigma\sigma+
+\Igate
+-\gamma\lambda
+-\eta q^2\lambda.
+}
+\]
+Here the term $-\eta q^2\lambda$ should not be read as the destruction of Sophia. It represents the
+embodiment of excess Sophia into morphology: the accumulated noetic pressure becomes a stable
+shape-deformation of the surface-form.
+
+The coupled shape equation remains
+\[
+\boxed{
+\dot q=A_{\VFS}q-B_{\VFS}q^3,
+}
+\]
+with
+\[
+A_{\VFS}
+=
+(c_0-c_1\gamma)\lambda+c_1k_\sigma\sigma+c_1\Igate-a_0,
+\qquad
+B_{\VFS}=b+2c_1\eta\lambda.
+\]
+Thus the core produces Sophia, Sophia activates folding, and folding regulates the further
+accumulation of Sophia.
+
+Let
+\[
+J_{\rm in}=k_\sigma\sigma+\Igate.
+\]
+Before folding, $q=0$, so
+\[
+\dot\lambda_{\rm before}=J_{\rm in}-\gamma\lambda.
+\]
+In the regular folded regime,
+\[
+q_\ast^2=Q_{\rm fold}=\frac{A_{\VFS}}{B_{\VFS}}>0.
+\]
+Therefore
+\[
+\dot\lambda_{\rm after}
+=
+J_{\rm in}-\gamma\lambda-\eta Q_{\rm fold}\lambda.
+\]
+The folding correction to the Sophia-flow is
+\[
+\boxed{
+\Delta\dot\lambda_{\rm fold}
+=
+\dot\lambda_{\rm after}-\dot\lambda_{\rm before}
+=
+-\eta\lambda Q_{\rm fold}.
+}
+\]
+Hence, whenever $\lambda>0$, $\eta>0$, and $Q_{\rm fold}>0$,
+\[
+\boxed{
+\Delta\dot\lambda_{\rm fold}<0.
+}
+\]
+Regular Sophianic Folding therefore lowers the rate of further Sophia accumulation. It stabilizes not
+only the surface-form, but also the tempo of Sophianic excess.
+
+Equivalently, inside the folded branch the Sophia equation can be written as
+\[
+\dot\lambda
+=J_{\rm in}-(\gamma+\eta Q_{\rm fold})\lambda.
+\]
+This motivates the effective damping coefficient
+\[
+\boxed{
+\gamma_{\rm eff}=\gamma+\eta Q_{\rm fold}.
+}
+\]
+In the regular folded regime,
+\[
+Q_{\rm fold}>0
+\quad\Longrightarrow\quad
+\gamma_{\rm eff}>\gamma.
+\]
+Thus folding acts as a negative feedback loop:
+\[
+\lambda\uparrow
+\Longrightarrow
+A_{\VFS}\uparrow
+\Longrightarrow
+Q_{\rm fold}>0
+\Longrightarrow
+q^2\uparrow
+\Longrightarrow
+\gamma_{\rm eff}\uparrow
+\Longrightarrow
+\dot\lambda\downarrow.
+\]
+The stationary Sophia level is also lowered by folding. If $J_{\rm in}$ is treated as fixed, then
+\[
+\dot\lambda=0
+\quad\Longrightarrow\quad
+\lambda_\ast=\frac{J_{\rm in}}{\gamma+\eta q^2}.
+\]
+Before folding,
+\[
+\lambda_{\rm old}=\frac{J_{\rm in}}{\gamma}.
+\]
+After folding, since $q^2>0$,
+\[
+\lambda_{\rm fold}=\frac{J_{\rm in}}{\gamma+\eta q^2}
+<
+\frac{J_{\rm in}}{\gamma}
+=
+\lambda_{\rm old}.
+\]
+So regular folding reduces the equilibrium level of unembodied Sophia.
+
+This gives the core-coupling lemma.
+
+\begin{center}
+\fbox{\parbox{0.86\textwidth}{
+\textbf{Sophianic Excess Regulation Lemma.}
+Assume $\lambda>0$, $\eta>0$, and $0<Q_{\rm fold}<q_{\max}^2$. Then regular Sophianic Folding changes the Sophia-flow by
+\[
+\Delta\dot\lambda_{\rm fold}=-\eta\lambda Q_{\rm fold}<0,
+\]
+and increases the effective damping of Sophia:
+\[
+\gamma_{\rm eff}=\gamma+\eta Q_{\rm fold}>\gamma.
+\]
+Therefore folding is a stabilizing feedback from geometry back into Sophia dynamics.
+}}
+\end{center}
+
+The theological-dynamical reading is concise:
+\conceptbox{Open-Gate admits excess Sophia; Sophianic Folding gives that excess a form.}
+The Brim still expands when $\lambda>0$:
+\[
+\dot\Op=\alpha\lambda>0.
+\]
+But the excess is no longer merely accumulated. It is embodied into morphology, lowering the
+unformed pressure of Sophia while preserving the Open-Gate expansion of the Brim.
+
+
+\section{Morphological tension and Pleromatic release}
+The previous sections used the word ``energy'' in a technical Lyapunov sense. In this note,
+\(\mathcal E_{\rm fold}\) is \emph{not} physical gravitational energy and it is not measured in
+joules. It is a shape-potential, or more carefully, a \textbf{morphological tension potential}:
+\[
+\mathcal T_{\rm fold}(q):=\mathcal E_{\rm fold}(q)
+=
+-\frac12A_{\VFS}q^2+\frac14B_{\VFS}q^4.
+\]
+Thus a lower value of \(\mathcal T_{\rm fold}\) means that the Vessel-form carries less unresolved
+morphological tension. The phrase ``release'' below therefore means \emph{resolution of symbolic
+morphological tension}, not a claim about physical energy release or gravitational radiation.
+
+In the activated regular folding domain,
+\[
+A_{\VFS}>0,
+\qquad
+B_{\VFS}>0,
+\qquad
+q_\ast^2=Q_{\rm fold}=\frac{A_{\VFS}}{B_{\VFS}},
+\]
+the old form has
+\[
+\mathcal T_{\rm fold}(0)=0,
+\]
+while the folded form has
+\[
+\mathcal T_{\rm fold}(q_\ast)
+=
+-\frac{A_{\VFS}^2}{4B_{\VFS}}.
+\]
+The amount of morphological tension resolved by the transition is therefore
+\[
+\boxed{
+\Delta\mathcal T_{\rm fold}
+=
+\mathcal T_{\rm fold}(0)-\mathcal T_{\rm fold}(q_\ast)
+=
+\frac{A_{\VFS}^2}{4B_{\VFS}}.
+}
+\]
+Equivalently, using the folding index,
+\[
+\Delta\mathcal T_{\rm fold}
+=
+\frac14 B_{\VFS}Q_{\rm fold}^2.
+\]
+This quantity measures how much old-form tension is resolved when the system moves from the
+unstable branch \(q=0\) to the regular folded branch \(q=q_\ast\).
+
+\subsection*{Instantaneous release rate}
+For frozen V.F.S. parameters, the gradient shape-flow gives
+\[
+\dot q=-\partial_q\mathcal T_{\rm fold}.
+\]
+Hence
+\[
+\dot{\mathcal T}_{\rm fold}
+=
+-\left(\partial_q\mathcal T_{\rm fold}\right)^2
+\le0.
+\]
+Define the nonnegative release rate of morphological tension by
+\[
+\boxed{
+J_{\rm rel}
+:=
+-\dot{\mathcal T}_{\rm fold}
+=
+\left(\partial_q\mathcal T_{\rm fold}\right)^2
+=
+\dot q^2
+\ge0.
+}
+\]
+This is again a Lyapunov-rate, not a physical power. It records the rate at which the old
+surface-form tension is being resolved through folding.
+
+\subsection*{Partition of resolved tension}
+The resolved tension need not be interpreted as simply lost. In the symbolic V.F.S. reading, it can
+be partitioned into three channels:
+\[
+\boxed{
+\Delta\mathcal T_{\rm fold}
+=
+\mathcal T_{\rm emb}
++
+\mathcal T_{\rm pler}
++
+\mathcal T_{\rm diss}.
+}
+\]
+Here:
+\begin{center}
+\begin{tabular}{@{}L{0.22\textwidth}L{0.62\textwidth}@{}}
+\toprule
+Channel & Meaning \\
+\midrule
+\(\mathcal T_{\rm emb}\) & tension embodied into the new Vessel-form, i.e. the old pressure becomes morphology \\
+\(\mathcal T_{\rm pler}\) & tension expressed as Pleromatic output: action, light, witness, meaningful being \\
+\(\mathcal T_{\rm diss}\) & transition cost: adaptation, friction, loss, or unresolved residue of the relaxation \\
+\bottomrule
+\end{tabular}
+\end{center}
+Introduce partition coefficients
+\[
+\theta_{\rm emb},\theta_{\rm pler},\theta_{\rm diss}\in[0,1],
+\qquad
+\theta_{\rm emb}+\theta_{\rm pler}+\theta_{\rm diss}=1.
+\]
+Then
+\[
+\boxed{
+\mathcal T_{\rm emb}=\theta_{\rm emb}\Delta\mathcal T_{\rm fold},
+\qquad
+\mathcal T_{\rm pler}=\theta_{\rm pler}\Delta\mathcal T_{\rm fold},
+\qquad
+\mathcal T_{\rm diss}=\theta_{\rm diss}\Delta\mathcal T_{\rm fold}.
+}
+\]
+In rate form,
+\[
+J_{\rm emb}=\theta_{\rm emb}J_{\rm rel},
+\qquad
+J_{\rm pler}=\theta_{\rm pler}J_{\rm rel},
+\qquad
+J_{\rm diss}=\theta_{\rm diss}J_{\rm rel}.
+\]
+
+\subsection*{Pleromatic release term}
+If \(P(t)\) denotes the Pleroma or realized being-output of the V.F.S. system, the folding release can
+be coupled to the Pleroma equation by adding a nonnegative symbolic output term:
+\[
+\boxed{
+\dot P
+=
+\dot P_{\rm core}
++
+\kappa_{\rm pler}J_{\rm pler}
+=
+\dot P_{\rm core}
++
+\kappa_{\rm pler}\theta_{\rm pler}J_{\rm rel},
+\qquad
+\kappa_{\rm pler}\ge0.
+}
+\]
+Thus the transition from old form to folded form may become not merely stabilization, but
+Pleromatic expression. In words:
+\conceptbox{what was tension in the old form may become architecture in the new form and output in realized being.}
+
+\begin{center}
+\fbox{\parbox{0.86\textwidth}{
+\textbf{Energy/Tension Partition Lemma.}
+In the regular folding domain, the transition from \(q=0\) to \(q=q_\ast\) resolves the amount of
+morphological tension
+\[
+\Delta\mathcal T_{\rm fold}=\frac{A_{\VFS}^2}{4B_{\VFS}}.
+\]
+This resolved tension may be partitioned into embodied form, Pleromatic output, and dissipative
+transition cost. If \(\theta_{\rm pler}>0\), then folding contributes a nonnegative Pleromatic release
+term to \(\dot P\).
+}}
+\end{center}
+
+The theological interpretation is therefore not that the human being generates physical energy by
+opening the gate. Rather:
+\conceptbox{the Gate opens to Sophia; excess Sophia destabilizes the obsolete vessel-form; folding resolves the tension by forming a new Vessel and, in part, expressing itself as Pleromatic output.}
+This keeps the model within symbolic differential geometry while allowing a meaningful V.F.S.
+reading of release, action, and transfiguration.
+
+
+
+\section{Geometric-theological interpretation: Vessel and transfiguration}
+The preceding sections describe Sophianic Folding as a functional-spectral and Lyapunov-compatible
+morphological transition. This section states the theological reading of that transition. The point
+is not that the human being generates Sophia, possesses Sophia, or forces the Gate open by technical
+control. The point is that Open-Gate describes a mode of receptivity in which received Sophia may
+exceed the carrying capacity of an old vessel-form.
+
+\conceptbox{The human vocation is not possession of Sophia, but receptivity to Sophia without the destruction of the Vessel.}
+
+In this reading, the Gate is opened in synergy: human receptivity and divine initiative are not the
+same operation, but they meet in the Open-Gate domain. The input term \(\Igate\) should therefore not
+be read as human production of grace. It is better read as a symbolic channel of reception:
+\[
+\Igate
+\quad\text{marks openness to the gift, not ownership of the gift.}
+\]
+Thus the theological movement is not self-deification. It is receptive transformation:
+\[
+\boxed{
+\text{Grace opens the Gate; Sophia reforms the Vessel; Pleroma releases a new act of being.}
+}
+\]
+
+\subsection*{The old Vessel-form and the new Vessel-form}
+The state
+\[
+q=0
+\]
+represents the old vessel-form. This old form is not evil or meaningless. It is simply the form that
+was stable before the accumulation and growth of Sophia crossed the folding threshold. When
+\[
+A_{\VFS}>0,
+\]
+the old form loses stability and the system moves toward
+\[
+q_\pm=\pm\sqrt{\frac{A_{\VFS}}{B_{\VFS}}}.
+\]
+The theological meaning is not annihilation of the Vessel, but transformation of its form:
+\[
+\boxed{
+\text{the old self is not annihilated; it is folded into a transfigured Vessel.}
+}
+\]
+This is why Sophianic Folding should be interpreted as transfiguration rather than destruction.
+The Brim remains open,
+\[
+\dot\Op=\alpha\lambda>0,
+\]
+while the obsolete surface-form relaxes into a lower-tension morphology.
+
+\subsection*{Kenosis and plerosis}
+Sophianic Folding also gives a geometric image of the theological movement from kenosis to
+plerosis. Kenosis is the release of rigidity in the old form. Plerosis is the receiving of fuller being
+in a new form. In the folding model these two moments are not opposed:
+\[
+\text{kenosis of the old form}
+\quad\longrightarrow\quad
+\text{plerosis of the transfigured Vessel}.
+\]
+The loss of the old stable branch is therefore not merely loss. It is the condition under which a
+new receptive morphology becomes possible.
+
+\conceptbox{Folding is the geometric image of kenosis becoming plerosis.}
+
+The resolved quantity
+\[
+\Delta\mathcal T_{\rm fold}=\frac{A_{\VFS}^2}{4B_{\VFS}}
+\]
+should be read as resolved morphological tension, not physical gravitational energy. It names the
+amount of old-form tension that has been relaxed by the emergence of the folded form.
+
+\subsection*{Safeguard against a false reading of Open-Gate}
+A dangerous misreading would be:
+\[
+\text{the goal is to open the Gate to the maximum and control Sophia.}
+\]
+The V.F.S. reading should instead be:
+\conceptbox{the goal is to become a Vessel capable of receiving Sophia without collapse, through transfiguration.}
+The Gate is not a mechanism of domination. It is a posture of receptivity. Sophia is not a possession
+of the subject. Sophia is the wisdom-mediated transformation of the subject's form of reception.
+
+Accordingly, the chain should be read as
+\[
+\begin{aligned}
+\text{Open-Gate}&\Rightarrow \lambda\uparrow \Rightarrow \text{old-form insufficiency}\\
+&\Rightarrow \text{Sophianic Folding} \Rightarrow \text{transfigured Vessel}\\
+&\Rightarrow \text{Pleromatic expression}.
+\end{aligned}
+\]
+In words:
+\conceptbox{Sophia does not merely fill the Vessel; Sophia reforms the Vessel.}
+
+\subsection*{Human vocation in the Open-Gate model}
+The vocation of the human being in this layer of V.F.S. can now be stated compactly:
+\conceptbox{to receive, to be reformed, and to express being without confusing gift with possession.}
+This preserves the theological asymmetry of the model. The human person participates, but does not
+manufacture grace. The Vessel opens, but does not command Sophia. Folding stabilizes the excess by
+allowing the received fullness to become a new form rather than a rupture.
+
+Thus the spiritual meaning of the mathematical transition is:
+\conceptbox{Open-Gate is receptivity; Sophianic Folding is transfiguration; Pleromatic release is realized being.}
+
+
+\section{Integration map for the geometric layer}
+The preceding sections define Sophianic Folding as a local morphodynamic module. This section
+records how the module should be inserted into the full Open-Gate architecture. The purpose is to
+prevent the folding layer from being read as an isolated appendix. In the Open-Gate version it is
+better understood as a bridge among Sophia, geometry, stability, cosmology, and theological
+transfiguration.
+
+\conceptbox{Sophianic Folding is the morphodynamic bridge that connects Sophia, geometry, stability, cosmology, and the theology of the Vessel.}
+
+\subsection*{Core placement}
+In the core dynamical chain of \VFS{}, Sophianic Folding enters after the emergence and growth of
+Sophia. The symbolic chain becomes
+\[
+V,F\longrightarrow u\longrightarrow \sigma\longrightarrow \lambda\longrightarrow q\longrightarrow P.
+\]
+Here
+\[
+u=\sqrt{VF+\varepsilon}
+\]
+expresses synergistic intensity, \(\sigma\) denotes resistance, \(\lambda\) denotes Sophia, \(q\)
+denotes the shape-mode of the Vessel, and \(P\) denotes Pleromatic being or realized expression.
+Thus the folding layer is not an alternative to the core. It is the morphodynamic continuation of
+the core once Sophia has become strong enough to make the old Vessel-form insufficient.
+
+\conceptbox{Will becomes action; resistance becomes Sophia; Sophia becomes form; form releases being.}
+
+The minimal coupled core may be summarized as
+\[
+\dot\Op=\alpha\lambda,
+\]
+\[
+\dot\lambda=k_\sigma\sigma+\Igate-\gamma\lambda-\eta q^2\lambda,
+\]
+\[
+\dot q=A_{\VFS}q-B_{\VFS}q^3.
+\]
+Therefore the Open-Gate core does not merely produce a growing scalar \(\lambda\). It also provides
+the condition under which the Vessel can acquire a new morphology.
+
+\subsection*{Geometric placement}
+In the geometric layer, Sophianic Folding modifies the shape metric while preserving Brim expansion:
+\[
+g(t)=\Op(t)^2\widehat g(t),
+\qquad
+\widehat g(t)=\widehat g_0+q(t)e_1.
+\]
+Hence the geometry contains two distinct processes:
+\[
+\text{Brim-scale expansion}
+\qquad\text{and}\qquad
+\text{surface-form bifurcation}.
+\]
+The first is governed by \(\Op\). The second is governed by \(q\). This separation is crucial:
+\[
+\dot\Op>0
+\]
+does not forbid
+\[
+q=0\longrightarrow q_\ast\ne0.
+\]
+The Brim can expand globally while the old surface-form loses stability locally.
+
+\subsection*{Lyapunov placement}
+In the Lyapunov layer, Sophianic Folding enters as an additional stabilizing channel. The extended
+candidate is
+\[
+\mathcal L_{\rm ext}
+=
+\mathcal L_{\VFS}
++
+w_q\mathcal V_{\rm fold},
+\qquad w_q>0.
+\]
+Since the folding dynamics is a gradient descent,
+\[
+\dot{\mathcal E}_{\rm fold}
+=
+-\left(\partial_q\mathcal E_{\rm fold}\right)^2\le0,
+\]
+the regular folding mode does not break the stability story. Rather, it adds a new relaxation
+mechanism. In the regular domain,
+\[
+0<Q_{\rm fold}<q_{\max}^2,
+\]
+folding is therefore a Lyapunov-compatible stabilization of morphology.
+
+\conceptbox{Folding does not interrupt Open-Gate stability; it extends stability into the shape layer.}
+
+\subsection*{Cosmological placement}
+In the cosmological layer, Sophianic Folding clarifies the paradoxical regime
+\[
+\dot\Op>0
+\qquad\text{and}\qquad
+R_{\rm folded}>0.
+\]
+The curvature expression
+\[
+R_{\rm folded}
+=
+-\frac{2}{\Op^2}
++
+\rho_1Q_{\rm fold}
+\]
+shows how local curvature concentration may occur under global expansion. Thus folding introduces
+a distinction between expansion of capacity and concentration of form. The resulting cosmological
+motif is
+\[
+\boxed{\text{global expansion with local curvature concentration}.}
+\]
+This should not be read as physical gravity unless an additional physical model is supplied. Within
+this note it is a symbolic-differential geometric curvature of the Vessel-form.
+
+\subsection*{Theological placement}
+In the theological layer, the same structure reads as the transformation of the Vessel. The Gate
+opens receptively, Sophia exceeds the rigidity of the old form, the old form folds, and a new
+Pleromatic act becomes possible:
+\[
+\text{Grace}\longrightarrow\text{Sophia}\longrightarrow\text{transfigured Vessel}\longrightarrow\text{Pleromatic expression}.
+\]
+Thus the theological meaning is not self-deification and not possession of Sophia. It is receptive
+transfiguration:
+\[
+\boxed{\text{Grace opens the Gate; Sophia reforms the Vessel; Pleroma releases a new act of being.}}
+\]
+
+\subsection*{Manuscript insertion plan}
+For integration into the full \VFS{} manuscript, the Sophianic Folding module should be distributed
+as follows:
+\begin{center}
+\begin{tabular}{@{}L{0.24\textwidth}L{0.58\textwidth}@{}}
+\toprule
+Target layer & Inserted content \\
+\midrule
+Core & Add the variable \(q(t)\), the folding index \(Q_{\rm fold}\), and the feedback term \(-\eta q^2\lambda\). \\
+Geometry & Add the shape decomposition \(g=\Op^2(\widehat g_0+qe_1)\) and the curvature correction \(R_{\rm folded}\). \\
+Lyapunov & Add \(\mathcal L_{\rm ext}=\mathcal L_{\VFS}+w_q\mathcal V_{\rm fold}\) and the regular-domain compatibility statement. \\
+Cosmology & Add the regime \(\dot\Op>0\) with possible local curvature concentration. \\
+Theology & Add the interpretation of folding as transfiguration of the Vessel, with the safeguard against self-deification. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This yields the full architectural role of the module:
+\conceptbox{Sophianic Folding is not a side-effect of Open-Gate; it is the morphodynamic mechanism by which Open-Gate excess becomes stable form.}
+
+\section{Interpretive conclusion of the folding geometry}
+The model supports the mathematical possibility of the intended paradoxical regime:
+\[
+\dot\Op>0
+\quad\text{and}\quad
+q=0\longrightarrow q_\ast\ne0.
+\]
+That is, the Brim does not collapse. The old surface-form collapses as a stable branch. In the
+energy-consistent feedback model, Sophia can both activate and stabilize this transition:
+\conceptbox{Sophia expands the Brim, but accumulated and growing Sophia can fold the old surface-form.}
+At the curvature level the result is sharper:
+\conceptbox{Sophianic folding can create local curvature concentration under global Brim expansion.}
+The main spectral statement is:
+\conceptbox{Sophianic Folding occurs when the first shape-stability eigenvalue crosses zero.}
+The Lyapunov statement is:
+\conceptbox{In the regular domain, folding is morphological stabilization: a descent to a lower-tension form.}
+The v5 release statement is:
+\conceptbox{The resolved tension of folding may be partitioned into embodied form, Pleromatic output, and dissipative transition cost.}
+Thus Sophianic Folding is not a Perelman-type singularity. It is a lawful spectral bifurcation in
+which an obsolete morphology loses stability under the pressure of received and growing Sophia, and
+then stabilizes through a lower-tension folded morphology.
+
+
+
 \section{Relation to the Cosmological Layer}\label{sec:cosmo-bridge}
 The spatial geometry above and the Lorentzian lift share the same hyperbolic surface $h_{2D}$ but are
 distinct objects. As a slice of fixed Brim, $\Op$ is a scale parameter; as the cosmology, $\Op(t)$ is
@@ -717,6 +2012,8 @@ without finite completion.
 \msg{Theosis is the endless expansion of receptive geometry toward Pleroma.}
 \msg{Brim-Flow is the Ricci-like geometry of Epektasis.}
 
+\msg{Sophianic Folding is the morphology of transfiguration: Sophia does not merely fill the Vessel; Sophia reforms the Vessel.}
+
 \section*{Compact Geometric Summary}
 \[
 \boxed{\text{barrier }B(r)\ \equiv\ \text{geodesic distance to the death wall}.}
@@ -747,6 +2044,25 @@ without finite completion.
 \[
 \boxed{\text{Warp family: }R_\Sigma=-\frac{2p^2}{\Op^2},
 \quad p=1\text{ canonical}.}
+\]
+
+
+\[
+\boxed{\begin{array}{c}
+\text{Sophianic Folding: }g(t)=\Op(t)^2(\widehat g_0+q(t)e_1),\qquad
+q_\ast^2=\dfrac{A_{\rm VFS}}{B_{\rm VFS}}.\\[3pt]
+\text{Regular folding is shape-stabilization, not collapse of the Brim.}
+\end{array}}
+\]
+\[
+\boxed{R_{\rm folded}=-\frac{2}{\Op^2}+\rho_1q^2,
+\qquad
+R_{\rm folded}>0\ \Longleftrightarrow\ q^2>\frac{2}{\rho_1\Op^2}.}
+\]
+\[
+\boxed{\dot q=-\partial_q\mathcal T_{\rm fold}
+\quad\Longrightarrow\quad
+\dot{\mathcal T}_{\rm fold}=-(\partial_q\mathcal T_{\rm fold})^2\le0.}
 \]
 
 \vspace{0.5em}

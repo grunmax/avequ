@@ -1,4 +1,4 @@
-% V.F.S. v2.0 (Open-Gate) — Expanded Core Formula Compendium
+% V.F.S. v2.0 (Open-Gate) — Expanded Core Formula Compendium with Sophianic Folding
 % Source: Archive_v86_3 / index.html only. Appendix and lyapunov formulas intentionally excluded.
 % Compile with XeLaTeX.
 \documentclass[11pt,a4paper]{article}
@@ -25,15 +25,15 @@
 \newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
 \newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
 
-\title{\textbf{V.F.S. v2.0 (Open-Gate)}\\Expanded Core Formulas and Parameters\\\large Index-only compendium}
-\author{Compiled from \texttt{Archive\_v86\_3/index.html}}
+\title{\textbf{V.F.S. v2.0 (Open-Gate)}\\Expanded Core Formulas, Parameters, and Sophianic Folding Feedback\\\large Hybrid core compendium}
+\author{Hybrid core compendium with Sophianic Folding refinement}
 \date{}
 
 \begin{document}
 \maketitle
 
 \section*{Scope}
-This file collects the \textbf{expanded core Open-Gate formulas of V.F.S. v2.0} from \texttt{index.html} only. Formulas that belong specifically to \texttt{appendix.html} or \texttt{lyapunov.html} are intentionally excluded. Graphs, numerical plots, and visual phase diagrams are also excluded.
+This file collects the \textbf{expanded core Open-Gate formulas of V.F.S. v2.0} and preserves the original index-derived structure. The Sophianic Folding layer is integrated as a later Open-Gate refinement rather than as a replacement for the existing core. Formulas that belong specifically to \texttt{appendix.html} or \texttt{lyapunov.html} remain excluded unless needed to explain the core feedback structure. Graphs, numerical plots, and visual phase diagrams are also excluded.
 
 The governing distinction is:
 \[
@@ -57,6 +57,9 @@ The closed Microcosm law \(\dot\lambda=-\dot\sigma\), \(\sigma+\lambda=\mathrm{c
 \(\Omega_P(t)\) & Brim & Dynamic capacity / rim of the Vessel.\\
 \(H_K(t)\) & Gate memory & Acquired receptivity; the learned openness of the gate.\\
 \(W(t)\) & Wound memory & Vulnerability / wound-memory layer paired with \(H_K\).\\
+\(q_{\rm fold}(t)\) & Folding amplitude & Morphological shape-mode of the Vessel; zero in the old form and nonzero in Sophianic Folding.\\
+\(Q_{\rm fold}(t)\) & Folding intensity & Nonnegative intensity of folding, usually \(Q_{\rm fold}=q_{\rm fold}^{2}\).\\
+\(\lambda_{\rm form}(t)\) & Embodied Sophia & Portion of Sophia stabilized into Vessel-form rather than remaining as available flow.\\
 \bottomrule
 \end{longtable}
 
@@ -85,6 +88,12 @@ The closed Microcosm law \(\dot\lambda=-\dot\sigma\), \(\sigma+\lambda=\mathrm{c
 \(\eta\) & Memory adaptation rate & Rate at which positive movement builds acquired openness and wound-memory responses, \(\eta>0\).\\
 \(\nu\) & Memory forgetting rate & Rate at which acquired openness \(H_K\) decays when the path turns negative, \(\nu\ge0\).\\
 \(W_s\) & Wound half-saturation & Saturation scale in the wound-memory term \(W/(W_s+W)\), \(W_s>0\).\\
+\(a_0\) & Form rigidity & Baseline stiffness of the old Vessel-form against folding.\\
+\(c_0\) & Sophia-to-form coupling & Strength by which accumulated Sophia lowers old-form rigidity.\\
+\(c_1\) & Growth-to-form coupling & Strength by which growing Sophia / gate-flow lowers the folding threshold.\\
+\(b\) & Folding saturation & Quartic stabilizer of the folding amplitude, \(b>0\).\\
+\(\eta_{\rm fold}\) & Embodiment rate & Rate by which folding transfers available Sophia into embodied form; distinct from memory adaptation \(\eta\).\\
+\(\rho_1\) & Curvature response & First-mode curvature coefficient in \(R_{\rm folded}=-2/\Omega_P^2+\rho_1Q_{\rm fold}\).\\
 \bottomrule
 \end{longtable}
 
@@ -404,6 +413,106 @@ Equivalently,
 \boxed{\sigma+\lambda=\mathrm{const}\quad\Longleftrightarrow\quad\zeta_0=0.}
 \]
 
+
+\section{Sophianic Folding Feedback in the Core}
+\subsection*{Status of the refinement}
+The original Open-Gate core remains the baseline system. Sophianic Folding is added here as a \emph{conservative refinement}: it does not remove the Open-Gate balance, but separates Sophia into an available component and an embodied morphological component.
+
+The guiding chain becomes
+\[
+\boxed{\Igate\longrightarrow\lambda\longrightarrow q_{\rm fold}\longrightarrow\lambda_{\rm form}\longrightarrow P.}
+\]
+\note{Sophia does not only accumulate. Once the old Vessel-form becomes insufficient, part of Sophia can be embodied as form.}
+
+\subsection*{Available Sophia and embodied Sophia}
+In the unrefined core, \(\lambda\) denotes Sophia as a single state variable. In the folding-refined core, \(\lambda\) is read as \emph{available Sophia}, while \(\lambda_{\rm form}\) records the portion embodied into form:
+\[
+\boxed{\lambda_{\rm tot}=\lambda+\lambda_{\rm form}.}
+\]
+The original model is recovered by setting
+\[
+\boxed{q_{\rm fold}=0,\qquad Q_{\rm fold}=0,
+\qquad \lambda_{\rm form}=0.}
+\]
+
+\subsection*{Pre-fold Sophia production}
+Before morphological feedback is applied, the Open-Gate Sophia production is
+\[
+\boxed{\dot\lambda^{(0)}=-\dot\sigma+\Igate(t)
+=(\delta u-\gamma)\tanh(\kappa\sigma)+\Igate(t).}
+\]
+This is exactly the original Open-Gate law.
+
+\subsection*{Folding activation index}
+The folding mode is governed by a threshold index
+\[
+\boxed{A_{\rm fold}=c_0\lambda+c_1\dot\lambda^{(0)}-a_0.}
+\]
+The stabilizing coefficient is
+\[
+\boxed{B_{\rm fold}=b+2c_1\eta_{\rm fold}\lambda,
+\qquad B_{\rm fold}>0.}
+\]
+The folding amplitude follows the normal-form dynamics
+\[
+\boxed{\dot q_{\rm fold}=A_{\rm fold}q_{\rm fold}-B_{\rm fold}q_{\rm fold}^{3}.}
+\]
+The corresponding folding intensity is
+\[
+\boxed{Q_{\rm fold}=q_{\rm fold}^{2}.}
+\]
+On the stable folded branch,
+\[
+\boxed{Q_{\rm fold}^{\ast}=\frac{A_{\rm fold}}{B_{\rm fold}}
+\quad\text{when }A_{\rm fold}>0.}
+\]
+If \(A_{\rm fold}<0\), the old form \(q_{\rm fold}=0\) remains stable.
+
+\subsection*{Folding-regulated Sophia flow}
+Folding acts as a negative feedback on available Sophia:
+\[
+\boxed{\dot\lambda
+=\dot\lambda^{(0)}-\eta_{\rm fold}Q_{\rm fold}\lambda.}
+\]
+The embodied component receives exactly this transferred part:
+\[
+\boxed{\dot\lambda_{\rm form}=\eta_{\rm fold}Q_{\rm fold}\lambda.}
+\]
+Therefore the total Open-Gate balance is preserved:
+\[
+\boxed{\frac{d}{dt}\bigl(\sigma+\lambda+\lambda_{\rm form}\bigr)=\Igate(t).}
+\]
+Equivalently,
+\[
+\boxed{\sigma(t)+\lambda(t)+\lambda_{\rm form}(t)=C_0+\Grec(t).}
+\]
+\note{The apparent loss term in \(\dot\lambda\) is not destruction of Sophia. It is embodiment of Sophia into the Vessel-form.}
+
+\subsection*{Effective Sophia damping}
+On a quasi-stationary folded branch, \(Q_{\rm fold}\) increases the effective damping of available Sophia:
+\[
+\boxed{\gamma_{\rm eff}=\gamma_{\lambda}+\eta_{\rm fold}Q_{\rm fold}.}
+\]
+Here \(\gamma_{\lambda}\) denotes any phenomenological damping or integration rate used in reduced Sophia-flow models. In the exact Open-Gate core above, the same role is played by the feedback term \(-\eta_{\rm fold}Q_{\rm fold}\lambda\).
+
+Thus,
+\[
+\boxed{Q_{\rm fold}>0\quad\Longrightarrow\quad
+\dot\lambda<\dot\lambda^{(0)}.}
+\]
+\note{Folding is the morphological branch of Open-Gate stabilization: it turns excess available Sophia into stable form.}
+
+\subsection*{Core meaning}
+The refined core chain is
+\[
+\boxed{V,F\longrightarrow u\longrightarrow\sigma\longrightarrow\lambda
+\longrightarrow q_{\rm fold}\longrightarrow\lambda_{\rm form}\longrightarrow P.}
+\]
+In words:
+\[
+\boxed{\text{Will becomes action; resistance becomes Sophia; Sophia becomes form; form releases being.}}
+\]
+
 \section{Memory Layer for the Gate}
 \subsection*{Path coordinate}
 \[
@@ -470,6 +579,26 @@ Equivalently,
 \end{cases}}
 \]
 
+\subsection*{Folding-refined core ODE system}
+The following system preserves the original equations and adds the folding feedback layer. It should be read as the Open-Gate core with morphological stabilization turned on:
+\[
+\boxed{\begin{cases}
+\dfrac{dV}{dt}=\left(1-\dfrac{\sqrt{VF+\varepsilon}}{\Omega_P(t)}\right)(aF+c\lambda)-\rho V,\\[8pt]
+\dfrac{dF}{dt}=\left(1-\dfrac{\sqrt{VF+\varepsilon}}{\Omega_P(t)}\right)(aV+c\lambda)-\rho F,\\[8pt]
+\dot\Omega_P=\alpha\lambda(t),\qquad \alpha>0,\\[8pt]
+\dfrac{d\sigma}{dt}=(\gamma-\delta\sqrt{VF+\varepsilon})\tanh(\kappa\sigma),\\[8pt]
+\dot\lambda^{(0)}=(\delta\sqrt{VF+\varepsilon}-\gamma)\tanh(\kappa\sigma)+\Igate(t),\\[8pt]
+A_{\rm fold}=c_0\lambda+c_1\dot\lambda^{(0)}-a_0,\\[8pt]
+B_{\rm fold}=b+2c_1\eta_{\rm fold}\lambda,\\[8pt]
+\dot q_{\rm fold}=A_{\rm fold}q_{\rm fold}-B_{\rm fold}q_{\rm fold}^{3},\\[8pt]
+Q_{\rm fold}=q_{\rm fold}^{2},\\[8pt]
+\dfrac{d\lambda}{dt}=\dot\lambda^{(0)}-\eta_{\rm fold}Q_{\rm fold}\lambda,\\[8pt]
+\dfrac{d\lambda_{\rm form}}{dt}=\eta_{\rm fold}Q_{\rm fold}\lambda,\\[8pt]
+\sigma(t)+\lambda(t)+\lambda_{\rm form}(t)=C_0+\Grec(t).
+\end{cases}}
+\]
+Setting \(q_{\rm fold}=0\) recovers the original Open-Gate system.
+
 \subsection*{Sophia floor and source-controlled positivity}
 \[
 \boxed{\lambda(t)>-\frac{a}{c}\min\{V(t),F(t)\}.}
@@ -493,6 +622,23 @@ In the Open-Gate balance this becomes
 \dot F=\mu(aV+c\lambda)-\rho F,
 \end{cases}
 \longrightarrow u\longrightarrow\{\Syn,\Phi\}\longrightarrow P.}
+\]
+
+With Sophianic Folding active, the same chain acquires a morphological feedback branch:
+\[
+\boxed{\Igate\longrightarrow\lambda\longrightarrow
+\begin{cases}
+\Omega_P,\\
+V,F,\\
+q_{\rm fold},
+\end{cases}
+\longrightarrow
+\begin{cases}
+\text{Brim expansion},\\
+\text{Will--Action nourishment},\\
+\text{embodied Vessel-form},
+\end{cases}
+\longrightarrow P.}
 \]
 
 \section{Will--Action Balance}
@@ -533,6 +679,21 @@ If the received-grace integral converges and \(\sigma(t)\to0\), then
 =\sigma_0+\lambda_0+\Grec(\infty).}
 \]
 If \(\Grec(\infty)=+\infty\), then unbounded Sophia is possible in the open model.
+
+
+\subsection*{Epektasis with folding stabilization}
+Sophianic Folding does not stop Epektasis. The Brim law remains
+\[
+\boxed{\dot\Omega_P=\alpha\lambda.}
+\]
+What changes is the available Sophia-flow:
+\[
+\boxed{\dot\lambda=\dot\lambda^{(0)}-\eta_{\rm fold}Q_{\rm fold}\lambda.}
+\]
+Thus folding preserves expansion while regulating excess acceleration and excess available Sophia:
+\[
+\boxed{\text{Open-Gate expands; Folding forms.}}
+\]
 
 \subsection*{Pleroma Christi condition}
 \[
@@ -659,6 +820,20 @@ with
 \[
 \boxed{\text{Open Gate}\longrightarrow\Igate\longrightarrow\lambda\longrightarrow\Omega_P\longrightarrow\text{Epektasis}.}
 \]
+
+\[
+\boxed{\lambda\longrightarrow q_{\rm fold}\longrightarrow\lambda_{\rm form}
+\quad\equiv\quad
+\text{Sophia becomes Vessel-form}.}
+\]
+\[
+\boxed{\dot\lambda=\dot\lambda^{(0)}-\eta_{\rm fold}Q_{\rm fold}\lambda,
+\qquad
+\dot\lambda_{\rm form}=\eta_{\rm fold}Q_{\rm fold}\lambda.}
+\]
+\[
+\boxed{\sigma+\lambda+\lambda_{\rm form}=C_0+\Grec(t).}
+\]
 \[
 \boxed{P\longrightarrow S\longrightarrow A\longrightarrow K\longrightarrow\mathrm{An}
 \quad\equiv\quad
@@ -668,7 +843,7 @@ with
 
 
 \section*{Revision Note}
-This expanded version adds the Paschal Triad of Filtrum Lucis, the symmetry of zeros around the Cross, the fourth-derivative support formulas needed for \(\mathrm{An}(t)\), the Sophia floor, explicit death-boundary definitions, bounded gate inflow, the Human Balance identity for \(\dot u\), asymptotic Sophia, reset-symbol clarification, and the distinct memory-forgetting rate \(\nu\). It still preserves the existing structure and uses formulas from \texttt{index.html} only.
+This expanded version adds the Paschal Triad of Filtrum Lucis, the symmetry of zeros around the Cross, the fourth-derivative support formulas needed for \(\mathrm{An}(t)\), the Sophia floor, explicit death-boundary definitions, bounded gate inflow, the Human Balance identity for \(\dot u\), asymptotic Sophia, reset-symbol clarification, and the distinct memory-forgetting rate \(\nu\). This hybrid version preserves the existing structure and original core formulas, while adding Sophianic Folding as an explicit Open-Gate refinement: available Sophia may become embodied Sophia through a Lyapunov-compatible morphological feedback branch. The original index-only core is recovered by setting \(q_{\rm fold}=0\).
 
 \end{document}
 

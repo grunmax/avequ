@@ -42,7 +42,7 @@
 \newtheorem*{remark}{Remark}
 
 \title{V.F.S. v2.0 (Open-Gate)\\Lyapunov Core Proof Formulae\\
-\large with full term-by-term derivation of the dissipative estimate}
+\large with full term-by-term derivation and Sophianic Folding compatibility}
 \author{Core extraction from \texttt{lyapunov.html}}
 \date{}
 
@@ -50,7 +50,7 @@
 \maketitle
 
 \begin{abstract}
-This document collects the core formulae of the Lyapunov proof for V.F.S. v2.0 (Open-Gate) and contains no graphs. It records the base dynamics, normalized variables, Lyapunov functional, active-domain walls, radial corridor, bounded Open-Gate source, memory bounds, non-Zeno estimate, and asymptotic cleansing statements. In addition, the central dissipative estimate $\dot\LV\le C-C_1\LV$ --- previously stated as a boxed result --- is here \emph{derived term by term}: the contraction rate $C_1$ is built from exactly two sign-definite blocks (resistance cleansing and will--action alignment), while the Sophia, radial and Open-Gate contributions are bounded and enter only the constant $C$. The auxiliary light-filter constant is proved positive in closed form, so that $C_1>0$ holds for \emph{every} admissible parameter set under the standing walls, not merely for the numerical witness.
+This hybrid document collects the core formulae of the Lyapunov proof for V.F.S. v2.0 (Open-Gate), preserves the original proof structure, and adds Sophianic Folding as a conservative Lyapunov-compatible refinement. It contains no graphs. It records the base dynamics, normalized variables, Lyapunov functional, active-domain walls, radial corridor, bounded Open-Gate source, memory bounds, non-Zeno estimate, and asymptotic cleansing statements. In addition, the central dissipative estimate $\dot\LV\le C-C_1\LV$ --- previously stated as a boxed result --- is here \emph{derived term by term}: the contraction rate $C_1$ is built from exactly two sign-definite blocks (resistance cleansing and will--action alignment), while the Sophia, radial and Open-Gate contributions are bounded and enter only the constant $C$. The auxiliary light-filter constant is proved positive in closed form, so that $C_1>0$ holds for \emph{every} admissible parameter set under the standing walls, not merely for the numerical witness. The added folding layer is treated as a morphological tension-relaxation mode: it may enlarge the bounded constant but does not replace the two sign-definite contracting blocks that generate $C_1$.
 \end{abstract}
 
 \tableofcontents
@@ -145,6 +145,54 @@ Received grace integral:
   \qquad
   \dot{\Grec}=\Igate.
 \end{equation}
+
+
+% ============================================================
+\section{Open-Gate Balance with Embodied Sophia}
+
+The folding-refined core separates Sophia into available and embodied parts:
+\begin{equation}
+  \lambda_{\rm tot}=\lambda+\lambda_{\rm form}.
+\end{equation}
+The available part obeys
+\begin{equation}
+  \dot\lambda=\dot\lambda^{(0)}-
+  \eta_{\rm fold}Q_{\rm fold}\lambda,
+  \qquad
+  \dot\lambda^{(0)}=-\dot\sigma+\Igate(t),
+\end{equation}
+while the embodied component receives exactly the transferred portion:
+\begin{equation}
+  \dot\lambda_{\rm form}=\eta_{\rm fold}Q_{\rm fold}\lambda.
+\end{equation}
+Consequently the Open-Gate balance is preserved in refined form:
+\begin{equation}
+  \boxed{
+  \frac{d}{dt}\bigl(\sigma+\lambda+\lambda_{\rm form}\bigr)=\Igate(t),
+  \qquad
+  \sigma(t)+\lambda(t)+\lambda_{\rm form}(t)=C_0+\Grec(t).}
+\end{equation}
+Thus the negative feedback term in $\dot\lambda$ is not destruction of Sophia;
+it is embodiment into stable Vessel-form.
+
+On a quasi-stationary folded branch,
+\begin{equation}
+  Q_{\rm fold}=\frac{A_{\rm fold}}{B_{\rm fold}},
+\end{equation}
+and the available-Sophia damping is effectively increased:
+\begin{equation}
+  \gamma_{\rm eff}=\gamma_\lambda+
+  \eta_{\rm fold}Q_{\rm fold}.
+\end{equation}
+Therefore
+\begin{equation}
+  Q_{\rm fold}>0
+  \quad\Longrightarrow\quad
+  \dot\lambda<\dot\lambda^{(0)}.
+\end{equation}
+This is the core feedback meaning of folding: it stabilizes Open-Gate excess by
+form-transformation.
+
 
 % ============================================================
 \section{Open-Gate Source}
@@ -413,6 +461,134 @@ Radial boundary protection:
 \begin{equation}
   B(r)\to+\infty\quad\text{as}\quad r\to1^-.
 \end{equation}
+
+
+% ============================================================
+\section{Sophianic Folding Extension of the Lyapunov Functional}
+
+\subsection{Status of the extension}
+The preceding functional $\LV$ remains the primary Open-Gate Lyapunov certificate.
+Sophianic Folding is added as a conservative refinement: it does not replace the
+resistance-cleansing and will--action alignment mechanisms, but adds a
+morphological relaxation channel for excess Sophia. Throughout this section,
+$q=\lambda/\Om$ remains the normalized Sophia variable used above, while
+$q_{\rm fold}$ denotes a distinct shape-mode amplitude.
+
+The new variables are
+\begin{equation}
+  q_{\rm fold}(t)\quad\text{(folding amplitude)},
+  \qquad
+  Q_{\rm fold}(t):=q_{\rm fold}(t)^2\quad\text{(folding intensity)},
+\end{equation}
+\begin{equation}
+  \lambda_{\rm form}(t)\quad\text{(Sophia embodied into Vessel-form)}.
+\end{equation}
+The unrefined Open-Gate Lyapunov model is recovered by setting
+\begin{equation}
+  q_{\rm fold}=0,
+  \qquad
+  Q_{\rm fold}=0,
+  \qquad
+  \lambda_{\rm form}=0.
+\end{equation}
+
+\subsection{Folding activation and normal form}
+Let the pre-folding Sophia production be
+\begin{equation}
+  \dot\lambda^{(0)}=-\dot\sigma+\Igate(t).
+\end{equation}
+The folding activation index is
+\begin{equation}
+  A_{\rm fold}=c_0\lambda+c_1\dot\lambda^{(0)}-a_0,
+  \qquad
+  a_0,c_0,c_1>0,
+\end{equation}
+and the stabilizing quartic coefficient is
+\begin{equation}
+  B_{\rm fold}=b+2c_1\eta_{\rm fold}\lambda,
+  \qquad
+  b>0,
+  \qquad
+  \eta_{\rm fold}>0.
+\end{equation}
+Hence $B_{\rm fold}>0$ whenever $\lambda\ge0$. The folding dynamics is the
+one-mode gradient normal form
+\begin{equation}
+  \dot q_{\rm fold}=A_{\rm fold}q_{\rm fold}
+  -B_{\rm fold}q_{\rm fold}^{3}.
+\end{equation}
+If $A_{\rm fold}<0$, the old Vessel-form $q_{\rm fold}=0$ is stable. If
+$A_{\rm fold}>0$, the stable folded branches satisfy
+\begin{equation}
+  q_{\rm fold,\pm}^{2}=Q_{\rm fold}^{*}
+  =\frac{A_{\rm fold}}{B_{\rm fold}}.
+\end{equation}
+
+\subsection{Morphological tension potential}
+The folding potential is not physical gravitational energy. It is a
+Lyapunov/shape potential measuring morphological tension of the Vessel-form:
+\begin{equation}
+  \mathcal E_{\rm fold}(q_{\rm fold})
+  =-\frac12A_{\rm fold}q_{\rm fold}^{2}
+  +\frac14B_{\rm fold}q_{\rm fold}^{4}.
+\end{equation}
+Then
+\begin{equation}
+  \partial_{q_{\rm fold}}\mathcal E_{\rm fold}
+  =-A_{\rm fold}q_{\rm fold}
+  +B_{\rm fold}q_{\rm fold}^{3},
+\end{equation}
+and therefore
+\begin{equation}
+  \dot q_{\rm fold}
+  =-\partial_{q_{\rm fold}}\mathcal E_{\rm fold}.
+\end{equation}
+For frozen or adiabatically varying Open-Gate parameters,
+\begin{equation}
+  \boxed{
+  \dot{\mathcal E}_{\rm fold}
+  =-\left(\partial_{q_{\rm fold}}\mathcal E_{\rm fold}\right)^2
+  =-\dot q_{\rm fold}^{\,2}\le0.}
+\end{equation}
+Thus folding is an energy-descending, tension-relaxing mode rather than a
+singular loss of stability.
+
+\subsection{Shifted non-negative folding functional}
+For Lyapunov use, the negative minimum of $\mathcal E_{\rm fold}$ is shifted to
+zero. When $A_{\rm fold}>0$,
+\begin{equation}
+  \mathcal E_{\rm fold,min}
+  =-\frac{A_{\rm fold}^{2}}{4B_{\rm fold}},
+\end{equation}
+so that
+\begin{equation}
+  \mathcal V_{\rm fold}
+  :=\mathcal E_{\rm fold}-\mathcal E_{\rm fold,min}
+  =\frac{B_{\rm fold}}{4}
+  \left(q_{\rm fold}^{2}-\frac{A_{\rm fold}}{B_{\rm fold}}\right)^2
+  \ge0.
+\end{equation}
+When $A_{\rm fold}\le0$, one may simply take
+\begin{equation}
+  \mathcal V_{\rm fold}
+  =\frac12|A_{\rm fold}|q_{\rm fold}^{2}
+  +\frac14B_{\rm fold}q_{\rm fold}^{4}
+  \ge0,
+\end{equation}
+with the minimum at $q_{\rm fold}=0$.
+
+\subsection{Extended Lyapunov candidate}
+The folding-compatible Lyapunov candidate is
+\begin{equation}
+  \boxed{
+  \mathcal L_{\rm ext}
+  =\LV+w_{\rm fold}\mathcal V_{\rm fold},
+  \qquad
+  w_{\rm fold}>0.}
+\end{equation}
+This construction preserves the original $\LV$ as the core certificate, while
+adding a non-negative measure of distance from the stable folded morphology.
+
 
 % ============================================================
 \section{Active Domain}
@@ -728,6 +904,82 @@ empirical envelope slope $\approx1.5$; the analytic rate is the conservative
 guaranteed value, as expected.
 \end{remark}
 
+
+% ============================================================
+\section{Folding-Compatible Dissipative Estimate}
+
+This section explains why the addition of Sophianic Folding does not destroy the
+Open-Gate Lyapunov estimate. The old estimate
+\begin{equation}
+  \dot\LV\le C-C_1\LV
+\end{equation}
+remains the base certificate. Folding contributes an additional non-negative
+shape functional whose own flow is descending.
+
+\begin{proposition}[Lyapunov compatibility of Sophianic Folding]
+Assume that the trajectory remains in the regular folding domain
+\begin{equation}
+  0\le Q_{\rm fold}\le Q_{\max}<\infty,
+  \qquad
+  B_{\rm fold}\ge B_{\min}>0,
+\end{equation}
+and that $A_{\rm fold}$ and $B_{\rm fold}$ are frozen or vary adiabatically on the
+folding relaxation scale. Then the extended functional
+\begin{equation}
+  \mathcal L_{\rm ext}=\LV+w_{\rm fold}\mathcal V_{\rm fold}
+\end{equation}
+satisfies a dissipative bound of the same form
+\begin{equation}
+  \boxed{
+  \dot{\mathcal L}_{\rm ext}
+  \le C_{\rm ext}-C_1\mathcal L_{\rm ext}}
+\end{equation}
+on the regular folding domain, for some finite constant $C_{\rm ext}$.
+\end{proposition}
+
+\begin{proof}
+For frozen folding parameters,
+\begin{equation}
+  \dot{\mathcal V}_{\rm fold}
+  =\dot{\mathcal E}_{\rm fold}
+  =-\left(\partial_{q_{\rm fold}}\mathcal E_{\rm fold}\right)^2\le0.
+\end{equation}
+Hence
+\begin{equation}
+  \dot{\mathcal L}_{\rm ext}
+  =\dot\LV+w_{\rm fold}\dot{\mathcal V}_{\rm fold}
+  \le \dot\LV
+  \le C-C_1\LV.
+\end{equation}
+On the regular folding domain, $\mathcal V_{\rm fold}$ is bounded above by a
+finite constant $M_{\rm fold}$. Therefore
+\begin{equation}
+  \LV=\mathcal L_{\rm ext}-w_{\rm fold}\mathcal V_{\rm fold}
+  \ge \mathcal L_{\rm ext}-w_{\rm fold}M_{\rm fold}.
+\end{equation}
+Substitution gives
+\begin{equation}
+  \dot{\mathcal L}_{\rm ext}
+  \le C-C_1\mathcal L_{\rm ext}+C_1w_{\rm fold}M_{\rm fold}
+  =C_{\rm ext}-C_1\mathcal L_{\rm ext},
+\end{equation}
+where $C_{\rm ext}:=C+C_1w_{\rm fold}M_{\rm fold}<\infty$.
+For slowly moving parameters, extra terms
+\begin{equation}
+  -\frac12q_{\rm fold}^2\dot A_{\rm fold}
+  +\frac14q_{\rm fold}^4\dot B_{\rm fold}
+\end{equation}
+are bounded on the regular domain and are absorbed into $C_{\rm ext}$. Thus the
+contracting rate $C_1$ is not replaced by folding; only the bounded constant is
+enlarged.
+\end{proof}
+
+\textbf{Interpretation.} Sophianic Folding is a Lyapunov-compatible
+morphological stabilization. It does not generate a new death-boundary, and it
+is not a Perelman-type singular surgery. It is a regular form-transition in
+which excess available Sophia is relaxed into a lower-tension Vessel morphology.
+
+
 % ============================================================
 \section{Main Theorem Formulae}
 
@@ -775,6 +1027,13 @@ Product-balance positivity:
 No artificial $q$-floor:
 \begin{equation}
   q\ge0\quad\text{suffices; no assumption }q\ge q_0>0\text{ is required.}
+\end{equation}
+
+Folding-compatible extension:
+\begin{equation}
+  q_{\rm fold}=0\quad\text{recovers the original theorem,}
+  \qquad
+  q_{\rm fold}\ne0\quad\text{adds a bounded shape-relaxation channel.}
 \end{equation}
 
 % ============================================================
@@ -1333,6 +1592,22 @@ boundedness-and-barrier certificate, not a function vanishing at a rest point.
 The conclusion is strictly domain-conditional ($x(0)\in\DA$), not global or
 automatic.
 \end{remark}
+
+
+\begin{remark}[Folding-compatible extension]
+If the regular folding conditions of the preceding sections are imposed in
+addition to Hypotheses~\ref{H:paramF}--\ref{H:resetF}, the same domain stability
+statement holds for the extended functional
+\begin{equation}
+  \mathcal L_{\rm ext}=\LV+w_{\rm fold}\mathcal V_{\rm fold}.
+\end{equation}
+The original theorem is recovered by setting $q_{\rm fold}=0$ and
+$\lambda_{\rm form}=0$. In the refined model, folding adds stabilization by
+form-transformation: resistance still cleanses, will and action still align, and
+Sophianic excess may additionally relax into Vessel-form without breaking the
+Open-Gate Lyapunov domain.
+\end{remark}
+
 
 \begin{remark}[Closed limit]
 At $\zeta_0=0$: $\Sq=\Igate=0$, $\dot\lambda=-\dot\sigma$, and
