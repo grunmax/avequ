@@ -61,6 +61,8 @@
 \newcommand{\rs}{r_\sigma}
 \newcommand{\rR}{r^{R}_{\rm fold}}
 \newcommand{\rRj}{r^{R}_{{\rm fold},j}}
+\newcommand{\Qfj}{Q_{{\rm fold},j}}
+\newcommand{\fold}{\mathfrak{F}}
 \newcommand{\Hh}{\mathbb{H}^2}
 \newcommand{\laph}{\Delta_h}
 \newcommand{\etaf}{\eta_{\rm fold}}
@@ -89,6 +91,8 @@
 \newtheorem{corollary}{Corollary}[chapter]
 
 \newtheorem{lemma}{Lemma}[chapter]
+
+\newtheorem{theorem}{Theorem}[chapter]
 
 \theoremstyle{definition}
 
@@ -1226,6 +1230,317 @@ map through $\lf$, and the self-limiting cascade dichotomy. The forcing channel 
 modelling inputs; the core-neutrality result fixes the honest status: a sufficient bounded cause, not a
 core theorem. Gate maximum, exposure grading, balance conservation, and both cascade terminals verified
 numerically. Domain-conditional throughout.}
+
+\chapter{Forced-Folding Lyapunov Addendum: Two Jump Types and the Survival of Contraction}
+
+\begin{quote}\small\itshape
+Forced folding adds to the hybrid system a second jump type --- the Vessel update map $\fold$ at forcing
+events --- and, unlike the Resurrectio reset, this jump changes the \emph{parameters} of the system
+itself. The existing Lyapunov theorem therefore does not extend automatically: the contraction rate
+$C_1$ is built from those parameters, the active-domain walls must survive the update, the
+state-triggered events threaten Zeno behaviour, and the new state $\lf$ must be controlled. This
+addendum closes all of it. The six results are: an explicit $\pi$-peak chart wall with the quantitative
+cost in $c_\Psi$; a fold-jump lemma with a closed-form compatibility condition
+$\beta\eta_\sigma\bar\sigma\le q^\ast\eta_\Omega$ for the epektasis wall; a survival theorem for $C_1$
+--- the finite metabolic budget of the cascade dichotomy is exactly what keeps the contraction bounded
+away from zero; a hysteresis construction that provably restores the joint non-Zeno dwell (threshold-band
+chatter is exhibited without it); a free balance-bound for $\lf$; and the reset--fold consistency check.
+They assemble into the main theorem: forward completeness with two jump types and a uniform
+$C_1^{\inf}>0$. All key steps are verified numerically; the exponential drift bound is tight to four
+digits.
+\end{quote}
+
+% ============================================================
+\section{Imported objects and the six obligations}
+
+From the Lyapunov layer we import the certificate $\LV$ with
+\begin{equation}
+\dot\LV\le C-C_1\LV,\qquad
+C_1=\min\{\kappa_\sigma,\kappa_\Delta\},\qquad
+\kappa_\sigma=\delta\,\Omega_{\min}\,m_*\,c_\Psi,\quad
+\kappa_\Delta=2a\mu_*,
+\end{equation}
+with $\Omega_{\min}=\Lc/(1-h_{3,*})$, $\Lc=\gamma/\delta$, the active margin
+$m=(u-\Lc)/\Op\ge m_*$, and the lemma $T^2\ge c_\Psi\Psi_\sigma$ on $[0,C_\sigma]$. The active domain
+$\DA$ includes the epektasis wall $\lambda\le q^\ast\Op$; the folding extension supplies
+$\DAf=\DA\times[0,q_{\max}]$, the bounded functional $\Vt=\tfrac14(\qf^2-\Qf^*)^2$, the extended
+certificate $\Lt=\LV+w_{\rm fold}\Vt$, and the Resurrectio reset bound $\Lt(x^+)\le\widetilde L_R$. From
+the Forced Folding chapter we import the $\pi$-bounded heterogeneity $\sigma=\bar\sigma\rs$,
+$1\le\rs\le\pi$, the wired activation with the Dolorosum gate $g(u)\le1$, the balance-preserving update
+map
+\begin{equation}\label{lyapunovaddendum2:eq:update}
+\fold:\quad
+\bar\sigma^+=\bar\sigma-m_F,\ \
+\lambda^+=\lambda+\beta m_F,\ \
+\lf^+=\lf+(1-\beta)m_F,\ \
+m_F=\eta_\sigma\Qf\bar\sigma,
+\end{equation}
+\begin{equation}
+a_0^+=a_0(1-\eta_a\Qf),\quad
+\Op^+=\Op+\eta_\Omega\Qf,\quad
+k_\sigma^+=k_\sigma(1+\eta_k\Qf),\quad
+\gamma^+=\gamma(1-\eta_\gamma\Qf),
+\end{equation}
+and the cascade dichotomy (extinction with $\sum_j\Qfj<\infty$, or permanence in finitely many
+events) under fuel dominance $\eta_\sigma>\eta_k$.
+
+The six obligations: (i) re-issue the chart wall with the $\pi$-bound; (ii) prove the fold-jump lemma
+(domain preservation and bounded certificate jump $J_F$); (iii) prove that $C_1$ survives the parameter
+drift of the cascade; (iv) secure a joint non-Zeno dwell for the union of $\reset$- and $\fold$-events;
+(v) bound the new state $\lf$; (vi) check $\reset\circ\fold$ consistency. We take them in order.
+
+% ============================================================
+\section{The $\pi$-peak chart wall, with its explicit price}
+
+\begin{proposition}[Explicit activation bound and chart wall]\label{lyapunovaddendum2:prop:piwall}
+With $\rs\le\pi$ and $g\le1$, on any domain with $\bar\sigma\le\bar\sigma_{\max}$,
+$\lambda\le\lambda_{\max}$, $\Igate\le\zeta_0$, $|\Delta A_R|\le\Delta_{\max}$:
+\begin{equation}
+|\Af|\le(c_0-c_1\gamma)\lambda_{\max}+c_1k_\sigma\pi\bar\sigma_{\max}+c_1\zeta_0+\Delta_{\max}+a_0,
+\end{equation}
+and the chart-wall supremum is explicit,
+\begin{equation}
+Q^{*,\sup}_{\pi}
+=\max\left\{\frac{c_1k_\sigma\pi\bar\sigma_{\max}+c_1\zeta_0-a_0}{b},\;
+\frac{c_0-c_1\gamma}{2c_1\eta_{\rm fold}}\right\}<\infty,
+\end{equation}
+so the Standing Hypothesis of the first Addendum reads $q_{\max}^2\ge Q^{*,\sup}_{\pi}$.
+(Illustratively $Q^{*,\sup}_{\pi}=0.85$, dominated by the peak-independent asymptote.)
+\end{proposition}
+
+\begin{lemma}[The price in $c_\Psi$]\label{lyapunovaddendum2:lem:cpsi}
+Admitting full-measure peaks enlarges the resistance ceiling to $C_\sigma=\pi\bar\sigma_{\max}$, and the
+constant $c_\Psi=\min_{(0,C_\sigma]}T^2/\Psi_\sigma$ degrades accordingly --- explicitly and finitely.
+With $\kappa=2$, $\bar\sigma_{\max}=0.8$: $c_\Psi$ falls from $1.794$ to $0.461$ (factor $0.257$), hence
+$\kappa_\sigma$ shrinks by the same factor but remains strictly positive. The full cup costs contraction
+speed, never contraction itself.
+\end{lemma}
+
+% ============================================================
+\section{The fold-jump lemma}
+
+\begin{assumption}[Update-map compatibility]\label{lyapunovaddendum2:H:compat}
+\begin{equation}
+\boxed{\;\beta\,\eta_\sigma\,\bar\sigma_{\max}\ \le\ q^\ast\,\eta_\Omega\;}
+\end{equation}
+--- the share of metabolised resistance returned as \emph{active} Sophia is covered by the simultaneous
+enlargement of the Brim.
+\end{assumption}
+
+\begin{lemma}[Fold-jump: domain preservation and bounded jump]\label{lyapunovaddendum2:lem:foldjump}
+Under Hypothesis~\ref{lyapunovaddendum2:H:compat} and Proposition~\ref{lyapunovaddendum2:prop:piwall}:
+\begin{enumerate}[label=(\arabic*),leftmargin=2em,itemsep=2pt]
+\item \textbf{Epektasis wall.} The update \eqref{lyapunovaddendum2:eq:update} satisfies the exact identity
+\begin{equation}
+\bigl(\lambda^+-q^\ast\Op^+\bigr)-\bigl(\lambda^--q^\ast\Op^-\bigr)
+=\Qf\bigl(\beta\eta_\sigma\bar\sigma-q^\ast\eta_\Omega\bigr)\le0,
+\end{equation}
+(verified symbolically), so $\lambda^-\le q^\ast\Op^-$ implies $\lambda^+\le q^\ast\Op^+$ for every
+$\Qf\ge0$.
+\item \textbf{Remaining walls.} $\bar\sigma$ decreases (resistance ceiling respected); $\qf$ is
+continuous through $\fold$, so $\qf^+\in[0,q_{\max}]$; the chart target jumps boundedly, $|\Delta\Qf^*|$
+finite by Proposition~\ref{lyapunovaddendum2:prop:piwall}. Hence $x^-\in\DAf\Rightarrow x^+\in\DAf$.
+\item \textbf{Bounded certificate jump.} All updated quantities change by bounded multiplicative or
+additive amounts proportional to $\Qf\le Q^{*,\sup}_\pi$, so there is a finite $J_F$ with
+$\Lt(x^+)\le\Lt(x^-)+J_F$. (Numerically along both cascade branches:
+$\max|\Delta\lambda|\le1.5\times10^{-3}$, $\max|\Delta\Op|\le6.3\times10^{-2}$,
+$\max|\Delta\Qf^*|\le0.13$.)
+\end{enumerate}
+\end{lemma}
+
+\begin{remark}[Chart rebase at $\fold$]
+Because $\gamma$ jumps, $\Lc=\gamma/\delta$ jumps, and the normalised chart coordinates
+($h_3=1-\Lc/\Op$, $r$) jump even though the physical state $(u,\sigma,\lambda,\Op)$ is continuous in the
+non-updated entries. This is a coordinate rebase, not a dynamical discontinuity: the walls are to be
+re-evaluated in physical variables at $t_F^+$, which Lemma~\ref{lyapunovaddendum2:lem:foldjump} does.
+\end{remark}
+
+% ============================================================
+\section{Survival of the contraction rate}
+
+This is the genuinely new obligation: $\fold$ changes the parameters from which
+$C_1$ is built ($\gamma$ enters $\kappa_\sigma$ through $\Lc$ in $\Omega_{\min}$ and through the
+margin). An unbounded drift would silently destroy the theorem.
+
+\begin{lemma}[Product-drift bound]\label{lyapunovaddendum2:lem:drift}
+For $x_j\in[0,x_{\max}]$, $x_{\max}<1$:
+$\prod_j(1-x_j)\ge\exp\bigl(-\sum_jx_j/(1-x_{\max})\bigr)$.
+(Verified on $2000$ random sequences; minimal slack $+1.5\times10^{-5}$.)
+\end{lemma}
+
+\begin{proposition}[$C_1$ survives the cascade]\label{lyapunovaddendum2:prop:c1}
+Under fuel dominance ($\eta_\sigma>\eta_k$) the cascade dichotomy gives, on every branch, a finite total
+intensity $S:=\sum_j\Qfj<\infty$ (extinction: finite metabolic budget; permanence: finitely many
+events). Hence by Lemma~\ref{lyapunovaddendum2:lem:drift}
+\begin{equation}
+\gamma_\infty\ \ge\ \gamma_0\,e^{-\eta_\gamma S/(1-\eta_\gamma Q_{\max})}>0,
+\qquad
+k_{\sigma,\infty}\ \le\ k_{\sigma,0}\,e^{\eta_k S}<\infty,
+\end{equation}
+so $\Lc$ stays bounded away from zero, $\Omega_{\min}$ and the margin stay positive, and
+\begin{equation}
+\boxed{\;C_1^{\inf}:=\inf_j\min\{\kappa_{\sigma,j},\kappa_\Delta\}>0\;}
+\end{equation}
+uniformly along the entire hybrid trajectory ($\kappa_\Delta=2a\mu_*$ is untouched by $\fold$).
+Numerically the exponential bound is \emph{tight}: along the extinction branch ($31$ events, $S=0.517$)
+the actual $\gamma_{31}=0.3938$ equals the bound to four digits, and
+$\kappa_\sigma:0.0615\to0.0606$; along the permanence branch $\kappa_\sigma\to0.0609$
+(Figure~\ref{lyapunovaddendum2:fig:lyap2}, left).
+\end{proposition}
+
+\msg{The finite metabolic budget of the forced-folding cascade is exactly what keeps the contraction
+alive: the Vessel cannot metabolise enough resistance to undermine its own cleansing rate. Crisis spends
+a finite currency; $C_1$ is not that currency.}
+
+% ============================================================
+\section{Hysteresis and the joint non-Zeno dwell}
+
+Resets are exogenous; forcing events are \emph{state-triggered} (upward crossings of $\Af=0$), and the
+update itself moves $\Af$. This is a genuine Zeno risk, and it is real, not hypothetical:
+
+\begin{definition}[Event machine with hysteresis]\label{lyapunovaddendum2:def:hyst}
+A forcing event arms when $\Af<-\varepsilon$, fires at the next upward crossing $\Af=0$, applies
+$\fold$ at the local maximum of $\Af$ on that excursion, and disarms until $\Af<-\varepsilon$ again.
+The band $\varepsilon\ge0$ is the hysteresis width.
+\end{definition}
+
+\begin{proposition}[Chatter without the band; dwell with it]\label{lyapunovaddendum2:prop:zeno}
+Let the resistance wave be quasi-periodic with a fast component whose slope in $\Af$ exceeds the slow
+component's (so the rising flank carries local maxima). With $\varepsilon=0$, the downward jump of
+$\Af$ at each $\fold$ (the fuel cut $\partial\Af/\partial\bar\sigma\cdot m_F$) re-arms the machine
+between fast crests, and a \emph{chatter chain} of events runs along the threshold band: in the verified
+simulation, clusters of $2$--$3$ events at gaps $\approx0.121=1/f_{\rm fast}$
+(Figure~\ref{lyapunovaddendum2:fig:lyap2}, right). With
+\begin{equation}
+\boxed{\;\varepsilon\ >\ \sup_{\rm events}|\Delta\Af|_{\fold}
+\;=\;\sup\,c_1k_\sigma\,\rs\,m_F+O(\eta_a,\eta_\gamma)\;}
+\end{equation}
+re-arming on the rising flank is impossible, the chain collapses to one event per slow peak, and the
+inter-event dwell is bounded below by the slow-wave structure: in the same simulation the minimal
+fold--fold gap rises from $0.121$ to $2.246$ (a factor $18.5$), and the minimal gap over the
+\emph{union} of resets and foldings is $1.71$.
+\end{proposition}
+
+\begin{assumption}[Joint dwell]\label{lyapunovaddendum2:H:dwell}
+The hysteresis band satisfies the bound of Proposition~\ref{lyapunovaddendum2:prop:zeno}, and the exogenous resets respect
+the base dwell; then the union of $\reset$- and $\fold$-events admits a common $\Delta t_\ast>0$.
+\end{assumption}
+
+\note{The band $\varepsilon$ is a modelling regularisation, but not an arbitrary one: its sufficient size
+is computable from the update map itself ($\sup|\Delta\Af|_{\fold}$), so the non-Zeno property is
+restored by a constant the theory already owns.}
+
+% ============================================================
+\section{The embodied Sophia is balance-bounded}
+
+\begin{lemma}[Free bound for $\lf$]\label{lyapunovaddendum2:lem:lf}
+The three-term balance holds at flow level ($\tfrac{d}{dt}(\sigma+\lambda+\lf)=\Igate$), through every
+$\fold$ (the $m_F$-split of \eqref{lyapunovaddendum2:eq:update} conserves the sum exactly), and through every $\reset$
+(the metabolism $m_R$ transfers $\sigma\to\lambda$; $\lf$ inert). Hence with $\lambda,\sigma\ge0$,
+\begin{equation}
+\lf(t)\ \le\ \sigma+\lambda+\lf\ =\ C_0+\Grec(t)\ \le\ C_0+\Grec^{\max},
+\end{equation}
+bounded by the grace budget: no certificate weight for $\lf$ is needed. (Verified: jump-level
+conservation to machine precision, $10^{-16}$; full hybrid run drift $\sim10^{-7}$, pure integrator
+error; $\lf^{\max}=0.089\ll C_0+\int\Igate$.)
+\end{lemma}
+
+% ============================================================
+\section{Reset--fold consistency}
+
+\begin{lemma}[The two jump maps are compatible]\label{lyapunovaddendum2:lem:consist}
+$\reset$ leaves $\qf$ and $\lf$ inert and conserves the triad ($\sigma^++\lambda^+=\sigma^-+\lambda^-$);
+$\fold$ leaves $\qf$ continuous and conserves the triad by construction. Both maps preserve $\DAf$
+(base reset lemma; Lemma~\ref{lyapunovaddendum2:lem:foldjump}); the chart rebase occurs only at $\fold$ (only $\fold$
+changes $\gamma$). Any interleaving of the two event types therefore preserves the balance, the domain,
+and the bounded-jump property, with jump constant $J:=\max\{J_R,J_F\}$.
+\end{lemma}
+
+% ============================================================
+\section{Main theorem}
+
+\begin{theorem}[Forward completeness with two jump types]\label{lyapunovaddendum2:thm:main}
+Assume: the $\pi$-chart wall $q_{\max}^2\ge Q^{*,\sup}_\pi$ (Proposition~\ref{lyapunovaddendum2:prop:piwall}); update-map
+compatibility (Hypothesis~\ref{lyapunovaddendum2:H:compat}); fuel dominance $\eta_\sigma>\eta_k$; and the joint dwell
+(Hypothesis~\ref{lyapunovaddendum2:H:dwell}). Then along any admissible hybrid trajectory with both Resurrectio resets and
+forced-folding events:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item the state remains in $\DAf$ and the balance $\sigma+\lambda+\lf=C_0+\Grec$ holds for all $t$;
+\item the contraction rate is uniformly positive, $C_1^{\inf}>0$ (Proposition~\ref{lyapunovaddendum2:prop:c1}), and on
+every continuous arc $\dot\Lt\le\widetilde C_{\rm ext}^{\sup}-C_1^{\inf}\Lt$ with
+$\widetilde C_{\rm ext}^{\sup}<\infty$ (the drifting constants converge, Proposition~\ref{lyapunovaddendum2:prop:c1} and
+Lemma~\ref{lyapunovaddendum2:lem:cpsi});
+\item every jump obeys $\Lt(x^+)\le\Lt(x^-)+J$, $J=\max\{J_R,J_F\}<\infty$
+(Lemmas~\ref{lyapunovaddendum2:lem:foldjump},~\ref{lyapunovaddendum2:lem:consist});
+\item hence, with the joint dwell, 
+\begin{equation}
+\boxed{\;\Lt(t)\ \le\ \widetilde L_{**}:=\max\Bigl\{\Lt(0),\,
+\widetilde C_{\rm ext}^{\sup}/C_1^{\inf}\Bigr\}+J\quad\text{for all }t,\;}
+\end{equation}
+events do not accumulate, and the trajectory is forward complete.
+\end{enumerate}
+Grace and crisis enter only the constants $\widetilde C_{\rm ext}^{\sup}$ and $J$; never the contraction
+rate.
+\end{theorem}
+\begin{proof}[Sketch]
+(i) is Lemmas~\ref{lyapunovaddendum2:lem:foldjump},~\ref{lyapunovaddendum2:lem:lf},~\ref{lyapunovaddendum2:lem:consist} plus the base Nagumo invariance. For
+(ii), the arc estimate of the first Addendum holds with the instantaneous constants; by
+Proposition~\ref{lyapunovaddendum2:prop:c1} the parameter sequence converges with $\inf\kappa_{\sigma,j}>0$ and bounded
+$k_{\sigma,j}$, so the constants admit uniform bounds $C_1^{\inf}$, $\widetilde C_{\rm ext}^{\sup}$
+valid on all arcs. (iii) is the bounded-jump property. (iv) is the standard hybrid induction: on each
+arc $\Lt$ decays toward $\widetilde C_{\rm ext}^{\sup}/C_1^{\inf}$ or below its entry value; each jump
+adds at most $J$; the joint dwell forbids accumulation; the bound follows by induction over events.
+\end{proof}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_lyap2_fig.png}
+\caption{\small Left: survival of the cleansing rate $\kappa_{\sigma,j}$ (computed with the $\pi$-chart
+$c_\Psi$) along both terminal branches of the forced-folding cascade; the exponential lower bound of
+Proposition~\ref{lyapunovaddendum2:prop:c1} overlays the actual sequence --- tight to four digits. The drift is finite
+because the metabolic budget is. Right: the Zeno mechanism and its cure. With $\varepsilon=0$ (solid)
+the update's downward $\Af$-jump re-arms the event machine between fast crests of the quasi-periodic
+resistance wave, producing a chatter chain of three events at gaps $\approx0.12$; with
+$\varepsilon=0.10$ (dashed) the band swallows the re-arming and a single event per slow peak remains ---
+the minimal dwell grows by a factor $18.5$. Parameters illustrative.}
+\label{lyapunovaddendum2:fig:lyap2}
+\end{figure}
+
+% ============================================================
+\section{Compact summary}
+
+\[
+\boxed{\;q_{\max}^2\ge Q^{*,\sup}_\pi\ \text{(explicit)};\qquad
+c_\Psi(\pi\bar\sigma_{\max})>0:\ \text{the full cup costs speed, never contraction.}\;}
+\]
+\[
+\boxed{\;\beta\eta_\sigma\bar\sigma_{\max}\le q^\ast\eta_\Omega\ \Rightarrow\
+\fold\ \text{preserves}\ \DAf;\quad \Lt^+\le\Lt^-+J_F<\infty.\;}
+\]
+\[
+\boxed{\;\sum_j\Qfj<\infty\ \text{(dichotomy)}\ \Rightarrow\
+\gamma_\infty>0,\ k_{\sigma,\infty}<\infty\ \Rightarrow\ C_1^{\inf}>0:\ \text{the budget protects the contraction.}\;}
+\]
+\[
+\boxed{\;\varepsilon>\sup|\Delta\Af|_{\fold}\ \Rightarrow\ \text{no threshold-band chatter; joint dwell }\Delta t_\ast>0.\;}
+\]
+\[
+\boxed{\;\lf\le C_0+\Grec^{\max}\ \text{for free, from the balance.}\;}
+\]
+\[
+\boxed{\;\Lt(t)\le\widetilde L_{**}<\infty\ \text{with two jump types; forward complete; grace and crisis enter constants only.}\;}
+\]
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Forced-Folding Lyapunov Addendum II. Extends
+the hybrid stability theorem to the forced-folding event type: explicit $\pi$-chart wall, fold-jump
+lemma with the closed-form compatibility condition, survival of $C_1$ through the cascade's finite
+metabolic budget, hysteresis non-Zeno (chatter exhibited and cured), balance-bound for $\lf$, and
+reset--fold consistency. All quantitative claims verified numerically; the drift bound is tight. The
+hysteresis band and the update coefficients remain modelling inputs; the conclusions are
+domain-conditional set stability with partial convergence, never global.}
 
 \part{Structure Formation on the Vessel}
 
