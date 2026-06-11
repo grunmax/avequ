@@ -667,7 +667,7 @@
             <li style="font-size: 1.15rem; line-height: 1.6; margin-bottom: 8px;"><strong>An(t)</strong> — <strong>Anastasis</strong>: the resurrectional emergence of a new mode of being.</li>
         </ul>
         <div class="btn-group"> 
-            <button class="vfs-btn" id="btn-diagram">Show Architecture Map</button>
+            <button class="vfs-btn" id="btn-diagram">Architecture Map</button>
         </div>
         <p>V.F.S. reads higher derivatives of Pleroma as <strong>Gignesthai &rarr; Odinai &rarr; Katharsis &rarr; Anastasis</strong>: being, birth-pang, purification, and resurrectional emergence.</p>
 
@@ -768,53 +768,61 @@
         <div class="modal-container">
             <span id="modal-close-btn" class="modal-close">&times;</span>
             <div class="mermaid">
-            flowchart TD
-                E0["Imago Dei<br>ℰ₀"] -->|"ontological ground"| SY["Synergy<br>u = √(VF+ε)"]
-                V["Will (V)"] --> SY
-                F["Action (F)"] --> SY
+                flowchart TD
+                %% V.F.S. v2.0 Open-Gate — website overview
 
-                E0 --> P["Pleroma / Fullness<br>P(t)"]
-                E0 --> SYN["Gratia Synergica<br>Syn(u)"]
-                SY --> SYN
+                E0["Imago Dei<br/>ℰ₀"]
 
-                SY --> FL["Filtrum Lucis"]
-                R["Resistance (σ)"] --> FL
+                subgraph CORE["Core Dynamics"]
+                    V["Will<br/>V"] --> U["Synergy<br/>u = √(VF+ε)"]
+                    F["Action<br/>F"] --> U
 
-                SYN --> P
-                FL --> P
+                    SIG["Resistance<br/>σ"] --> X["Threshold Coordinate<br/>x = u − σ"]
+                    U --> X
 
-                P --> S["S(t) = Sum / Being<br>dP/dt"]
-                S --> A["A(t) = Odinai / Wave<br>d²P/dt²"]
-                A --> K["K(t) = Katharsis<br>d³P/dt³"]
-                K --> AN["An(t) = Anastasis<br>d⁴P/dt⁴<br>marker / emergence"]
+                    X --> FL["Filtrum Lucis<br/>light transmissivity"]
+                    U --> SYN["Gratia Synergica<br/>Syn(u)"]
 
-                R --> SC["Singular crisis"]
-                SC --> KE["Kenosis"]
-                KE --> T["Tetelestai"]
-                T --> K
-                T -->|"tomb-process"| TR["Transfiguration<br>In Sepulchro"]
+                    FL --> P["Pleroma / Fullness<br/>P(t)"]
+                    SYN --> P
+                end
 
-                G["Open-Gate Grace<br>ζ₀ > 0<br>lifelong source"] --> IG["I_gate<br>received grace"]
+                E0 -. "ontological ground" .-> V
+                E0 -. "ontological ground" .-> F
+                E0 -. "horizon of fullness" .-> P
 
-                SY -->|"lived response"| REC["Receptivity / Openness<br>H_K, measure, consent"]
-                REC -->|"opens the gate"| IG
+                subgraph GATE["Open-Gate Reception"]
+                    G["Open-Gate Grace<br/>ζ₀ > 0"] --> IG["Received Grace<br/>I_gate"]
+                    U --> REC["Receptivity / Openness<br/>H_K, consent"]
+                    REC -->|"opens the gate"| IG
 
-                IG -->|"lifelong inflow"| L["λ = Sophia"]
-                R -->|"transmutation"| L
-                TR -->|"metabolizes crisis"| L
-                AN -->|"resurrectional fruit"| L
+                    IG -->|"lifelong inflow"| L["Sophia<br/>λ"]
+                    SIG -->|"kathartic transmutation"| L
+                end
 
-                L -->|"continuous: Ω̇P = αλ"| B["Brim<br>ΩP(t)"]
-                IG -->|"direct receptive support"| B
+                subgraph CRISIS["Crisis and Resurrectio"]
+                    X -->|"closure / death-threshold"| C["Singular Crisis"]
+                    C --> KEN["Kenosis"]
+                    KEN --> TET["Tetelestai"]
+                    TET --> SEP["In Sepulchro<br/>hidden transformation"]
+                    SEP --> RES["Resurrectio / Anastasis<br/>hybrid reset"]
 
-                B -->|"continuous expansion"| E["Epektasis<br>expanding receptivity"]
-                E -->|"opens toward"| PC["Pleroma Christi"]
+                    RES -->|"σ ↓, λ ↑"| L
+                    RES -->|"ΩP reset<br/>+ κR · G_recepta"| B
+                end
 
-                AN -->|"opens"| E
-                AN -->|"resurrectional reset:<br>+ κR · G_recepta"| B
-                AN -.->|"signals resurrectional structure"| TR
+                subgraph EXPANSION["Brim and Epektasis"]
+                    L -->|"continuous expansion<br/>Ω̇P = αλ"| B["Brim<br/>ΩP(t)"]
+                    IG -. "receptive support" .-> B
 
-                B -.->|"expanded capacity<br>enables more P"| P
+                    B --> E["Epektasis<br/>expanding receptivity"]
+                    E --> PC["Pleroma Christi"]
+
+                    B -. "expanded capacity<br/>enables more P" .-> P
+                end
+
+                P -. "diagnostic layer" .-> D["Derivative Markers<br/>S=Ṗ, A=P̈, K=P⁽³⁾, An=P⁽⁴⁾"]
+                D -. "signals emergence,<br/>does not replace reset" .-> RES
             </div>
         </div>
     </div>
