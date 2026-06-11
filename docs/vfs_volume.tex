@@ -57,6 +57,10 @@
 \newcommand{\Vt}{\widetilde{\mathcal V}_{\rm fold}}
 \newcommand{\Lext}{\mathcal L_{\rm ext}}
 \newcommand{\Lt}{\widetilde{\mathcal L}_{\rm ext}}
+\newcommand{\lf}{\lambda_{\rm form}}
+\newcommand{\rs}{r_\sigma}
+\newcommand{\rR}{r^{R}_{\rm fold}}
+\newcommand{\rRj}{r^{R}_{{\rm fold},j}}
 \newcommand{\Hh}{\mathbb{H}^2}
 \newcommand{\laph}{\Delta_h}
 \newcommand{\etaf}{\eta_{\rm fold}}
@@ -143,6 +147,7 @@ $\Theta,\ Q_{\rm crit}$ & folding-response coefficient $c_0-c_1(\gamma+k_\sigma)
 $\lambda_{\rm form}$ & Sophia embodied in form; balance $\sigma+\lambda+\lambda_{\rm form}=C_0+\mathcal{G}_{\rm recepta}$\\
 $\eta_{\rm fold}$ & folding feedback coefficient (distinct from any core-system $\eta$)\\
 $\Delta_h$ & Laplace--Beltrami on $\mathbb{H}^2$; live-domain $\Delta_g=\Op^{-2}\Delta_h$\\
+$r_\sigma,\ g(u)$ & resistance multiplier $\in[1,\pi]$; Dolorosum gate $g(u)=(u/\Lambda_c)e^{1-u/\Lambda_c}$\\
 \bottomrule
 \end{longtable}
 
@@ -157,7 +162,8 @@ The canonical (core-consistent) form is primary; the geometric parameters $(k_\s
 effective linear surrogate. The closed forms $\Theta,\ Q_{\rm crit}$ are stated in the geometric
 convention; the invariance and reset-bound results are convention-independent.
 
-The folding diffusivity is structural, $D_q=a_0\ell_b^2$ (rigidity $\times$ bending length$^2$), and the independent Sophia diffusivity is zero, $D=0$.
+The folding diffusivity is structural, $D_q=a_0\ell_b^2$ (rigidity $\times$ bending length$^2$), and the
+independent Sophia diffusivity is zero, $D=0$.
 
 
 \chapter*{The Foundational Layer (Summary)}
@@ -861,6 +867,365 @@ invariance, reset-bound, and convention items left open in the Sophianic Folding
 \texttt{vfs\_opengate\_lyapunov.tex}, and corrects the folding functional to a bounded $\Bf$-normalised
 form. Results are domain-conditional on the positively-invariant $\DAf$; the conclusion is set stability
 with partial convergence, now including morphology, not global or automatic stability.}
+
+\chapter{Forced Folding: Dolorosum Peaks and the Vessel Update Map}
+
+\section*{Scope and epistemic status}
+This chapter consolidates the \emph{forced folding} proposal: folding is not an optional auxiliary mode
+but the bounded response of the Vessel when a timed resistance peak enters the Dolorosum window and
+exceeds the stretch-capacity of the old form. Its honest epistemic position must be stated first. A
+direct test shows that the bare core does \emph{not} force a shape instability: the linearised shape
+sector is stable on its own (Proposition~\ref{forcedfolding:prop:neutral}). Forced folding therefore does not derive
+folding from the core; it supplies an explicit, bounded, \emph{exogenous-channel} cause --- resistance
+heterogeneity --- and shows that this cause is sufficient, timed, and Lyapunov-admissible. The inputs
+(the resistance wave, the rigidity $a_0$, the window) remain postulated. The status is: a mechanism, not
+a theorem of the core.
+
+Four corrections are built in relative to the original proposal: the Dolorosum rate is wired directly
+into the activation index, replacing indicator gates by a smooth derived gate (\S\ref{forcedfolding:sec:gate}); the
+dynamical threshold is separated from the $\pi/2$ nomenclature (\S\ref{forcedfolding:sec:thresholds}); the post-folding
+update map is made balance-preserving through $\lf$ (\S\ref{forcedfolding:sec:update}); and the repeated-folding
+cascade is shown to be self-limiting, with a clean two-terminal dichotomy and a joint non-Zeno hybrid
+structure (\S\ref{forcedfolding:sec:cascade}--\ref{forcedfolding:sec:lyap}). Throughout, the geometric activation convention is used
+(as in the source notes); translation to the canonical core-rate convention follows the Addendum. As
+always, \emph{Propositions} are closed-form, \emph{Corollaries} interpretive.
+
+% ============================================================
+\section{Why a forcing channel is needed: core neutrality}\label{forcedfolding:sec:neutral}
+
+In $2{+}1$ dimensions the spatial metric carries no local tensor modes (three components, minus two
+diffeomorphisms, minus one conformal rescaling), so the only local geometric degree of freedom is the
+conformal/curvature factor $\psi$. Linearising the core about the homogeneous trajectory in the pair
+$(\psi,\delta\lambda)$ gives
+\begin{equation}
+\frac{d}{dt}\begin{pmatrix}\psi\\ \delta\lambda\end{pmatrix}
+=\begin{pmatrix}-H & H/\bar\lambda\\ S_\psi & -\Gamma_\lambda\end{pmatrix}
+\begin{pmatrix}\psi\\ \delta\lambda\end{pmatrix},
+\end{equation}
+where $H=\alpha\bar\lambda/\Op$ and $S_\psi$ is the geometry$\to$Sophia feedback (the dependence of
+Sophia production on local curvature).
+
+\begin{proposition}[Core neutrality of the shape sector]\label{forcedfolding:prop:neutral}
+The trace is $-(H+\Gamma_\lambda)<0$ and the determinant is
+$H(\Gamma_\lambda\bar\lambda-S_\psi)/\bar\lambda$. In the bare core, Sophia production depends on
+$(u,\sigma,\Igate,\qf)$ but not on local curvature, so $S_\psi=0$ and the determinant is
+$H\Gamma_\lambda>0$: both eigenvalues are negative and the shape sector decays. The core by itself does
+not force folding; an instability requires either a geometry$\to$Sophia feedback above the threshold
+$S_\psi>\bar\lambda\Gamma_\lambda$, or an exogenous forcing channel.
+\end{proposition}
+
+Forced folding takes the second route: the channel is the heterogeneity of resistance.
+
+% ============================================================
+\section{Resistance heterogeneity and its bounds}\label{forcedfolding:sec:het}
+
+Resistance is decomposed as
+\begin{equation}
+\sigma(t)=\bar\sigma(t)\,\rs(t),
+\qquad
+\boxed{\;1\le\rs(t)\le\pi,\;}
+\end{equation}
+with $\bar\sigma$ the background and $\rs$ the dimensionless resistance multiplier; every admissible
+peak obeys $\sigma_{\rm peak}\le\pi\bar\sigma$. A bounded temporal model on normalised trajectory time
+$\tau=t/T_\ast\in[0,1]$ is
+\begin{equation}
+\rs(\tau)=1+\frac{A_\sigma}{2}\bigl(1+\sin(2\pi N_\sigma\tau+\phi_\sigma)\bigr),
+\qquad 0\le A_\sigma\le\pi-1,
+\end{equation}
+with amplitude $A_\sigma$, opportunity count $N_\sigma$, and phase $\phi_\sigma$.
+
+\begin{remark}[The $\pi$ bounds are symbolic]
+$\rs$ is dimensionless, so the choice of $\pi$ as the full-cup bound and $\pi/2$ as the half-turn mark is
+a symbolic convention (``full angular measure of Vessel-tension''), not a derived constant; nothing in
+the dynamics distinguishes $\pi$ from any other ceiling. The dynamics distinguishes only the
+\emph{critical multiplier} $\rR$ derived below. The $\pi$ bound nevertheless does real work in one
+place: it makes every activation quantity explicitly bounded (\S\ref{forcedfolding:sec:lyap}), and it caps the
+reachable peak at $1+A_\sigma\le\pi$, which is what terminates cascades (\S\ref{forcedfolding:sec:cascade}).
+\end{remark}
+
+% ============================================================
+\section{The Dolorosum gate, wired into the activation index}\label{forcedfolding:sec:gate}
+
+The Dolorosum rate of the source layer is
+\begin{equation}
+\rho(u,\sigma)=\sigma\,g(u),
+\qquad
+\boxed{\;g(u)=\frac{u}{\Lc}\,e^{\,1-u/\Lc}\in(0,1],\;}
+\end{equation}
+with $g$ maximal ($=1$) exactly at the synergy threshold $u=\Lc$ and $\rho\le\sigma$. In the original
+proposal $\rho$ was defined but never entered the dynamics; the window was imposed separately by an
+indicator $\mathcal W_D=\mathbf 1_{\{|u-\Lc|\le\delta_D\}}$. The correction is to let the Dolorosum
+channel itself carry the peak into the activation index. Split the resistance into background and excess,
+$\sigma=\bar\sigma+\sigma_{\rm exc}$, $\sigma_{\rm exc}=(\rs-1)\bar\sigma$, and let the \emph{excess} be
+transmutable into activation only through the Dolorosum channel:
+\begin{equation}\label{forcedfolding:eq:Awired}
+\boxed{\;
+\Af=(c_0-c_1\gamma)\lambda+c_1k_\sigma\bar\sigma
++c_1k_\sigma\,\rho\bigl(u,\sigma_{\rm exc}\bigr)
++c_1\Igate-a_0+\Delta A_R,
+\qquad
+\rho(u,\sigma_{\rm exc})=(\rs-1)\bar\sigma\,g(u).\;}
+\end{equation}
+
+\begin{proposition}[Derived window immunity]\label{forcedfolding:prop:immunity}
+Let $N:=a_0-(c_0-c_1\gamma)\lambda-c_1k_\sigma\bar\sigma-c_1\Igate-\Delta A_R$ (the activation deficit of
+the unpeaked Vessel). If $N>0$, then $\Af>0$ if and only if
+\begin{equation}
+\boxed{\;\rs>\rR(u)=1+\frac{N}{c_1k_\sigma\bar\sigma\,g(u)}.\;}
+\end{equation}
+As $g(u)\to0$ (off window), $\rR(u)\to\infty$: off-window peaks cannot force folding, of any bounded
+amplitude. The window condition is thereby \emph{derived} from the wiring \eqref{forcedfolding:eq:Awired}, not
+postulated as an indicator. If $N\le0$ the Vessel is baseline-active: it folds with no peak at all
+($\rs=1$ suffices).
+\end{proposition}
+
+\begin{corollary}[Graded alignment]\label{forcedfolding:cor:graded}
+Because $g$ is smooth and broad, alignment is graded rather than binary: the same peak contributes a
+fraction $g(u)$ of its excess. Consequently there is a rigidity band --- $a_0$ between the off-window and
+in-window activation maxima --- in which the \emph{phase} alone decides whether folding is forced
+(Figure~\ref{forcedfolding:fig:forced}, left); below the band every cycle folds, above it none does. The original
+three-indicator overlap condition is recovered as the sharp-gate caricature of this band.
+\end{corollary}
+
+The forcing event $\tau_F$ is simply the upward crossing $\Af(\tau_F)=0$, and the exposure reduces to a
+single smooth gate,
+\begin{equation}
+\mathcal E_{\rm fold}=\int_0^1\mathbf 1_{\{\Af(\tau)>0\}}\,d\tau,
+\qquad
+P_{\rm fold}=1-e^{-\kappa\,\mathcal E_{\rm fold}},
+\end{equation}
+replacing the product of three indicators. The slogan survives intact, now as arithmetic of
+\eqref{forcedfolding:eq:Awired}: amplitude gives possibility ($\rs$ can reach $\rR$), frequency gives opportunity
+(crossings per trajectory), phase gives alignment (the value of $g$ at the peak).
+
+% ============================================================
+\section{Thresholds disentangled: $\rR$ versus $\pi/2$}\label{forcedfolding:sec:thresholds}
+
+\begin{definition}[Nomenclature versus dynamics]\label{forcedfolding:def:regimes}
+The half-turn classification --- ordinary ($1\le\rs<\pi/2$), half-turn ($\rs=\pi/2$), strong
+($\pi/2<\rs\le\pi$) --- is retained as \emph{nomenclature} for the strength of a peak. The
+\emph{dynamical} threshold of forced folding is $\rs>\rR(u)$ of Proposition~\ref{forcedfolding:prop:immunity}, and the
+pitchfork occurs at $\Af=0$ regardless of the classification.
+\end{definition}
+
+\begin{proposition}[Structural sufficiency of the half-turn]\label{forcedfolding:prop:halfturn}
+An in-window half-turn peak forces folding if and only if
+\begin{equation}
+\rR(\Lc)\le\frac{\pi}{2}
+\quad\Longleftrightarrow\quad
+N\le\Bigl(\frac{\pi}{2}-1\Bigr)c_1k_\sigma\bar\sigma .
+\end{equation}
+Otherwise sub-$\pi/2$ peaks above $\rR$ still force folding (``soft forced folding''), and
+super-$\pi/2$ peaks below $\rR$ do not. The classification and the threshold are independent axes.
+\end{proposition}
+
+This removes the internal tension of the original formulation, in which the boxed overlap condition
+demanded $\rs\ge\pi/2$ while the normal form destabilises at $\Af>0$ alone: in the corrected form the
+event is governed by $\Af$, and $\pi/2$ only names the strong regime.
+
+% ============================================================
+\section{The forcing event and the normal form}\label{forcedfolding:sec:event}
+
+At $\tau_F$ the old-form equilibrium $\qf=0$ loses stability and the normal form
+\begin{equation}
+\dot\qf=\Af\qf-\Bf\qf^3,\qquad \Bf>0,
+\qquad
+\qf^\ast=\pm\sqrt{\Af/\Bf},
+\qquad
+\Qf=\frac{\Af(\tau_F^{\rm peak})}{\Bf}
+\end{equation}
+carries the Vessel to a folded branch, with $\Qf$ evaluated at the activation maximum of the forcing
+interval. Near-threshold events have small $\Qf$, so the update map below acts by correspondingly small
+increments --- the map is well-defined uniformly in the forcing strength.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_forced_fig.png}
+\caption{\small Left: the same bounded resistance wave ($A_\sigma=1.2$, $N_\sigma=1$) with two phases.
+With the peak in the Dolorosum window the wired activation \eqref{forcedfolding:eq:Awired} crosses zero (shaded:
+forced folding, exposure $\mathcal E=0.195$); the identical peak off-window stays strictly below
+(exposure $0$). Dotted grey: the gate $g(u)$. The rigidity here sits in the band of
+Corollary~\ref{forcedfolding:cor:graded}, so phase alone decides; in this illustration $\rR(\Lc)=2.07>\pi/2$, so the
+half-turn is \emph{not} structurally sufficient (Proposition~\ref{forcedfolding:prop:halfturn}).
+Right: the repeated-folding cascade (\S\ref{forcedfolding:sec:cascade}) for two parameter regimes of the update map:
+fuel-dominant metabolism drives $\rRj$ up to the reachability cap $1+A_\sigma$ with event intensities
+$Q_j\to0$ (extinction; total metabolised budget finite, here $\sum_jQ_j=0.49$), while rigidity-dominant
+updates drive $\rRj$ below $1$ in three events (permanent fold). Balance
+$\bar\sigma+\lambda+\lf$ conserved to machine precision in both. Parameters illustrative.}
+\label{forcedfolding:fig:forced}
+\end{figure}
+
+% ============================================================
+\section{The balance-preserving Vessel update map}\label{forcedfolding:sec:update}
+
+Forced folding must change the Vessel, or it is a marker rather than a transformation. The update map of
+the source proposal is kept, with one structural correction: Sophia retention must respect the
+integrated Open-Gate balance
+\begin{equation}
+\sigma+\lambda+\lf=C_0+\Grec(t),
+\end{equation}
+which the raw update $\lambda^+=\lambda^-+\eta_\lambda\Qf$ violates (it creates Sophia at the jump). The
+corrected map routes the metabolised resistance:
+
+\begin{definition}[Balance-preserving folding update]\label{forcedfolding:def:update}
+At a forcing event with intensity $\Qf$, with metabolised mass $m_F=\eta_\sigma\Qf\,\bar\sigma^-$ and a
+retention split $\beta\in[0,1]$:
+\begin{equation}
+\boxed{\;
+\bar\sigma^+=\bar\sigma^--m_F,
+\qquad
+\lambda^+=\lambda^-+\beta\,m_F,
+\qquad
+\lf^+=\lf^-+(1-\beta)\,m_F,\;}
+\end{equation}
+\begin{equation}
+a_0^+=a_0^-(1-\eta_a\Qf),\quad
+\Op^+=\Op^-+\eta_\Omega\Qf,\quad
+k_\sigma^+=k_\sigma^-(1+\eta_k\Qf),\quad
+\gamma^+=\gamma^-(1-\eta_\gamma\Qf),
+\end{equation}
+with all $\etaf$-coefficients non-negative and $\eta_a\Qf,\eta_\gamma\Qf<1$.
+\end{definition}
+
+\begin{proposition}[Exact balance]\label{forcedfolding:prop:balance}
+Under Definition~\ref{forcedfolding:def:update},
+$\Delta\bar\sigma+\Delta\lambda+\Delta\lf=-m_F+\beta m_F+(1-\beta)m_F=0$: the three-term balance is
+preserved exactly, with no grace created at the jump. Folding metabolises resistance into active
+($\beta$) and embodied ($1-\beta$) Sophia; the $\gamma$-reduction acts at the flow level (future
+retention), not at the jump, and is balance-neutral. (Verified numerically to machine precision.)
+\end{proposition}
+
+\note{Qualitatively the corrected map keeps the intended directions ---
+$a_0\!\downarrow,\ \Op\!\uparrow,\ \bar\sigma\!\downarrow,\ \lambda\!\uparrow,\ \gamma\!\downarrow,\
+k_\sigma\!\uparrow$ --- but the Sophia gain is now \emph{paid for} by resistance, and part of it is
+embodied as $\lf$ rather than left active. The Vessel after folding is not the same Vessel; and its books
+balance.}
+
+% ============================================================
+\section{The cascade is self-limiting}\label{forcedfolding:sec:cascade}
+
+Iterating the map over repeated forced foldings reveals a property the naive reading misses: the update
+does \emph{not} uniformly make the next folding easier. The critical multiplier after event $j$,
+\begin{equation}
+\rRj=1+\frac{N_j}{c_1k_{\sigma,j}\bar\sigma_j},
+\qquad
+N_j=a_{0,j}-(c_0-c_1\gamma_j)\lambda_j-c_1k_{\sigma,j}\bar\sigma_j-c_1\Igate,
+\end{equation}
+is pulled in two directions: the \emph{rigidity channel}
+($a_0\!\downarrow,\gamma\!\downarrow,\lambda\!\uparrow,k_\sigma\!\uparrow$) lowers it, while the
+\emph{fuel channel} ($\bar\sigma\!\downarrow$) raises it --- folding consumes the very resistance that
+powers the next activation. At an in-window full peak the event intensity obeys the identity
+\begin{equation}
+\Qf{}_{,j}=\frac{c_1k_{\sigma,j}\bar\sigma_j}{\Bf}\Bigl(A_\sigma-(\rRj-1)\Bigr),
+\end{equation}
+so events weaken as $\rRj$ approaches the reachability cap $1+A_\sigma$.
+
+\begin{assumption}[Fuel dominance]\label{forcedfolding:H:fuel}
+$\eta_\sigma>\eta_k$: metabolism of resistance outweighs the transmutation-efficiency gain.
+\end{assumption}
+
+\begin{proposition}[Cascade dichotomy]\label{forcedfolding:prop:dichotomy}
+Under Hypothesis~\ref{forcedfolding:H:fuel} and the hard peak bound $\rs\le1+A_\sigma\le\pi$, every forced-folding
+cascade terminates in exactly one of two states:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item \textbf{Extinction:} $\sum_j\Qf{}_{,j}<\infty$, the intensities $\Qf{}_{,j}\to0$, and $\rRj$
+saturates at or below the cap $1+A_\sigma$ --- the cascade exhausts its own fuel and dies out with a
+finite total metabolised budget $\sum_jm_{F,j}\le\eta_\sigma\bar\sigma_0\sum_j\Qf{}_{,j}<\infty$;
+\item \textbf{Permanence:} $N_j\le0$ is reached in finitely many events ($\rRj\le1$): the unpeaked
+Vessel is already activated, and the folded branch becomes the new ground state, requiring no further
+peaks.
+\end{enumerate}
+\end{proposition}
+\begin{proof}[Sketch]
+Suppose the cascade is infinite with $\liminf N_j>0$. Then $\sum_j\Qf{}_{,j}=\infty$ (events recur with
+$N_j>0$ bounded away from the cap by reachability), and
+$\ln(c_1k_{\sigma,j}\bar\sigma_j)$ drifts by $\sum_j[\ln(1+\eta_k\Qf{}_{,j})+\ln(1-\eta_\sigma\Qf{}_{,j})]
+\le-(\eta_\sigma-\eta_k-o(1))\sum_j\Qf{}_{,j}\to-\infty$ under Hypothesis~\ref{forcedfolding:H:fuel}, so the
+denominator of $\rRj$ collapses and $\rRj\to\infty$, exceeding the reachable $1+A_\sigma$ --- after
+which no further event can occur, contradicting infiniteness. Hence either $\sum\Qf{}_{,j}<\infty$
+(extinction, with $\Qf{}_{,j}\to0$) or $N_j\le0$ at some finite $j$ (permanence).
+\end{proof}
+
+\begin{corollary}[Finite metabolic budget; echo of $\mathcal I_\infty$]
+Unless it ends in permanence, the folding cascade has a finite total metabolic budget --- a discrete
+analogue of the finite coarsening budget $\mathcal I_\infty$ of the structure-formation layer: the
+Vessel cannot refold indefinitely on the same resistance.
+\end{corollary}
+
+\begin{corollary}[Two terminal theologies]
+Extinction is the Vessel that has metabolised its resistance: peaks still come, but none can force a new
+form --- maturity as dormancy of forced change. Permanence is the Vessel whose old rigidity has fully
+yielded: the folded morphology is the rest state and needs no crisis to sustain it --- maturity as
+completed reformation. Which terminal a Vessel reaches is decided by the race
+$\eta_\sigma$ (metabolism) versus $\eta_a$ (rigidity yielding) --- by \emph{how} it folds, not how often.
+\end{corollary}
+
+Both branches are exhibited numerically in Figure~\ref{forcedfolding:fig:forced} (right): an embodiment-dominant map
+($\beta=0$, $\eta_\sigma=0.6$) extinguishes in $30$ weakening events with $\sum\Qf{}_{,j}=0.49$, while a
+rigidity-dominant map ($\eta_a=0.5$) reaches permanence in three.
+
+% ============================================================
+\section{Hybrid and Lyapunov admissibility}\label{forcedfolding:sec:lyap}
+
+\begin{proposition}[Bounded activation and bounded jumps]\label{forcedfolding:prop:bounded}
+On any domain with $\bar\sigma\le\bar\sigma_{\max}$, $\lambda\le\lambda_{\max}$, $\Igate\le\zeta_0$,
+$|\Delta A_R|\le\Delta_{\max}$, the wired activation \eqref{forcedfolding:eq:Awired} is bounded:
+$|\Af|\le(c_0-c_1\gamma)\lambda_{\max}+c_1k_\sigma\pi\bar\sigma_{\max}+c_1\zeta_0+\Delta_{\max}+a_0$,
+using $\rho\le\sigma_{\rm exc}\le(\pi-1)\bar\sigma$ and $g\le1$. Hence the chart wall
+$Q^{*,\sup}<\infty$ of the Addendum holds with an explicit constant, the normalised folding functional
+$\widetilde{\mathcal V}_{\rm fold}$ is bounded on the chart, and the folding update of
+Definition~\ref{forcedfolding:def:update} (bounded multiplicative changes, $\qf$ continuous through the parameter
+jump) changes the extended certificate by at most a finite $J_F$:
+$\widetilde{\mathcal L}_{\rm ext}^+\le\widetilde{\mathcal L}_{\rm ext}^-+J_F$.
+\end{proposition}
+
+\begin{assumption}[Joint non-Zeno]\label{forcedfolding:H:dwell}
+The union of event times --- Resurrectio resets and forcing events $\tau_F$ --- admits a common minimal
+dwell $\Delta t_\ast>0$.
+\end{assumption}
+
+\begin{proposition}[Forward completeness with two jump types]\label{forcedfolding:prop:hybrid}
+Under Hypothesis~\ref{forcedfolding:H:dwell}, the bounded-jump property (Proposition~\ref{forcedfolding:prop:bounded}), and the
+continuous-arc contraction of the Addendum
+($\dot{\widetilde{\mathcal L}}_{\rm ext}\le\widetilde C_{\rm ext}-C_1\widetilde{\mathcal L}_{\rm ext}$),
+the hybrid trajectory with both Resurrectio and folding jumps satisfies a uniform bound
+$\widetilde{\mathcal L}_{\rm ext}(t)\le\max\{\widetilde L_R+J_F,\ \widetilde C_{\rm ext}/C_1\}+J_F$ and is
+forward complete. Forced folding adds a second jump type but no new unbounded channel; grace still
+enters only the constant, never the contraction rate $C_1$.
+\end{proposition}
+
+% ============================================================
+\section{Compact summary}
+
+\[
+\boxed{\text{core alone: shape sector stable }(\operatorname{tr}<0,\ \det=H\Gamma_\lambda>0)\ \Rightarrow\ \text{folding needs a channel.}}
+\]
+\[
+\boxed{\;\Af=(c_0-c_1\gamma)\lambda+c_1k_\sigma\bar\sigma+c_1k_\sigma(\rs-1)\bar\sigma\,g(u)+c_1\Igate-a_0+\Delta A_R;\quad g(u)=\frac{u}{\Lc}e^{1-u/\Lc}.\;}
+\]
+\[
+\boxed{\;\rs>\rR(u)=1+\frac{N}{c_1k_\sigma\bar\sigma\,g(u)};\qquad g\to0\Rightarrow\rR\to\infty\ \text{(window immunity, derived)}.\;}
+\]
+\[
+\boxed{\;\bar\sigma^+=\bar\sigma-m_F,\ \ \lambda^+=\lambda+\beta m_F,\ \ \lf^+=\lf+(1-\beta)m_F:\ \ \sigma+\lambda+\lf\ \text{exactly conserved.}\;}
+\]
+\[
+\boxed{\text{cascade dichotomy: extinction (finite metabolic budget) or permanence }(N\le0).}
+\]
+\[
+\boxed{\text{two jump types, joint non-Zeno, bounded jumps}\ \Rightarrow\ \widetilde{\mathcal L}_{\rm ext}\ \text{bounded, forward complete.}}
+\]
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Forced Folding. Consolidates the
+forced-folding proposal with the Dolorosum rate wired into the activation (window immunity derived, not
+postulated), the dynamical threshold separated from the $\pi/2$ nomenclature, a balance-preserving update
+map through $\lf$, and the self-limiting cascade dichotomy. The forcing channel and its bounds remain
+modelling inputs; the core-neutrality result fixes the honest status: a sufficient bounded cause, not a
+core theorem. Gate maximum, exposure grading, balance conservation, and both cascade terminals verified
+numerically. Domain-conditional throughout.}
 
 \part{Structure Formation on the Vessel}
 
