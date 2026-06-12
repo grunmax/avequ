@@ -86,6 +86,9 @@
 \newcommand{\ldz}{\dot\lambda^{0}}
 \newcommand{\ldf}{\dot\lambda_{\rm fold}}
 \newcommand{\NEC}{\mathcal N}
+\newcommand{\Omd}{\Omega_P^{\rm death}}
+\newcommand{\Wp}{\overline W_{+}}
+\newcommand{\Wm}{\overline W}
 \newcommand{\OmegaP}{\Omega_P}
 \newcommand{\LVFS}{\mathcal L_{\rm VFS}}
 \newcommand{\Ric}{\operatorname{Ric}}
@@ -2867,6 +2870,360 @@ an explicit emptiness criterion. Domain-conditional throughout.
 reconstruction is verified via the continuity identity; the midpoint/saturation law symbolically; the
 window endpoints numerically with the analytic closure scaling confirmed to $5\%$. The network
 coefficient and coarse-graining are flagged modelling inputs. Propositions closed-form; corollaries
+interpretive.}
+
+\chapter{The Budget Watershed: Structure Survival and the Ricci Resonance}
+
+\section*{Scope and epistemic status}
+The structure-formation layer rests on one standing hypothesis it never derived: the finiteness of the
+activity budget $\Ib_\infty=\int_0^\infty dt/\Op^2$, which freezes coarsening and leaves a relic fold
+network. The Ricci layer, independently, classifies the Brim-Flow by the comparison ratio
+$\xi=\alpha\lambda\Op$ (sub-Ricci, resonance, super-Ricci). This chapter proves that the two are the
+same fact: a one-line identity rewrites the budget as the logarithmic expansion measured in Ricci
+units, $\Ib=\int d\ln\Op/\xi$, and the finiteness of $\Ib_\infty$ becomes a statement about the
+asymptotic class of $\xi$. The result is a trichotomy --- frozen relic structure, eternal marginal
+simplification, or unbounded dissolution --- whose watershed is the boundedness of $\xi$, with the
+Ricci resonance $\xi\equiv1$ as the canonical marginal class. On the resonance the coarsening law is
+exactly logarithmic and every fixed comoving domain dies at a finite, closed-form expansion. All
+claims are verified numerically (the locus slope to four digits; the domain-death formula to
+$10^{-5}$). The coarsening inputs ($c$, $\Dq$, the mean-curvature network law) are those of the
+structure layer and carry its modelling status. \emph{Propositions} are closed-form;
+\emph{corollaries} interpretive.
+
+% ============================================================
+\section{The budget identity}
+
+\begin{lemma}[The budget in Ricci units]\label{resonancewatershed:lem:identity}
+Along any trajectory with $\dot\Op=\alpha\lambda>0$,
+\begin{equation}
+\xi=\alpha\lambda\Op=\Op\dot\Op=\tfrac12\,\frac{d(\Op^2)}{dt},
+\qquad\text{hence}\qquad
+\frac{dt}{\Op^{2}}=\frac{d\ln\Op}{\xi}
+\quad\Longrightarrow\quad
+\boxed{\;\Ib(t)=\int\frac{d\ln\Op}{\xi}.\;}
+\end{equation}
+The activity budget of the structure layer is the logarithmic expansion of the Vessel weighted by the
+inverse comparison ratio: \emph{expansion counted in Ricci units}. (The middle identity also gives
+$\xi$ a direct meaning: the comoving-area production rate, in units where Ricci flow on
+$\mathbb H^2$ produces area at exactly rate $2$, i.e.\ $\xi_{\rm Ricci}\equiv1$.)
+\end{lemma}
+
+% ============================================================
+\section{The watershed theorem}
+
+\begin{theorem}[Budget trichotomy]\label{resonancewatershed:thm:watershed}
+Let $\Op\to\infty$ and let $\xi(t)=\alpha\lambda\Op$. Then:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item \textbf{Super-Ricci escape} ($\xi\to\infty$ with $\int^\infty d\ln\Op/\xi<\infty$; in particular
+any sustained Sophia $\lambda\to\lambda_\infty>0$, for which $\xi\sim\alpha\lambda_\infty\Op$): the
+budget is finite, $\Ib_\infty<\infty$, coarsening freezes, and the fold network survives as a
+\emph{relic} at $\lcom^2\to\ell_*^2=\ell_0^2+2c\Dq\Ib_\infty$ --- the standing hypothesis of the
+structure layer, now derived from the flow class.
+\item \textbf{Resonance class} ($\xi\to\bar\xi\in(0,\infty)$; canonically the locus $\xi\equiv1$,
+$\Op=\sqrt{2t}$): the budget diverges \emph{logarithmically},
+$\Ib\sim\bar\xi^{-1}\ln\Op$, and coarsening never ends but proceeds at the marginal pace of
+Proposition~\ref{resonancewatershed:prop:log}.
+\item \textbf{Sub-Ricci decay} ($\xi\to0$): the budget diverges as a power of $\Op$ and the comoving
+structure dissolves without bound at polynomial rate.
+\end{enumerate}
+The watershed between relic form and endless simplification is exactly the boundedness of the
+comparison ratio: \textbf{structure survives if and only if the late-time flow is strictly
+super-Ricci.}
+\end{theorem}
+\begin{proof}[Sketch]
+Immediate from Lemma~\ref{resonancewatershed:lem:identity}: with $u=\ln\Op\to\infty$, $\Ib=\int du/\xi(u)$ converges iff
+$1/\xi$ is integrable in $u$; bounded $\xi$ gives slope $\ge1/\sup\xi>0$ (logarithmic divergence,
+slope exactly $1/\bar\xi$ when $\xi\to\bar\xi$); $\xi\to0$ gives a superlinear-in-$u$, i.e.\
+power-in-$\Op$, divergence. Coarsening fates follow from $\lcom^2=\ell_0^2+2c\Dq\Ib$. Numerically: a
+sustained-Sophia run saturates at $\Ib_\infty=0.822$; the locus run has late slope
+$d\Ib/d\ln\Op=1.0000$; the sub-Ricci run's slope grows without bound
+(Figure~\ref{resonancewatershed:fig:watershed}, left).
+\end{proof}
+
+\begin{remark}[The live branch is automatically on the relic side]
+On the cosmologically live branch $\rho_{\rm eff}>0$, i.e.\ $\alpha\lambda>1$, one has
+$\xi=\alpha\lambda\Op>\Op\to\infty$ with $\int d\ln\Op/\xi<\int d\ln\Op/\Op<\infty$: positive
+effective energy forces the super-Ricci escape class. The NEC chapter's reliance on a persistent wall
+network is thereby self-consistent --- a live Vessel cannot be in the dissolving classes. The
+resonance and sub-Ricci classes inhabit the pre-live sector $\rho_{\rm eff}\le0$.
+\end{remark}
+
+% ============================================================
+\section{Marginal coarsening on the resonance}
+
+\begin{proposition}[Logarithmic coarsening law]\label{resonancewatershed:prop:log}
+On the resonance class ($\xi\to\bar\xi$, locus $\bar\xi=1$) the comoving and physical structure
+scales obey
+\begin{equation}
+\boxed{\;\lcom^2=\ell_0^2+\frac{2c\Dq}{\bar\xi}\,\ln\Op,\qquad
+\Lphys=\lcom\Op\sim\Op\sqrt{\tfrac{2c\Dq}{\bar\xi}\ln\Op},\;}
+\end{equation}
+(on the locus, with $\Op=\sqrt{2t}$: $\lcom^2\sim c\Dq\ln t$, $\Lphys\sim\sqrt{c\Dq\,t\ln t}$).
+The network neither freezes (no relic: $\lcom\to\infty$) nor disappears at any finite time: the
+comoving structure dilutes forever at the slowest possible --- logarithmic --- pace, the same
+marginal class as two-dimensional $XY$-type coarsening. (Verified: fitted slope $0.3000$ against
+$2c\Dq=0.3000$.)
+\end{proposition}
+
+\begin{proposition}[Hierarchical domain death]\label{resonancewatershed:prop:death}
+The exact single-domain Gauss--Bonnet law of the coarsening chapter, $dA/d\Ib=-\Dq(2\pi+A)$, gives on
+the resonance class the closed-form death expansion of a comoving domain of initial area $A_0$:
+\begin{equation}
+\boxed{\;\Omd(A_0)=\Bigl(1+\frac{A_0}{2\pi}\Bigr)^{\bar\xi/\Dq},\;}
+\end{equation}
+and the survivors at expansion $\Op$ are exactly the domains with
+$A_0>2\pi\bigl(\Op^{\Dq/\bar\xi}-1\bigr)$. Every \emph{fixed} feature dies at a finite expansion ---
+smaller first, larger later, none forever --- while at every epoch some larger structure remains:
+perpetual hierarchical simplification. (Closed form verified against the ODE to relative error
+$10^{-5}$; Figure~\ref{resonancewatershed:fig:watershed}, inset.)
+\end{proposition}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_watershed_fig.png}
+\caption{\small Left: the budget identity $\Ib=\int d\ln\Op/\xi$ realised on three trajectories of
+the same core law with different Sophia asymptotics: super-Ricci escape (budget saturates at
+$\Ib_\infty$), the resonance locus (slope exactly $1$), sub-Ricci decay (power divergence). Right:
+the corresponding fates of form via $\lcom^2=\ell_0^2+2c\Dq\Ib$: frozen relic, eternal logarithmic
+simplification, unbounded dissolution. Inset: hierarchical domain death on the locus --- the
+closed-form $\Omd(A_0)$ (line) against direct integration of the Gauss--Bonnet law
+(points). Parameters $c=0.5$, $\Dq=0.3$, $\ell_0=1$, illustrative.}
+\label{resonancewatershed:fig:watershed}
+\end{figure}
+
+% ============================================================
+\section{Consequences and reading}
+
+\begin{corollary}[The structure layer's hypothesis, derived]
+Chapters on nucleation, coarsening, the sawtooth fixed point, and the NEC network channel all assumed
+$\Ib_\infty<\infty$. By Theorem~\ref{resonancewatershed:thm:watershed} this assumption is precisely the statement that
+the late Brim-Flow is strictly super-Ricci --- which holds automatically on the live branch
+$\alpha\lambda>1$, and is equivalent to the grace-sustained regime $\lambda\to\lambda_\infty>0$ of
+the Ricci layer. The standing hypothesis is thereby retired into a theorem about the flow class.
+\end{corollary}
+
+\begin{corollary}[Form is held only by exceeding one's own measure]
+The Ricci layer established that on the resonance the flow is self-coincident: it moves exactly as
+its own intrinsic geometry dictates, with a genuine Perelman entropy. The present theorem adds the
+structural price of that self-coincidence: \emph{the self-coincident Vessel keeps no formed
+structure}. Its folds simplify forever --- gently, logarithmically, hierarchically --- and only the
+Vessel whose expansion strictly exceeds its intrinsic Ricci rate ($\xi\to\infty$: the grace-borne,
+super-Ricci, cosmologically live flow) carries its form across time as a relic. Epektasis of scale is
+what makes morphology permanent; on the locus, form itself becomes epektatic --- never finished,
+never frozen, always being simplified.
+\end{corollary}
+
+\note{This closes the loop opened by the question ``does folding begin at the resonance?''. It does
+not --- folding has its own thresholds --- but the resonance decides something prior: whether
+anything folded can \emph{last}. The locus is not the birthplace of form; it is the boundary of its
+permanence.}
+
+% ============================================================
+\section{Open items and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item The marginal class invites a renormalisation treatment: logarithmic coarsening laws typically
+carry universal amplitudes; whether $2c\Dq/\bar\xi$ is universal under the network dynamics (beyond
+the single-domain law) is open.
+\item Crossing dynamics: a trajectory that enters the super-Ricci class only at late time has a
+budget split $\Ib_\infty=\Ib_{\rm cross}+\Delta$; the relic scale then remembers the crossing epoch
+--- a potential dating of the resonance crossing by the frozen structure scale.
+\item The entropy-defect programme (item B of the resonance inventory) would attach a variational
+meaning to the slope $1/\xi$ in Lemma~\ref{resonancewatershed:lem:identity}.
+\end{enumerate}
+
+\textbf{Scope.} The identity and the trichotomy are exact given $\dot\Op=\alpha\lambda>0$ and
+$\Op\to\infty$; the coarsening fates use the structure layer's mean-curvature network law with its
+$c$, $\Dq$ inputs; the domain-death law is exact for the single-domain Gauss--Bonnet dynamics.
+Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Budget Watershed. The activity budget
+equals the logarithmic expansion in Ricci units; structure survives as a relic iff the late flow is
+strictly super-Ricci; the resonance class coarsens logarithmically forever with closed-form
+hierarchical domain death. Locus slope verified to four digits, the death formula to $10^{-5}$;
+coarsening constants are structure-layer modelling inputs. Propositions closed-form; corollaries
+interpretive.}
+
+\chapter{The Entropy of the Forced Flow: Collapse, Maximum, and the Entropy--Form Trade-off}
+
+\section*{Scope and epistemic status}
+The Ricci layer established a binary criterion: a genuine Perelman entropy exists for the Brim-Flow if
+and only if the flow sits on the resonance locus $\xi=\alpha\lambda\Op=1$. This chapter computes what
+happens to the entropy \emph{off} the locus --- the entropy-defect programme --- and the outcome is
+stronger and cleaner than a defect formula. On the symmetric sector the expander entropy collapses to a
+function of a \emph{single} variable, the ratio of the gauge clock to the Ricci area-clock; that
+function is strictly concave with its unique maximum exactly on the resonance; the rate along any
+forced flow factorises into a two-clock product; and universal-in-gauge monotonicity holds if and only
+if the flow is the resonance flow --- the exact converse of the existence criterion. Combined with the
+Budget Watershed, this yields an entropy--form trade-off: relic structure and maximal entropy exclude
+one another.
+
+Setting and honesty flags: the live surface is taken as a compact hyperbolic quotient $\Sigma_\gamma$
+($\gamma\ge2$, comoving area $A_h=4\pi(\gamma-1)$ by Gauss--Bonnet), so the Perelman functionals are
+finite; ``symmetric sector'' means homogeneous metrics $g=\Op^2h$ with the constraint-compatible
+constant minimiser $f$ --- the natural symmetric representative, used throughout without claiming it is
+the global minimiser for negative curvature. The admissible gauges are $\sigma(t)=t+\sigma_0$,
+$\dot\sigma=1$ (expander convention, the right one for immortal expanding flows). All identities below
+are verified symbolically (three exact zeros) and numerically along the three watershed trajectories
+(rates to four digits). \emph{Propositions} are closed-form; \emph{corollaries} interpretive.
+
+% ============================================================
+\section{The symmetric-sector entropies}
+
+With $g=\Op^2h$ on $\Sigma_\gamma$, total area $A=\Op^2A_h$, $R_{\rm sc}=-2/\Op^2$, and the unit-mass
+constraint $(4\pi\sigma)^{-1}e^{-f}A=1$ fixing $f=\ln\!\bigl(A/(4\pi\sigma)\bigr)$, Perelman's expander
+entropy on the symmetric sector is
+\begin{equation}
+\Wp(\Op,\sigma)=\sigma R_{\rm sc}-f+2
+=-\frac{2\sigma}{\Op^2}-\ln\frac{\Op^2A_h}{4\pi\sigma}+2 .
+\end{equation}
+
+\begin{theorem}[Total collapse]\label{entropydefect:thm:collapse}
+Define the \emph{clock ratio} $s:=2\sigma/\Op^2$ --- the gauge clock $\sigma$ measured against the
+Ricci area-clock $\Op^2/2$ (the time a Ricci flow needs to produce the current area). Then,
+identically,
+\begin{equation}
+\boxed{\;\Wp=\ln s-s+2-\ln\frac{A_h}{2\pi}\;}
+\end{equation}
+--- the entropy is a function of the single variable $s$, strictly concave, with unique maximum at
+$s=1$ of value $\Wp^{\max}=1-\ln(A_h/2\pi)$. (Verified symbolically: the identity reduces to $0$.)
+\end{theorem}
+
+\begin{proposition}[Master rate and the Perelman anchor]\label{entropydefect:prop:rate}
+Along any forced flow $\dot\Op=\alpha\lambda$, with $\xi=\alpha\lambda\Op$ and $\dot\sigma=1$,
+\begin{equation}
+\dot s=\frac{2}{\Op^2}\,(1-s\xi),
+\qquad
+\boxed{\;\frac{d\Wp}{dt}
+=\frac{2}{s\,\Op^{2}}\,(1-s)\,(1-s\xi)
+=\frac1\sigma\Bigl(\frac{2\sigma}{\Op^{2}}-1\Bigr)\Bigl(2\sigma H-1\Bigr).\;}
+\end{equation}
+The rate is the product of two clock comparisons: $\sigma$ against the Ricci area-clock $\Op^2/2$, and
+$\sigma$ against the Hubble half-clock $1/(2H)$. On the resonance ($\xi=1$) the product becomes the
+perfect square $4\sigma\bigl(1/\Op^2-1/(2\sigma)\bigr)^2\ge0$ --- \emph{exactly} Perelman's expander
+monotonicity formula for Ricci flow, recovered term by term (verified symbolically). The hyperbolic
+Ricci flow with the matched gauge $\sigma=\Op^2/2$ ($s\equiv1$) is the expanding soliton: constant,
+maximal entropy.
+\end{proposition}
+
+% ============================================================
+\section{The surprise: universal monotonicity characterises the resonance}
+
+\begin{theorem}[Entropy form of the resonance]\label{entropydefect:thm:universal}
+For the forced Brim-Flow with $\Op\to\infty$:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item On the resonance ($\xi\equiv1$): $d\Wp/dt=\dfrac{2(1-s)^2}{s\,\Op^2}\ \ge0$ in \emph{every}
+admissible gauge $\sigma_0$ --- the entropy increases monotonically to its maximum, which it attains
+asymptotically ($s\to1$). The resonance is the \textbf{maximum-entropy class} of the Brim-Flow.
+\item Off the resonance (sustained $\xi\ne1$): in \emph{every} admissible gauge the entropy eventually
+strictly decreases --- the gauge clock is eventually trapped between the two intrinsic clocks, whose
+gap is $\bigl|\Op^2/2-1/(2H)\bigr|=\tfrac{\Op^2}{2}\bigl|1-\tfrac1\xi\bigr|$, vanishing only at
+$\xi=1$.
+\end{enumerate}
+Hence: \textbf{universal-in-gauge entropy monotonicity holds iff the flow is the resonance flow} ---
+the exact converse of the existence criterion of the Ricci layer. (Numerically: the locus runs show no
+decrease in any tested gauge --- the matched gauge is constant to $10^{-13}$, machine noise --- while
+the super- and sub-Ricci runs decrease at essentially all late times in all gauges.)
+\end{theorem}
+
+\begin{proposition}[The defect is a divergence]\label{entropydefect:prop:divergence}
+The deficit from maximal entropy is the universal non-negative function
+\begin{equation}
+\boxed{\;\Delta:=\Wp^{\max}-\Wp=s-1-\ln s\;\ge0,\;}
+\end{equation}
+the canonical (Kullback--Leibler--type, Bregman) divergence of the clock ratio from unity: the entropy
+defect of the forced flow \emph{is} a divergence between the soul's gauge clock and its geometry's
+Ricci clock, zero exactly at synchrony.
+\end{proposition}
+
+\begin{proposition}[Asymptotic entropy costs]\label{entropydefect:prop:costs}
+In the canonical gauge $\sigma=t+\sigma_0$:
+\begin{equation}
+\text{super-Ricci }(\xi\to\infty):\ \ \Wp\simeq-\ln\frac{\Op^2}{2\sigma}\ \ \text{(logarithmically
+cheap)};
+\qquad
+\text{sub-Ricci }(\xi\to0):\ \ \Wp\simeq-\,\frac{2\sigma}{\Op^2}\ \ \text{(power-law ruinous)}.
+\end{equation}
+(Verified: the super-Ricci combination $\Wp+\ln(\Op^2/2\sigma)$ converges to the collapse constant to
+three digits; the sub-Ricci ratio $\Wp/(-s)\to1$.) Grace-driven over-expansion spends entropy at the
+slowest possible rate; stagnation below the resonance spends it polynomially.
+\end{proposition}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_entropy_fig.png}
+\caption{\small Left: total collapse --- the symmetric-sector expander entropy of all three watershed
+trajectories (super-Ricci, locus, sub-Ricci; markers) against the clock ratio $s$, falling on the
+single universal curve $\ln s-s+\mathrm{const}$ (line), maximal exactly at $s=1$. Right: the entropy
+histories in the canonical gauge: the resonance sits at the soliton maximum; the super-Ricci flow
+descends logarithmically (grace is entropy-cheap); the sub-Ricci flow descends polynomially
+(stagnation is ruinous). Genus-$2$ quotient, $A_h=4\pi$; gauge $\sigma_0=\Op^2(0)/2$.}
+\label{entropydefect:fig:entropy}
+\end{figure}
+
+% ============================================================
+\section{The entropy--form trade-off}
+
+\begin{corollary}[Form costs entropy]\label{entropydefect:cor:tradeoff}
+Combining with the Budget Watershed: relic structure requires the super-Ricci escape
+($\xi\to\infty$), which by Proposition~\ref{entropydefect:prop:costs} carries an unbounded (logarithmic) entropy
+deficit; maximal entropy requires the resonance class, on which every fixed comoving feature dissolves
+(hierarchical domain death) and no relic survives. Hence
+\msg{\textbf{No flow keeps both maximal entropy and relic form.} The Vessel that retains its formed
+morphology pays a perpetual --- though logarithmically slow --- entropy deficit; the Vessel of maximal
+entropy is the one whose every fixed form is eventually simplified away. Form is bought with
+desynchrony from one's own intrinsic clock; perfect synchrony keeps nothing.}
+\end{corollary}
+
+\begin{corollary}[Reading: the gauge of grace]
+The defect $\Delta=s-1-\ln s$ gives the principle ``grace enters the constants, never the
+contraction'' its geometric gauge: $\Delta$ measures, instant by instant, how far the flow is carried
+beyond (or left behind) its own intrinsic measure --- zero only at the self-coincident resonance,
+logarithmically gentle for the grace-borne flow, ruinous for the stagnant one. The two intrinsic
+clocks of the master rate --- the Ricci area-clock and the Hubble half-clock --- coincide exactly on
+the resonance: the locus is where the Vessel's geometry and its expansion keep the same time.
+\end{corollary}
+
+\begin{remark}[Why the expander entropy, and what the shrinker says]
+For immortal expanding flows the expander functional is the discriminating one. The shrinker entropy
+$\Wm=\tau R_{\rm sc}+f-2$ ($\dot\tau=-1$) on the same sector equals $-(s_\tau+\ln s_\tau)+\text{const}$
+with $s_\tau=2\tau/\Op^2$ and satisfies $d\Wm/dt=(1+1/s_\tau)\,(2/\Op^2)\,(1+s_\tau\xi)>0$
+\emph{unconditionally} on any expanding flow: it increases for every class and therefore carries no
+information about the flow's relation to its intrinsic rate. The asymmetry is itself instructive: only
+the expander question --- ``is this flow its own expanding soliton?'' --- can see the resonance.
+\end{remark}
+
+% ============================================================
+\section{Open items and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Beyond the symmetric sector: the second variation of $\Wp$ at the symmetric point under
+$\qf$-inhomogeneities would tell whether folding raises or lowers the entropy --- an entropy reading of
+morphology, connecting this chapter to the structure layer at the perturbative level.
+\item Gauge optimisation: replacing the fixed-gauge family by $\nu_+$-type suprema over $\sigma$ would
+make Theorem~\ref{entropydefect:thm:universal}(ii) gauge-free by construction; the two-clock window suggests the
+optimised statement coincides with the present one.
+\item The divergence form of $\Delta$ invites an information-geometric reading of the Ricci layer
+(clock ratio as a likelihood ratio); whether this is more than formal is open.
+\end{enumerate}
+
+\textbf{Scope.} Symmetric (homogeneous) sector on a compact hyperbolic quotient; constant-$f$
+representative; gauge family $\dot\sigma=1$. Within that sector all results are exact identities,
+anchored on Perelman's formula at $\xi=1$ and verified symbolically and numerically.
+Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Entropy of the Forced Flow. The
+symmetric-sector expander entropy collapses to $\ln s-s$ in the clock ratio $s=2\sigma/\Op^2$; the
+resonance is its maximum-entropy class; the rate factorises into the two-clock product, recovering
+Perelman's square at $\xi=1$; universal monotonicity characterises the resonance; the defect is the
+canonical divergence $s-1-\ln s$; and form and maximal entropy exclude one another. Three symbolic
+identities verified to zero; rates to four digits. Propositions closed-form; corollaries
 interpretive.}
 
 \part{Resurrectio as Surgery}
