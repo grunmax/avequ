@@ -30,7 +30,7 @@
 
 \title{\textbf{V.F.S. v2.0 (Open-Gate)}\\
 \large Brim-Flow Geometry and the Ricci--Perelman Analogy\\
-\normalsize A Geometry-First Reformulation}
+\normalsize A Geometry-First Reformulation, Updated after the Folding Companion Volume}
 \author{}
 \date{}
 
@@ -38,7 +38,7 @@
 \maketitle
 
 \begin{abstract}
-This note reformulates the analogy between \VFS{} and Ricci Flow with Perelman's surgery from the standpoint of \emph{Brim-Flow Geometry}. The comparison does not begin with the core dynamical equations, but with the geometry of the Vessel's live-surface. The core equations enter later as the source of the geometric driver: Sophia. The result is a clearer hierarchy: Core gives the law, Geometry gives the surface, and the Ricci--Perelman analogy gives a controlled language for curvature relaxation, degeneration, and continuation after singularity.
+This note reformulates the analogy between \VFS{} and Ricci Flow with Perelman's surgery from the standpoint of \emph{Brim-Flow Geometry}. The comparison does not begin with the core dynamical equations, but with the geometry of the Vessel's live-surface. The core equations enter later as the source of the geometric driver: Sophia. The result is a clearer hierarchy: Core gives the law, Geometry gives the surface, and the Ricci--Perelman analogy gives a controlled language for curvature relaxation, degeneration, and continuation after singularity. This updated version incorporates the later folding-volume results: Ricci resonance is not only a comparison point, but also the entropy-aligned regime and the reference boundary for the form/coarsening budget.
 \end{abstract}
 
 \section*{Preliminary Note}
@@ -61,6 +61,8 @@ Thus the comparison is not: \emph{the core looks like Perelman}. Rather, it is:
 \text{Brim-Flow Geometry admits a Ricci-like comparison,}
 \]
 and Perelman's surgery supplies a final structural analogy for controlled continuation after singularity.
+
+The later folding and structure-formation volume does not erase this discipline; it sharpens it. In that volume, the same comparison ratio \(\xi=\alpha\lambda\Omega_P\) controls not only the Ricci-like rate, but also the coarsening budget of the fold-domain network and the monotonicity of a Perelman-like expander entropy. Thus Ricci resonance becomes a threefold boundary: geometric, morphodynamic, and entropic.
 
 \section{The Geometric Starting Point}
 
@@ -420,54 +422,104 @@ Therefore the distinction may be stated sharply:
 
 This does not make Ricci Flow theological, nor does it make \VFS{} a Ricci-flow model. It only identifies the proper layer of the analogy: bounded closed Sophia corresponds to Ricci-like calming, while Open-Gate Sophia corresponds to grace-forced expansion beyond the intrinsic smoothing rate.
 
-\section{The Entropy Criterion, Relaxation Rates, and the Conserved Curvature Form}
 
-Three sharpenings make the comparison quantitative.
+\section{Ricci Resonance, Entropy Alignment, and the Form Budget}
 
-\textbf{(a) When a genuine Perelman entropy exists.}
-Perelman's decisive tool is that Ricci flow is the \emph{gradient flow} of
+The later folding volume sharpens the entropy side of the comparison. The earlier statement that ``entropy belongs to the resonance locus'' should be read in a precise, limited sense: away from resonance the Brim-Flow may still relax curvature, but it does not possess universal Ricci/Perelman-type entropy monotonicity. At resonance, however, the comparison clock aligns and the Perelman-like expander entropy becomes monotone in the symmetric sector.
+
+\subsection*{(a) Entropy alignment at resonance}
+
+Let
 \[
- \mathcal F(g,f)=\int_M\bigl(R_{\rm sc}+|\nabla f|^2\bigr)e^{-f}dV,
+ \xi=\alpha\lambda\Omega_P
 \]
-with the entropy $\mathcal W$ monotone non-decreasing; this intrinsic variational structure is what
-yields no-local-collapsing. The Brim-Flow is \emph{non-autonomous}: its conformal rate
-$\psi=\alpha\lambda/\Omega_P$ is set by the external Sophia clock, which obeys its own law. A
-non-autonomous conformal flow is generically not the gradient flow of any functional of the metric
-alone, and therefore admits \emph{no} Perelman entropy. The single exception is the resonance locus: on
-$\xi=\alpha\lambda\Omega_P=1$ the Brim-Flow \emph{equals} Ricci flow, becomes the gradient flow of
-$\mathcal F$, and carries a genuine monotone entropy. Hence
+be the Ricci-comparison ratio. In the expander comparison one introduces the clock ratio
 \[
-\boxed{\ \text{a Perelman entropy exists for the Brim-Flow}\iff\xi=\alpha\lambda\Omega_P=1.\ }
+ s=\frac{2\tau}{\Omega_P^2},
 \]
-Off the locus, the monotonicity the flow does enjoy --- curvature relaxation $|R_{\Sigma}|\downarrow0$
---- is \emph{imposed by the grace source}, not derived from a variational principle. This is the exact
-sense in which Sophia both is and is not Perelman's entropy: it plays the one-way-control role
-everywhere, but it is a true geometric entropy only on the resonance locus. And the absence of an
-intrinsic entropy off the locus is not a defect but a proper feature: unconditional variational
-monotonicity would make the subject an automaton of theosis, whereas grace-forced monotonicity
-preserves freedom.
+where \(\tau\) is the chosen expander gauge-clock. The symmetric-sector expander entropy reduces, up to the fixed hyperbolic area constant, to
+\[
+ W_+(s)=\log s-s+2-\log\frac{A_h}{2\pi}.
+\]
+It is maximal at
+\[
+ s=1,
+\]
+that is, when the expander clock and the Brim area-clock are synchronized.
 
-\textbf{(b) Super-Ricci flattens faster than Ricci.}
-The two regimes relax curvature at quantitatively different rates:
+Along Brim-Flow its derivative has the form
+\[
+ \frac{dW_+}{dt}
+ =
+ \frac{2}{s\Omega_P^2}(1-s)(1-s\xi).
+\]
+Therefore at Ricci resonance, \(\xi=1\), this becomes
+\[
+ \frac{dW_+}{dt}
+ =
+ \frac{2}{s\Omega_P^2}(1-s)^2
+ \ge0.
+\]
+This is the entropy surprise: resonance turns the entropy derivative into a square. Hence Ricci resonance is not merely the point at which Brim-Flow matches the intrinsic Ricci conformal rate; it is the entropy-aligned regime of the comparison.
+
+Equivalently, in the symmetric expander sector,
+\[
+ \boxed{\xi=1\quad\Longrightarrow\quad W_+\ \text{is monotone non-decreasing}.}
+\]
+Conversely, sustained deviation from resonance destroys universal monotonicity: for admissible clocks with the wrong sign relation between \((1-s)\) and \((1-s\xi)\), the entropy eventually decreases. Thus the resonance condition characterises the universally monotone class rather than merely a convenient example.
+
+\subsection*{(b) The coarsening budget}
+
+The fold-domain network does not evolve by Sophia diffusion. Its structural activity is carried by the folding order parameter \(q_{\rm fold}\). The relevant budget for intra-arc coarsening is
+\[
+ \mathcal I(t)=\int_0^t \frac{dt'}{\Omega_P(t')^2}.
+\]
+Using
+\[
+ \frac{d\log\Omega_P}{dt}
+ =
+ \frac{\dot\Omega_P}{\Omega_P}
+ =
+ \frac{\alpha\lambda}{\Omega_P}
+ =
+ \frac{\xi}{\Omega_P^2},
+\]
+one obtains the budget identity
+\[
+ \boxed{\mathcal I(t)=\int^{\log\Omega_P(t)}\frac{d\log\Omega_P}{\xi}.}
+\]
+Thus the same ratio \(\xi\) that compares Brim-Flow with Ricci Flow also measures how much structural time remains for the fold network. Ricci resonance, \(\xi=1\), is the marginal clock: the activity budget grows like \(\log\Omega_P\). Super-Ricci escape can reduce the available coarsening budget, allowing relic structure to survive; sub-Ricci drift spends the budget more aggressively and favours dissolution by coarsening.
+
+This is the morphodynamic meaning of the Ricci comparison:
+\[
+ \text{Ricci resonance is the reference rhythm between expansion and structural relaxation.}
+\]
+
+\subsection*{(c) Entropy--form trade-off}
+
+The entropy and form conclusions point in opposite directions. Entropy alignment wants the Ricci-resonant clock, where \(W_+\) is universally monotone. Persistent relic form, however, requires that the fold network not be given unlimited coarsening time. In the later folding volume this becomes the entropy--form trade-off:
+\[
+ \boxed{\text{maximal entropy alignment and persistent relic form cannot both be absolute.}}
+\]
+In symbolic V.F.S. language, a Vessel that remains perfectly entropy-aligned is continually smoothed; a Vessel that preserves structured form pays an entropy price. Form is not free. It is a lawful deviation from pure smoothing.
+
+\subsection*{(d) What remains conserved}
+
+Perelman entropy is monotone, not conserved. The Brim-Flow possesses instead a pointwise conformal invariant: under \(\partial_tg=2\psi g\) in two dimensions, \(K\to K/c\) and \(dA\to c\,dA\) with \(c=e^{2\int\psi}\), so the curvature two-form is frozen:
+\[
+\boxed{\ \frac{d}{dt}\bigl(K\,dA\bigr)=0.\ }
+\]
+Local curvature is therefore \emph{diluted by spatial inflation, not destroyed} --- the differential-geometric face of \emph{privatio boni}: the wound is not annihilated but spread thin across an expanding receptive space.
+
+\subsection*{(e) Relaxation rates}
+
+The regimes also relax curvature at quantitatively different rates:
 \[
  \text{Ricci locus: }\Omega_P\sim\sqrt{2t}\ \Rightarrow\ |R_{\Sigma}|\sim t^{-1};
  \qquad
  \text{super-Ricci: }\Omega_P\sim\alpha\lambda_\infty t\ \Rightarrow\ |R_{\Sigma}|\sim t^{-2}.
 \]
-The grace-borne Open-Gate flow relaxes curvature \emph{faster} than a true Ricci flow. Perelman's flow
-has no external accelerator; this overshoot is a proper Open-Gate feature, and it is the quantitative
-content of the super-Ricci classification of the comparison ratio.
-
-\textbf{(c) What is conserved.}
-Perelman's entropy is monotone, not conserved. The Brim-Flow possesses instead a pointwise conformal
-invariant: under $\partial_tg=2\psi g$ in two dimensions, $K\to K/c$ and $dA\to c\,dA$ with
-$c=e^{2\int\psi}$, so the curvature two-form is frozen:
-\[
-\boxed{\ \frac{d}{dt}\bigl(K\,dA\bigr)=0.\ }
-\]
-Local curvature is therefore \emph{diluted by spatial inflation, not destroyed} --- the
-differential-geometric face of \emph{privatio boni}: the wound is not annihilated but spread thin
-across an expanding receptive space.
+The grace-borne Open-Gate flow may therefore flatten the live-surface faster than true Ricci Flow. This overshoot is not a defect of the analogy; it is precisely the Open-Gate feature: the Brim is driven by Sophia, not by curvature alone.
 
 \section{Geometry, Cosmology, and the Layer Boundary}
 
@@ -582,7 +634,8 @@ Curvature smoothing & curvature relaxation \(R_{\Sigma}\to0^-\) & formal \\
 No-local-collapsing & death-wall at infinite intrinsic distance & structural \\
 Surgery & Resurrectio reset & functional \\
 Continuation after singularity & continuation after death-like closure & structural-theological \\
-Entropy / monotonicity control & Lyapunov-domain control; entropy iff \(\xi=1\) & sharpened \\
+Entropy / monotonicity control & entropy alignment at \(\xi=1\); Lyapunov control elsewhere & sharpened \\
+Form/coarsening budget & \(\mathcal I=\int d\log\Omega_P/\xi\) & morphodynamic \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -725,7 +778,17 @@ while
  \text{Brim-Flow is Sophia-driven curvature relaxation.}
 \]
 
-Perelman surgery then appears not as the foundation of \VFS{}, but as a final structural analogy: controlled cutting for continuation. In \VFS{}, this continuation is Resurrectio: the Brim is enlarged, curvature is released, and participation continues toward Pleroma Christi.
+The later folding-volume results add a second reading of the same ratio. At
+\[
+ \xi=1,
+\]
+expansion, geometry, and the expander entropy clock fall into one rhythm:
+\[
+ \frac{dW_+}{dt}\ge0.
+\]
+Away from resonance the Brim may still expand and curvature may still be diluted, but universal entropy alignment is lost; if structured form persists, it does so by spending or escaping the smoothing budget.
+
+Perelman surgery then appears not as the foundation of \VFS{}, but as a final structural analogy: controlled cutting for continuation. In \VFS{}, this continuation is Resurrectio: the Brim is enlarged, curvature is released, the extrinsic jump data \((s_R,[K])\) is controlled, and participation continues toward Pleroma Christi.
 
 \section*{Compact Summary}
 
@@ -758,9 +821,18 @@ R_{\Sigma}=-\frac{2}{\Omega_P^2}.
 \]
 
 \[
-\text{Entropy criterion:}
+\text{Entropy alignment:}
 \qquad
-\text{a Perelman entropy exists}\iff\xi=\alpha\lambda\Omega_P=1.
+\xi=\alpha\lambda\Omega_P=1
+\quad\Longrightarrow\quad
+\frac{dW_+}{dt}=\frac{2(1-s)^2}{s\Omega_P^2}\ge0.
+\]
+
+\[
+\text{Form budget:}
+\qquad
+\mathcal I(t)=\int_0^t\frac{dt'}{\Omega_P(t')^2}
+=\int^{\log\Omega_P(t)}\frac{d\log\Omega_P}{\xi}.
 \]
 
 \[
@@ -804,6 +876,10 @@ Final formulation:
 \]
 \[
 \text{Perelman surgery continues geometry after singularity; V.F.S. Resurrectio continues participation after death-like closure.}
+\]
+
+\[
+\text{Ricci resonance is the point where expansion, geometry, and entropy fall into one rhythm.}
 \]
 
 \end{document}
