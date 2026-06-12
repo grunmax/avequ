@@ -4,10 +4,10 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
 \usepackage{enumitem}
-\usepackage{microtype}
+\IfFileExists{lmodern.sty}{\usepackage{microtype}}{\usepackage[expansion=false]{microtype}}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
 \usepackage{hyperref}
 \usepackage{xcolor}
 
@@ -29,8 +29,8 @@
 \newcommand{\SigmaP}{\Sigma_{\Omega_P}}
 
 \title{\textbf{V.F.S. v2.0 (Open-Gate)}\\
-\large Brim-Flow Geometry, Ricci Comparison, and Sophianic Folding\\
-\normalsize A Geometry-First Reformulation with Regular Shape Bifurcation}
+\large Brim-Flow Geometry and the Ricci--Perelman Analogy\\
+\normalsize A Geometry-First Reformulation}
 \author{}
 \date{}
 
@@ -38,31 +38,29 @@
 \maketitle
 
 \begin{abstract}
-This note reformulates the analogy between \VFS{} and Ricci Flow from the standpoint of \emph{Brim-Flow Geometry}. The comparison does not begin with the core dynamical equations, but with the geometry of the Vessel's live-surface. The core equations enter later as the source of the geometric driver: Sophia. In the Open-Gate version, this geometry has two distinct layers: Brim-scale expansion and Sophianic shape-folding. The result is a clearer hierarchy: Core gives the law, Geometry gives the surface, Brim-Flow gives conformal curvature relaxation, and Sophianic Folding gives a regular non-surgical redistribution of curvature inside the Vessel-form.
+This note reformulates the analogy between \VFS{} and Ricci Flow with Perelman's surgery from the standpoint of \emph{Brim-Flow Geometry}. The comparison does not begin with the core dynamical equations, but with the geometry of the Vessel's live-surface. The core equations enter later as the source of the geometric driver: Sophia. The result is a clearer hierarchy: Core gives the law, Geometry gives the surface, and the Ricci--Perelman analogy gives a controlled language for curvature relaxation, degeneration, and continuation after singularity.
 \end{abstract}
 
 \section*{Preliminary Note}
 
 The analogy developed here is formal and structural. \VFS{} is not Ricci Flow, does not reproduce Perelman's proof, and does not claim theorem-equivalence with geometric analysis. Ricci Flow evolves Riemannian metrics by intrinsic curvature. \VFS{} defines a symbolic-theological dynamical architecture in which Sophia expands the Brim and thereby changes the curvature scale of the Vessel's live-surface.
 
-The important change in this reformulation is the order of explanation. Earlier presentations often began from the core system: singular resistance, Sophia, Open-Gate balance, and Resurrectio. Those remain essential, but they are not the strongest starting point for the Ricci analogy. The analogy becomes sharper when it begins from the geometric layer:
+The important change in this reformulation is the order of explanation. Earlier presentations often began from the core system: singular resistance, Sophia, Open-Gate balance, and Resurrectio. Those remain essential, but they are not the strongest starting point for the Perelman analogy. The analogy becomes sharper when it begins from the geometric layer:
 \[
-\begin{aligned}
-&\text{hyperbolic live-surface}
-\longrightarrow
+\text{hyperbolic live-surface}
+\quad\longrightarrow\quad
 \text{Brim-driven conformal flow}
-\longrightarrow
-\text{Ricci comparison}\\
-&\longrightarrow
-\text{regular folding / continuation analogy}.
-\end{aligned}
+\quad\longrightarrow\quad
+\text{Ricci comparison}
+\quad\longrightarrow\quad
+\text{surgery / continuation analogy}.
 \]
 
 Thus the comparison is not: \emph{the core looks like Perelman}. Rather, it is:
 \[
 \text{Brim-Flow Geometry admits a Ricci-like comparison,}
 \]
-while Sophianic Folding supplies the internal shape mechanism by which excess Sophia can be stabilized before any surgical analogy is needed. Perelman-style surgery remains only a late and limited comparison for continuation after genuine degeneration.
+and Perelman's surgery supplies a final structural analogy for controlled continuation after singularity.
 
 \section{The Geometric Starting Point}
 
@@ -215,151 +213,6 @@ This gives the central geometric interpretation of Epektasis:
 \text{Epektasis is spatial curvature relaxation through the expansion of the Brim.}
 \]
 
-
-\section{Sophianic Folding: Scale versus Shape}
-
-The conformal Brim-flow described above changes the scale of the live-surface. It is therefore useful to separate the geometric motion into two components:
-\[
- g_{\Sigma}(t)=\Omega_P(t)^2\widehat g(t).
-\]
-The factor \(\Omega_P(t)^2\) carries the Brim-scale expansion, while \(\widehat g(t)\) carries the shape of the live-surface.
-
-In the pure Brim-flow layer one has
-\[
- \widehat g(t)=h_{2D}.
-\]
-Sophianic Folding adds a controlled shape mode:
-\[
- \widehat g(t)=\widehat g_0+q_{\rm fold}(t)e_1,
- \qquad
- Q_{\rm fold}=q_{\rm fold}^2.
-\]
-Thus the live-surface metric becomes
-\[
- g_{\Sigma}^{\rm fold}(t)
- =
- \Omega_P(t)^2\bigl(\widehat g_0+q_{\rm fold}(t)e_1\bigr).
-\]
-This is not a replacement for Brim-flow. It is an additional shape response of the live-surface to excess Sophia.
-
-The core folding coefficients are written
-\[
- A_{\rm fold}
- =
- (c_0-c_1\gamma)\lambda
- +c_1k_\sigma\sigma
- +c_1I_{\rm gate}
- -a_0,
-\]
-\[
- B_{\rm fold}
- =
- b+2c_1\eta_{\rm fold}\lambda,
- \qquad
- B_{\rm fold}>0.
-\]
-In the regular folded branch,
-\[
- q_{\rm fold,*}^2
- =
- Q_{\rm fold}
- =
- \frac{A_{\rm fold}}{B_{\rm fold}},
- \qquad
- 0<Q_{\rm fold}<q_{\max}^2.
-\]
-The scalar curvature of the folded live-surface has the first-mode correction
-\[
- R_{\Sigma}^{\rm fold}
- =
- -\frac{2}{\Omega_P^2}
- +
- \rho_1Q_{\rm fold}
- +O(q_{\rm fold}^4).
-\]
-The leading-order statement is therefore
-\[
- R_{\Sigma}^{\rm fold}
- \approx
- -\frac{2}{\Omega_P^2}
- +
- \rho_1Q_{\rm fold}.
-\]
-
-This formula is the key geometric update. Brim-flow relaxes negative curvature by increasing \(\Omega_P\), while Sophianic Folding redistributes curvature through the shape mode \(q_{\rm fold}\). Hence the Open-Gate geometry is not merely expanding; it can also become locally re-formed.
-
-A positive curvature pocket appears when
-\[
- R_{\Sigma}^{\rm fold}>0,
-\]
-that is,
-\[
- Q_{\rm fold}>
- \frac{2}{\rho_1\Omega_P^2}.
-\]
-This does not contradict global Brim expansion. It means that the live-surface can satisfy
-\[
- \dot\Omega_P>0
- \qquad\text{and}\qquad
- R_{\Sigma}^{\rm fold}>0
-\]
-inside a regular folding chart. The global scale expands while local curvature concentrates through shape transformation.
-
-\section{Folding as Regular Curvature Redistribution}
-
-Sophianic Folding is governed by the morphological tension potential
-\[
- \mathcal E_{\rm fold}(q_{\rm fold})
- =
- -\frac12A_{\rm fold}q_{\rm fold}^2
- +
- \frac14B_{\rm fold}q_{\rm fold}^4.
-\]
-This is not physical gravitational energy. It is a Lyapunov-style shape potential measuring the tension of the Vessel-form.
-
-The shape flow is the gradient relaxation
-\[
- \dot q_{\rm fold}
- =
- -\partial_{q_{\rm fold}}\mathcal E_{\rm fold}
- =
- A_{\rm fold}q_{\rm fold}
- -
- B_{\rm fold}q_{\rm fold}^3.
-\]
-Consequently, with slowly varying core parameters,
-\[
- \dot{\mathcal E}_{\rm fold}
- =
- -\left(\partial_{q_{\rm fold}}\mathcal E_{\rm fold}\right)^2
- \le0.
-\]
-Thus folding is a regular tension-relaxing deformation of the live-surface. It is not a singular collapse. It is a stabilizing geometric response by which the old shape loses stability and a lower-tension shape becomes available.
-
-The regularity domain is
-\[
- 0<Q_{\rm fold}<q_{\max}^2.
-\]
-At
-\[
- Q_{\rm fold}=q_{\max}^2,
-\]
-the model reaches a fold-chart boundary. This boundary means that the one-mode chart \(\widehat g_0+q_{\rm fold}e_1\) is no longer sufficient. It does not by itself mean a Perelmanian singularity. A richer chart or a higher-mode expansion may be required:
-\[
- \widehat g
- =
- \widehat g_0+
- q_1e_1+q_2e_2+\cdots.
-\]
-
-Therefore the disciplined formulation is:
-\[
- \text{Sophianic Folding is bifurcation, not surgery.}
-\]
-\[
- \text{It redistributes curvature before a surgical analogy is needed.}
-\]
-
 \section{Ricci Flow as the Intrinsic Comparison Flow}
 
 On a two-dimensional surface of constant Gaussian curvature
@@ -453,13 +306,6 @@ In the Open-Gate model, Sophia is not merely conserved transmuted resistance. It
 \[
  \sigma+\lambda=C_0+\Grec(t).
 \]
-When folding is included as embodied Sophia, the refined balance becomes
-\[
- \sigma+\lambda+\lambda_{\rm form}
- =
- C_0+\Grec(t),
-\]
-where \(\lambda_{\rm form}\) denotes the portion of Sophia expressed as stable Vessel-form.
 The Sophia equation contains an open source:
 \[
  \dot\lambda
@@ -470,17 +316,6 @@ The Sophia equation contains an open source:
  \qquad
  I_{\rm gate}(t)\ge0.
 \]
-With folding feedback, the effective Sophia-flow is refined to
-\[
- \dot\lambda_{\rm fold}
- =
- (\delta u-\gamma)\tanh(\kappa\sigma)
- +
- I_{\rm gate}(t)
- -
- \eta_{\rm fold}Q_{\rm fold}\lambda.
-\]
-Thus folding does not negate Open-Gate; it stabilizes excess Sophia by giving part of it morphological form.
 
 Thus the geometric driver of Brim-Flow,
 \[
@@ -585,6 +420,55 @@ Therefore the distinction may be stated sharply:
 
 This does not make Ricci Flow theological, nor does it make \VFS{} a Ricci-flow model. It only identifies the proper layer of the analogy: bounded closed Sophia corresponds to Ricci-like calming, while Open-Gate Sophia corresponds to grace-forced expansion beyond the intrinsic smoothing rate.
 
+\section{The Entropy Criterion, Relaxation Rates, and the Conserved Curvature Form}
+
+Three sharpenings make the comparison quantitative.
+
+\textbf{(a) When a genuine Perelman entropy exists.}
+Perelman's decisive tool is that Ricci flow is the \emph{gradient flow} of
+\[
+ \mathcal F(g,f)=\int_M\bigl(R_{\rm sc}+|\nabla f|^2\bigr)e^{-f}dV,
+\]
+with the entropy $\mathcal W$ monotone non-decreasing; this intrinsic variational structure is what
+yields no-local-collapsing. The Brim-Flow is \emph{non-autonomous}: its conformal rate
+$\psi=\alpha\lambda/\Omega_P$ is set by the external Sophia clock, which obeys its own law. A
+non-autonomous conformal flow is generically not the gradient flow of any functional of the metric
+alone, and therefore admits \emph{no} Perelman entropy. The single exception is the resonance locus: on
+$\xi=\alpha\lambda\Omega_P=1$ the Brim-Flow \emph{equals} Ricci flow, becomes the gradient flow of
+$\mathcal F$, and carries a genuine monotone entropy. Hence
+\[
+\boxed{\ \text{a Perelman entropy exists for the Brim-Flow}\iff\xi=\alpha\lambda\Omega_P=1.\ }
+\]
+Off the locus, the monotonicity the flow does enjoy --- curvature relaxation $|R_{\Sigma}|\downarrow0$
+--- is \emph{imposed by the grace source}, not derived from a variational principle. This is the exact
+sense in which Sophia both is and is not Perelman's entropy: it plays the one-way-control role
+everywhere, but it is a true geometric entropy only on the resonance locus. And the absence of an
+intrinsic entropy off the locus is not a defect but a proper feature: unconditional variational
+monotonicity would make the subject an automaton of theosis, whereas grace-forced monotonicity
+preserves freedom.
+
+\textbf{(b) Super-Ricci flattens faster than Ricci.}
+The two regimes relax curvature at quantitatively different rates:
+\[
+ \text{Ricci locus: }\Omega_P\sim\sqrt{2t}\ \Rightarrow\ |R_{\Sigma}|\sim t^{-1};
+ \qquad
+ \text{super-Ricci: }\Omega_P\sim\alpha\lambda_\infty t\ \Rightarrow\ |R_{\Sigma}|\sim t^{-2}.
+\]
+The grace-borne Open-Gate flow relaxes curvature \emph{faster} than a true Ricci flow. Perelman's flow
+has no external accelerator; this overshoot is a proper Open-Gate feature, and it is the quantitative
+content of the super-Ricci classification of the comparison ratio.
+
+\textbf{(c) What is conserved.}
+Perelman's entropy is monotone, not conserved. The Brim-Flow possesses instead a pointwise conformal
+invariant: under $\partial_tg=2\psi g$ in two dimensions, $K\to K/c$ and $dA\to c\,dA$ with
+$c=e^{2\int\psi}$, so the curvature two-form is frozen:
+\[
+\boxed{\ \frac{d}{dt}\bigl(K\,dA\bigr)=0.\ }
+\]
+Local curvature is therefore \emph{diluted by spatial inflation, not destroyed} --- the
+differential-geometric face of \emph{privatio boni}: the wound is not annihilated but spread thin
+across an expanding receptive space.
+
 \section{Geometry, Cosmology, and the Layer Boundary}
 
 It is important not to confuse the spatial geometry with the cosmological lift.
@@ -614,43 +498,11 @@ The cosmology asks:
 
 The Ricci--Perelman analogy belongs primarily to the geometry layer. The cosmological layer can be compared to FLRW expansion, dark-energy-like pressure, and de Sitter-like regimes, but those are separate analogies. The present note keeps the Ricci--Perelman comparison focused on the spatial live-surface and its Brim-driven conformal deformation.
 
-
-\section{Non-Surgical Role of Sophianic Folding}
-
-The addition of Sophianic Folding changes the role of the Perelman analogy. In the earlier geometry-first comparison, surgery was a late analogy for continuation after a death-like closure. With folding included, a new intermediate layer appears:
-\[
- \text{Brim expansion}
- \longrightarrow
- \text{regular shape-folding}
- \longrightarrow
- \text{possible continuation after degeneration}.
-\]
-Folding belongs to the middle layer. It is not a cut, not an excision, and not a replacement for Ricci surgery. It is a regular shape bifurcation occurring inside the admissible live-domain.
-
-The curvature correction
-\[
- R_{\Sigma}^{\rm fold}
- =
- -\frac{2}{\Omega_P^2}
- +
- \rho_1Q_{\rm fold}
-\]
-shows that folding can concentrate curvature without forcing a singular event. The regularity condition
-\[
- 0<Q_{\rm fold}<q_{\max}^2
-\]
-keeps the deformation inside the current chart. Only when the chart boundary is reached does one need a new description. Even then, the correct statement is not immediately ``surgery'', but
-\[
- \text{new chart or higher-mode geometry required.}
-\]
-
-Thus Perelman-style surgery should remain a late analogy for genuine continuation after degenerative closure, while Sophianic Folding is the ordinary internal mechanism of form-stabilization.
-
 \section{Perelman's Surgery as a Late Analogy, Not the Foundation}
 
-Perelman's surgery should enter the comparison only after the geometry and the regular folding layer have been established. In Ricci Flow with surgery, high-curvature neck regions are cut in a controlled way so that the geometric flow can continue. Surgery is not mere destruction. It is a controlled operation for continuation.
+Perelman's surgery should enter the comparison only after the geometry has been established. In Ricci Flow with surgery, high-curvature neck regions are cut in a controlled way so that the geometric flow can continue. Surgery is not mere destruction. It is a controlled operation for continuation.
 
-In \VFS{}, the closest late-stage corresponding structure is Resurrectio, not ordinary Sophianic Folding. A death-like closure is not the final state of the system, but a threshold through which the system may re-enter a new life-arc.
+In \VFS{}, the corresponding structure is Resurrectio. A death-like closure is not the final state of the system, but a threshold through which the system may re-enter a new life-arc.
 
 A Resurrectio jump enlarges the Brim:
 \[
@@ -694,28 +546,51 @@ Thus Resurrectio is a curvature release. It preserves the hyperbolic type of the
 
 In Ricci Flow, surgery removes obstructive high-curvature necks so that geometric evolution may continue. In \VFS{}, Resurrectio enlarges the Brim after a death-like closure so that participation may continue.
 
+\medskip
+\noindent\textbf{Status update (Companion Volume, Part III).}
+The structural comparison above is retained as the geometry-first \emph{placement} of the analogy; its
+rigorous characterisation is now carried out in the Companion Volume, Part III (\emph{Resurrectio as
+Surgery}), which supersedes this section on the junction side and strengthens it in four ways.
+(i)~Non-identification is proved at the junction level: the induced spatial metric itself jumps
+conformally, \(\gamma^+=s_R^2\gamma^-\) with \(s_R=\Omega_P^+/\Omega_P^-\), so Resurrectio is not an
+Israel thin shell.
+(ii)~The invariant jump data is the \emph{pair} \((s_R,[K])\): with \(m_R=(1-q_R)\sigma^-\), the
+extrinsic curvature jumps by the closed form
+\([K]=\tfrac{2\alpha}{\Omega_P^-}\bigl(\tfrac{\lambda^-+m_R}{s_R}-\lambda^-\bigr)\), giving the
+rate/scale dichotomy \([K]>0\iff m_R/\lambda^->\kappa_R\Grec^-/\Omega_P^-\), with a distinguished
+\emph{balanced} resurrection (\(K\) continuous) at \(\kappa_R\Grec^-=\Omega_P^-m_R/\lambda^-\).
+(iii)~The double-layer theorem: any regularisation has vanishing surface-energy impulse and an
+\(\varepsilon^{-1}\)-divergent surface-tension impulse with the universal Cauchy--Schwarz floor
+\((\log s_R)^2\); distributionally the curvature carries a \(\delta'\) part --- a pure-GR double layer,
+representable by no surface stress tensor.
+(iv)~Geometric admissibility is completed by the epektasis-wall condition
+\((1-q_R)\sigma^-\le q^\ast\kappa_R\Grec^-\), the mirror of the fold-compatibility condition of the
+Lyapunov addenda. The present section remains the motivation; the Volume is canonical for the surgery
+side of the analogy.
+
 \section{Controlled Similarities}
 
 The analogy is strongest at the level of structural roles. It can be summarized as follows:
 
 \begin{center}
-\small
-\begin{tabular}{p{0.28\linewidth}p{0.42\linewidth}p{0.20\linewidth}}
+\begin{tabular}{lll}
 \toprule
 Ricci--Perelman & \VFS{} / Brim-Flow & Type of analogy \\
 \midrule
 Metric evolution & Brim-driven live-surface evolution & geometric-formal \\
 Curvature smoothing & curvature relaxation \(R_{\Sigma}\to0^-\) & formal \\
 No-local-collapsing & death-wall at infinite intrinsic distance & structural \\
-Regular bifurcation & Sophianic Folding & morphodynamic \\
-Surgery & Resurrectio reset & late functional analogy \\
+Surgery & Resurrectio reset & functional \\
 Continuation after singularity & continuation after death-like closure & structural-theological \\
-Entropy / monotonicity control & Lyapunov-domain control & heuristic \\
+Entropy / monotonicity control & Lyapunov-domain control; entropy iff \(\xi=1\) & sharpened \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-The analogy is real, but it must remain disciplined. Ricci Flow is an intrinsic equation:
+The analogy is real, but it must remain disciplined. In particular, the ``Surgery \(\leftrightarrow\)
+Resurrectio'' row is now graded more sharply than \emph{functional}: at the junction level the
+correspondence is proven non-identical --- Resurrectio is a conformal scale-reset of \emph{double-layer}
+type, not a thin shell (Companion Volume, Part III). Ricci Flow is an intrinsic equation:
 \[
  \partial_tg=-2\Ric.
 \]
@@ -763,18 +638,6 @@ and the balance becomes
 \[
  \sigma+\lambda=C_0+\Grec(t).
 \]
-With embodied Sophia one may write the refined balance
-\[
- \sigma+\lambda+\lambda_{\rm form}
- =
- C_0+\Grec(t),
-\]
-where the folding channel satisfies, schematically,
-\[
- \dot\lambda_{\rm form}
- \sim
- \eta_{\rm fold}Q_{\rm fold}\lambda.
-\]
 
 Thus Sophia is not merely curvature, not merely entropy, and not merely resistance. It is transmuted resistance nourished by received grace.
 
@@ -791,25 +654,13 @@ Once Sophia exists, it acts geometrically:
 
 This is the layered order of the comparison:
 \[
-\begin{aligned}
-&\text{Core gives Sophia;}
-\quad
-\text{Sophia drives Brim;}\\
-&\text{Brim changes geometry;}
-\quad
-\text{geometry admits a Ricci comparison.}
-\end{aligned}
-\]
-With folding included, the order becomes
-\[
-\begin{aligned}
-&\text{Core gives Sophia;}
-\quad
-\text{Sophia expands Brim;}\\
-&\text{excess Sophia folds shape;}
-\quad
-\text{folded geometry redistributes curvature.}
-\end{aligned}
+ \text{Core gives Sophia;}
+ \qquad
+ \text{Sophia drives Brim;}
+ \qquad
+ \text{Brim changes geometry;}
+ \qquad
+ \text{geometry admits a Ricci comparison.}
 \]
 
 \section{Why the Geometry-First Order Is Better}
@@ -828,9 +679,7 @@ Thus the correct explanatory order is:
  \longrightarrow
  \text{flow comparison}
  \longrightarrow
- \text{folding}
- \longrightarrow
- \text{possible surgery / continuation}.
+ \text{surgery / continuation}.
 \]
 
 This order matches the present architecture of \VFS{}:
@@ -866,20 +715,6 @@ The ratio between the two is
 \[
  \xi=\alpha\lambda\Omega_P.
 \]
-When Sophia also enters the shape channel, the live-surface becomes
-\[
- g_{\Sigma}^{\rm fold}(t)
- =
- \Omega_P(t)^2(\widehat g_0+q_{\rm fold}(t)e_1),
-\]
-and its leading scalar curvature is
-\[
- R_{\Sigma}^{\rm fold}
- =
- -\frac{2}{\Omega_P^2}
- +
- \rho_1Q_{\rm fold}.
-\]
 
 Thus:
 \[
@@ -890,7 +725,7 @@ while
  \text{Brim-Flow is Sophia-driven curvature relaxation.}
 \]
 
-Sophianic Folding appears before any surgical analogy: it is regular curvature redistribution through shape transformation. Perelman surgery then appears not as the foundation of \VFS{}, but only as a final structural analogy for controlled continuation after genuine degeneration. In \VFS{}, this continuation is Resurrectio: the Brim is enlarged, curvature is released, and participation continues toward Pleroma Christi.
+Perelman surgery then appears not as the foundation of \VFS{}, but as a final structural analogy: controlled cutting for continuation. In \VFS{}, this continuation is Resurrectio: the Brim is enlarged, curvature is released, and participation continues toward Pleroma Christi.
 
 \section*{Compact Summary}
 
@@ -923,33 +758,23 @@ R_{\Sigma}=-\frac{2}{\Omega_P^2}.
 \]
 
 \[
+\text{Entropy criterion:}
+\qquad
+\text{a Perelman entropy exists}\iff\xi=\alpha\lambda\Omega_P=1.
+\]
+
+\[
+\text{Conserved form:}
+\qquad
+\frac{d}{dt}\bigl(K\,dA\bigr)=0
+\qquad
+(\text{curvature diluted, not destroyed}).
+\]
+
+\[
 \text{Open-Gate forcing:}
 \qquad
 \sigma+\lambda=C_0+\Grec(t).
-\]
-
-\[
-\text{Embodied-Sophia balance:}
-\qquad
-\sigma+\lambda+\lambda_{\rm form}=C_0+\Grec(t).
-\]
-
-\[
-\text{Folding metric:}
-\qquad
- g_{\Sigma}^{\rm fold}=\Omega_P^2(\widehat g_0+q_{\rm fold}e_1).
-\]
-
-\[
-\text{Folded curvature:}
-\qquad
- R_{\Sigma}^{\rm fold}= -\frac{2}{\Omega_P^2}+\rho_1Q_{\rm fold}.
-\]
-
-\[
-\text{Regular folding domain:}
-\qquad
-0<Q_{\rm fold}<q_{\max}^2.
 \]
 
 \[
@@ -964,24 +789,21 @@ R_{\Sigma}=-\frac{2}{\Omega_P^2}.
 \right]>0.
 \]
 
+\[
+\text{Invariant jump data (Volume, Part III):}
+\qquad
+\bigl(s_R,\,[K]\bigr),
+\qquad
+[K]=\frac{2\alpha}{\Omega_P^-}
+\left(\frac{\lambda^-+m_R}{s_R}-\lambda^-\right).
+\]
+
 Final formulation:
 \[
-\begin{aligned}
-&\text{V.F.S. is not Ricci Flow;}\\
-&\text{its Brim-Flow Geometry admits a Ricci-like comparison.}
-\end{aligned}
+\text{V.F.S. is not Ricci Flow, but its Brim-Flow Geometry admits a Ricci-like comparison.}
 \]
 \[
-\begin{aligned}
-&\text{Sophianic Folding is bifurcation, not surgery;}\\
-&\text{it stabilizes curvature by re-forming shape.}
-\end{aligned}
-\]
-\[
-\begin{aligned}
-&\text{Perelman surgery remains a late analogy;}\\
-&\text{V.F.S. Resurrectio continues participation after death-like closure.}
-\end{aligned}
+\text{Perelman surgery continues geometry after singularity; V.F.S. Resurrectio continues participation after death-like closure.}
 \]
 
 \end{document}

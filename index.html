@@ -636,11 +636,14 @@
         </div>
 
         <h2 id="ricci-analogy-section">Structural Differences with Ricci Flow</h2>
-        <blockquote>In a room analogy, Ricci flow resembles the continual geometric ordering of a cluttered room: objects are rearranged, compressed into cleaner regions, and pathological piles may require surgery. V.F.S. Open-Gate is different: the room itself expands, so the same contents no longer exert the same pressure. When folding occurs, the room is not merely larger; its internal architecture changes, turning former clutter into shelves, niches, or embodied structure.</blockquote>
-        <!-- <div class="btn-group">
+        <blockquote>In a room analogy, Ricci flow resembles the continual geometric ordering of a cluttered room: objects are rearranged, compressed into cleaner regions, and pathological piles may require surgery. V.F.S. Open-Gate is different: the room itself expands, so the same contents no longer exert the same pressure. 
+            When folding occurs, the room is not merely larger; its internal architecture changes, turning former clutter into shelves, niches, or embodied structure.
+            And the clutter itself is never annihilated, only thinned: as the room grows, the same curvature is spread across an ever larger space — disorder is not destroyed but diluted into insignificance, which is <strong>privatio boni</strong> stated geometrically.
+        </blockquote>
+        <div class="btn-group">
             <a href="docs/vfs_ricci.pdf" class="vfs-btn" target="_blank" data-name="VFS Ricci PDF">VFS Ricci Analogy (PDF)</a>
             <a href="docs/vfs_ricci.tex" class="vfs-btn" target="_blank" data-name="VFS Ricci LaTeX">VFS Ricci Analogy (LaTeX)</a>
-        </div> -->
+        </div>
 
         <h2 id="concepts-section">Core Concepts</h2>
         <ul style="padding-left: 20px; margin-bottom: 25px; list-style-type: square;">
@@ -768,61 +771,46 @@
         <div class="modal-container">
             <span id="modal-close-btn" class="modal-close">&times;</span>
             <div class="mermaid">
-                flowchart TD
-                %% V.F.S. v2.0 Open-Gate — website overview
+            flowchart TD
+                %% V.F.S. v2.0 Open-Gate — website overview (simplified)
 
                 E0["Imago Dei<br/>ℰ₀"]
 
                 subgraph CORE["Core Dynamics"]
                     V["Will<br/>V"] --> U["Synergy<br/>u = √(VF+ε)"]
                     F["Action<br/>F"] --> U
-
-                    SIG["Resistance<br/>σ"] --> X["Threshold Coordinate<br/>x = u − σ"]
+                    SIG["Resistance<br/>σ"] --> X["Threshold<br/>x = u − σ"]
                     U --> X
-
-                    X --> FL["Filtrum Lucis<br/>light transmissivity"]
-                    U --> SYN["Gratia Synergica<br/>Syn(u)"]
-
-                    FL --> P["Pleroma / Fullness<br/>P(t)"]
-                    SYN --> P
+                    X -->|"Filtrum Lucis"| P["Pleroma / Fullness<br/>P(t)"]
+                    U -->|"Gratia Synergica"| P
                 end
 
-                E0 -. "ontological ground" .-> V
-                E0 -. "ontological ground" .-> F
-                E0 -. "horizon of fullness" .-> P
+                E0 -. "ontological ground" .-> CORE
 
                 subgraph GATE["Open-Gate Reception"]
-                    G["Open-Gate Grace<br/>ζ₀ > 0"] --> IG["Received Grace<br/>I_gate"]
-                    U --> REC["Receptivity / Openness<br/>H_K, consent"]
-                    REC -->|"opens the gate"| IG
-
+                    G["Open-Gate Grace<br/>ζ₀ > 0"] -->|"opened by receptivity<br/>and consent"| IG["Received Grace<br/>I_gate"]
                     IG -->|"lifelong inflow"| L["Sophia<br/>λ"]
                     SIG -->|"kathartic transmutation"| L
                 end
 
                 subgraph CRISIS["Crisis and Resurrectio"]
-                    X -->|"closure / death-threshold"| C["Singular Crisis"]
-                    C --> KEN["Kenosis"]
-                    KEN --> TET["Tetelestai"]
-                    TET --> SEP["In Sepulchro<br/>hidden transformation"]
-                    SEP --> RES["Resurrectio / Anastasis<br/>hybrid reset"]
-
+                    X -->|"death-threshold"| C["Kenosis · Tetelestai ·<br/>In Sepulchro"]
+                    C --> RES["Resurrectio<br/>hybrid reset"]
                     RES -->|"σ ↓, λ ↑"| L
-                    RES -->|"ΩP reset<br/>+ κR · G_recepta"| B
+                    RES -->|"ΩP + κR·G_recepta"| B
                 end
 
                 subgraph EXPANSION["Brim and Epektasis"]
-                    L -->|"continuous expansion<br/>Ω̇P = αλ"| B["Brim<br/>ΩP(t)"]
-                    IG -. "receptive support" .-> B
-
-                    B --> E["Epektasis<br/>expanding receptivity"]
+                    L -->|"Ω̇P = αλ"| B["Brim<br/>ΩP(t)"]
+                    B --> E["Epektasis"]
                     E --> PC["Pleroma Christi"]
-
-                    B -. "expanded capacity<br/>enables more P" .-> P
+                    B -. "expanded capacity" .-> P
                 end
 
-                P -. "diagnostic layer" .-> D["Derivative Markers<br/>S=Ṗ, A=P̈, K=P⁽³⁾, An=P⁽⁴⁾"]
-                D -. "signals emergence,<br/>does not replace reset" .-> RES
+                E0 -. "horizon of fullness" .-> PC
+
+                P -. "diagnostic markers<br/>Ṗ, P̈, P⁽³⁾, P⁽⁴⁾" .-> D["Derivative Layer"]
+                D -. "signals emergence" .-> RES
             </div>
         </div>
     </div>

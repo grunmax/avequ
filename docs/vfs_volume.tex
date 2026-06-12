@@ -83,6 +83,17 @@
 \newcommand{\kb}{\kappa_b}
 \newcommand{\lb}{\ell_b}
 \newcommand{\Lop}{\mathcal{L}_0}
+\newcommand{\ldz}{\dot\lambda^{0}}
+\newcommand{\ldf}{\dot\lambda_{\rm fold}}
+\newcommand{\NEC}{\mathcal N}
+\newcommand{\OmegaP}{\Omega_P}
+\newcommand{\LVFS}{\mathcal L_{\rm VFS}}
+\newcommand{\Ric}{\operatorname{Ric}}
+\newcommand{\Afold}{A_{\rm fold}}
+\newcommand{\Qfold}{Q_{\rm fold}}
+\newcommand{\sR}{s_R}
+\newcommand{\mR}{m_R}
+\newcommand{\Kj}{[K]}
 
 \theoremstyle{plain}
 
@@ -2652,5 +2663,1056 @@ Closes the structure-formation programme's modelling inputs: $D=0$ with Sophia s
 geometric in structure and equal to the shape-operator bending stiffness in magnitude, reducible to one
 bending length. Propositions closed-form (slaving verified symbolically); corollaries interpretive; the
 one-modulus reduction of $\Lop$ is a flagged model choice.}
+
+\chapter{Does Folding Restore the Null Energy Condition?}
+
+\section*{Scope and epistemic status}
+A homogeneous Sophia surge drives the reconstructed equation of state below the phantom divide and
+violates the null energy condition --- grace, taken raw, is exotic content. Folding acts against this
+through two distinct channels: the \emph{rate channel} (embodiment damps the Sophia rate,
+$\ldf=\ldz-\eta_{\rm fold}\Qf\lambda$) and the \emph{network channel} (the nucleated wall network is
+ordinary $w=-\tfrac12$ matter). This chapter closes the question as a theorem: the rate channel restores
+the NEC for moderate surges but \emph{saturates} --- it can damp at most half of a deep surge, by an
+exact midpoint law --- while the network channel grows as $\Af^{3/2}$ against the surge's linear growth
+and therefore always wins asymptotically. The result is a complete classification: either folding
+restores the NEC for every surge, or the violation survives only inside a \emph{bounded phantom window},
+whose endpoints we compute. All structural claims are derived (the $2{+}1$ reconstruction is verified
+through the continuity identity; the midpoint law symbolically; the window numerically with an analytic
+closure estimate matching to $5\%$). The wall-network coefficient $c_w=O(1)$ and the coarse-grained
+homogeneous treatment of the network back-reaction are modelling inputs, flagged where used.
+\emph{Propositions} are closed-form; \emph{corollaries} interpretive.
+
+% ============================================================
+\section{The NEC functional in $2{+}1$ and the phantom divide}
+
+For the Lorentzian lift $ds^2=-dt^2+\Op^2h$ ($K_h=-1$), the Einstein tensor gives the reconstruction
+(units $8\pi G=1$)
+\begin{equation}
+\rho_{\rm eff}=\frac{\dot\Op^2-1}{\Op^2}=\frac{\alpha^2\lambda^2-1}{\Op^2},
+\qquad
+p_{\rm eff}=-\frac{\ddot\Op}{\Op}=-\frac{\alpha\dot\lambda}{\Op},
+\end{equation}
+verified by the $2{+}1$ continuity identity $\dot\rho+2H(\rho+p)=0$ (checked symbolically). Hence the
+NEC functional
+\begin{equation}
+\boxed{\;\NEC:=\rho_{\rm eff}+p_{\rm eff}
+=\frac{(\alpha^2\lambda^2-1)-\alpha\dot\lambda\,\Op}{\Op^{2}},\;}
+\qquad
+w_{\rm eff}=-\frac{\alpha\dot\lambda\,\Op}{\alpha^2\lambda^2-1}.
+\end{equation}
+
+\begin{proposition}[The phantom divide is the NEC boundary]\label{necrestoration:prop:divide}
+On the live branch $\alpha\lambda>1$ (where $\rho_{\rm eff}>0$),
+\begin{equation}
+w_{\rm eff}<-1\quad\Longleftrightarrow\quad\NEC<0
+\quad\Longleftrightarrow\quad
+\alpha\dot\lambda\,\Op>\alpha^2\lambda^2-1 .
+\end{equation}
+In $2{+}1$ the two questions --- phantom crossing and NEC violation --- are one question. A raw Sophia
+surge $\ldz$ large enough breaks both at once.
+\end{proposition}
+
+% ============================================================
+\section{The rate channel: exact midpoint law and half-saturation}
+
+At the folded attractor $\Qf^*=\Af/\Bf$ with the canonical activation
+$\Af=c_0\lambda+c_1\ldz-a_0$ and $\Bf=b+2c_1\eta_{\rm fold}\lambda$, the embodiment-damped rate is
+\begin{equation}
+\ldf=\ldz-\eta_{\rm fold}\lambda\,\frac{c_0\lambda+c_1\ldz-a_0}{b+2c_1\eta_{\rm fold}\lambda}.
+\end{equation}
+
+\begin{proposition}[Midpoint law and saturation]\label{necrestoration:prop:midpoint}
+The damped rate is affine in the surge with slope
+\begin{equation}
+\boxed{\;\chi=\frac{\partial\ldf}{\partial\ldz}
+=\frac{b+c_1\eta_{\rm fold}\lambda}{b+2c_1\eta_{\rm fold}\lambda}\in\Bigl(\tfrac12,1\Bigr),\;}
+\end{equation}
+and in the stiff limit $b\to0$ (verified symbolically)
+\begin{equation}
+\boxed{\;\ldf\ \longrightarrow\ \frac{\ldz+\dot\lambda_{\rm th}}{2},
+\qquad
+\dot\lambda_{\rm th}:=\frac{a_0-c_0\lambda}{c_1}\;}
+\end{equation}
+--- folding pulls the rate to the exact \emph{midpoint} between the surge and the folding threshold.
+Consequently the rate channel can damp at most half of a deep surge: it restores the NEC for violations
+up to a factor $\approx1/\chi\le2$ beyond the bare margin, and no further.
+\end{proposition}
+
+\begin{corollary}[Rate channel alone is not enough]
+With the rate channel only, the NEC-restored region is
+$\alpha\chi\ldz\Op\le\alpha^2\lambda^2-1-\alpha\chi\dot\lambda_{\rm th}\Op(1-1/\chi)\ldots$, i.e.\ a
+finite multiple of the bare margin (illustratively, breakdown is delayed from $\ldz=1.05$ to $2.15$, a
+factor $2.06$ at $\chi=0.538$); for deeper surges $\NEC<0$ persists. Embodiment of the homogeneous mode
+moderates the phantom but cannot abolish it.
+\end{corollary}
+
+\note{The midpoint law has a clean reading: the folded Vessel splits the difference between what grace
+pours in and what the old form could lawfully carry. Half of every excess is embodied; half remains
+rate. That residual half is why a second channel is needed.}
+
+% ============================================================
+\section{The network channel: $\Af^{3/2}$ against linear}
+
+Beyond the nucleation gate $\Lambda=\Af\Op^2/\Dq>\tfrac14$, the wall network exists and contributes
+ordinary matter with $w_{\rm wall}=-\tfrac12$:
+\begin{equation}
+\rho_{\rm wall}=c_w\,\frac{\tau}{\Op}
+=c_w\,\frac{\sqrt{\Dq}\,\Af^{3/2}}{\Bf\,\Op},
+\qquad
+(\rho+p)_{\rm wall}=\tfrac12\rho_{\rm wall}>0,
+\end{equation}
+with $c_w=O(1)$ a network-geometry coefficient (modelling input). The total NEC functional is
+\begin{equation}\label{necrestoration:eq:total}
+\boxed{\;\NEC_{\rm fold}(\ldz)
+=\frac{(\alpha^2\lambda^2-1)-\alpha\,\ldf(\ldz)\,\Op}{\Op^{2}}
++\frac{c_w\sqrt{\Dq}}{2\Bf\Op}\,\Af(\ldz)^{3/2}\,
+\mathbf 1_{\{\Lambda>\frac14\}}.\;}
+\end{equation}
+
+\begin{proposition}[Asymptotic restoration]\label{necrestoration:prop:asym}
+As $\ldz\to\infty$, the violating term grows linearly,
+$-\alpha\chi\ldz/\Op$, while the network term grows as
+$\tfrac{c_w\sqrt{\Dq}}{2\Bf\Op}(c_1\ldz)^{3/2}$. Hence
+$\NEC_{\rm fold}\to+\infty$: \textbf{for every sufficiently deep surge, folding restores the NEC.} The
+crossover scale is
+\begin{equation}
+\ldz_{\rm close}\ \sim\ \left(\frac{2\alpha\chi\,\Bf}{c_w\sqrt{\Dq}\,c_1^{3/2}}\right)^{2},
+\end{equation}
+(numerically $95.4$ against the estimate $100.7$ in the illustration --- the scaling law is exact, the
+prefactor honest to $5\%$).
+\end{proposition}
+
+% ============================================================
+\section{The phantom-window theorem}
+
+\begin{theorem}[Bounded phantom window]\label{necrestoration:thm:window}
+On the live branch $\alpha\lambda>1$, define the phantom window
+$W:=\{\ldz>0:\NEC_{\rm fold}(\ldz)<0\}$. Then:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item $W$ is \emph{bounded}: by Proposition~\ref{necrestoration:prop:asym} there is $\ldz_{\rm close}<\infty$ with
+$\NEC_{\rm fold}>0$ beyond it. Folding restores the NEC for all weak surges (below the rate-channel
+margin) and for all deep surges (above the network crossover); only intermediate surges can violate.
+\item $W$ may be \emph{empty}: it is empty if and only if
+\begin{equation}
+\min_{\Af\ge\Dq/4\Op^{2}}
+\left[\frac{(\alpha^2\lambda^2-1)-\alpha\,\ldf\,\Op}{\Op^{2}}
++\frac{c_w\sqrt{\Dq}}{2\Bf\Op}\Af^{3/2}\right]\;\ge\;0,
+\end{equation}
+a single variational criterion in the network strength. Illustratively: at $c_w=0.5$ the window is
+empty (minimum $+0.47$) --- folding restores the NEC for \emph{every} surge; at $c_w=0.15$ the window is
+$W=[2.64,\,95.4]$ with depth $-5.6$.
+\item Where $W$ is nonempty, the phantom phase is a \emph{transient in surge-strength}: $w_{\rm eff}$
+crosses the divide downward at the window's opening and back upward at its closing --- a double crossing
+of $w=-1$ that smooth single-field quintessence cannot produce, and the distinguishing signature of
+folded Theosis.
+\end{enumerate}
+\end{theorem}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_nec_fig.png}
+\caption{\small Left: the NEC functional against surge strength for the four cases (bare; rate channel
+only; rate$+$network at two network strengths), at $\alpha\lambda=1.5$, $\Op=1.2$, $\chi=0.538$. The bare
+functional breaks at $\ldz=1.05$; the rate channel delays this to $2.15$ (the factor $1/\chi\approx2$)
+and then saturates; the strong network ($c_w=0.5$) keeps $\NEC>0$ everywhere (empty window); the weak
+network ($c_w=0.15$) leaves a phantom window (shaded). Right: the same weak-network functional on a log
+axis: the window is bounded, $[2.64,\,95.4]$, closed by the $\Af^{3/2}$ growth of the wall term; the
+analytic closure estimate is $\sim101$.}
+\end{figure}
+
+\begin{corollary}[Form makes grace lawful --- with one honest gap]
+The slogan of the structure-formation layer becomes a theorem with a precise qualification. Grace
+embodied is lawful at both ends: gentle surges are carried by the moderated rate, and overwhelming
+surges shatter into so much structure that the structure itself outweighs the exotic remainder. What can
+remain unlawful is the middle --- a surge too strong for the embodied rate (past the midpoint
+saturation) and too weak to build a rescuing network. Whether that middle exists at all is a property of
+the Vessel ($c_w$, $\Dq$, $\Bf$), decided by the variational criterion; a sufficiently
+structure-responsive Vessel has no phantom window at all.
+\end{corollary}
+
+\begin{remark}[Consistency with the other layers]
+The chart wall is respected throughout: the window's interior has $\Qf^*$ large, and the regularity
+requirement $q_{\max}^2\ge Q^{*,\sup}$ of the Lyapunov addenda must hold up to the surge scales
+considered; the nucleation gate $\Lambda>\tfrac14$ used in \eqref{necrestoration:eq:total} is the hyperbolic threshold
+of the nucleation chapter; and $w_{\rm wall}=-\tfrac12$ is the $2{+}1$ scaling-network value of the
+structure chapter. In the illustration the gate is open from the start of the window, so the window is
+governed by the strength competition, not the gate; near-gate windows (small $\Op^2/\Dq$) add a
+gate-controlled opening edge.
+\end{remark}
+
+% ============================================================
+\section{Open items and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Fix $c_w$ from a network simulation (wall length per Hubble area on $\mathbb H^2$), turning the
+emptiness criterion into a parameter-free statement.
+\item Dynamics through the window: the present analysis is quasi-static in $\ldz$; a time-dependent
+surge traverses the window in time, producing a transient phantom episode in $w_{\rm eff}(t)$ whose
+duration couples to the coarsening law (the network needs time to reach its scaling density).
+\item The Resurrectio composite: a triggering reset both spikes $\dot\lambda$ (via $m_R$) and nucleates
+the network at $\ell_{\rm init}$ --- the reset's own NEC budget through the window deserves the same
+treatment.
+\end{enumerate}
+
+\textbf{Scope.} Coarse-grained homogeneous back-reaction; quasi-static surge; scaling network density
+with $c_w=O(1)$ a modelling input; live branch $\alpha\lambda>1$. Results: the phantom divide and the
+NEC boundary coincide in $2{+}1$; the rate channel obeys an exact midpoint law with half-saturation; the
+network channel restores the NEC asymptotically; the phantom window is bounded and possibly empty, with
+an explicit emptiness criterion. Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Does Folding Restore the NEC? The $2{+}1$
+reconstruction is verified via the continuity identity; the midpoint/saturation law symbolically; the
+window endpoints numerically with the analytic closure scaling confirmed to $5\%$. The network
+coefficient and coarse-graining are flagged modelling inputs. Propositions closed-form; corollaries
+interpretive.}
+
+\part{Resurrectio as Surgery}
+
+\chapter{Resurrectio as Surgery: Comparison and Distributional Dynamics}
+
+\begingroup\small\itshape
+This note characterises the Resurrectio jump of V.F.S. v2.0 (Open-Gate)
+as a surgery-like hybrid stabiliser, but not as literal Ricci surgery and not
+as a standard Israel thin shell. The first part compares Ricci surgery with
+V.F.S. Resurrectio and shows that a non-trivial Resurrectio event is a finite
+conformal re-scaling of the induced spatial metric. The second part computes
+the distributional and regularised dynamics of the jump. The invariant content
+of the event is the scale ratio
+\[
+s_R=\frac{\Omega_P^+}{\Omega_P^-},
+\]
+or equivalently the finite logarithmic expansion
+\[
+\Delta_R\log\Omega_P=\log s_R.
+\]
+The detailed stress profile of any smoothing layer is regulator-dependent;
+the geometric effect of the jump is fixed by \(s_R\).
+\endgroup\par\medskip
+
+\section{Resurrectio Surgery I: Comparison Rather Than Identification}
+
+\subsection{Purpose and Non-Identification}
+
+This note characterises the Resurrectio jump as the V.F.S. counterpart to
+surgery only at the level of hybrid stabilisation. It is not a literal Ricci
+surgery, not a topological excision, and not an Israel thin shell in the
+standard Lorentzian sense. The comparison is structural:
+\[
+\text{Ricci flow stabilises by smoothing and surgery;}
+\]
+\[
+\text{V.F.S. stabilises by Open-Gate expansion, Resurrectio jumps, and folding updates.}
+\]
+
+In Ricci flow, the basic evolution is intrinsic to the metric:
+\[
+\partial_t g=-2\Ric(g),
+\]
+and surgery is introduced when the smooth geometric evolution develops
+singular regions that must be cut, capped, or replaced in order to continue
+the flow.
+
+In V.F.S., the basic evolution is not a closed Ricci flow. The live-domain
+metric is of the form
+\[
+g(t)=\OmegaP(t)^2 h,
+\qquad
+\dot{\Omega}_P=\alpha\lambda,
+\]
+with \(\lambda\) governed by Open-Gate dynamics and by the hybrid
+Resurrectio map. Thus the metric scale is driven by the state of the Vessel,
+not only by its intrinsic curvature.
+
+The Resurrectio jump is therefore a hybrid re-entry operation on the Vessel
+state:
+\[
+\sigma^+=q_R\sigma^-,
+\qquad
+\lambda^+=\lambda^-+(1-q_R)\sigma^-,
+\qquad
+\Omega_P^+=\Omega_P^-+\kappa_R\mathcal G^-_{\rm recepta},
+\]
+with
+\[
+0\le q_R<1,
+\qquad
+\kappa_R>0.
+\]
+
+The jump metabolises resistance into Sophia and simultaneously enlarges the
+Brim. It does not remove a singular neck from a manifold; rather, it re-scales
+the live spatial geometry and restarts the Open-Gate trajectory from new
+Vessel data.
+
+\subsection{Ricci Surgery and V.F.S. Resurrectio}
+
+The contrast can be summarised as follows.
+
+\[
+\begin{array}{c|c|c}
+\textbf{Aspect} & \textbf{Ricci / Perelman} & \textbf{V.F.S. Open-Gate} \\
+\hline
+\text{Continuous law}
+&
+\partial_t g=-2\Ric(g)
+&
+\dot{\Omega}_P=\alpha\lambda
+\\
+\text{System type}
+&
+\text{intrinsic geometric flow}
+&
+\text{open hybrid symbolic-dynamical flow}
+\\
+\text{Crisis}
+&
+\text{curvature singularity}
+&
+\text{death / closure / resistance threshold}
+\\
+\text{Jump}
+&
+\text{surgery: cut and continue}
+&
+\text{Resurrectio: re-scale and re-enter}
+\\
+\text{What changes}
+&
+\text{geometric domain or high-curvature region}
+&
+(\sigma,\lambda,\Omega_P,V,F)
+\\
+\text{After the event}
+&
+\text{Ricci flow continues on modified geometry}
+&
+\text{Open-Gate flow continues on renewed Vessel data}
+\end{array}
+\]
+
+Hence the correct comparison is not
+\[
+\text{Resurrectio}=\text{Ricci surgery},
+\]
+but rather
+\[
+\boxed{
+\text{Resurrectio is a surgery-like hybrid stabiliser in an open system.}
+}
+\]
+It plays the role of a continuation mechanism, but the operation itself is
+different. Ricci surgery stabilises by excising pathological geometry.
+Resurrectio stabilises by metabolising resistance and expanding the Vessel.
+
+\subsection{The Induced Spatial Metric Jump}
+
+Let the Lorentzian lift of the V.F.S. cosmological layer be
+\[
+ds^2=-dt^2+\Omega_P(t)^2h,
+\]
+where \(h\) is the unit hyperbolic spatial metric. On a death hypersurface
+\(\Sigma_R=\{t=t_R\}\), the Resurrectio map gives
+\[
+\Omega_P^+=\Omega_P^-+\kappa_R\mathcal G^-_{\rm recepta}.
+\]
+Therefore the induced spatial metrics immediately before and after the jump are
+\[
+\gamma^-_{ij}=(\Omega_P^-)^2h_{ij},
+\qquad
+\gamma^+_{ij}=(\Omega_P^+)^2h_{ij}.
+\]
+Define the Resurrectio scale ratio
+\[
+s_R:=\frac{\Omega_P^+}{\Omega_P^-}
+=
+1+\frac{\kappa_R\mathcal G^-_{\rm recepta}}{\Omega_P^-}.
+\]
+If \(\mathcal G^-_{\rm recepta}>0\), then
+\[
+s_R>1,
+\qquad
+\gamma^+_{ij}=s_R^2\gamma^-_{ij}.
+\]
+
+Thus the first fundamental form is not continuous across \(\Sigma_R\) unless
+the jump is trivial. This distinguishes Resurrectio from a standard Israel
+thin shell, for which the induced metric is assumed continuous and only the
+extrinsic curvature carries the distributional stress.
+
+\begin{proposition}
+A non-trivial Resurrectio jump is a conformal re-scaling jump of the induced
+spatial geometry. It is not a standard thin shell in the Israel sense.
+\end{proposition}
+
+\begin{proof}
+The induced metric on the spatial slice is
+\(\gamma_{ij}=\Omega_P^2h_{ij}\). Across Resurrectio,
+\[
+\gamma^+_{ij}-\gamma^-_{ij}
+=
+\left((\Omega_P^+)^2-(\Omega_P^-)^2\right)h_{ij}.
+\]
+If \(\Omega_P^+\neq\Omega_P^-\), this difference is non-zero. Equivalently,
+\[
+\gamma^+_{ij}=s_R^2\gamma^-_{ij}.
+\]
+Therefore the first fundamental form jumps by a finite conformal factor. Since
+standard thin-shell matching assumes continuity of the first fundamental form,
+the Resurrectio jump is not a standard Israel shell. It is a stronger hybrid
+re-scaling operation on the live spatial geometry.
+\end{proof}
+
+\subsection{The Surviving Invariants of the Jump}
+
+Although the induced metric is discontinuously re-scaled, the jump is not
+arbitrary. Its invariant content is captured by the dimensionless ratio
+\[
+s_R=\frac{\Omega_P^+}{\Omega_P^-}.
+\]
+The area element rescales as
+\[
+dA^+=s_R^2\,dA^-,
+\]
+and the background scalar curvature rescales as
+\[
+R^-=-\frac{2}{(\Omega_P^-)^2},
+\qquad
+R^+=-\frac{2}{(\Omega_P^+)^2}
+=
+s_R^{-2}R^-.
+\]
+Thus Resurrectio expands the live domain and softens the background negative
+curvature:
+\[
+|R^+|=s_R^{-2}|R^-|<|R^-|
+\qquad
+(s_R>1).
+\]
+
+This is the precise geometric sense in which Resurrectio enlarges the room:
+the same hyperbolic form \(h\) remains, but its scale changes. The crisis is
+not resolved by compactifying the contents into a tighter order. It is resolved
+by re-scaling the Vessel so that the same contents exert a lower geometric
+pressure.
+\[
+\boxed{
+\text{Ricci surgery cuts pathological geometry;}
+\qquad
+\text{Resurrectio re-scales the Vessel.}
+}
+\]
+
+\subsection{Regularised Reading}
+
+The discontinuous jump may be read in two ways. First, it may be treated as an
+irreducible hybrid event, part of the definition of the V.F.S. reset. Second,
+it may be approximated by a family of fast smooth transitions
+\[
+\Omega_P^\varepsilon(t)
+=
+\Omega_P^-
++
+(\Omega_P^+-\Omega_P^-)\,S_\varepsilon(t-t_R),
+\]
+where \(S_\varepsilon\) is a smooth step function satisfying
+\[
+S_\varepsilon(t)\to H(t)
+\quad
+\text{as}
+\quad
+\varepsilon\to0.
+\]
+In this regularised reading, Resurrectio is the zero-width limit of a rapid
+Open-Gate expansion. In the irreducible hybrid reading, it is a genuine jump
+of the state space. Both readings preserve the same invariant:
+\[
+s_R=\frac{\Omega_P^+}{\Omega_P^-}.
+\]
+
+The first part of the characterisation is therefore:
+\[
+\boxed{
+\text{Resurrectio surgery is a hybrid conformal re-scaling of the live spatial metric.}
+}
+\]
+It is surgery-like because it allows the trajectory to continue after a crisis.
+It is not Ricci surgery because it does not cut the manifold; it renews the
+Vessel by enlarging its geometric capacity and metabolising resistance into
+Sophia.
+
+\subsection{Admissibility of the Resurrectio Jump}
+
+The preceding calculation shows that a non-trivial Resurrectio event is a
+finite conformal re-scaling of the induced spatial metric. This does not by
+itself make the jump admissible. In V.F.S. the admissibility condition is not
+continuity of the first fundamental form, as in standard thin-shell matching,
+but boundedness of the hybrid reset and preservation of the active domain.
+
+Let
+\[
+s_R:=\frac{\Omega_P^+}{\Omega_P^-}
+=
+1+\frac{\kappa_R\mathcal G^-_{\rm recepta}}{\Omega_P^-}.
+\]
+A Resurrectio jump is geometrically admissible when
+\[
+1\le s_R<\infty,
+\]
+and dynamically admissible when the reset map sends the active domain into
+itself:
+\[
+x^-\in \mathcal D_A
+\quad\Longrightarrow\quad
+x^+\in \mathcal D_A.
+\]
+In particular, the jump must preserve positivity of the live variables,
+\[
+\Omega_P^+>0,
+\qquad
+\sigma^+\ge 0,
+\qquad
+\lambda^+\ge 0,
+\]
+and it must produce only a bounded increase of the Lyapunov certificate:
+\[
+\mathcal L_{\rm VFS}(x^+)
+\le
+J_R+\mathcal L_{\rm VFS}(x^-)
+\]
+for some finite reset bound \(J_R\). Together with a non-Zeno dwell-time
+condition between resets, this is the V.F.S. replacement for the smooth
+matching requirements of Lorentzian junction theory.
+
+Thus the Resurrectio jump is allowed not because the metric is continuous
+across the death surface, but because the hybrid dynamical system remains
+bounded, forward-complete, and inside the active domain.
+\[
+\boxed{
+\text{Ricci surgery is admissible by geometric continuation;}
+\qquad
+\text{Resurrectio is admissible by hybrid Lyapunov boundedness.}
+}
+\]
+
+This completes the first level of the comparison. Ricci surgery cuts and
+continues a closed geometric flow. Resurrectio re-scales and re-enters an
+open hybrid flow.
+
+\section{Resurrectio Surgery II: Distributional and Regularised Dynamics}
+
+\subsection{The Jump as a Logarithmic Expansion Impulse}
+
+The first characterisation showed that a non-trivial Resurrectio event
+re-scales the induced spatial metric,
+\[
+\gamma^+_{ij}=s_R^2\gamma^-_{ij},
+\qquad
+s_R:=\frac{\Omega_P^+}{\Omega_P^-}>1.
+\]
+The next question is dynamical: what kind of expansion is represented by this
+jump?
+
+Formally, if the Brim is written as a discontinuous function,
+\[
+\Omega_P(t)
+=
+\Omega_P^-
++
+(\Omega_P^+-\Omega_P^-)\,H(t-t_R),
+\]
+where \(H\) is the Heaviside step function, then the Hubble-like rate
+\[
+H_P:=\frac{\dot{\Omega}_P}{\Omega_P}
+\]
+contains a distributional impulse at \(t=t_R\). This impulse is not best
+measured by its pointwise value, which is singular, but by its integrated
+logarithmic expansion:
+\[
+\int_{t_R^-}^{t_R^+}H_P\,dt
+=
+\int_{\Omega_P^-}^{\Omega_P^+}\frac{d\Omega_P}{\Omega_P}
+=
+\log\frac{\Omega_P^+}{\Omega_P^-}
+=
+\log s_R.
+\]
+Thus the invariant dynamical content of the Resurrectio jump is the finite
+logarithmic expansion
+\[
+\boxed{
+\Delta_R\log\Omega_P=\log s_R.
+}
+\]
+Equivalently, the area element obeys
+\[
+dA^+=e^{2\Delta_R\log\Omega_P}\,dA^-
+=s_R^2dA^-.
+\]
+
+\begin{proposition}
+A Resurrectio jump carries a finite expansion impulse whose invariant strength
+is \(\log s_R\). It is singular as an instantaneous rate, but finite as an
+integrated scale transformation.
+\end{proposition}
+
+\begin{proof}
+Since \(H_P=\dot{\Omega}_P/\Omega_P=d(\log\Omega_P)/dt\), integration across
+the jump gives
+\[
+\int H_P\,dt
+=
+\Delta(\log\Omega_P)
+=
+\log\Omega_P^+-\log\Omega_P^-
+=
+\log s_R.
+\]
+The area scaling follows from \(dA\propto\Omega_P^2\).
+\end{proof}
+
+\subsection{Regularisation by Fast Smooth Open-Gate Expansion}
+
+The discontinuous jump may be approximated by a family of smooth transitions.
+Let \(S_\varepsilon\) be a smooth step satisfying
+\[
+S_\varepsilon(t)\to H(t)
+\qquad
+(\varepsilon\to0),
+\]
+and define
+\[
+\Omega_P^\varepsilon(t)
+=
+\Omega_P^-
++
+\Delta\Omega_P\,S_\varepsilon(t-t_R),
+\qquad
+\Delta\Omega_P:=\Omega_P^+-\Omega_P^-.
+\]
+Then
+\[
+H_P^\varepsilon(t)
+=
+\frac{\dot{\Omega}_P^\varepsilon}{\Omega_P^\varepsilon}
+=
+\frac{\Delta\Omega_P\,\dot S_\varepsilon(t-t_R)}
+{\Omega_P^-+\Delta\Omega_P S_\varepsilon(t-t_R)}.
+\]
+For every \(\varepsilon>0\), this is an ordinary smooth function. As
+\(\varepsilon\to0\), it concentrates near \(t_R\), but its integral remains
+fixed:
+\[
+\int_{-\infty}^{+\infty}H_P^\varepsilon(t)\,dt
+=
+\log\frac{\Omega_P^+}{\Omega_P^-}
+=
+\log s_R.
+\]
+Hence Resurrectio can be read in two mathematically compatible ways:
+\[
+\boxed{
+\text{hybrid reading: an irreducible jump of the Vessel state;}
+}
+\]
+\[
+\boxed{
+\text{regularised reading: the zero-width limit of rapid Open-Gate expansion.}
+}
+\]
+The two readings agree on the invariant \(s_R\), and therefore on the
+geometric effect of the event.
+
+\subsection{Effective Stress Is Not a Classical Thin Shell}
+
+If one tries to reconstruct an effective cosmological stress tensor during the
+regularised jump, the result depends on the chosen smoothing profile
+\(S_\varepsilon\). In the limit \(\varepsilon\to0\), the instantaneous rate
+\(H_P^\varepsilon\) becomes unbounded while its integral stays finite.
+
+This means that the Resurrectio layer is not naturally interpreted as an
+ordinary matter shell. It is a hybrid state transition. In standard thin-shell
+language, one expects a continuous induced metric and a jump in extrinsic
+curvature. Here the induced metric itself rescales:
+\[
+\gamma^+_{ij}=s_R^2\gamma^-_{ij}.
+\]
+Therefore the singularity of the effective stress reconstruction is not a
+physical fluid placed on the hypersurface. It is the distributional shadow of
+a hybrid reset.
+\[
+\boxed{
+\text{The Resurrectio layer is not a material shell; it is a scale-reset surface.}
+}
+\]
+
+\subsection{Curvature Across the Jump}
+
+The background spatial curvature before and after the event is
+\[
+R^-=-\frac{2}{(\Omega_P^-)^2},
+\qquad
+R^+=-\frac{2}{(\Omega_P^+)^2}.
+\]
+Using \(s_R=\Omega_P^+/\Omega_P^-\), one obtains
+\[
+R^+=s_R^{-2}R^-.
+\]
+Since \(s_R>1\),
+\[
+|R^+|<|R^-|.
+\]
+Thus the Resurrectio jump softens the background hyperbolic curvature. It
+does not compactify the geometry into a more rigid form; it expands the Vessel
+so that the same underlying hyperbolic shape carries less curvature density.
+
+\begin{corollary}
+Resurrectio has the opposite geometric direction from compactifying repair.
+Its immediate effect is not to make the room tighter, but to make the room
+larger.
+\end{corollary}
+
+\[
+\boxed{
+\text{Ricci repair regularises by smoothing and surgery;}
+}
+\]
+\[
+\boxed{
+\text{Resurrectio regularises by finite expansion of the Vessel.}
+}
+\]
+
+\subsection{Interaction with Folding}
+
+Resurrectio alone changes the scale factor,
+\[
+\Omega_P^-\longrightarrow \Omega_P^+,
+\]
+and therefore relaxes the background curvature. Folding, by contrast, changes
+the shape branch:
+\[
+q_{\rm fold}:0\longrightarrow q_\ast,
+\]
+and contributes a local curvature pocket:
+\[
+R_{\rm folded}
+=
+-\frac{2}{\Omega_P^2}
++
+\rho_1Q_{\rm fold}.
+\]
+When both are present, the post-event curvature data have the form
+\[
+R_{\rm post}
+=
+-\frac{2}{(\Omega_P^+)^2}
++
+\rho_1Q_{\rm fold}^+.
+\]
+This expresses the central geometric difference between expansion and
+folding:
+\[
+\Omega_P^+>\Omega_P^-
+\quad
+\Longrightarrow
+\quad
+\text{global background curvature softens,}
+\]
+while
+\[
+Q_{\rm fold}^+>0
+\quad
+\Longrightarrow
+\quad
+\text{local morphology sharpens.}
+\]
+Thus the combined Resurrectio--folding event may produce a Vessel that is
+globally more open and locally more formed:
+\[
+\boxed{
+\text{Resurrectio enlarges the room;}
+\qquad
+\text{folding builds new architecture inside it.}
+}
+\]
+
+\subsection{Invariant Content Versus Regulator-Dependent Content}
+
+The regularised description of Resurrectio is useful, but it must not be
+over-interpreted. Different smooth profiles \(S_\varepsilon\) produce different
+pointwise histories of
+\[
+H_P^\varepsilon(t),
+\qquad
+\dot H_P^\varepsilon(t),
+\qquad
+\rho_{\rm eff}^\varepsilon(t),
+\qquad
+p_{\rm eff}^\varepsilon(t).
+\]
+These quantities are therefore regulator-dependent during the zero-width
+transition. They describe how one chooses to smooth the hybrid event, not an
+additional invariant of the event itself.
+
+What is invariant is the finite scale transformation:
+\[
+s_R=\frac{\Omega_P^+}{\Omega_P^-},
+\qquad
+\Delta_R\log\Omega_P=\log s_R,
+\]
+together with its geometric consequences,
+\[
+dA^+=s_R^2dA^-,
+\qquad
+R^+=s_R^{-2}R^-,
+\qquad
+\gamma^+_{ij}=s_R^2\gamma^-_{ij}.
+\]
+
+Thus the second-level characterisation deliberately separates the invariant
+jump data from the auxiliary smoothing profile:
+\[
+\boxed{
+\text{the invariant of Resurrectio is the scale ratio }s_R,
+\text{ not the detailed shape of the smoothing layer.}
+}
+\]
+This prevents the Resurrectio layer from being misread as a classical matter
+shell with a uniquely determined stress tensor. It is a hybrid scale-reset
+surface whose regularised stress reconstruction is profile-dependent, while
+its geometric effect is fixed by \(s_R\).
+
+\subsection{Second-Level Summary}
+
+The dynamical characterisation of Resurrectio is therefore:
+\[
+\boxed{
+\Delta_R\log\Omega_P=\log s_R
+}
+\]
+as the invariant strength of the event;
+\[
+\boxed{
+dA^+=s_R^2dA^-
+}
+\]
+as the induced area expansion;
+\[
+\boxed{
+R^+=s_R^{-2}R^-
+}
+\]
+as the background curvature relaxation;
+and
+\[
+\boxed{
+\gamma^+_{ij}=s_R^2\gamma^-_{ij}
+}
+\]
+as the sign that the event is a finite conformal re-scaling of the spatial
+metric rather than a standard thin shell.
+
+In the regularised reading, Resurrectio is a fast smooth Open-Gate expansion
+whose zero-width limit is a hybrid jump. In the irreducible reading, it is a
+primitive reset of the V.F.S. state space. Both readings agree that
+Resurrectio is surgery-like only as a continuation mechanism: it does not cut
+the geometry, but re-scales the Vessel and permits the open flow to continue.
+
+\chapter{Resurrectio Surgery: The Second Fundamental Form and the Double-Layer Theorem}
+
+\section*{Scope and epistemic status}
+Parts I--II established that a non-trivial Resurrectio event re-scales the induced spatial metric,
+$\gamma^+=\sR^2\gamma^-$, and is therefore not a standard Israel thin shell; and that its invariant
+strength is the logarithmic expansion $\log\sR$, while the regularised stress history is
+profile-dependent. This part completes the characterisation in three steps. First, the
+\emph{second} fundamental form: the reset also jumps $\lambda$, so the extrinsic curvature carries its
+own invariant jump $\Kj$, omitted in Parts I--II; we compute it in closed form and obtain a clean
+rate/scale dichotomy of resurrections. Second, the ``not a thin shell'' claim is sharpened into a
+quantitative theorem: the regularised surface energy vanishes while the regularised surface tension
+diverges as $\varepsilon^{-1}$ with a universal Cauchy--Schwarz floor --- distributionally, the jump is a
+pure-GR double layer ($\delta'$-order curvature), representable by \emph{no} surface stress tensor.
+Third, the admissibility list of Part I is completed by the closed-form epektasis-wall condition, the
+mirror of the fold-compatibility condition of the Lyapunov addenda. All claims are verified numerically
+(impulse scalings exact over three decades; the dichotomy sign-switch confirmed). \emph{Propositions}
+are closed-form; \emph{corollaries} interpretive.
+
+The setting is the Lorentzian lift $ds^2=-dt^2+\Op^2h$ and the reset
+\begin{equation}
+\reset:\quad \sigma^+=q_R\sigma^-,\qquad
+\lambda^+=\lambda^-+\mR,\qquad
+\Op^+=\Op^-+\kappa_R\Grec^-,\qquad
+\mR=(1-q_R)\sigma^-,
+\end{equation}
+with $\sR=\Op^+/\Op^->1$ for $\Grec^->0$.
+
+% ============================================================
+\section{The second fundamental form jumps too --- invariantly}
+
+On the constant-$t$ slices the extrinsic curvature is pure trace,
+\begin{equation}
+K_{ij}=H_P\,\gamma_{ij},\qquad
+K=\gamma^{ij}K_{ij}=2H_P=\frac{2\alpha\lambda}{\Op}.
+\end{equation}
+The reset jumps \emph{both} entries of $H_P=\alpha\lambda/\Op$: $\lambda$ through metabolism, $\Op$
+through dilation. Crucially, this jump is \emph{jump data} of the hybrid map --- like $\sR$, and unlike
+the smoothing-layer stress, it is regulator-independent.
+
+\begin{proposition}[Closed-form extrinsic-curvature jump]\label{resurrectiosurgeryIII:prop:K}
+\begin{equation}
+\boxed{\;\Kj=K^+-K^-
+=\frac{2\alpha}{\Op^-}\left(\frac{\lambda^-+\mR}{\sR}-\lambda^-\right).\;}
+\end{equation}
+The invariant content of a Resurrectio event is therefore the \emph{pair} $(\sR,\Kj)$ ---
+equivalently $(\sR,\lambda^+/\lambda^-)$ --- not the scale ratio alone. Part II's statement ``the
+invariant of Resurrectio is the scale ratio $\sR$'' is correct for the first fundamental form and the
+expansion impulse, but incomplete for the full geometric jump data.
+\end{proposition}
+
+\begin{proposition}[Rate/scale dichotomy]\label{resurrectiosurgeryIII:prop:dichotomy}
+\begin{equation}
+\boxed{\;\Kj>0\quad\Longleftrightarrow\quad
+\frac{\mR}{\lambda^-}\;>\;\frac{\kappa_R\Grec^-}{\Op^-}.\;}
+\end{equation}
+Every resurrection is of one of three kinds:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item \textbf{Rate-dominant} ($\Kj>0$): metabolism outweighs dilation; the Hubble rate jumps \emph{up}
+--- resurrection accelerates the expansion per unit scale;
+\item \textbf{Scale-dominant} ($\Kj<0$): dilation outweighs metabolism; the Hubble rate jumps
+\emph{down} --- resurrection dilutes;
+\item \textbf{Balanced} ($\kappa_R\Grec^-=\Op^-\mR/\lambda^-$): the extrinsic curvature is
+\emph{continuous} --- the jump is purely conformal, the closest a Resurrectio event comes to a smooth
+junction: only the first fundamental form jumps.
+\end{enumerate}
+(Verified numerically, including the sign switch across the balanced point;
+Figure~\ref{resurrectiosurgeryIII:fig:s3}, right.)
+\end{proposition}
+
+\note{The dichotomy has the same grammar as the cascade and NEC results: a race between two channels of
+the same event --- here, what the death \emph{metabolises} against what the grace \emph{dilates}. The
+balanced resurrection is a distinguished point: a reset tuned so that the Vessel's expansion rhythm
+passes through death unbroken.}
+
+% ============================================================
+\section{The double-layer theorem}
+
+Parts I--II showed the regularised stress is profile-dependent. The sharper statement is that no
+profile-independent surface stress \emph{exists}, quantitatively:
+
+\begin{theorem}[Zero surface energy, divergent surface tension]\label{resurrectiosurgeryIII:thm:double}
+Let $\Op^\varepsilon$, $\lambda^\varepsilon$ regularise the jump over width $\varepsilon$ with any fixed
+smooth unit step. Then, with $\rho_{\rm eff}=(\alpha^2\lambda^2-1)/\Op^2$ and
+$p_{\rm eff}=-\ddot\Op/\Op$:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item the surface-energy impulse vanishes,
+$\displaystyle\int\rho_{\rm eff}^\varepsilon\,dt=O(\varepsilon)\to0$;
+\item the surface-tension impulse diverges,
+\begin{equation}
+\int p_{\rm eff}^\varepsilon\,dt
+=-\Delta H_P-\int (H_P^\varepsilon)^2dt,
+\qquad
+\int (H_P^\varepsilon)^2dt
+=\frac{1}{\varepsilon}\int_0^1\Bigl(\tfrac{d}{du}\log\Op(u)\Bigr)^2du
+\;\ge\;\frac{(\log\sR)^2}{\varepsilon},
+\end{equation}
+the last inequality by Cauchy--Schwarz: the divergence is \emph{universal} (floor $(\log\sR)^2$),
+while the coefficient is profile-dependent;
+\item distributionally, $\gamma_{ij}\sim H(t-t_R)$ implies $\partial_t^2\gamma\sim\delta'(t-t_R)$: the
+curvature of the jump spacetime carries a $\delta'$ part --- a \emph{double layer}, which in pure GR is
+representable by no surface stress tensor whatsoever.
+\end{enumerate}
+Hence the Resurrectio layer is not merely a non-standard shell: it lies provably outside the
+matter-shell category --- the limit of zero surface energy and infinite surface tension.
+\end{theorem}
+\begin{proof}[Sketch]
+(i): $\rho^\varepsilon$ is bounded uniformly in $\varepsilon$ (both $\lambda,\Op$ interpolate between
+finite endpoints), so its integral over a width-$O(\varepsilon)$ window is $O(\varepsilon)$.
+(ii): the identity $\tfrac{d}{dt}H_P=\ddot\Op/\Op-H_P^2$ gives
+$\int p\,dt=-\Delta H_P-\int H_P^2dt$; substituting $H_P=\tfrac1\varepsilon\tfrac{d}{du}\log\Op$ on the
+unit profile gives the $1/\varepsilon$ scaling; Cauchy--Schwarz with
+$\int_0^1\tfrac{d}{du}\log\Op\,du=\log\sR$ gives the floor. (iii): one time-derivative of a Heaviside
+profile is $\delta$; the curvature contains second derivatives of the metric, hence $\delta'$.
+Numerically: $|\!\int p^\varepsilon dt|\cdot\varepsilon$ is constant over three decades to all shown
+digits ($0.136/0.162/0.140$ for the three test profiles), all above the floor $(\log\sR)^2=0.113$;
+$\int\rho^\varepsilon dt$ scales as $\varepsilon^{+1}$.
+\end{proof}
+
+\begin{corollary}[The correct category]
+Resurrectio is exactly what Part II named it --- a scale-reset surface --- and the present theorem fixes
+its mathematical category: a hybrid jump whose regularisations form a $\delta'$ (dipole) family, with
+the invariant pair $(\sR,\Kj)$ as the only profile-independent data. The ``distributional shadow''
+language of Part II is thereby made precise: the shadow has zero weight in energy and infinite weight in
+tension, which is why no fluid can cast it.
+\end{corollary}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_surgery3_fig.png}
+\caption{\small Left: regularised impulse magnitudes versus regulator width $\varepsilon$ for three
+smooth step profiles (log--log). The tension impulse $|\!\int p\,dt|$ (solid) scales exactly as
+$\varepsilon^{-1}$ --- profile-dependent coefficient, universal divergence --- and respects the
+Cauchy--Schwarz floor $(\log\sR)^2/\varepsilon$ (dotted); the energy impulse (dashed) vanishes as
+$\varepsilon^{+1}$. Right: the extrinsic-curvature jump $\Kj$ against dilation strength
+$\kappa_R\Grec^-$ at fixed metabolism: rate-dominant ($\Kj>0$), balanced
+($\kappa_R\Grec^-=\Op^-\mR/\lambda^-\approx0.62$, $K$ continuous), and scale-dominant ($\Kj<0$)
+resurrections. Parameters illustrative.}
+\label{resurrectiosurgeryIII:fig:s3}
+\end{figure}
+
+% ============================================================
+\section{Completing the admissibility list: the epektasis wall}
+
+Part I's admissibility list (positivity, $\mathcal D_A$ preservation, bounded $J_R$, non-Zeno) can be
+closed on the geometric side by one more closed-form condition, the mirror of the fold-compatibility
+condition of the Lyapunov addenda:
+
+\begin{proposition}[Wall preservation at the reset]\label{resurrectiosurgeryIII:prop:wall}
+The reset satisfies the exact identity
+\begin{equation}
+\bigl(\lambda^+-q^\ast\Op^+\bigr)-\bigl(\lambda^--q^\ast\Op^-\bigr)
+=\mR-q^\ast\kappa_R\Grec^-,
+\end{equation}
+so the epektasis wall $\lambda\le q^\ast\Op$ is preserved by every reset provided
+\begin{equation}
+\boxed{\;(1-q_R)\,\sigma^-\ \le\ q^\ast\,\kappa_R\,\Grec^-.\;}
+\end{equation}
+This is the geometric face of the grace-window floor of the Lyapunov layer: the metabolised resistance
+must be covered by the simultaneously received grace. It mirrors exactly the fold-compatibility
+condition $\beta\eta_\sigma\bar\sigma\le q^\ast\eta_\Omega$: in both jump types, Sophia returned active
+must be paid for by enlargement of the Brim.
+\end{proposition}
+
+% ============================================================
+\section{Compact summary}
+
+\[
+\boxed{\;\text{invariant jump data}=(\sR,\Kj),\qquad
+\Kj=\frac{2\alpha}{\Op^-}\Bigl(\frac{\lambda^-+\mR}{\sR}-\lambda^-\Bigr).\;}
+\]
+\[
+\boxed{\;\Kj\gtrless0\iff \mR/\lambda^-\gtrless\kappa_R\Grec^-/\Op^-:
+\ \text{rate-dominant / balanced ($K$ continuous) / scale-dominant.}\;}
+\]
+\[
+\boxed{\;\int\rho\,dt\to0,\qquad
+\Bigl|\int p\,dt\Bigr|\ \ge\ \frac{(\log\sR)^2}{\varepsilon}\to\infty:
+\ \text{a pure-GR double layer, no surface }T_{ij}.\;}
+\]
+\[
+\boxed{\;(1-q_R)\sigma^-\le q^\ast\kappa_R\Grec^-\ \Rightarrow\
+\text{epektasis wall preserved (mirror of fold-compatibility).}\;}
+\]
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Resurrectio Surgery III. Completes
+Parts I--II: the omitted second-fundamental-form jump computed in closed form (the invariant pair
+$(\sR,\Kj)$ and the rate/scale dichotomy with its balanced point); the no-thin-shell claim sharpened to
+the zero-energy/divergent-tension double-layer theorem (impulse scalings verified exactly over three
+decades, Cauchy--Schwarz floor respected); the admissibility list closed by the epektasis-wall
+condition. Domain-conditional throughout.}
 
 \end{document}
