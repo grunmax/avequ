@@ -1,18 +1,23 @@
 % ============================================================
-%  V.F.S. — Volo. Facio. Sum.   Editio LXXXVIII (Open-Gate)
-%  Hierarchy of Fundamental Conclusions (English)
-%  + Theological Corollaries (from lyapunov & index §11)
+%  V.F.S. -- Volo. Facio. Sum.  Editio XCIb (Open-Gate)
+%  Hierarchy of Theological Conclusions, restructured by importance
+%  Structure: Status -> Statement -> Meaning -> Formula -> Scripture
 % ============================================================
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{amsmath,amssymb,amsfonts}
-\usepackage[margin=2.3cm]{geometry}
+\usepackage[margin=2.25cm]{geometry}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{microtype}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true, linkcolor=brown!70!black, urlcolor=brown!70!black}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+\setlist[itemize]{leftmargin=1.5em}
 
 \newcommand{\E}{\mathcal{E}_0}
 \newcommand{\Lc}{\Lambda_c}
@@ -20,450 +25,507 @@
 \newcommand{\Op}{\Omega_P}
 \newcommand{\Lvfs}{\mathcal{L}_{\mathrm{VFS}}}
 \newcommand{\DA}{\mathcal{D}_A}
+\newcommand{\Dlive}{\mathcal{D}_{\mathrm{live}}}
 \newcommand{\Syn}{\mathrm{Syn}}
 \newcommand{\qfold}{q_{\mathrm{fold}}}
 \newcommand{\Qfold}{Q_{\mathrm{fold}}}
 \newcommand{\lform}{\lambda_{\mathrm{form}}}
 \newcommand{\Efold}{\mathcal{E}_{\mathrm{fold}}}
 \newcommand{\Tfold}{\mathcal{T}_{\mathrm{fold}}}
-\newcommand{\concl}[2]{\smallskip\noindent\textbf{#1.}\ \emph{#2}\par\nobreak\smallskip}
-% scripture epigraph (kept short)
-\newcommand{\scrip}[2]{\par\nopagebreak\smallskip{\small\itshape ``#1''\quad---\ #2}\par\smallskip}
+\newcommand{\Igate}{I_{\mathrm{gate}}}
+\newcommand{\Afold}{A_{\mathrm{fold}}}
+\newcommand{\Bfold}{B_{\mathrm{fold}}}
+\newcommand{\Rreset}{\mathfrak{R}}
 
-\title{\textbf{V.F.S.} \;---\; \emph{Volo. Facio. Sum.}\\[2pt]
-\large Hierarchy of Fundamental Conclusions \;\&\; Theological Corollaries with Sophianic Folding\\[2pt]
-\normalsize Editio LXXXVIII \;$\cdot$\; \emph{Hierarchia Conclusionum \& Corollaria Theologica} \;$\cdot$\; English}
+\newcommand{\thesis}[2]{%
+  \subsection*{#1. #2}%
+}
+\newcommand{\status}[1]{\textbf{Status.} #1\par}
+\newcommand{\statement}[1]{\textbf{Statement.} #1\par}
+\newcommand{\explain}[1]{\textbf{Meaning.} #1\par}
+\newcommand{\formula}[1]{\textbf{Formula.}\par #1\par}
+\newcommand{\scripture}[2]{\textbf{Scripture.} {\small\itshape ``#1'' --- #2}\par}
+
+\title{\textbf{V.F.S.} --- \emph{Volo. Facio. Sum.}\\[2pt]
+\large Hierarchy of Theological Conclusions with Sophianic Folding\\[2pt]
+\normalsize Editio XCIb $\cdot$ Open-Gate $\cdot$ Status--Statement--Meaning--Formula--Scripture}
 \author{}
 \date{}
 
 \begin{document}
 \maketitle
-\vspace{-2.4em}
+\vspace{-1.8em}
+
+\section*{Preface. Domain and Theological Scope}
+V.F.S. v2.0 (Open-Gate) is not a theorem of automatic global salvation from every arbitrary state. It is a symbolic-dynamical account of transfiguration within a rightly ordered live and active domain. Its theological conclusions must therefore be read with a double discipline: the direction of the system is toward transfiguration, but the realised trajectory still passes through grace, receptivity, will, action, purification, Sophia, Folding, and admissible Resurrectio.
+
+This edition reorganises the conclusions by theological weight.
+
+\textbf{Status key.} \emph{Axiom / Ground Postulate} marks what V.F.S. receives as its theological or ontological ground. \emph{Structural Law} marks the governing balances, equations, mechanisms, and form-relations of the architecture. \emph{Theorem} marks what is derived inside the model, including stability, convergence, admissibility, bifurcation, and exact analytic consequences.
 
 % ============================================================
-\section*{Part I.\quad Hierarchy of Fundamental Conclusions}
-\textit{Hierarchia Conclusionum} $\cdot$ \textit{Editio Integrata} (thirteen conclusions).
+\section{I. Ontological Foundations}
 
-\concl{I. Being has no final attractor state}{the governing principle of the architecture.}
-\emph{Pleroma Christi} is not a static point of completion. The very motion toward Fullness
-expands the metric of Fullness itself, $\dot{\Op}=\alpha\,\lambda(t)$. Saturation never finally
-completes; the horizon of attainable being recedes continuously; \emph{Theosis} is an endless
-asymptotic expansion.
-
-\concl{II. Being is a flow, not a state}{the primary reality is the rate, not the level.}
-The principal reality is not $P$ but $S=dP/dt$. Existence is defined by the rate of filling
-toward \emph{Pleroma Christi}; Being is a trajectory, not a fixed identity.
-
-\concl{III. Salvation is a geometric transformation, not annihilation}{resistance is transmuted, not destroyed.}
-The system does not destroy $\sigma$; it transmutes it into Sophia,
-$\sigma(t)+\lambda(t)=C_0+\Grec(t)$ (closed limit $\sigma+\lambda=\text{const}$) --- the
-\textbf{Law of Open Balance}: an exact symmetry at $\zeta_0=0$, a balance law \emph{with a source}
-in the open generalisation.
-
-\concl{IV. Sophia ($\lambda$) is free memory, not eternal accumulation}{a two-sided process, by essence.}
-Sophia obeys a two-sided open-balance functional
-\[
- \frac{d\lambda}{dt}
- =\bigl(\delta\sqrt{VF+\varepsilon}-\gamma\bigr)\tanh(\kappa\sigma)
- +\zeta_0\,g_{\mathrm{eff}}\,e^{-\phi\sigma}\,\frac{1}{1+\chi\lambda_+},
+\thesis{1}{The Imago-Dei core is indestructible. being is anti-collapse at its root}
+\status{Axiom / Ground Postulate.}
+\statement{The deepest core of the person is not erased by collapse: V.F.S. begins from an indestructible Imago-Dei ground.}
+\explain{Even when the living trajectory is wounded, exhausted, or driven out of the active domain, the person is not reduced to nothing. The Vessel may lose strength, the form may fail, will and action may fall silent, and old morphologies may die; yet the algebraic root of dignity remains. This is not a guarantee that every state is already transfigured. It is the claim that collapse is not the deepest truth of the person. The image of God is not a mood, not a performance, and not a successful spiritual state; it is the invariant ground from which restoration remains meaningful.}
+\formula{\[
+  P(t)\ge \E>0.
 \]
-whose sign is controlled by the transformation threshold $\Lc=\gamma/\delta$, but not by synergy
-alone. In the closed Microcosm limit $I_{\mathrm{gate}}=0$, Sophia is conditionally monotone: it
-grows in the transformation regime and may regress when synergy falls below the threshold. In the
-Open-Gate model, however, the bounded source $I_{\mathrm{gate}}\ge0$ can compensate or overcome
-this regression.
+The Pleroma-coordinate may pass through impoverished states, but its Imago-Dei seed is not algebraically annihilated.}
+\scripture{God created man in his own image.}{Genesis 1:27}
 
-Thus Sophia is not an automatic accumulation and not a closed conservation stock. It is free
-memory under open balance: it may grow, pause, or be pressured downward by resistance, yet it is
-also nourished by received grace.
-
-\concl{V. Katharsis is a phase transition of the geometry flow}{a passage, not an emotion.}
-Katharsis is not emotional purification but a passage through the critical surface
-$x=\sqrt{VF+\varepsilon}-\sigma=0$, where the old geometry flow loses stability, surgery ceases to
-dominate, and a luminous asymptotic regime appears.
-\smallskip\par\noindent\emph{Va. Critical localisation near the Cross.} At $x=0$ the curvature
-of the Filtrum Lucis is maximal, $\Phi''(0)=k/4$. The Cross is therefore the point of greatest
-transmissive sensitivity, where a small change of the state has the strongest cathartic effect.
-\emph{Metastable Cathartic Layer:} outer stagnation may conceal an inner accumulation of Sophia.
-
-\concl{VI. Hysteresis of Salvation}{the system remembers what it has overcome.}
-The path of falling and the path of recovery are not symmetric. Once $\sigma$ is transmuted into
-$\lambda$, the system cannot return to its former geometry --- the trajectory carries the trace of
-what it has crossed, and that trace reshapes its future response. Beyond a passive record, lived
-struggle (especially in the zone $x_0>0$ where synergy exceeds resistance) leaves an \emph{active}
-path-memory of effort --- \emph{Memoria Hysteretica Salutis} --- which enters not as a new member
-of the Pleroma but as a modification of the synergistic intensity itself. The system remembers not
-only what it \emph{is}, but also what it has \emph{overcome}.
-
-\concl{VII. Surgery is not the final geometry}{pain is a transitional operator.}
-Surgery exists only while singularities do: $\tanh(\kappa\sigma)\to0$ as $\sigma\to0$. Salvation is
-not an eternal operation; pain is not the final geometry.
-\smallskip\par\noindent\emph{VIIa. After Katharsis $V$ and $F$ are freed, not abolished.} They
-remain the fundamental engines of Being's trajectory, ceasing only to be instruments of struggle
-against $\sigma$. Before: $\dot V=\mu(aF+c\lambda)-\rho V$ with Dolorosum
-$\rho=\sigma(u/\Lc)e^{1-u/\Lc}$ dominant near the threshold; after, in Transformation $u>\Lc$:
-$\dot V\approx\mu(aF+c\lambda)$ --- pure participation-driven dynamics. $\Syn$ does not replace
-$V$ and $F$.
-
-\concl{VIII. Light cannot be fully absorbed}{no absolute collapse.}
-The Filtrum Lucis guarantees $\Phi(x)>0\ \forall x$ (since $\Phi(0)=\ln2/k>0$ and $\Phi$ is
-monotone increasing). Even in the deepest darkness a minimal permeability of light remains.
-
-\concl{IX. Grace does not replace will}{it opens the gate, it does not abolish participation.}
-The old fading impulse
-\[
-  \mathcal{P}(t)=\tau G_{\max}e^{-\tau t}
+\thesis{2}{Light cannot be fully absorbed. no darkness has absolute sovereignty}
+\status{Theorem.}
+\statement{The Filtrum Lucis inscribes a minimal permeability of light even where resistance is great.}
+\explain{Darkness is real in experience: it obscures, delays, wounds, and deforms the path. But it is not absolute. The theological image is not that darkness is harmless, but that it never becomes an independent kingdom equal to light. Even when the person cannot yet act, cannot yet understand, or cannot yet rise, the structure of the system refuses total opacity. A hidden opening remains. This is why hope in V.F.S. is not optimism about present strength, but trust that the final architecture is not darkness.}
+\formula{\[
+  \Phi(x)=\frac1k\ln(1+e^{kx})>0\qquad \text{for all }x.
 \]
-belongs to the closed-limit bridge of the earlier model. In the Open-Gate version, grace enters
-through the bounded source
-\[
-  I_{\mathrm{gate}}
-  =
-  \zeta_0\,g_{\mathrm{eff}}\,e^{-\phi\sigma}
-  \frac{1}{1+\chi\lambda_+},
-  \qquad
-  I_{\mathrm{gate}}\ge0.
+The light-filter never becomes exactly zero.}
+\scripture{The light shineth in darkness; and the darkness comprehended it not.}{John 1:5}
+
+\thesis{3}{Resistance is not a final ontological reality. privatio boni}
+\status{Theorem.}
+\statement{Resistance is dynamically real, but it has no final ontological sovereignty.}
+\explain{Sin, evil, obstruction, trauma, and resistance are not illusions. They shape the trajectory and can dominate the visible state for a time. But in the active domain they do not have the last word: resistance is cleansed, metabolised, and deprived of final standing. This supports the theological reading of \emph{privatio boni}: evil is real as wound, disease, deformation, and parasitic resistance; it is not final as being. It can distort the Vessel, but it is not the deepest substance of the Vessel.}
+\formula{\[
+  x(0)\in\DA\quad\Longrightarrow\quad \sigma(t)\to0.
 \]
-This source does not replace $V$ and $F$; it nourishes Sophia through receptivity. Grace opens and
-sustains the gate, but the living trajectory still unfolds through will, action, memory,
-resistance, and transformation.
+In the positively invariant active domain, resistance fades asymptotically.}
+\scripture{The darkness is past, and the true light now shineth.}{1 John 2:8}
 
-\concl{X. Will and Action are fundamentally symmetric}{imbalance is structurally penalised.}
-Mutual nourishment $a$ enters symmetrically ($V\!\leftrightarrow\!F$). Exactly,
-$\dot\Delta=-\mu(t)\,a\,\Delta$ with $\Delta=V-F$; balance comes through the \emph{symmetry} of
-nourishment, not the intensity of synergy. With Epektasis $\int_0^\infty\mu\,ds=+\infty\Rightarrow
-\Delta_\infty=0$. Will without action degenerates; action without will exhausts itself.
-Convergence is slow and polynomial, $\Delta(t)\sim\Delta_0/t$ (universal exponent $\beta=1$).
 
-\concl{XI. Man is never fully cut off}{hope is structurally inscribed.}
-\emph{Manere}: $\varepsilon>0$ guarantees a nonzero minimum of connection --- no absolute
-ontological severance. At total exhaustion ($V=F=0$) the synergy does not vanish algebraically,
-$\sqrt{0\cdot0+\varepsilon}=\sqrt{\varepsilon}>0$. Whether the trajectory recovers from this
-boundary depends on $\lambda,\sigma$ and the regime (Lemma on the domain, \S6): hope is inscribed
-in the model, though its realisation lies beyond its guarantees.
+\thesis{4}{The finite floor is the geometric face of hyperbolicity. the Vessel begins from humble curvature}
+\status{Axiom / Ground Postulate.}
+\statement{The hyperbolic live surface and the finite zero-density floor are one primitive stated in two languages.}
+\explain{The model does not ask for a decorative negative curvature in addition to a finite beginning. It asks for one ground: the Vessel begins from a finite floor rather than from a singular explosion of self-sufficient fullness. Read geometrically, that floor is hyperbolicity. Read energetically, hyperbolicity is the possibility of a zero-density ground at finite scale. The theological image is poverty of spirit: the Vessel does not begin by possessing fullness; it begins as a finite openness capable of receiving.}
+\formula{\[
+  \rho_{\rm eff}=\frac{\alpha^2\lambda^2+k}{\Op^2}.
+\]
+Only \(k=-1\) admits a finite zero-density floor, \(\rho_{\rm eff}=0\), at finite scale. Thus \(K_h=-1\) is the geometric face of the finite-floor postulate, not a free ornamental assumption.}
+\scripture{Blessed are the poor in spirit: for theirs is the kingdom of heaven.}{Matthew 5:3}
 
-\concl{XII. Being is an anti-collapse architecture}{the Imago-Dei core is indestructible.}
-\emph{Imago Dei}: $\E>0$ is the indestructible invariant core, so $P(t)\ge\E$ always --- even at a
-full collapse of $V,F,\sigma,\lambda$ the algebraic core of the Pleroma persists. Algebraic
-collapse of the Pleroma is impossible; ontological collapse of the trajectory ($V,F\to0$) is
-possible and exits the live domain $\mathcal{D}_{\mathrm{live}}$ (\S6), yet $\E$ as Imago Dei
-remains even then.
+\thesis{5}{Being has no final attractor state. Theosis is endless epektasis}
+\status{Structural Law.}
+\statement{Pleroma Christi is not a static endpoint; the very movement toward fullness expands the horizon of fullness.}
+\explain{Theosis is not the acquisition of a final spiritual object. The closer the Vessel moves toward fullness, the more the capacity of fullness itself expands. This guards the model against a closed perfectionism: salvation is not a completed possession, but an endless ascent in which received Sophia enlarges the Brim. The person is not asked to freeze into a final sacred shape. The living form remains open because divine fullness is not exhausted by any achieved state.}
+\formula{\[
+  \dot\Op=\alpha\lambda(t),\qquad \alpha>0.
+\]
+Sophia expands the Brim; the horizon of attainable being recedes as it is approached.}
+\scripture{Forgetting those things which are behind, and reaching forth unto those things which are before.}{Philippians 3:13}
 
-\concl{XIII. V.F.S.\ is an open-balance hybrid renormalizing flow}{the structure of Theosis.}
-The architecture is an open-balance hybrid renormalizing flow: resistance is transmuted into
-Sophia, Sophia expands the geometry of attainable being, the Brim pushes back saturation and the
-death-boundary, and admissible \emph{Resurrectio} resets can return the trajectory into the active
-domain. Transmuted resistance enlarges the space of participation; the enlarged space permits new
-participation; new participation breeds new challenges, again transmuted into new Sophia. The
-cycle is endless --- this \emph{is} the structure of Theosis.
-\smallskip\par\noindent\emph{The Paschal Triad as the crown of the hierarchy.} The three zeros of
-the Filtrum Lucis derivatives resonate with the full Paschal cycle: $\Phi^{(4)}(x_-)=0$ --- Good
-Friday (entry into death); $\Phi'''(0)=0$ --- Holy Saturday, the Cross, Katharsis;
-$\Phi^{(4)}(x_+)=0$ --- Resurrection Sunday, Anastasis. By the symmetry $x_-+x_+=0$ the Cross is the
-geometric centre of the triad. The three-day repose in the tomb (Matt 12:40) is reflected as a
-\emph{differential icon}, not a chronological formula: invariant is the $x$-interval
-$|x_+-x_-|=\tfrac{2}{k}\ln(2+\sqrt3)$ (depending on $k$ alone), while the temporal duration depends
-on the dynamics (\S8).
-\scrip{Christ is risen from the dead, the firstfruits of them that slept.}{1 Corinthians 15:20}
 
-\concl{Closing note}{}
-\!\!The model is stable within its domain of correctness and, in the new Lyapunov formulation, has a
-hybrid stability architecture: continuous active-domain flow, bounded Open-Gate source, admissible
-\emph{Resurrectio} reset, and non-Zeno continuation. Its theological readings remain valid only
-with this domain qualification: V.F.S. is not a theorem of automatic global salvation, but a
-symbolic dynamical account of transfiguration, perseverance, and resurrectional continuation inside
-the properly ordered active domain.
+\thesis{6}{Expansion is not life. the Brim may grow without vitality}
+\status{Theorem.}
+\statement{Growth of the Vessel's scale does not by itself guarantee living transfiguration.}
+\explain{A person may become larger, more complex, more extended, or more capable without becoming more alive. The Brim may expand while inner vitality fades. This is one of the sobering corrections of the later robustness work: expansion is not automatically Theosis. A large house may still be empty; a wide Vessel may still lack the living fire of Sophia. True transfiguration requires not only increase of capacity, but sustained vitality -- not only \(\Op\)-escape, but living comparison-ratio escape.}
+\formula{\[
+  \Op\to\infty
+  \quad\not\Longrightarrow\quad
+  \xi=\alpha\lambda\Op\to\infty.
+\]
+Brim-escape and vitality-escape are distinct. Capacity can grow while life fades.}
+\scripture{Thou hast a name that thou livest, and art dead.}{Revelation 3:1}
 
+\thesis{7}{Being is a flow, not a state. the primary reality is the rate, but the flow leaves form-history}
+\status{Structural Law.}
+\statement{Being is not a fixed possession of fullness, but a living movement toward Pleroma; and this movement leaves a history of forms.}
+\explain{The person is not a finished object placed before God, nor a formless stream that forgets everything it has crossed. Life moves, but it also takes shape. A river does not only flow; it carves a bed. A wound does not only vanish; it may become scar, wisdom, compassion, or a new strength of the body. Thus Being is not only the flow of Pleroma, but form-history: the record of how grace, resistance, Sophia, Folding, and Resurrectio have shaped the Vessel. Some forms become living structure; some become healed scars; some become dead shells that must no longer rule the renewed life; some are transfigured into a wider capacity for fullness.}
+\formula{\[
+  S(t)=\frac{dP}{dt}.
+\]
+The rate \(S(t)\) describes the living movement of Being; Sophianic Folding describes how that movement becomes inhabitable as form.}
+\scripture{Behold, I make all things new.}{Revelation 21:5}
 
 % ============================================================
-\section*{Part II.\quad Sophianic Folding: Vessel, Transfiguration, and Pleromatic Release}
-\emph{Corollarium de Plica Sophiae.} Sophianic Folding is the theological reading of the new
-morphodynamic layer added to the Open-Gate model. It must not be read as a rival doctrine beside
-grace, will, action, and purification. Rather, it names the form in which an excess of received
-Sophia becomes inhabitable without destroying the Vessel.
+\section{II. The Logic of Salvation}
 
-\begin{quote}
-\textbf{Grace opens the Gate; Sophia reforms the Vessel; Pleroma releases a new act of being.}
-\end{quote}
-
-The old Open-Gate statement said that grace enters through a bounded source
-$I_{\mathrm{gate}}\ge0$ and that received Sophia expands the Brim,
-\[
-  \dot\Op=\alpha\lambda .
-\]
-The folding refinement adds that the Vessel also has a shape response. When Sophia exceeds the
-rigidity of the old form, the shape mode $\qfold$ may activate, with intensity
-\[
-  \Qfold=\qfold^2,
-\]
-and the received balance becomes not only
-$\sigma+\lambda=C_0+\Grec(t)$ but, in the folded core reading,
-\[
+\thesis{8}{Salvation is geometric transformation, not annihilation}
+\status{Structural Law.}
+\statement{Salvation does not destroy the person; it transfigures the relation between resistance, Sophia, and form.}
+\explain{The system does not imagine redemption as the deletion of a wounded history. It does not simply erase resistance as if nothing had happened. Rather, what was obstruction may become wisdom, and what was pressure may become structure. But this must be read carefully: the person is preserved, not every former shell. An obsolete morphology may be released, folded, quenched, or left behind, while personal continuity remains. Resurrection preserves the living story; it does not canonise every old form as final.}
+\formula{\[
   \sigma+\lambda+\lform=C_0+\Grec(t).
 \]
-Here $\lform$ denotes embodied Sophia: not Sophia lost, but Sophia taken into form.
+In the folded Open-Gate reading, resistance, available Sophia, and embodied Sophia belong to one received balance.}
+\scripture{Except a corn of wheat fall into the ground and die, it abideth alone.}{John 12:24}
 
-\concl{XIV. Sophia does not merely fill the Vessel}{it can reform the Vessel.}
-The Open-Gate is not simply the admission of more content into the same old container. If the
-received Sophia becomes too great for the former surface-form, the old geometry may lose stability
-and pass into a folded morphology. The theological point is therefore not accumulation alone but
-transfiguration of capacity:
-\[
-  \lambda\uparrow
-  \quad\Longrightarrow\quad
-  A_{\mathrm{fold}}>0
-  \quad\Longrightarrow\quad
-  \qfold\neq0
-  \quad\Longrightarrow\quad
-  \text{new Vessel-form}.
+\thesis{9}{Transformation is unconditional in direction, but conditional in realization. grace is faithful, but not mechanical}
+\status{Theorem.}
+\statement{The architecture is ordered toward transfiguration, but V.F.S. is not automatic global salvation.}
+\explain{Grace is not fragile, as if resistance could become the final truth of being. Light remains, the Imago-Dei core remains, and resistance is not granted final sovereignty. In this sense transformation is unconditional in direction: the deepest grammar of the system is not despair, but transfiguration. Yet transformation is not mechanically realised in every arbitrary state. The trajectory must stand in the properly ordered live or active domain, or pass through an admissible Resurrectio re-entry. This protects both mercy and seriousness: grace is faithful, but it does not bypass participation, purification, re-formation, and time.}
+\formula{\[
+  \text{unconditional orientation toward transfiguration}
+  \quad\not\equiv\quad
+  \text{automatic global realisation}.
 \]
-Thus Sophia is not only remembered wisdom; it is also wisdom embodied as a new form of receptivity.
+Dynamically: \(x(0)\in\DA\Rightarrow x(t)\in\DA\), not every \(x(0)\) is already in \(\DA\).}
+\scripture{Work out your own salvation with fear and trembling; for it is God which worketh in you.}{Philippians 2:12--13}
 
-\concl{XV. Folding is kenosis becoming plerosis}{the old form yields without the person being annihilated.}
-Sophianic Folding is not the destruction of the Vessel. It is the relinquishing of an insufficient
-form so that a fuller form can emerge. In theological language, the old form undergoes kenosis: it
-releases its rigid self-preservation. The new form undergoes plerosis: it becomes more capable of
-receiving and expressing fullness. Compactly,
+\thesis{10}{Resistance can be transmuted into Sophia. the wound may become wisdom}
+\status{Structural Law.}
+\statement{What has wounded the trajectory may become the material of wisdom rather than the final name of the person.}
+\explain{The Christian image here is not that suffering is good in itself. Resistance is not praised. But when grace, will, action, and purification are rightly ordered, the system can metabolise what opposed life into Sophia. The rejected stone can become the cornerstone; the scar can become witness; the wound can become compassion. This is not a romanticisation of evil. It is the refusal to let evil define the final form of the person.}
+\formula{\[
+  \sigma\downarrow\quad\Longrightarrow\quad \lambda\uparrow
+  \qquad\text{in the transformation regime.}
+\]
+Closed limit: \(\sigma+
+\lambda=\mathrm{const}\). Open-Gate: \(\sigma+
+\lambda=C_0+\Grec(t)\).}
+\scripture{The stone which the builders rejected, the same is become the head of the corner.}{Matthew 21:42}
+
+\thesis{11}{Sophia is free memory, not eternal accumulation}
+\status{Structural Law.}
+\statement{Sophia may grow, pause, regress under pressure, or become embodied as form; it is not a mechanical stockpile.}
+\explain{Wisdom is not mere possession. A person may receive light and still pass through pressure; may learn and still need purification; may carry Sophia inwardly and later embody it outwardly as a stable form of life. In the folded model, Sophia has more than one mode: available Sophia \(\lambda\), embodied Sophia \(\lambda_{\rm form}\), and the structural traces of folding. Wisdom is therefore not only remembered; it becomes inhabitable. A truth once held as pain or insight can become a way of standing, forgiving, discerning, and acting.}
+\formula{\[
+  \frac{d}{dt}(\sigma+\lambda+\lform)=\Igate(t),
+  \qquad
+  \dot\lform=\eta_{\rm fold}\Qfold\lambda.
+\]
+What becomes embodied is not lost; it is taken into form.}
+\scripture{Mary kept all these things, and pondered them in her heart.}{Luke 2:19}
+
+
+\thesis{12}{Sophia is necessary in the Open-Gate state-space. reception requires a receiver}
+\status{Theorem.}
+\statement{An open gate forces an independent balance-carrying coordinate; V.F.S. names this coordinate Sophia.}
+\explain{A closed soul can account for its inner state by resistance and form alone. But once the Gate is truly open, something enters that is not generated by the closed interior. The received gift must be carried somewhere in the state-space. There is no reception without a receiver. This does not mean that mathematics proves Sophia as a theological being. It means something sharper and more honest: if the system is open to grace, then the state-space must contain a new independent dimension capable of carrying what is received. The theological act of V.F.S. is to name that dimension Sophia.}
+\formula{\[
+  \sigma+\lambda+\lform=C_0+\Grec(t),
+  \qquad
+  \dot\Grec=\Igate.
+\]
+If \(\Igate>0\), then
 \[
+  d\lambda\big|_{\perp\,\mathrm{internal}}=d\Grec=\Igate\,dt.
+\]
+The open gate forces an independent received-balance coordinate.}
+\scripture{Every good gift and every perfect gift is from above.}{James 1:17}
+
+\thesis{13}{Katharsis is a passage, not an emotion}
+\status{Theorem.}
+\statement{Katharsis is not merely a feeling of purification, but a crossing of the critical surface where resistance and synergy meet.}
+\explain{A person may appear externally motionless while internally approaching a decisive passage. Katharsis names the threshold where the old domination of resistance is confronted by synergy and light. The Cross is the image: not an emotion, not a mood, but the place where the deepest contradiction is exposed and transformed. At this point the system becomes maximally sensitive; a small movement may carry enormous spiritual meaning.}
+\formula{\[
+  x=\sqrt{VF+\varepsilon}-\sigma,
+  \qquad
+  x=0\quad\text{is the cathartic threshold.}
+\]
+At the Filtrum Cross: \(\Phi'''(0)=0\) and \(\Phi''(0)=k/4\).}
+\scripture{Blessed are the pure in heart: for they shall see God.}{Matthew 5:8}
+
+
+\thesis{14}{Katharsis changes the texture of form. cleansing broadens perception and sharpens decision}
+\status{Theorem.}
+\statement{Expansion does not stretch the fold fabric; katharsis retunes it.}
+\explain{The growth of the room does not by itself reshape the fabric of form. The Vessel may expand, but expansion alone does not make its folds more truthful. What changes the texture of form is cleansing. As resistance dissolves, the Vessel becomes able to feel on broader scales and decide with sharper boundaries. Theologically, purification is not merely the removal of pain. It changes the quality of form: the soul becomes wider in perception and clearer in commitment.}
+\formula{\[
+  p_{\rm expansion}=0,
+\]
+but along katharsis,
+\[
+  p_b>0,
+  \qquad
+  p_{\rm wall}<0.
+\]
+The bending scale broadens; the wall core sharpens.}
+\scripture{Make straight paths for your feet.}{Hebrews 12:13}
+
+\thesis{15}{The critical passage is not the final geometry. pain is a transitional operator}
+\status{Theorem.}
+\statement{The critical passage through resistance is real, but it is not the eternal form of salvation.}
+\explain{V.F.S. refuses a theology in which suffering is the final sacred shape. In the native language of the core, the relevant reality is the critical passage: resistance, threshold, Katharsis, and, when needed, an admissible Resurrectio reset. The later Ricci-comparison layer may call a cut-like reset ``Surgery'' by analogy with Perelman language, but this is not a primary V.F.S. mechanism. The core does not worship the cut. It describes a passage through obstruction toward restored participation.
+
+Pain exposes the wound, resistance marks the threshold, and Katharsis opens the way beyond domination by singular obstruction. But once resistance fades, the critical operator loses its object. The goal is not endless crisis, endless wound, or endless purification by pain. The goal is a form of life in which will and action can participate freely without being governed by the old obstruction.}
+\formula{\[
+  \dot\sigma=(\gamma-\delta u)\tanh(\kappa\sigma),
+  \qquad
+  \tanh(\kappa\sigma)\to0\quad\text{as }\sigma\to0.
+\]
+When singularity disappears, the critical passage loses dominance.}
+\scripture{He will swallow up death in victory; and the Lord GOD will wipe away tears.}{Isaiah 25:8}
+
+% ============================================================
+\section{III. Grace, Will, and Human Participation}
+
+\thesis{16}{Grace does not replace will. it opens the gate, it does not abolish participation}
+\status{Structural Law.}
+\statement{Grace enters as gift, but the living trajectory still unfolds through will, action, memory, resistance, and transformation.}
+\explain{The Open-Gate is not spiritual automation. Grace is received, not manufactured; but receiving grace does not make the person passive. The Gate opens so that Sophia may be nourished, resistance may be transformed, and the Vessel may become capable of life. Human will and action are not competitors with grace. They are the living organs through which the received gift becomes a trajectory. Grace is initiative and sustenance; participation is the form of response.}
+\formula{\[
+  \Igate=\zeta_0 g_{\rm eff}e^{-\phi\sigma}\frac{1}{1+\chi\lambda_+},
+  \qquad
+  \Igate\ge0.
+\]
+Grace enters as a bounded source; it does not erase the dynamical structure.}
+\scripture{Without me ye can do nothing.}{John 15:5}
+
+\thesis{17}{Will and Action are fundamentally symmetric. holiness is neither intention alone nor activism alone}
+\status{Theorem.}
+\statement{The imbalance of will and action is structurally penalised; the path of holiness harmonises \emph{volo} and \emph{facio}.}
+\explain{An inner will that never becomes action collapses into fantasy. Action without inward orientation becomes exhaustion or machinery. V.F.S. treats will and action symmetrically: each nourishes the other, and their imbalance decays in the active domain. This gives a theological image of embodied obedience. The person is not saved by inner intensity alone, nor by outward works detached from the heart, but by the gradual convergence of willing and doing under grace.}
+\formula{\[
+  D_\Delta=\frac12(h_1-h_2)^2,
+  \qquad
+  D_\Delta(t)\to0.
+\]
+Will and action converge in the active domain.}
+\scripture{Not every one that saith unto me, Lord, Lord, shall enter; but he that doeth the will of my Father.}{Matthew 7:21}
+
+\thesis{18}{Manere does not replace living synergy. survival is not transfiguration}
+\status{Structural Law.}
+\statement{The Manere seed preserves a minimal connection, but minimal survival is not the fullness of living transformation.}
+\explain{There are states where a person is not absolutely severed, yet is not truly alive in the active sense. The seed remains; the name of life may remain; but the living synergy of will and action must still be restored. This is pastorally important: hope is structurally inscribed, but hope is not the same as realised healing. The seed is mercy, not completion. It prevents absolute ontological severance, but it does not replace participation, growth, or re-entry into life.}
+\formula{\[
+  u=\sqrt{VF+\varepsilon},
+  \qquad
+  V=F=0\Rightarrow u=\sqrt{\varepsilon}>0.
+\]
+The seed keeps connection alive, but transformation requires more than the seed alone.}
+\scripture{Thou hast a name that thou livest, and art dead.}{Revelation 3:1}
+
+\thesis{19}{Sophia is not an elitist precondition. wisdom may be fruit, not entrance-ticket}
+\status{Theorem.}
+\statement{The path does not require a privileged initial stock of Sophia; Sophia may arise through transmuted resistance and received grace.}
+\explain{V.F.S. should not be read as a system for the already wise. The sick, the poor, the broken, the inconsistent, and the beginner are not excluded by lacking a high initial Sophia. The model allows wisdom to be fruit rather than entrance-ticket. Small attempts matter. Repeated humble movements may be favoured over one grand gesture. This is why the system is not elitist: the wound itself may become the material through which Sophia is born.}
+\formula{\[
+  q=\frac{\lambda}{\Op}\ge0
+  \qquad\text{rather than}\qquad
+  q\ge q_0>0.
+\]
+No artificial positive Sophia-threshold is needed as an entrance condition.}
+\scripture{They that are whole have no need of the physician, but they that are sick.}{Mark 2:17}
+
+% ============================================================
+\section{IV. Sophianic Folding and the Theology of Form}
+
+\thesis{20}{Folding is the necessary structural completion of the Open-Gate core. form is not an appendix to grace}
+\status{Theorem.}
+\statement{Sophianic Folding is not an optional decorative layer; it is the way the Open-Gate core becomes morphologically bearable.}
+\explain{Grace opens the Gate and Sophia enters, but if Sophia remains only a flow, the Vessel may expand without inwardly forming. Folding is the passage by which received Sophia becomes stable, inhabitable form. A house is not made by receiving stones alone; the stones must be ordered into a dwelling. Likewise, the Vessel does not become mature merely by receiving more; it must acquire lawful inward shape. Folding is therefore not a rival to grace, but the structural completion of grace received into form.}
+\formula{\[
+  \Afold=c_0\lambda+c_1\dot\lambda^{(0)}-a_0,
+  \qquad
+  \Afold>0\Rightarrow \qfold\ne0.
+\]
+When Sophia exceeds the rigidity of the old form, a folded morphology may activate.}
+\scripture{New wine must be put into new bottles; and both are preserved.}{Luke 5:38}
+
+
+\thesis{21}{The pitchfork is not assumed. the form of transfiguration is latent in the symmetry of the Vessel}
+\status{Theorem.}
+\statement{The folding transition is not an arbitrary modelling choice; under the symmetry of the unfolded Vessel, it is the natural threshold-form of morphodynamic transfiguration.}
+\explain{The Vessel does not secretly prefer one direction of folding before the threshold. Its old unfolded form is orientation-blind. When the old form loses stability, the new morphology appears as a symmetric pair of possible folded forms. This is why the passage into form is not imposed from outside the model. It is already hidden in the symmetry of the Vessel. Theologically, transfiguration is not a violent distortion of the person. It is the revealing of a form that the old symmetry could not yet express.}
+\formula{\[
+  \dot\qfold=\Afold\qfold-B_{\rm eff}\qfold^3+O(\qfold^5).
+\]
+When \(\Afold>0\),
+\[
+  \qfold=0\ \text{loses stability},
+  \qquad
+  \qfold=\pm\sqrt{\Afold/B_{\rm eff}}\ \text{emerges}.
+\]}
+\scripture{New wine must be put into new bottles; and both are preserved.}{Luke 5:38}
+
+\thesis{22}{Sophia does not merely fill the Vessel. it can reform the Vessel}
+\status{Theorem.}
+\statement{Open-Gate does not mean more content inside the same old container; received Sophia may change the shape of receptivity itself.}
+\explain{A person may receive a truth too great for the old pattern of life. If the old Vessel-form cannot bear what has been received, it must be reformed. This is not destruction of the person, but transformation of capacity. Sophia is not only remembered wisdom; it becomes a new way of receiving, holding, and expressing fullness. The Vessel is not merely filled; it is made more capable of being filled.}
+\formula{\[
+  \lambda\uparrow\quad\Longrightarrow\quad
+  \Afold>0\quad\Longrightarrow\quad
+  \Qfold=\qfold^2>0\quad\Longrightarrow\quad
+  \text{new Vessel-form}.
+\]}
+\scripture{Be ye transformed by the renewing of your mind.}{Romans 12:2}
+
+
+\thesis{23}{Folding can produce empty form. not every folded shape is Sophianic embodiment}
+\status{Structural Law.}
+\statement{Folding gives form, but only embodied Sophia makes that form living.}
+\explain{The Vessel may be bent by pressure before it is filled by wisdom. Resistance, trauma, external strain, or Dolorosum forcing may create morphology: habits, shells, defenses, repeated patterns, and even impressive outward order. But such form is not yet sanctified form. A shaped Vessel is not automatically a transfigured Vessel. A cup may have shape and still hold no wine. Grave-clothes may keep the outline of a body without being the risen body. Therefore V.F.S. must distinguish folded form from living Sophianic form.}
+\formula{\[
+  \Afold>0\Longrightarrow \qfold\ne0,
+\]
+but
+\[
+  \dot\lform=\eta_{\rm fold}\Qfold\lambda.
+\]
+If \(\lambda\approx0\), then
+\[
+  \qfold\ne0,
+  \qquad
+  \dot\lform\approx0.
+\]
+This is empty or strained form: morphology without embodied Sophia.}
+\scripture{Having a form of godliness, but denying the power thereof.}{2 Timothy 3:5}
+
+\thesis{24}{Folding is kenosis becoming plerosis. the old form yields without the person being annihilated}
+\status{Structural Law.}
+\statement{The old form may have to surrender its rigidity so that a fuller Vessel-form can emerge.}
+\explain{Kenosis is not self-hatred or annihilation. It is the release of a form that can no longer carry fullness. In folding, the old morphology gives up its claim to be final. Plerosis is the new capacity that appears when the Vessel no longer defends its obsolete shape. The person remains; the insufficient shell may yield. This is the theological grammar of transformation: what is too narrow must be emptied, so that what is more capacious may be filled.}
+\formula{\[
   \text{kenosis of obsolete form}
   \quad\Longrightarrow\quad
   \text{plerosis of transfigured Vessel}.
 \]
-This preserves continuity: the old self is not erased, but folded into a more capacious morphology.
+Equivalently, available Sophia may be embodied as \(\lform\).}
+\scripture{He that loseth his life for my sake shall find it.}{Matthew 10:39}
 
-\concl{XVI. Folding resolves morphological tension}{the ``energy'' of folding is not physical gravity.}
-The folding potential
-\[
-  \Efold
-  =
-  -\frac12 A_{\mathrm{fold}}\qfold^2
-  +
-  \frac14 B_{\mathrm{fold}}\qfold^4
-\]
-should be read as a \emph{morphological tension potential}, not as physical gravitational energy.
-Its decrease means that the Vessel moves to a less strained form:
-\[
-  \dot\Efold
-  =
-  -\left(\partial_{\qfold}\Efold\right)^2
-  \le0.
-\]
-The theological reading is therefore not that grace causes an energetic explosion, but that excess
-Sophia is prevented from becoming destructive by being translated into stable form. What was
-pressure in the old form becomes architecture in the new form.
 
-\concl{XVII. Pleromatic release is realized being}{not mechanical energy release.}
-If the resolved morphological tension is denoted
-\[
-  \Delta\Tfold
-  =
-  \frac{A_{\mathrm{fold}}^2}{4B_{\mathrm{fold}}},
+\thesis{25}{Form costs entropy. to take shape is to choose against indifference}
+\status{Theorem.}
+\statement{The homogeneous Vessel is the constrained entropy maximum; every fold lowers entropy mode by mode.}
+\explain{The calmest state is the least committed one. A Vessel without folds has the highest entropy because it has not yet chosen a definite form. But a life that receives Sophia cannot remain pure indifference. To take shape is to spend entropy: to become particular, ordered, costly, and responsible. The finer the form, the greater the cost. A simple shape costs less; a subtle and precise form costs more. Thus stable form is not free decoration. It is paid for by descent from the maximum calm of the homogeneous state.}
+\formula{\[
+  \delta^2 W^{(n)}_+=-2\sigma\mu_n a_n^2<0.
 \]
-then only part of this symbolic release should be interpreted as outward expression. In V.F.S. it
-is better to say that the relaxation of form can open a pleromatic channel:
-\[
-  J_{\mathrm{rel}}
-  =
-  -\dot\Tfold
-  \ge0,
-\]
-so that the resolved tension may appear as a new act of being, service, illumination, or
-participation. This is \emph{Pleromatic release}: not a physical discharge, but the becoming-visible
-of a transfigured capacity.
+Each fold mode costs entropy in proportion to its eigenvalue \(\mu_n\).}
+\scripture{Except a corn of wheat fall into the ground and die, it abideth alone.}{John 12:24}
 
-\concl{XVIII. Open-Gate is not self-deification}{receptivity is not possession.}
-The model must not be read as if the human person could seize Sophia, force the Gate open, and
-produce transfiguration by autonomous technique. The Gate is opened in synergy: human receptivity
-and divine initiative belong together. $I_{\mathrm{gate}}$ symbolizes received grace through
-openness; it is not human control over grace. Therefore the vocation of the human being is not
-self-deification, but the becoming of a Vessel capable of receiving, embodying, and expressing
-Sophia without rupture.
-\scrip{My grace is sufficient for thee: for my strength is made perfect in weakness.}{2 Corinthians 12:9}
+\thesis{26}{Stable form is real, but not final. every lawful morphology remains open to greater fullness}
+\status{Structural Law.}
+\statement{Folding gives the Vessel stable form, but no achieved form is the final Pleroma.}
+\explain{Stability is a mercy: without form, Sophia would remain pressure and expansion would remain formless. But stable form is not final form. Because epektasis continues, every real form remains humble before a greater fullness. A form may be holy, lawful, and life-bearing without being ultimate. This prevents both chaos and idolatry: the Vessel needs form, but must not worship its present form as the end of God.}
+\formula{\[
+  \dot\Op=\alpha\lambda>0
+  \quad\Longrightarrow\quad
+  \text{every stable form remains open to further expansion.}
+\]}
+\scripture{It doth not yet appear what we shall be.}{1 John 3:2}
 
-\concl{XIX. Folding is the morphodynamic icon of transfiguration}{stabilisation through form-transformation.}
-Theologically, Sophianic Folding says that salvation is not the mere subtraction of resistance and
-not the mere preservation of the old self. It is the stable transformation of the form of life. The
-old shape cannot bear the new fullness; yet the person is not discarded. The Vessel is reformed,
-and the reformed Vessel can become a locus of Pleroma.
-\[
-  \text{Open-Gate}
-  \Longrightarrow
-  \text{received Sophia}
-  \Longrightarrow
-  \text{folded Vessel}
-  \Longrightarrow
-  \text{realized Pleroma}.
-\]
-
-\noindent\emph{Notation safeguard.} In this theological section $\qfold$ and $\Qfold$ denote the
-folding amplitude and folding intensity. They are not to be confused with earlier auxiliary uses of
-$q$ in other estimates or with the cosmological deceleration parameter $q_{\mathrm{dec}}$.
+\thesis{27}{Dead forms may remain after Resurrectio. not every surviving shape is living form}
+\status{Theorem.}
+\statement{After resurrectional passage, some forms may remain as traces or shells without remaining the living law of the renewed Vessel.}
+\explain{The Gospel image is the grave-clothes: they remain as signs that death has been crossed, but they are not the risen body. In the same way, a former morphology may survive as habit, memory, scar, social shell, or inherited pattern. Such a form is not necessarily evil. It may be honoured, mourned, learned from, or transfigured. But it must not be mistaken for renewed life itself. A living form carries Sophia forward; a dead form only preserves the outline of what once carried life.}
+\formula{\[
+  \text{living form}\;\Longleftrightarrow\;\text{carries Sophia forward},
+  \qquad
+  \text{dead form}\;\Longleftrightarrow\;\text{survives only as shell or trace}.
+\]}
+\scripture{And the napkin, that was about his head, not lying with the linen clothes, but wrapped together in a place by itself.}{John 20:7}
 
 % ============================================================
-\section*{Part III.\quad Theological Fruit of the Lyapunov Stability (index \S11)}
-The Lyapunov analysis of the active domain bears a theological fruit --- concise and honest, not
-an automatic victory but a \emph{stable dynamics of transfiguration in the synergistic domain}:
-\begin{quote}
-grace does not destroy freedom; freedom does not save itself; and resistance does not have the
-last word.
-\end{quote}
-In the active synergistic domain, will and action come into harmony, resistance fades
-asymptotically, and the resistance one has lived through can be transmuted into Sophia
-\emph{without destroying personal continuity}. Compactly, the new Lyapunov architecture gives
-\[
-  x(0)\in\DA
-  \Longrightarrow
-  x(t)\in\DA,
-  \qquad
-  \dot{\Lvfs}\le C-C_1\Lvfs,
+\section{V. Resurrectio and Hybrid Continuity}
+
+\thesis{28}{Resurrectio is not regression. resurrection does not simply restore the former form}
+\status{Theorem.}
+\statement{Resurrectio preserves the living story, not every old morphology.}
+\explain{Resurrection is not a rewind. The risen life is not required to return to the exact shell that existed before the death-like passage. The old form may be preserved, but it may also be quenched, folded, rescaled, or left behind. This is why Resurrectio is not nostalgia sanctified. It is continuity beyond rupture: the person is not annihilated, but the former form has no automatic right to rule the renewed life.}
+\formula{\[
+  \Rreset:\quad
+  \sigma^+=q_R\sigma^-,\qquad
+  \lambda^+=\lambda^-+(1-q_R)\sigma^-.
 \]
-and, because the active margin is built into the invariant domain,
-\[
-  r(t)+h_3(t)-1
-  \ge
-  r_*+h_{3,*}-1
-  >0,
+The reset converts part of resistance into Sophia; it does not merely restore the previous state.}
+\scripture{Why seek ye the living among the dead?}{Luke 24:5}
+
+\thesis{29}{Resurrectio judges the form. erase, transfigure, or give birth anew}
+\status{Theorem.}
+\statement{Resurrectio acts upon the fate of form: it may erase, transfigure, quench, trigger, or renew morphology.}
+\explain{Resurrection is mercy toward the person and judgment upon form. Some forms cannot carry the new Sophia and must be released. Some wounded forms can be purified and transfigured. Some impossible forms can be born only after the death-like passage. Thus Resurrectio does not merely happen after form; it discerns which forms can live after death. This gives the model a Paschal seriousness: not everything that survives deserves to govern the renewed Vessel.}
+\formula{\[
+  \Rreset\text{ may act as:}
+  \quad
+  \text{quench}\;/\;\text{trigger}\;/\;\text{rescale}\;/\;\text{renewal of folding}.
 \]
-the cleansing hypothesis holds automatically for trajectories inside $\DA$. Hence
-\[
-  \sigma(t)\to0,
-  \qquad
-  D_\Delta(t)\to0,
+The reset changes the target morphology even when personal continuity is preserved.}
+\scripture{Every branch that beareth fruit, he purgeth it, that it may bring forth more fruit.}{John 15:2}
+
+\thesis{30}{Resurrectional resets do not destroy continuity. rupture need not annihilate the story}
+\status{Theorem.}
+\statement{A hybrid trajectory can pass through death-like resets without being shattered into meaningless fragments.}
+\explain{There may be many crises, many closures, many returns. But V.F.S. forbids infinitely many resets from accumulating in finite time in the admissible architecture. Each arc has duration; each rupture has measure; each return belongs to a continuing story. This gives a theology of continuity after rupture: death-like closure may interrupt the continuous flow, but it does not have to annihilate the person or dissolve the narrative into chaos.}
+\formula{\[
+  \Delta t_j\ge \Delta t_*>0.
 \]
-for every trajectory initialized in the positively invariant active domain.
+The non-Zeno bound gives rhythm and duration to the sequence of arcs and resets.}
+\scripture{In your patience possess ye your souls.}{Luke 21:19}
 
-Thus V.F.S.\ describes neither mechanical salvation nor self-salvation, but a stable dynamics of
-transfiguration inside the domain where grace, will, action, receptivity, and purification already
-stand in the right dynamic order.
-
-% ============================================================
-\section*{Part IV.\quad Theological Corollaries (lyapunov \S12)}
-\emph{Corollaria Theologica.} The functional must not be read as a proof of automatic or global
-salvation from an arbitrary state; its content is the internal dissipative structure of the
-positively-invariant active domain.
-
-\begin{enumerate}[leftmargin=1.8em,itemsep=4pt]
-
-\item \textbf{Resistance is not a final ontological reality.} In the active domain $\sigma(t)\to0$
---- supporting \emph{privatio boni}: evil/sin/resistance has no eternal substantial standing of
-its own. It is real existentially (it shapes the dynamics) but not final ontologically: real as a
-disease, not final as being.
-\scrip{And the light shineth in darkness; and the darkness comprehended it not.}{John 1:5}
-
-\item \textbf{Will and action must converge.} The imbalance $D_\Delta=\tfrac12(h_1-h_2)^2\to0$,
-i.e.\ $h_1-h_2\to0$ (\emph{volo}$\leftrightarrow$\emph{facio}). Holiness is neither pure inner
-intention nor mechanical moral activism, but the harmonisation of willing and embodied action;
-will without action and action without will are unstable.
-\scrip{Not everyone who says `Lord, Lord' will enter, but he who does the Father's will.}{cf.\ Matthew 7:21}
-
-\item \textbf{Grace does not abolish structure but stabilises it.}
-\[
-\text{gratia}+\text{voluntas}+\text{factum}
-\Rightarrow
-\text{stabilitas transformationis}.
-\]
-Grace is a \emph{bounded source} (it raises $C$) while the dissipation coefficient $C_1$ is left
-untouched --- the structure is not cancelled but precisely stabilised.
-\scrip{Without me ye can do nothing.}{John 15:5}
-
-\item \textbf{Spiritual life has a living domain.} The result is domain-based, not global:
-$x(0)\in\DA\Rightarrow x(t)\in\DA\ \forall t\ge0$. Not every state purifies automatically; but once
-the system enters such a domain, its internal dynamics already point toward transfiguration.
-\scrip{The kingdom of God is within you.}{Luke 17:21}
-
-\item \textbf{Manere does not replace living synergy.} Under $r_*^2>\varepsilon/\Omega_{\min}^2$,
-the regulariser $\varepsilon$ (Manere) is the minimal holding of being --- but stability cannot
-rest on that residue alone; real synergy $VF>0$ is required. Survival is not transfiguration.
-\scrip{Thou hast a name that thou livest, and art dead.}{Revelation 3:1}
-
-\item \textbf{Sophia is not an elitist precondition.} The proof needs only $q\ge0$ ($q$-free), not
-an artificial $q\ge q_0>0$. Sophia may be the \emph{fruit} of transmuting resistance, not a
-precondition of access; the concave Mensura kernel favours many small attempts over one grand
-gesture --- the advantage of the poor.
-\scrip{Those who are well need no physician, but the sick; I came to call sinners.}{cf.\ Mark 2:17}
-
-\item \textbf{Resistance can be transmuted into Sophia.} In the closed limit
-($\sigma+\lambda=\text{const}$), if $\sigma\to0$ resistance is not merely removed --- it is
-transmuted, $\text{resistance}\to\text{Sophia}$. \emph{(Open generalisation: the pair is balanced
-not conservative, $\sigma+\lambda=C_0+\Grec(t)$; the Pearl is transmuted resistance \emph{plus}
-received gift, not a zero sum.)} Struggle, falls and trauma can become the material of wisdom.
-\scrip{The stone the builders rejected has become the cornerstone.}{cf.\ Matthew 21:42}
-
-\item \textbf{Non-Zeno has spiritual meaning.} The dwell-time bound $\Delta t_j\ge\Delta t_*>0$:
-the hybrid system makes no infinitely many transitions in finite time. Purification keeps rhythm,
-duration and sequence, preserving personal continuity --- it is not a chaotic infinite crisis.
-\scrip{In your patience possess ye your souls.}{Luke 21:19}
-
-\item \textbf{Resurrectional resets do not destroy continuity.} The non-Zeno dwell-time condition
-\[
-  \Delta t_j\ge\Delta t_*>0
-\]
-means that even an infinite sequence of life-arcs and resets cannot accumulate in finite time.
-The person is not shattered into infinitely many crises. Each arc has duration, each reset has
-measure, and the whole hybrid trajectory remains forward-complete when the reset admissibility
-conditions are met. This gives V.F.S.\ a theology of continuity after rupture: death-like closure
-may interrupt the continuous flow, but it does not have to annihilate the story.
-
-\item \textbf{Pleroma is not reached by a violent leap.} The decay $\sigma(t)\to0$ is asymptotic,
-not finite-time zeroing --- consistent with \emph{epektasis}: the motion toward fullness is real,
-stable and directed, but not reducible to a technical completion button. Epektasis acts as a
-universal regulator (dilutes the source, holds the $q$-ceiling, pushes back the death-wall).
-\scrip{First the blade, then the ear, after that the full grain in the ear.}{cf.\ Mark 4:28}
-
-\item \textbf{Grace is one, but acts in two modes.} All grace is a single background $\zeta_0$
-entering through the receptivity gate. \emph{Modus I} (in life): a continuous inflow with a
-guaranteed regime $e^{-\tau t}$ and a synergistic regime $H_K/(H_s+H_K)$. \emph{Modus II} (in
-death): where the gate has collapsed, the same grace acts by a discrete re-creation $\mathfrak{R}$,
-participating in the archetype $\mathfrak{R}_{\mathrm{Christi}}$ --- unmerited, precisely because
-receptivity has fallen to zero. The modes are complementary: where one fades, the other engages.
-
-\item \textbf{Resurrectio is admissible, not arbitrary.} The new reset lemma gives a precise
-admissibility window for death-like transitions. If an exogenous death-event strikes at an
-interior point $x^-\in\DA$, the reset map
-\[
-  \mathfrak R:\quad
-  \sigma^+=q_R\sigma^-,
-  \qquad
-  \lambda^+=\lambda^-+(1-q_R)\sigma^-,
-  \qquad
-  \Omega_P^+=\Omega_P^-+\kappa_R\Grec^-,
-\]
-returns the system to the active domain provided
-\[
-  \max\{R_c,R_{\min}^{\mathrm{ceil}}\}
+\thesis{31}{Resurrectio is admissible, not arbitrary. grace does not erase measure}
+\status{Theorem.}
+\statement{Resurrectional continuation is not a magical violation of structure; it has an admissible window.}
+\explain{Grace is not lawless. V.F.S. does not picture Resurrectio as a random miracle that ignores the Vessel's measure. The reset can return the trajectory into the active domain when received grace has enough depth and the Brim is expanded without destructive over-dilution. Below the window there is terminal closure; above it there is the failure of cheap grace, an expansion that no longer preserves form. True Resurrectio opens the Vessel beyond its former shell while still preserving the order of life.}
+\formula{\[
+  \max\{R_c,R_{\min}^{\rm ceil}\}
   \le
   \Grec^-
   \le
   R_{\max}.
 \]
-Thus resurrectional continuation is not a magical violation of structure. It is an admissible
-hybrid transition: resistance is reduced, part of it is metabolized into Sophia, and the Brim is
-expanded so that the new state remains live.
+This is the admissibility window for the reset to return the state to the active domain.}
+\scripture{Let all things be done decently and in order.}{1 Corinthians 14:40}
 
-Theologically, this means that grace does not erase measure. Below the admissible window there is
-final closure; above it there is over-dilution, the failure of ``cheap grace.'' True \emph{Resurrectio}
-preserves form while opening it beyond its former shell.
-
-\item \textbf{Received grace has a threshold of perseverance.} The lower gate
-\[
-  \Grec^-\ge R_c=C_\sigma-\sigma_0-\lambda_0
+\thesis{32}{Received grace has a threshold of perseverance. grace becomes depth, not only impulse}
+\status{Theorem.}
+\statement{Grace is not only a momentary touch; it may accumulate as received depth available at the boundary of death.}
+\explain{A sudden impulse may comfort, but perseverance is grace that has become depth. In the reset lemma, received grace must have enough stored measure to keep Sophia from being extinguished by resistance. The theological image is endurance: not merely one bright moment, but a faithful depth carried to the edge of death-like closure. When this threshold is met together with the geometric ceiling, the death-event can become a Resurrectio jump rather than terminal collapse.}
+\formula{\[
+  \Grec^-\ge R_c=C_\sigma-\sigma_0-\lambda_0.
 \]
-is the point at which received grace has accumulated enough to prevent Sophia from being
-extinguished by resistance. In this sense, $\Grec$ functions as a mathematical image of
-perseverance: not merely a momentary impulse, but a received depth that remains available at the
-boundary of death.
+The lower gate marks the received depth needed for admissible continuation.}
+\scripture{He that endureth to the end shall be saved.}{Matthew 24:13}
 
-When this threshold is not met, the reset is not admissible. When it is met together with the
-geometric ceiling condition, the death-event can become a \emph{Resurrectio} jump rather than a
-terminal closure.
-\end{enumerate}
+
+\thesis{33}{Resurrectio has a budget. resurrectional passage is finite, not costless}
+\status{Theorem.}
+\statement{A metabolic Resurrectio reset carries a finite NEC budget; the balanced reset is the unique neutral passage.}
+\explain{Resurrectio is not arbitrary magic. It is a passage with measure. When resistance is metabolized into new Sophia during a reset, the system passes through a bounded phantom episode: not a catastrophe, but a real cost of transition. Death through which new life is metabolized cannot be completely quiet. There is, however, a balanced resurrection: a knife-edge where what is received and what is enlarged are in perfect measure. There the phantom budget, curvature jump, and conformal deviation vanish together. This is the cleanest possible passage through death.}
+\formula{\[
+  \int(\rho_{\rm eff}+p_{\rm eff})\,dt
+  =
+  -\alpha\int_0^1\frac{d\lambda/du}{\Op(u)}\,du.
+\]
+For a metabolic reset \(m_R>0\),
+\[
+  \int(\rho_{\rm eff}+p_{\rm eff})\,dt<0.
+\]
+For the balanced reset \(m_R=0\),
+\[
+  \int(\rho_{\rm eff}+p_{\rm eff})\,dt=0.
+\]}
+\scripture{Thou wilt not leave my soul in hell; neither wilt thou suffer thine Holy One to see corruption.}{Psalm 16:10}
+
+% ============================================================
+\section{VI. Final Synthesis}
+
+\thesis{34}{V.F.S. is an open-balance hybrid renormalizing flow. the structure of Theosis}
+\status{Structural Law.}
+\statement{The whole architecture is an open-balance flow in which resistance, Sophia, Vessel, Folding, and Resurrectio form an endless passage of transfiguration.}
+\explain{V.F.S. is not a single conversion of darkness into light, but a living cycle. Resistance is metabolised into Sophia; Sophia expands the Brim; the enlarged Vessel permits new participation; new participation encounters new challenges; folding gives received Sophia stable form; Resurrectio can return the trajectory through death-like rupture into renewed life. This is the structure of Theosis: not static perfection, but ordered, stable, open-ended transfiguration. Folding gives form; embodied Sophia makes form living. Expansion gives capacity; sustained Sophia gives vitality. Resurrectio gives passage; balance decides its cost.}
+\formula{\[
+  \text{Grace}\to\text{Resistance}\to\text{Sophia}\to\text{Vessel}\to\text{Folding}\to\text{Form},
+\]
+\[
+  \text{with Resurrectio as passage beyond dead or empty forms.}
+\]
+Folding gives form; embodied Sophia makes form living. Expansion gives capacity; sustained Sophia gives vitality. Resurrectio gives passage; balance decides its cost.}
+\scripture{From glory to glory, even as by the Spirit of the Lord.}{2 Corinthians 3:18}
+
+\thesis{35}{The Paschal Triad is the crown of the hierarchy. Cross, Tomb, and Resurrection as differential icon}
+\status{Theorem.}
+\statement{The Filtrum Lucis carries a differential icon of the Paschal passage: entry into death, the Cross, and exit into resurrection.}
+\explain{The Paschal Triad is not a numerical proof of the Gospel and not a chronological replacement for the three days. It is an icon in the language of derivatives: the passage into death, the centre of the Cross, and the emergence of Anastasis appear as a structured transition in the light-filter. The Cross is the midpoint, not because time is symmetric, but because the geometry of passage is centred where resistance and transmissive sensitivity meet. This is the crown of the V.F.S. hierarchy: not abstraction for its own sake, but a symbolic mathematics of death, repose, and resurrectional continuation.}
+\formula{\[
+  \Phi^{(4)}(x_-)=0,
+  \qquad
+  \Phi'''(0)=0,
+  \qquad
+  \Phi^{(4)}(x_+)=0,
+  \qquad
+  x_-+x_+=0.
+\]
+Good Friday, Holy Saturday, and Resurrection Sunday appear as a differential icon, not as a chronological formula.}
+\scripture{Christ is risen from the dead, and become the firstfruits of them that slept.}{1 Corinthians 15:20}
 
 \bigskip
 \hrule
 \smallskip
-\noindent\footnotesize\emph{V.F.S. $\cdot$ Volo. Facio. Sum. $\cdot$ Editio LXXXVIII $\cdot$ Open-Gate Sophia.
-Part~I translated from the \texttt{index} section \emph{Hierarchy of Fundamental Conclusions};
-Part~III from \texttt{index} \S11 (\emph{Lyapunov Stability of the Active Domain});
-Part~IV from \texttt{lyapunov} \S12 (\emph{Theological Corollaries}). Part~II integrates the Sophianic Folding theological layer; Scripture epigraphs as in
-the source.}
+{\footnotesize\emph{V.F.S. $\cdot$ Volo. Facio. Sum. $\cdot$ Editio XCIb $\cdot$ Open-Gate Sophia. This restructuring gathers conclusions from the core, Lyapunov, Sophianic Folding, Resurrectio, and companion-volume layers, and orders them by theological weight. Each conclusion follows the agreed pattern: Status, Statement, Meaning, Formula, Scripture.}}
+
 \end{document}
