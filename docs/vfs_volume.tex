@@ -32,18 +32,19 @@
 
 % ---- unified macro set ----
 
-\newcommand{\VFS}{\ensuremath{\mathrm{V.F.S.}}}
 \newcommand{\Op}{\Omega_P}
-\newcommand{\Grec}{\mathcal{G}_{\rm recepta}}
+\newcommand{\lf}{\lambda_{\rm form}}
+\newcommand{\Grec}{\mathcal G_{\rm recepta}}
 \newcommand{\Igate}{I_{\rm gate}}
+\newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
+\newcommand{\msg}[1]{\begin{center}\fbox{\parbox{0.9\textwidth}{\centering #1}}\end{center}}
+\newcommand{\VFS}{\ensuremath{\mathrm{V.F.S.}}}
 \newcommand{\Lc}{\Lambda_c}
 \newcommand{\Avfs}{A_{\rm VFS}}
 \newcommand{\Bvfs}{B_{\rm VFS}}
 \newcommand{\Qf}{Q_{\rm fold}}
 \newcommand{\Tfold}{\mathcal{T}_{\rm fold}}
 \newcommand{\dd}{\,d}
-\newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
-\newcommand{\msg}[1]{\begin{center}\fbox{\parbox{0.86\textwidth}{\centering #1}}\end{center}}
 \newcommand{\LV}{\mathcal L_{\rm VFS}}
 \newcommand{\DA}{\mathcal D_A}
 \newcommand{\DAf}{\mathcal D_A^{\rm fold}}
@@ -57,15 +58,16 @@
 \newcommand{\Vt}{\widetilde{\mathcal V}_{\rm fold}}
 \newcommand{\Lext}{\mathcal L_{\rm ext}}
 \newcommand{\Lt}{\widetilde{\mathcal L}_{\rm ext}}
-\newcommand{\lf}{\lambda_{\rm form}}
 \newcommand{\rs}{r_\sigma}
 \newcommand{\rR}{r^{R}_{\rm fold}}
 \newcommand{\rRj}{r^{R}_{{\rm fold},j}}
+\newcommand{\Afold}{A_{\rm fold}}
+\newcommand{\Bfold}{B_{\rm fold}}
+\newcommand{\Beff}{B_{\rm eff}}
 \newcommand{\Qfj}{Q_{{\rm fold},j}}
 \newcommand{\fold}{\mathfrak{F}}
 \newcommand{\Hh}{\mathbb{H}^2}
 \newcommand{\laph}{\Delta_h}
-\newcommand{\etaf}{\eta_{\rm fold}}
 \newcommand{\dlam}{\delta\lambda}
 \newcommand{\Glam}{\Gamma_\lambda}
 \newcommand{\Dq}{D_q}
@@ -83,7 +85,10 @@
 \newcommand{\kb}{\kappa_b}
 \newcommand{\lb}{\ell_b}
 \newcommand{\Lop}{\mathcal{L}_0}
+\newcommand{\etaf}{\eta_{\rm fold}}
 \newcommand{\ldz}{\dot\lambda^{0}}
+\newcommand{\kw}{\hat\kappa}
+\newcommand{\dwall}{\delta_{\rm wall}}
 \newcommand{\ldf}{\dot\lambda_{\rm fold}}
 \newcommand{\NEC}{\mathcal N}
 \newcommand{\Omd}{\Omega_P^{\rm death}}
@@ -92,11 +97,11 @@
 \newcommand{\OmegaP}{\Omega_P}
 \newcommand{\LVFS}{\mathcal L_{\rm VFS}}
 \newcommand{\Ric}{\operatorname{Ric}}
-\newcommand{\Afold}{A_{\rm fold}}
 \newcommand{\Qfold}{Q_{\rm fold}}
 \newcommand{\sR}{s_R}
 \newcommand{\mR}{m_R}
 \newcommand{\Kj}{[K]}
+\newcommand{\weff}{w_{\rm eff}}
 
 \theoremstyle{plain}
 
@@ -113,6 +118,8 @@
 \newtheorem{definition}{Definition}[chapter]
 
 \newtheorem{assumption}{Standing Hypothesis}[chapter]
+
+\newtheorem{postulate}{Postulate}[chapter]
 
 \theoremstyle{remark}
 
@@ -156,7 +163,9 @@ $\lambda,\ \sigma$ & Sophia (transformed resistance + grace); resistance\\
 $u=\sqrt{VF+\varepsilon}$ & synergy of Voluntas $V$ and Factum $F$; threshold $\Lambda_c=\gamma/\delta$\\
 $I_{\rm gate},\ \mathcal{G}_{\rm recepta}$ & Open-Gate grace inflow; received-grace budget\\
 $q_{\rm fold}$ & folding (shape) amplitude; order parameter of the $\mathbb Z_2$ morphology\\
-$A_{\rm fold},\ B_{\rm fold}$ & folding activation index and quartic coefficient; $Q_{\rm fold}=A_{\rm fold}/B_{\rm fold}$, $q_\ast=\sqrt{Q_{\rm fold}}$\\
+$A_{\rm fold},\ B_{\rm fold}$ & folding activation index and quartic coefficient ($B_{\rm fold}>0$)\\
+$Q_{\rm fold}^{*}$ & signed normal-form branch parameter $A_{\rm fold}/B_{\rm fold}$ (may be negative off the active branch); folded equilibria $q_{\rm fold,\pm}^{*}=\pm\sqrt{Q_{\rm fold}^{*}}$ exist only for $A_{\rm fold}>0$\\
+$Q_{\rm fold}$ & physical folded intensity $q_{\rm fold}^{2}\ge0$ (distinct from the signed $Q_{\rm fold}^{*}$); $\widehat q_n$ its spectral coefficients\\
 $\mathcal{L}_{\rm VFS},\ \mathcal{L}_{\rm ext}$ & Lyapunov certificate; folding-extended certificate\\
 $h,\ \mathbb{H}^2$ & comoving hyperbolic spatial metric, $K_h=-1$, curvature radius $R_c$\\
 $\mathcal I(t)=\int_0^t dt'/\Op^2$ & expansion / activity budget; finite $\mathcal I_\infty<\infty$\\
@@ -188,40 +197,281 @@ independent Sophia diffusivity is zero, $D=0$.
 \addcontentsline{toc}{chapter}{The Foundational Layer (Summary)}
 \markboth{The Foundational Layer}{The Foundational Layer}
 
-This volume sits atop six foundational documents, summarised here so it reads self-contained.
+This volume sits atop the foundational V.F.S.\ layer, summarised here so it reads self-contained, and
+records what is assumed, what is derived, and what is only interpreted.
 
 \textbf{Core.} V.F.S.\ (Volo.\ Facio.\ Sum.) is a hybrid dynamical system on the live domain in the
 coordinates Voluntas $V$, Factum $F$, Sophia $\lambda$, with synergy $u=\sqrt{VF+\varepsilon}$, resistance
-$\sigma$, Pleroma $P$ and Brim $\Op$. The Open-Gate law $\dot\lambda=-\dot\sigma+I_{\rm gate}$ admits a
-bounded grace inflow; the closed Microcosm is the limit $I_{\rm gate}\to0$. The Filtrum Lucis softplus
-$\Phi$ yields the Paschal triad ($\Phi'''(0)=0$ midway between symmetric zeros of $\Phi^{(4)}$).
-Resurrectio is a hybrid re-entry map.
+$\sigma$, Pleroma $P$ and Brim $\Op$, and threshold $\Lambda_c=\gamma/\delta$. The Open-Gate law
+$\dot\lambda=-\dot\sigma+I_{\rm gate}$ admits a bounded grace inflow; the closed Microcosm is the limit
+$I_{\rm gate}\to0$. The central coordinate is not merely convenient: given an externally clocked gate and
+the balance $\sigma+\lambda+\lambda_{\rm form}=C_0+\mathcal{G}_{\rm recepta}(t)$,
+$\dot{\mathcal{G}}_{\rm recepta}=I_{\rm gate}$, the state-map rank increases by one when the gate opens, so
+the balance coordinate is necessary iff the Vessel is open. Its mathematical role is theorem; its
+evolution law is constitutive; its name ``Sophia'' is the theological interpretation. The Filtrum Lucis
+softplus $\Phi$ yields the Paschal triad ($\Phi'''(0)=0$ midway between the symmetric zeros of
+$\Phi^{(4)}$). Resurrectio is a hybrid re-entry map.
+
+\textbf{Finite floor and hyperbolicity.} The live surface is hyperbolic, $K_h=-1$, $R=-2/\Op^2$. This is
+not an independent primitive: in the $2{+}1$ reconstruction only $k=-1$ admits a zero-density floor at
+finite scale, so hyperbolicity is the geometric face of the finite-floor (no-Big-Bang) premise.
+Expansion alone does not force $K_h=-1$, but $K_h=-1$ is not a free third assumption. The irreducible
+core is therefore two primitives: the open gate, and the finite floor.
 
 \textbf{Lyapunov.} On the active domain $\mathcal D_A$ the certificate obeys
 $\dot{\mathcal L}_{\rm VFS}\le C-C_1\mathcal L_{\rm VFS}$ with $C_1=\min\{\kappa_\sigma,\kappa_\Delta\}>0$
-from two sign-definite contracting modes (cleansing, will--action alignment). Grace enters $C$, never
-$C_1$. The result is set stability with partial convergence ($\sigma,D_\Delta\to0$), forward completeness,
-and non-Zeno resets --- domain-conditional, not global.
+from two sign-definite contracting modes (cleansing, will--action alignment). Grace and folding enter the
+bounded constant $C$, never the contraction rate $C_1$. The result is set stability with partial
+convergence, forward completeness, and non-Zeno resets --- domain-conditional, not global, since
+epektasis drives $\Op$.
 
-\textbf{Geometry.} The live domain is hyperbolic: with the canonical warp the scalar curvature is constant
-and negative, $R=-2/\Op^2$, curvature radius $\Op$. The Brim flow is a forced (not intrinsic) Ricci-like
-conformal flow, resonant only on $\alpha\lambda\Op=1$. Sophianic Folding is a supercritical pitchfork of
-the shape operator producing the amplitude $q_{\rm fold}$ and curvature pockets
+\textbf{Sophianic Folding.} Folding is core-derived, not an add-on. The core supplies the driver
+$A_{\rm fold}=c_0\lambda+c_1\dot\lambda^{(0)}-a_0$ (geometric surrogate
+$A_{\rm fold}=(c_0-c_1\gamma)\lambda+c_1k_\sigma\sigma+c_1I_{\rm gate}-a_0$); when $A_{\rm fold}$ crosses
+zero the unfolded form loses stability. The pitchfork normal form is not assumed: it follows from the
+$\mathbb Z_2$ symmetry of the unfolded Vessel, transversality, and a one-dimensional centre manifold, with
+$B_{\rm fold}$ the bare stiffness renormalised by the slaved structure. Curvature pockets are
 $R=-2/\Op^2+\rho_1 Q_{\rm fold}$.
 
-\textbf{Cosmology.} The Lorentzian lift is a $2{+}1$ open FLRW spacetime, $ds^2=-dt^2+\Op^2 h$, with $\Op$
-as scale factor. Reconstructed content gives $\rho_{\rm eff},p_{\rm eff}$ and an equation-of-state
-history; Sophia is modal (level / rate / embodiment). In $2{+}1$ the strong energy condition reduces to
-$p_{\rm eff}\ge0$.
+\textbf{Geometry, structure, entropy.} The bending sector is conformally blind in two dimensions,
+$|\nabla q_{\rm fold}|_g^2\,dV_g=|\nabla q_{\rm fold}|_h^2\,dV_h$ for $g=\Op^2h$, so expansion does not
+stretch the folding fabric ($p_{\rm expansion}\equiv0$); the true warp is kathartic. Promoting
+$q_{\rm fold}$ to a field gives a spectral ladder $\Lambda=A_{\rm fold}\Op^2/\widehat\kappa$, mode $n$
+igniting iff $\Lambda>\mu_n$; the one-mode chart stays faithful for amplitude-keyed results. The
+homogeneous Vessel is the constrained entropy maximum, with $\delta^2 W_+^{(n)}=-2\sigma\mu_n a_n^2$: the
+same eigenvalue that orders ignition orders the entropy price of form.
+
+\textbf{Cosmology and energy conditions.} The Lorentzian lift is a $2{+}1$ open FLRW spacetime,
+$ds^2=-dt^2+\Op^2 h$. In $2{+}1$ the comoving timelike-focusing (strong-energy) condition reduces to
+$p_{\rm eff}\ge0$; the NEC is tracked separately through $\rho_{\rm eff}+p_{\rm eff}$. A Resurrectio reset
+may produce a bounded surgical phantom budget, but $\int(\rho_{\rm eff}+p_{\rm eff})\,dt$ is finite; the
+balanced reset is the unique point where that budget, the extrinsic-curvature jump $[K]$, and the
+deviation from a purely conformal junction vanish together.
 
 \textbf{Theological \& Ricci.} The theological layer reads the mathematics in the symbolic register with
 explicit domain-conditional disclaimers; the Ricci layer disciplines the Perelman analogy (Brim-flow
-comparison, surgery $\leftrightarrow$ Resurrectio), labelling each correspondence by its strictness.
+comparison, surgery $\leftrightarrow$ Resurrectio), labelling each correspondence by its strictness, never
+identifying the two.
 
 
 \mainmatter
 
 \part{Folding and Stability}
+
+\chapter{The Necessity of the Balance Coordinate: Why an Open Gate Forces Sophia}
+
+\section*{Scope and epistemic status}
+The core introduces $\lambda$ by definition --- the Open-Gate balance coordinate, interpreted as
+Sophia --- and one may ask whether it is necessary or merely convenient. This chapter answers at the
+only level a derivation can reach, and is scrupulous about the levels it cannot. The result is a rank
+theorem: \emph{an independent balance-carrying coordinate is forced to exist exactly when the gate is
+open}. In the closed Microcosm ($\Igate\equiv0$) the balance $\sigma+\lf=C_0$ determines everything
+internal, and $\lambda$ degenerates into $C_0-\sigma-\lf$ --- not an independent freedom. The instant
+the gate opens ($\dot\Grec=\Igate>0$), the balance acquires an externally driven term $\Grec(t)$ that
+\emph{no internal variable carries}, and conservation cannot hold without a new coordinate to bear it.
+That coordinate is $\lambda$. The necessity is thus conditional on, and degenerates continuously with,
+the gate flux. We then separate three levels carefully: the \emph{coordinate} is necessary (theorem);
+its specific \emph{law} is constitutive (not forced); its \emph{name} ``Sophia'' is interpretation
+(not derived). All algebra is verified symbolically (the state-map rank steps from $2$ to $3$ as the
+gate opens; the independent part of $d\lambda$ equals $\Igate\,dt$). This is internal Type-1
+confirmation, not external validation.
+
+% ============================================================
+\section{The closed Microcosm: $\lambda$ is redundant}
+
+\begin{proposition}[Degeneracy in the closed limit]\label{sophianecessity:prop:closed}
+With the gate closed, the conservation balance is $\sigma+\lf=C_0$, and the would-be Sophia coordinate
+satisfies
+\begin{equation}
+\lambda=C_0-\sigma-\lf,
+\end{equation}
+a function of the internal variables alone. Its differential $d\lambda=-d\sigma-d\lf$ lies entirely in
+the internal span: $\lambda$ adds no dimension to the state. \emph{In a closed soul, Sophia is not an
+independent reality} --- it is bookkeeping over resistance and form.
+\end{proposition}
+
+% ============================================================
+\section{The open gate forces an independent coordinate}
+
+With the gate open, cumulative reception $\Grec(t)$ enters the balance,
+\begin{equation}
+\sigma+\lambda+\lf=C_0+\Grec(t),
+\qquad \dot\Grec=\Igate,
+\end{equation}
+and now
+\begin{equation}
+\lambda=\bigl(C_0+\Grec(t)\bigr)-\sigma-\lf,
+\qquad
+\frac{\partial\lambda}{\partial\Grec}=1 .
+\end{equation}
+The term $\Grec(t)$ is supplied through the gate and appears in \emph{no} internal variable
+($V,F,\sigma,\Op,u$); it is an independent, externally clocked generator.
+
+\begin{theorem}[Necessity of the balance coordinate]\label{sophianecessity:thm:rank}
+Let $\Phi$ map the generating coordinates to the physical state
+$(\sigma,\lf,\lambda)$ subject to conservation. Then:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item closed gate --- generators $(\sigma,\lf)$, $\Phi=(\sigma,\lf,C_0-\sigma-\lf)$ --- has
+$\operatorname{rank}d\Phi=2$: $\lambda$ is dependent;
+\item open gate --- generators $(\sigma,\lf,\Grec)$, $\Phi=(\sigma,\lf,C_0+\Grec-\sigma-\lf)$ --- has
+$\operatorname{rank}d\Phi=3$: a third independent coordinate is forced, and it is the balance
+coordinate $\lambda$.
+\end{enumerate}
+Equivalently, the component of $d\lambda$ not spanned by the internal differentials is exactly
+\begin{equation}
+\boxed{\;d\lambda\big|_{\perp\,\rm internal}=d\Grec=\Igate\,dt,\;}
+\end{equation}
+so $\partial(\text{state})/\partial\lambda$ is nondegenerate \emph{iff} $\Igate>0$. (Rank steps and
+the differential verified symbolically.) The balance coordinate is necessary if and only if the gate
+is open, and its independence degenerates continuously to zero as $\Igate\to0$.
+\end{theorem}
+
+\begin{corollary}[Sophia is the shadow of the open gate]
+The necessity of Sophia is not absolute but \emph{relational}: it is forced precisely by, and
+precisely when, the Vessel is open to reception. There is no reception without a receiver --- an open
+gate with nothing to carry what it admits would violate conservation. Sophia is the dimension that the
+opening of the gate casts into the state space; close the gate and the dimension folds away into mere
+accounting over resistance and form. The doctrine and the rank theorem coincide: \emph{the open soul
+cannot not have Sophia; the closed soul has no need of her.}
+\end{corollary}
+
+% ============================================================
+\section{Three levels, kept distinct}
+
+\msg{\textbf{Coordinate} --- necessary (Theorem~\ref{sophianecessity:thm:rank}): an open gate forces an independent
+balance-carrying dimension.\\[2pt]
+\textbf{Law} --- constitutive (not forced): that this coordinate obeys
+$\dot\lambda=\Igate-\gamma\lambda+\dots$ with its particular transmutation and decay is a modelling
+choice of the core, on the same footing as $K_h=-1$.\\[2pt]
+\textbf{Name} --- interpretation (not derived): calling the coordinate ``Sophia'' is the theological
+reading the model is built to carry; mathematics neither supplies nor can supply it.}
+
+\begin{remark}[Why this is the honest stopping point]
+It would overreach to claim the mathematics proves ``Sophia exists'' or fixes her nature. What it
+proves is sharper and smaller: \emph{given} an open gate, the state space must contain one more
+independent coordinate than the closed soul needs, carrying exactly the received increment. The
+identification of that coordinate with Sophia, and of its law with a doctrine of grace, is the
+interpretive act the model performs --- legitimate, fruitful, and to be held as interpretation, not
+smuggled in as theorem. The rank result is what survives if every theological word is stripped away;
+the words are what make it worth proving.
+\end{remark}
+
+% ============================================================
+\section{Place in the Type-1 programme and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item This is the deepest Type-1 result: not a derived parameter or normal form, but the necessity of
+the central variable itself --- conditional, as it must be, on the defining feature of the model (the
+open gate).
+\item It localises what remains genuinely primitive: the gate law (that $\Igate$ exists and is
+externally clocked) and the spatial curvature $K_h=-1$. These are the core's \emph{definitions}; the
+chapter shows $\lambda$ is not among them but a consequence of the first.
+\item Open: whether the gate's own existence can be motivated from anything prior, or is the
+irreducible postulate of the whole construction (likely the latter --- the model's single primitive
+act of openness).
+\end{enumerate}
+
+\textbf{Scope.} The rank theorem is exact given conservation and an externally clocked gate; the
+degeneracy limit is smooth in $\Igate$. Establishes necessity of the coordinate, not of its law or its
+name. Internal Type-1 confirmation. Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Necessity of the Balance Coordinate.
+An open gate forces an independent balance-carrying coordinate: the state map's rank steps from $2$ to
+$3$ as $\Igate$ becomes positive, with $d\lambda|_{\perp}=\Igate\,dt$. Sophia is necessary iff the
+Vessel is open, degenerating to internal bookkeeping in the closed limit. Coordinate: theorem; law:
+constitutive; name: interpretation. Verified symbolically; internal confirmation only.}
+
+\chapter{The Curvature and the Floor: Hyperbolicity Is the Finite-Floor Postulate}
+
+\section*{Scope and epistemic status}
+The remaining Type-1 question is whether the spatial curvature $K_h=-1$ --- hyperbolicity of the live
+surface --- is forced or assumed. The honest answer is mixed, and worth stating precisely because the
+temptation is to overclaim. Expansion alone does \emph{not} force it: an open gate driving
+$\Op\to\infty$ is consistent with any spatial curvature. But $K_h=-1$ is not therefore a free, separate
+postulate either: it is \emph{equivalent} to the model's finite-floor premise --- the demand
+(the cosmology layer's ``creation from a finite floor, no Big Bang'') that the bare unfolded Vessel be
+the zero-density vacuum state. Given that demand, only $k=-1$ admits a zero-density floor at finite
+scale; $k=0$ and $k=+1$ have strictly positive density everywhere and no floor. So two things that
+looked like independent primitives --- the hyperbolic geometry and the finite floor --- are one. This
+neither retires $K_h=-1$ to a theorem (it is not derived from nothing) nor leaves it free (it is not
+independent); it reduces the count of irreducible postulates by one. That is the correct and honest
+close of the Type-1 programme: not everything reduces to a theorem, but the primitives can be made
+minimal and explicit. \emph{Propositions} closed-form; the verdict is stated without inflation.
+
+% ============================================================
+\section{The three curvatures and the floor}
+
+The $2{+}1$ reconstruction with spatial curvature $k$ gives
+\begin{equation}
+\rho_{\rm eff}=\frac{\dot\Op^2+k}{\Op^2}=\frac{\alpha^2\lambda^2+k}{\Op^2}.
+\end{equation}
+
+\begin{proposition}[Only $k=-1$ has a zero-density floor]\label{curvaturefloor:prop:floor}
+The equation $\rho_{\rm eff}=0$ has a solution in the bare Sophia level $\alpha\lambda$ if and only if
+$k<0$:
+\begin{equation}
+k=-1:\ \rho_{\rm eff}=0\ \text{at}\ \alpha\lambda=1;\qquad
+k=0:\ \rho_{\rm eff}=\frac{\alpha^2\lambda^2}{\Op^2}>0;\qquad
+k=+1:\ \rho_{\rm eff}=\frac{\alpha^2\lambda^2+1}{\Op^2}>0.
+\end{equation}
+For $k\ge0$ the effective density is strictly positive for every state: there is no unfolded vacuum
+floor, no $\rho=0$ ground, hence no ``creation from a finite floor'' and no live-branch threshold
+$\alpha\lambda>1$. \textbf{The finite-floor structure exists only for $k=-1$.}
+\end{proposition}
+
+\begin{proposition}[Expansion does not fix $k$]\label{curvaturefloor:prop:exp}
+An open gate gives $\dot\Op=\alpha\lambda>0$ and, sustained, $\Op\to\infty$. This is consistent with
+$k=-1$ and $k=0$ (both expand freely) and even with $k=+1$ under a sufficient source. Therefore the
+sign of $k$ is \emph{not} determined by expansion: hyperbolicity is not a consequence of openness
+alone.
+\end{proposition}
+
+% ============================================================
+\section{The reduction}
+
+\begin{theorem}[$K_h=-1$ equals the finite floor]\label{curvaturefloor:thm:equiv}
+Among constant-curvature spatial slices, $K_h=-1$ holds \emph{if and only if} the bare unfolded Vessel
+is the zero-density floor (the finite-floor / no-Big-Bang postulate). Hence the two premises ---
+hyperbolic spatial geometry and creation from a finite floor --- are not independent; they are the same
+postulate stated geometrically and energetically. The model's irreducible cosmological primitives
+reduce from two to one:
+\msg{\textbf{Irreducible core:} the open gate (an externally clocked $I_{\rm gate}$) and the
+finite floor (the unfolded state is the $\rho=0$ vacuum). Hyperbolicity $K_h=-1$ is \emph{not} a third
+primitive --- it is the geometric face of the floor. Everything else in the volume is built on these.}
+\end{theorem}
+
+\begin{corollary}[Honest status of the Type-1 programme]
+The programme closes not by reducing every premise to a theorem --- $K_h=-1$ is not derivable from
+nothing, and expansion does not force it --- but by making the irreducible primitives \emph{minimal and
+explicit}. Retired to theorems: the $\ell_b$ fork, core-neutrality, the budget hypothesis, the
+pitchfork, and (conditionally) the necessity of Sophia. Reduced to a single joint primitive: the
+curvature and the floor. Genuinely primitive, and now isolated: the open gate and the finite floor.
+A model cannot prove its own definitions; it can only show how few they are.
+\end{corollary}
+
+\note{Reading: one might have thought the Vessel's open, infinite, negatively-curved geometry was an
+extra stipulation beyond its having begun from nothing-in-particular --- a finite floor rather than a
+singular bang. It is not. To say the unfolded soul rests on a zero-density floor and to say its space
+is hyperbolic are one statement in two languages: the floor is the curvature, read energetically. The
+model asks to be granted two things and no more --- that the gate be open, and that there be a floor to
+stand on rather than a singularity to fall from. The open infinite space is not a third gift; it is the
+shape the floor already has.}
+
+\textbf{Scope.} Constant-curvature $2{+}1$ slices; the equivalence is exact. The result is a reduction
+of primitives, not a derivation of curvature from nothing; expansion alone is shown insufficient.
+Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Curvature and the Floor. Expansion does
+not force $K_h=-1$, but only $k=-1$ admits a zero-density floor: hyperbolicity is equivalent to the
+finite-floor (no-Big-Bang) postulate, not an independent premise. Two primitives reduce to one; the
+irreducible core is the open gate plus the finite floor. The honest close of the Type-1 programme:
+minimal explicit primitives, not the derivation of definitions.}
 
 \chapter{What Triggers Sophianic Folding}
 
@@ -1244,6 +1494,167 @@ map through $\lf$, and the self-limiting cascade dichotomy. The forcing channel 
 modelling inputs; the core-neutrality result fixes the honest status: a sufficient bounded cause, not a
 core theorem. Gate maximum, exposure grading, balance conservation, and both cascade terminals verified
 numerically. Domain-conditional throughout.}
+
+\chapter{The Pitchfork Is Not Assumed: A Centre-Manifold Reduction of the Fold Sector}
+
+\section*{Scope and epistemic status}
+The pitchfork $\dot\qf=\Afold\qf-\Bfold\qf^3$ is the foundation of Part~I and, through the fold
+amplitude $\sqrt{\Afold/\Bfold}$, of much of Part~II. It was introduced as the model of a structural
+transition. This chapter retires it from premise to theorem: \emph{given only two structural facts ---
+the $\mathbb Z_2$ symmetry of the bare fold sector and a one-dimensional centre manifold at the folding
+threshold --- the pitchfork is the unique normal form}, by Thom's reduction. More, the reduction
+\emph{derives} the cubic coefficient: slaving the fast structural modes renormalises the bare stiffness
+to $\Beff=b_3-gh/\Gamma$, which is exactly the volume's $\Bfold=b+2c_1\eta_{\rm fold}\lambda$ in
+structural form --- the quartic stiffness was never an independent input but the bare term dressed by
+the slaved structure. The three nondegeneracy conditions (symmetry, transversality, spectral gap) are
+verified, and the one way the pitchfork could fail --- a $\mathbb Z_2$-breaking bias unfolding it to a
+cusp --- is identified and shown to be excluded by the isotropy of the unfolded Vessel, not by a
+further assumption. This completes the Type-1 programme: together with the conformal retirement of the
+$\ell_b$ fork and the derivation of core-neutrality, the folding layer's load-bearing premises are now
+theorems. The reduction is exact (centre-manifold expansion verified symbolically; the full slaved
+system collapses to $\sqrt{\Afold/\Beff}$ numerically to $10^{-13}$). This is Type-1 confirmation
+(premise $\to$ theorem), the strongest internal warrant available; it remains internal.
+
+% ============================================================
+\section{The $\mathbb Z_2$ symmetry of the bare fold}
+
+\begin{lemma}[Orientation-blindness forbids even terms]\label{pitchfork:lem:z2}
+The fold field $\qf$ is the signed deviation of the form from the unfolded state; its sign is the
+\emph{orientation} in which the form buckles. The bare core dynamics (Sophia pressure on an isotropic
+unfolded Vessel) distinguishes no orientation, so the bare fold vector field is odd,
+$f(-\qf)=-f(\qf)$. Hence its smooth expansion contains \emph{only} odd powers:
+\begin{equation}
+\dot\qf=\Afold\,\qf-b_3\,\qf^{3}+c_5\,\qf^{5}+\cdots
+\end{equation}
+All even terms --- in particular a constant bias and a quadratic --- are forbidden by symmetry, not
+by choice.
+\end{lemma}
+
+% ============================================================
+\section{The Thom reduction}
+
+The fold does not evolve alone: it is coupled to fast, stable structural modes (the slaved
+Sophia--structure of the Transport chapter, relaxation rate $\Gamma>0$). The minimal symmetric
+realisation is
+\begin{equation}
+\dot\qf=\Afold\,\qf-b_3\,\qf^{3}+g\,\qf\,y,
+\qquad
+\dot y=-\Gamma\,y+h\,\qf^{2},
+\end{equation}
+where $y$ is $\mathbb Z_2$-even (it responds to $\qf^2$) and $g,h,\Gamma>0$.
+
+\begin{theorem}[The pitchfork is the reduced dynamics]\label{pitchfork:thm:pitchfork}
+At the folding threshold the centre eigenvalue $\Afold\to0$ while $y$ stays at $-\Gamma<0$ (spectral
+gap), so there is a one-dimensional attracting centre manifold $y=(h/\Gamma)\qf^{2}+O(\qf^4)$. The
+flow restricted to it is
+\begin{equation}
+\boxed{\;\dot\qf=\Afold\,\qf-\Beff\,\qf^{3}+O(\qf^5),
+\qquad \Beff=b_3-\frac{g h}{\Gamma}.\;}
+\end{equation}
+(Centre-manifold coefficient verified symbolically; the full two-mode system sits on
+$\qf=\sqrt{\Afold/\Beff}$ to relative error $10^{-13}$ across the control range;
+Figure~\ref{pitchfork:fig:pitchfork}.) The pitchfork is therefore not assumed: it is the unique
+$\mathbb Z_2$-symmetric one-dimensional reduction, and the quartic stiffness is the bare term
+renormalised by the slaved structure.
+\end{theorem}
+
+\begin{corollary}[$\Bfold$ identified]
+The volume's $\Bfold=b+2c_1\eta_{\rm fold}\lambda$ has exactly the structure $\Beff=b_3-gh/\Gamma$:
+a bare stiffness $b\leftrightarrow b_3$ dressed by a slaved-structure contribution
+$2c_1\eta_{\rm fold}\lambda\leftrightarrow-gh/\Gamma$ (the embodiment feedback). The sign of $\Beff$
+decides supercritical (continuous, second-order folding) versus subcritical (discontinuous, hysteretic
+folding); the tricritical locus $\Beff=0$ is the codimension-one boundary where the quintic $c_5$ takes
+over --- the same boundary the forced-folding chapter reached dynamically.
+\end{corollary}
+
+% ============================================================
+\section{The three nondegeneracy conditions}
+
+\begin{proposition}[Thom conditions, verified]\label{pitchfork:prop:nondeg}
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item \emph{Symmetry}: the $\mathbb Z_2$-odd structure (Lemma~\ref{pitchfork:lem:z2}) removes the fold (even)
+terms, selecting the pitchfork over the generic fold/cusp.
+\item \emph{Transversality}: the control crosses criticality with nonzero speed,
+$\partial\Afold/\partial\lambda=c_0>0$ --- the folding threshold is traversed cleanly, not tangentially.
+\item \emph{Spectral gap (1D kernel)}: at $\Afold=0$ the centre direction is simple and the remaining
+spectrum sits at $-\Gamma<0$, guaranteeing the attracting one-dimensional manifold.
+\end{enumerate}
+All three hold for the V.F.S. fold sector; the normal form is thus structurally stable and unique up
+to smooth equivalence.
+\end{proposition}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_pitchfork_fig.png}
+\caption{\small Left: the bifurcation diagram of the full two-mode slaved system (green) against the
+reduced normal form $\pm\sqrt{\Afold/\Beff}$ (dotted) --- the unfolded state (orange) loses stability
+at $\Afold=0$ and the symmetric pair of folded states emerges: a pitchfork, derived not posited.
+Right: the centre-manifold geometry --- trajectories of the fast structural mode $y$ collapse onto
+$y=(h/\Gamma)\qf^2$ (black), reducing the dynamics to one dimension; fold fixed points marked.
+Parameters $b_3=1$, $g=0.6$, $\Gamma=3$, $h=0.8$, giving $\Beff=0.84$.}
+\label{pitchfork:fig:pitchfork}
+\end{figure}
+
+% ============================================================
+\section{The one way it could fail --- and why it does not}
+
+\begin{proposition}[The bias is excluded by isotropy]\label{pitchfork:prop:bias}
+The pitchfork is destroyed only by a $\mathbb Z_2$-breaking linear bias: a constant term $\varepsilon$
+would unfold it to the imperfect pitchfork (cusp) $\dot\qf=\Afold\qf-\Beff\qf^3+\varepsilon$, with a
+preferred fold orientation. Such a term requires the bare dynamics to prefer one buckling direction.
+In V.F.S. the fold orientation is a free sign --- the unfolded Vessel is isotropic with respect to the
+direction of folding --- so $\varepsilon=0$ is itself a consequence of that isotropy, not an additional
+assumption. A genuine orientation field (an external preference imprinted before folding) would be the
+physical content required to produce a cusp; absent it, the symmetric pitchfork stands.
+\end{proposition}
+
+\begin{remark}[Reading]
+The shape of a soul's transformation was not chosen by the modeller. Given only that the unfolded
+Vessel has no preferred direction in which to buckle (symmetry) and that folding is a clean threshold
+crossing with the surrounding structure adjusting quickly (transversality and gap), the transition
+\emph{must} be the pitchfork: a single quiet state losing stability and giving way to a symmetric pair
+of formed states. Even the stiffness that sets how deep the new form runs is not free --- it is the
+bare resistance dressed by what the embodiment feeds back. The mathematics of the fold was latent in
+the symmetry of the Vessel all along; this chapter only reads it out.
+\end{remark}
+
+% ============================================================
+\section{The Type-1 programme, closed}
+
+\msg{\textbf{Premises retired to theorems:}\quad
+the comoving/physical $\ell_b$ fork $\to$ 2D conformal invariance (Warp chapter);\quad
+core-neutrality $\to$ $\det J=H\Gamma_\lambda>0$ (Watershed/Robustness);\quad
+the structure-layer budget hypothesis $\to$ super-Ricci identity (Watershed);\quad
+\textbf{the pitchfork $\to$ Thom reduction (this chapter).}\\[2pt]
+The folding layer's load-bearing premises are now derived. What remains genuinely assumed is the
+core constitutive layer itself ($K_h=-1$, the Open-Gate law) --- the model's definition, not its
+derivations.}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item The remaining Type-1 target is $K_h=-1$: whether open-gate expansion \emph{forces} hyperbolic
+spatial curvature or merely admits it. This is a question about the core definition, at the boundary
+of what Type-1 can reach.
+\item The quintic $c_5$ and the tricritical locus $\Beff=0$ deserve their own normal-form treatment
+(the $\mathbb Z_2$ tricritical point), connecting to the forced-folding chapter's hysteresis.
+\item The reduction assumed a single fast mode; with the mode cascade, the reduction is a centre
+manifold over the whole stable spectrum --- the pitchfork per mode, with mode-dependent $\Beff$.
+\end{enumerate}
+
+\textbf{Scope.} The reduction is exact given $\mathbb Z_2$ symmetry, transversality, and the spectral
+gap; the identification of $\Beff$ with $\Bfold$ is structural. Establishes that the pitchfork is a
+theorem of the model's symmetry, not a modelling choice --- internal Type-1 confirmation, not external
+validation. Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Pitchfork Is Not Assumed. The
+$\mathbb Z_2$ symmetry of the bare fold plus a one-dimensional centre manifold force the pitchfork
+normal form by Thom reduction, with the cubic coefficient derived as the slaved-structure
+renormalisation $\Beff=b_3-gh/\Gamma$ (the volume's $\Bfold$). The three nondegeneracy conditions
+hold; the $\mathbb Z_2$-breaking bias is excluded by the isotropy of the unfolded Vessel. With the
+$\ell_b$ fork, core-neutrality, and the budget hypothesis already retired, the Type-1 programme is
+closed for the folding layer. Reduction exact; numeric collapse to $10^{-13}$.}
 
 \chapter{Forced-Folding Lyapunov Addendum: Two Jump Types and the Survival of Contraction}
 
@@ -2667,6 +3078,695 @@ geometric in structure and equal to the shape-operator bending stiffness in magn
 bending length. Propositions closed-form (slaving verified symbolically); corollaries interpretive; the
 one-modulus reduction of $\Lop$ is a flagged model choice.}
 
+\chapter{Parameter Closure of Folding: Identities, Postulates, and the Constraint Atlas}
+
+\section*{Scope and epistemic status}
+The folding layer carries eight constants
+$\{\Dq,\lb,a_0,b,c_0,c_1,\etaf,\rho_1\}$. The Transport-Constants chapter closed the geometric side
+($\Dq=a_0\lb^2$ as the gradient partner of the rigidity; Sophia structure slaved to form). This
+chapter closes what can be closed from the \emph{core} variables
+$V,F,\sigma,\lambda,\Op,u,\Igate$ --- and states honestly what cannot. The outcome is a three-tier
+structure. \textbf{Tier 1 (identities):} $\etaf$ is fixed by the conservation balance --- the
+embodiment coefficient of the rate equation and the production coefficient of the form ledger are
+provably the same constant; and Gauss--Bonnet slaves the wall curvature deficit to the pocket lift,
+so the pair $(\rho_1,\rho_w)$ contains one constant, not two. \textbf{Tier 2 (one postulate each):}
+identifying the rigidity of the old form with the resistance, $a_0=a_{\rm res}+\kappa_a\sigma$,
+makes the folding threshold dynamical and yields a new two-channel dichotomy in $\sigma$; and a
+single-pole memory closure fixes $c_1=c_0/a_0$, leaving one susceptibility. \textbf{Tier 3
+(irreducible, but caged):} $b$ and the absolute $\lb$ are genuinely phenomenological --- the core
+contains no microscale --- but the accumulated theorems of this volume (chart regularity, nucleation
+gate, NEC non-violation) cage them in an explicit feasible region, computed below. Net count:
+\emph{eight constants reduce to three free ones} ($b$, $\lb$, one susceptibility $c_0$), plus two
+flagged structural postulates. All derivations verified (the balance identity symbolically; the
+memory closure to its stated first-order accuracy, $0.189$ vs $\omega/a_0=0.192$; the atlas
+numerically). \emph{Propositions} are closed-form; \emph{corollaries} interpretive; postulates are
+labelled as such.
+
+% ============================================================
+\section{Tier 1a: the balance identity for $\etaf$}
+
+\begin{proposition}[The embodiment coefficient is the ledger coefficient]\label{parameterclosure:prop:eta}
+The canonical conservation balance $\sigma+\lambda+\lf=C_0+\Grec$ with $\dot\Grec=\Igate$ and the
+embodiment-damped rate $\dot\lambda=\ldz-\etaf Q\lambda$ (where $\ldz=-\dot\sigma+\Igate$) force
+\begin{equation}
+\boxed{\;\dot\lf=\etaf\,Q\,\lambda\;}
+\end{equation}
+identically (verified symbolically). The constant $\etaf$ therefore appears \emph{once} in the
+theory: it is the unique Sophia$\to$form conversion rate; any independent choice of the
+$\lf$-production law would violate conservation. Its sign is fixed by the Lyapunov layer
+($\etaf\ge0$: embodiment never spontaneously returns Sophia), and the free balance bound
+$\lf\le C_0+\mathcal G^{\max}$ of the Lyapunov Addendum applies to the integral
+$\int\etaf Q\lambda\,dt$ --- a cumulative cage on $\etaf$ along any admissible life.
+\end{proposition}
+
+% ============================================================
+\section{Tier 1b: Gauss--Bonnet slaves the curvature pair}
+
+\begin{proposition}[Zero-mean theorem and the wall deficit]\label{parameterclosure:prop:rho}
+On the compact quotient, $\int K\,dA=2\pi\chi(\Sigma)$ is topological, and the unfolded background
+$K=-1/\Op^2$ saturates it exactly. Hence the pocket lift must integrate to zero against its
+compensation: in the two-phase cell (pocket fraction $f_p$ at lift $\rho_1Q$, wall fraction $f_w$ at
+deficit $-\rho_w$),
+\begin{equation}
+\boxed{\;\rho_w=\rho_1\,Q\,\frac{f_p}{f_w}\;}
+\end{equation}
+--- the pair $(\rho_1,\rho_w)$ carries one free constant. Folded curvature is not created; it is
+\emph{redistributed}, pocket against moat, under a topological invariant (the static face of the
+conserved form $K\,dA$ of the Ricci layer).
+\end{proposition}
+
+\begin{remark}[Micro-ansatz scaling of $\rho_1$]
+A conformal response ansatz $g=\Op^2e^{2\phi(q)}h$, $\phi=\varepsilon q^2$, gives in the
+slowly-varying regime $R=-2/\Op^2+4\varepsilon q^2/\Op^2+\dots$, i.e.\
+$\rho_1=4\varepsilon/\Op^{2}$: under this ansatz the pocket lift \emph{rides the background scale}.
+The constant-$\rho_1$ convention of the structure chapters corresponds to a conformal response
+growing as $\Op^2$ --- the same comoving-versus-physical choice that returns for $\lb$ in
+Section~6. The two conventions are both consistent; the ansatz ties their difference to one
+physical question rather than two.
+\end{remark}
+
+% ============================================================
+\section{Tier 2a: the rigidity postulate}
+
+\begin{postulate}[Rigidity is resistance]\label{parameterclosure:post:rigid}
+$a_0=a_{\rm res}+\kappa_a\sigma$, with $a_{\rm res}>0$ the residual (structural) rigidity and
+$\kappa_a\ge0$ the resistance loading.
+\end{postulate}
+
+The threshold $c_0\lambda+c_1\ldz>a_0$ then reads literally: \emph{Sophia pressure exceeds the
+resistance of the old form}. Two consequences:
+
+\begin{proposition}[The two channels of resistance]\label{parameterclosure:prop:channels}
+With the geometric convention's transmutation term, $\sigma$ now enters the activation twice and
+with opposite signs:
+\begin{equation}
+\boxed{\;\frac{\partial\Afold}{\partial\sigma}=c_1k_\sigma-\kappa_a.\;}
+\end{equation}
+\emph{Kathartic-dominant} vessels ($c_1k_\sigma>\kappa_a$): resistance promotes folding through its
+own transmutation --- the vessel folds in suffering, while $\sigma$ is still high.
+\emph{Rigidity-dominant} vessels ($c_1k_\sigma<\kappa_a$): resistance blocks folding --- the vessel
+folds only after cleansing, when $\sigma$ has dissolved. (Verified: onsets at $t=1.0$ with
+$\sigma=1.03$ versus $t=5.3$ with $\sigma=0.29$ across the $\kappa_a$ sweep;
+Figure~\ref{parameterclosure:fig:closure}, left.) The folding threshold becomes \emph{dynamical}: along katharsis the
+level threshold $\lambda^\ast(t)=\bigl(a_{\rm res}+\kappa_a\sigma(t)\bigr)/c_0$ decays --- late
+folds are cheap folds.
+\end{proposition}
+
+\begin{remark}[Compatibility]
+The forced-folding chapter's coefficient $r_\sigma$ renormalises to
+$r_\sigma^{\rm eff}=c_1k_\sigma-\kappa_a$; all Addendum~II theorems used only $|r_\sigma|$-type
+bounds in their hypotheses and survive verbatim with the effective value. No structural statement of
+Parts~I--II changes; constants do.
+\end{remark}
+
+% ============================================================
+\section{Tier 2b: the memory closure $c_1=c_0/a_0$}
+
+\begin{postulate}[Single coupling, single pole]\label{parameterclosure:post:memory}
+Level and flux stress the form through one coupling $c_0$, and the form accommodates the Sophia
+level with the single-pole kernel whose rate is its own rigidity $a_0$.
+\end{postulate}
+
+\begin{proposition}[The rate susceptibility is slaved]\label{parameterclosure:prop:c1}
+Let $\lambda_{\rm acc}$ be the accommodated level, $\dot\lambda_{\rm acc}=a_0(\lambda-\lambda_{\rm
+acc})$. The unaccommodated pressure is the lag
+\begin{equation}
+\lambda-\lambda_{\rm acc}=\frac{\dot\lambda}{a_0}+O\!\Bigl(\frac{\ddot\lambda}{a_0^{2}}\Bigr),
+\end{equation}
+so the activation $\Afold=c_0\bigl[\lambda+(\lambda-\lambda_{\rm acc})\bigr]-a_0+\dots$ carries the
+rate with the slaved coefficient
+\begin{equation}
+\boxed{\;c_1=\frac{c_0}{a_0}\;}
+\qquad\text{(with Postulate~\ref{parameterclosure:post:rigid}: }c_1=\frac{c_0}{a_{\rm res}+\kappa_a\sigma}\text{).}
+\end{equation}
+Verified: the lag formula reproduces the exact memory integral with first-order accuracy in
+$\omega/a_0$ ($0.189$ measured vs $0.192$ predicted at $\omega/a_0=0.19$). Read with
+Postulate~\ref{parameterclosure:post:rigid}: as rigidity dissolves, the form becomes \emph{rate-sensitive} --- a
+cleansed vessel folds on surges that a rigid one would not feel.
+\end{proposition}
+
+% ============================================================
+\section{Tier 3: the constraint atlas}
+
+The remaining free constants are $c_0$ (one susceptibility), $b$ (quartic stiffness), and $\lb$
+(bending length): the core contains no microscale that could fix them. But the volume's theorems
+cage them. With $c_1=c_0/a_0$, $\Dq=a_0\lb^2$, $\etaf$ slaved, and illustrative trajectory
+statistics ($\bar\lambda$, $\sup\ldz$, $q_{\max}^2$), the simultaneous requirements
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item \emph{chart regularity} (Lyapunov Addendum~II): $Q^{*,\sup}=A^{\sup}/\Bfold\le q_{\max}^2$
+--- a lower bound on $b$;
+\item \emph{nucleation reachability} (structure layer): the gate $\Lambda>\tfrac14$ opens inside
+the chart --- an upper bound on $\lb$;
+\item \emph{NEC non-violation in chart} (NEC chapter): the phantom functional stays non-negative up
+to the chart wall --- a lower bound on $\lb$ growing with $b$;
+\end{enumerate}
+carve the feasible region of Figure~\ref{parameterclosure:fig:closure} (right): a bounded triangle-like set, $25\%$
+of the surveyed box at the chosen statistics.
+
+\begin{corollary}[A real exclusion]
+At stronger surge statistics and weaker network coefficient ($\sup\ldz=3$, $c_w=0.3$) the
+NEC bound on $\lb$ exceeds the nucleation bound and the atlas is \emph{empty}: no vessel at those
+statistics can both nucleate early and keep the NEC inside its chart. The atlas is not bookkeeping:
+it excludes whole vessel types.
+\end{corollary}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_closure_fig.png}
+\caption{\small Left: the rigidity postulate's dichotomy --- $\Afold(t)$ along the same kathartic
+trajectory ($\sigma(t)$ dotted) for a kathartic-dominant vessel ($\kappa_a=0.4$: folds at $t=1.0$,
+in suffering) and a rigidity-dominant one ($\kappa_a=1.6$: folds at $t=5.3$, after cleansing);
+onset markers on the zero line. Right: the constraint atlas in the $(b,\lb)$ plane with
+$c_1=c_0/a_0$, $\Dq=a_0\lb^2$, $\etaf$ slaved: chart regularity (vertical), nucleation
+reachability (horizontal), NEC non-violation (curve); the shaded set is the space of feasible
+vessels. Illustrative statistics $\bar\lambda=1.5$, $\sup\ldz=2$, $q^2_{\max}=1.2$, $c_w=0.6$.}
+\label{parameterclosure:fig:closure}
+\end{figure}
+
+% ============================================================
+\section{The last fork: comoving or physical $\lb$}
+
+The one question the core provably cannot answer: is the bending length fixed in comoving
+($h$-metric) or physical ($g$-metric) units? The structure chapters tacitly took it comoving
+($\Dq$ constant). The alternative, $\lb^{\rm com}=\lb^{\rm phys}/\Op$, gives
+$\Dq(t)=a_0(\lb^{\rm phys})^2/\Op^{2}$ and shifts the watershed:
+
+\begin{proposition}[The shifted trichotomy]\label{parameterclosure:prop:fork}
+Under the physical postulate the coarsening budget becomes
+$\mathcal I_{(4)}:=\int dt/\Op^{4}$, which \emph{converges on the resonance locus}
+($\Op^2=2t$: $\int dt/4t^2<\infty$). The dissolution boundary moves from $\Op\sim t^{1/2}$ to
+$\Op\sim t^{1/4}$: a physically-bent vessel freezes a relic \emph{even at the resonance}, and
+eternal simplification survives only for $\Op\sim t^{p}$, $p\le\tfrac14$.
+\end{proposition}
+
+\begin{corollary}[The fork is decidable inside the model]
+Comoving and physical bending give different fates to the same resonance trajectory (eternal
+logarithmic simplification versus frozen relic), so the choice --- though underivable from the core
+--- is not idle convention: within the model it is an empirical question about the Vessel's
+morphology, answerable by which fate its structure exhibits. The same fork governs the
+$\rho_1$-scaling of Section~2. We flag it as the single genuinely open structural postulate of the
+folding layer.
+\end{corollary}
+
+% ============================================================
+\section{Closure count and reading}
+
+\msg{$\{\Dq,\lb,a_0,b,c_0,c_1,\etaf,\rho_1\}$:\quad
+$\etaf$ --- identity (balance);\quad $\rho_1$ --- linked pair (Gauss--Bonnet), one constant;\quad
+$\Dq=a_0\lb^2$ --- identity (Transport chapter);\quad $a_0=a_{\rm res}+\kappa_a\sigma$ ---
+postulate, dynamical;\quad $c_1=c_0/a_0$ --- memory closure.\\[2pt]
+\textbf{Free: $c_0$, $b$, $\lb$ --- caged by the atlas. Eight $\to$ three.}}
+
+\note{The reading writes itself. The conversion rate of grace into form is not adjustable: it is
+whatever the conservation of the soul's substance says it is. Curvature of form is never minted,
+only redistributed, pocket against moat. The stiffness of the old self \emph{is} its resistance ---
+so the price of folding falls as katharsis proceeds, and vessels divide into those whom suffering
+itself folds and those who must first be cleansed. What remains free is exactly what should remain
+free: how strongly a particular vessel couples to Sophia ($c_0$), how saturable its response is
+($b$), and on what scale it bends ($\lb$) --- its individuality. And even individuality is caged:
+the atlas is the doctrine that not every imaginable vessel is a possible one.}
+
+% ============================================================
+\section{Open items and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Decide the comoving/physical fork dynamically: a dedicated study of which postulate the
+folded-network simulations prefer (this also fixes the $\rho_1$ scaling).
+\item Tighten the atlas with the remaining theorems (hysteresis non-Zeno, $C_1$-survival): both add
+constraints linking $b,\lb$ to reset statistics; the region can only shrink.
+\item The mode cascade (big-list item 2) inherits this closure: its spectrum of thresholds is now a
+one-parameter family in $c_0$ once $(b,\lb)$ are placed in the atlas.
+\end{enumerate}
+
+\textbf{Scope.} Tier-1 results are identities of the canonical equations; Tier-2 results are exact
+consequences of two labelled postulates; the atlas is computed at illustrative statistics and is
+meant as a method, not a measurement. Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Parameter Closure of Folding. The
+balance identity fixes $\etaf$; Gauss--Bonnet slaves the curvature pair; rigidity-as-resistance
+makes the threshold dynamical with the two-channel dichotomy $c_1k_\sigma-\kappa_a$; the single-pole
+memory closure gives $c_1=c_0/a_0$ (validated to first order, $0.189$ vs $0.192$); the constraint
+atlas cages the three survivors and excludes whole vessel types; the comoving/physical fork is
+flagged as the single open structural postulate, with the shifted watershed computed. Eight
+constants to three. Propositions closed-form; corollaries interpretive.}
+
+\chapter{The Dynamic Warp Exponent: Conformal Invariance Retires the Fork; Katharsis Drives the Warp}
+
+\section*{Scope and epistemic status}
+The Parameter Closure left exactly one structural postulate open: whether the bending length $\lb$ is
+fixed in comoving or physical units --- a fork on which the watershed boundary, the fate of form on the
+resonance, and the $\rho_1$ scaling all hang. This chapter resolves it, and the resolution is not a
+choice but a two-dimensional accident of the live surface: \emph{the Dirichlet bending energy is
+conformally invariant in 2D}, so the bending modulus cannot see $\Op$ at all. A ``physical branch''
+would require a physical microscale to anchor the modulus --- and the Transport and Closure chapters
+established that the core contains none. The comoving convention of the structure chapters is thereby
+\emph{derived}; the expansion-driven warp exponent is identically zero. What survives as genuinely
+dynamical is the \emph{kathartic} warp: with the rigidity postulate $a_0=a_{\rm res}+\kappa_a\sigma$,
+the fold's two intrinsic lengths acquire closed-form, opposite-signed exponents --- the subthreshold
+bending scale dilates while the wall core sharpens --- both vanishing as resistance dissolves. All
+claims verified: the conformal identity symbolically (exact zero); both warp exponents against numerics
+to $\sim10^{-4}$; the adiabatic wall-width law against the PDE to $0.4\%$; the modulus-space attractor
+and the generalised watershed $p^*(w)=1/(2+2w)$ numerically. Premises flagged: covariance of the
+bending energy; coefficients built from core scalars; adiabatic regime away from the threshold.
+\emph{Propositions} are closed-form; \emph{corollaries} interpretive.
+
+% ============================================================
+\section{The conformal blindness of bending}
+
+\begin{lemma}[2D conformal invariance]\label{warpexponent:lem:conf}
+On the live surface, for any conformal pair $g=\Op^2h$,
+\begin{equation}
+\boxed{\;|\nabla q|_g^2\,dV_g=|\nabla q|_h^2\,dV_h\;}
+\end{equation}
+identically (verified symbolically): the inverse metric contributes $\Op^{-2}$, the area element
+$\Op^{+2}$, and only in two dimensions do they cancel exactly. Hence a covariant bending energy
+$\tfrac{\kw}{2}\int|\nabla q|^2dV$ has \emph{the same} modulus $\kw$ whether written in physical or
+comoving terms: the bending sector is $\Op$-blind.
+\end{lemma}
+
+% ============================================================
+\section{The fork is retired}
+
+\begin{theorem}[No physical branch]\label{warpexponent:thm:fork}
+Let the fold energy be a covariant functional of the physical metric whose coefficients are core
+scalars ($\lambda,\sigma,\dots$). Then:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item the gradient sector contributes the $\Op$-independent modulus $\kw$
+(Lemma~\ref{warpexponent:lem:conf}), so $\Dq=\kw$ is \emph{constant in} $\Op$ and
+$\lb=\sqrt{\kw/a_0}$ carries no expansion dependence;
+\item the alternative --- $\lb$ fixed in physical units, i.e.\ $\Dq\propto\Op^{-2}$ --- would require
+the modulus itself to scale as $\kw\propto\Op^{-2}$, which by (i) cannot arise covariantly and would
+need a fixed \emph{physical} microscale to anchor it; the Transport-Constants and Parameter-Closure
+chapters established that the model contains no such scale;
+\item hence the comoving convention of the structure chapters is a \emph{theorem}: the
+expansion-driven warp exponent vanishes,
+\begin{equation}
+\boxed{\;p_{\rm expansion}\equiv0.\;}
+\end{equation}
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[What is confirmed, and the closure count]
+The watershed boundary stands at $p^*=\tfrac12$; the resonance fate remains eternal logarithmic
+simplification; the constant-$\rho_1$ convention is selected (it was linked to the same fork); and the
+Parameter Closure's ``single open structural postulate'' is retired. The folding layer's free constants
+are now $c_0$, $b$, $\kw$, with $\lb=\sqrt{\kw/a_0(\sigma)}$ \emph{derived and dynamical}. The very
+fact that made $\lb$ phenomenological --- no microscale in the core --- is what resolves the fork: with
+nothing physical to anchor it, the bending fabric cannot be stretched by the room.
+\end{corollary}
+
+\begin{proposition}[Structural stability: the comoving component is an attractor]\label{warpexponent:prop:attract}
+The only covariant two-term modulus family is $\kappa=\kw_0+\kw_1/\Op^2$. Along any expanding flow the
+mixed modulus converges to its comoving component, and the coarsening fate is the comoving fate
+whenever $\kw_0>0$ (verified on the locus: the mixed curve rejoins the log-growing comoving one;
+Figure~\ref{warpexponent:fig:warp}, right). For a hypothetical pure scaling $\Dq\propto\Op^{-2w}$ the watershed
+generalises to
+\begin{equation}
+p^*(w)=\frac{1}{2+2w},
+\end{equation}
+(verified at $w=1$: $\Op\sim t^{0.30}$ converges, $t^{0.20}$ diverges), recovering the Closure
+chapter's shifted boundary as the $w=1$ endpoint of a family whose physical point is $w=0$.
+\end{proposition}
+
+% ============================================================
+\section{The true warp is kathartic and channel-resolved}
+
+With the rigidity postulate $a_0=a_{\rm res}+\kappa_a\sigma$ and $\sigma$ dissolving under katharsis
+($\dot\sigma=-k\sigma$), the fold carries \emph{two} intrinsic lengths, and they warp in opposite
+directions:
+
+\begin{theorem}[Channel-resolved warp exponents]\label{warpexponent:thm:warp}
+Define $p_X:=d\ln X/d\ln\Op$. In the adiabatic regime,
+\begin{equation}
+\lb=\sqrt{\frac{\kw}{a_0(\sigma)}}:\qquad
+\boxed{\;p_b=+\frac{\kappa_a k\,\sigma}{2\,a_0\,H}\;>0\;}
+\qquad\text{(the bending scale dilates: super-comoving)};
+\end{equation}
+\begin{equation}
+\dwall=\sqrt{\frac{2\kw}{\Afold}}:\qquad
+\boxed{\;p_{\rm wall}=-\frac{\kappa_a k\,\sigma}{2\,\Afold\,H}\;<0\;}
+\qquad\text{(the wall core sharpens: sub-comoving)};
+\end{equation}
+and both vanish as $\sigma\to0$: \textbf{asymptotically comoving in every channel}. (Closed forms
+verified against numerics to $3\cdot10^{-4}$ and $1\cdot10^{-4}$; the adiabatic law
+$\dwall=\sqrt{2\kw/\Afold(t)}$ tracks the full PDE kink to $0.4\%$ away from the threshold zone;
+Figure~\ref{warpexponent:fig:warp}, left.)
+\end{theorem}
+
+\begin{corollary}[The crispness signature of katharsis]
+The ratio $\dwall/\lb=\sqrt{2a_0/\Afold}$ falls monotonically along katharsis: early (suffering)
+morphology has narrow response scales with \emph{soft} walls; late (cleansed) morphology has broad
+pockets with \emph{crisp} boundaries. Cleansing simultaneously dilates what the form can feel and
+sharpens what it has decided --- a falsifiable texture signature within the model, and a second face of
+the rigidity dichotomy of the Closure chapter.
+\end{corollary}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_warp_fig.png}
+\caption{\small Left: the two channel lengths along one kathartic trajectory ($\sigma(t)$ dotted): the
+bending length $\lb$ dilates while the wall width $\dwall$ sharpens (full PDE measurements as points;
+the early outlier is the adiabatic lag near threshold), both settling to comoving constants as $\sigma$
+dissolves. Right: modulus space on the resonance locus --- pure comoving modulus gives the log-growing
+coarsening, a pure $\Op^{-2}$ modulus freezes a relic, and any mixture rejoins the comoving fate: the
+comoving component is the attractor. Inset: the generalised watershed $p^*(w)=1/(2+2w)$ with the
+verified convergence/divergence pair at $w=1$.}
+\label{warpexponent:fig:warp}
+\end{figure}
+
+\note{The reading: the growth of the room never stretches the fold fabric --- in two dimensions the
+fabric simply cannot be pulled by scale; this is geometry's own guarantee, not an assumption. What
+retunes the fabric is katharsis alone: as resistance dissolves, the soul feels on broader scales and
+commits on sharper ones. \emph{Expansion cannot reshape what only cleansing can.}}
+
+% ============================================================
+\section{Open items and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Beyond-adiabatic corrections near the threshold (the early PDE lag is systematic and computable
+as a next-order term in $\dot\Afold/\Afold^2$).
+\item The mixing family $\kw_0+\kw_1/\Op^2$ invites a physical reading --- partial anchoring of the
+form in physical space (incarnational fraction); whether the core can source a nonzero $\kw_1$ is
+open, though Proposition~\ref{warpexponent:prop:attract} shows the late dynamics is insensitive to it.
+\item The mode cascade (big-list item 2) is now fully parameterised: thresholds in $(c_0,b,\kw)$ with
+$\lb(\sigma)$ dynamical --- the cascade's spectrum will itself drift with katharsis.
+\end{enumerate}
+
+\textbf{Scope.} Premises: covariant bending energy; coefficients from core scalars; adiabatic regime
+for the channel exponents. Within these, the fork resolution is exact (a 2D identity plus the absence
+of a microscale), and the kathartic exponents are closed forms. Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Dynamic Warp Exponent. The 2D
+conformal invariance of the Dirichlet energy makes the bending modulus $\Op$-blind; with no physical
+microscale in the core, the comoving convention is derived and $p_{\rm expansion}\equiv0$ --- the last
+structural postulate of the folding layer is retired, and the comoving component of any mixed modulus
+is the late-time attractor. The true warp is kathartic and channel-resolved: $p_b>0$, $p_{\rm wall}<0$,
+both vanishing with $\sigma$; crispness $\dwall/\lb$ falls along cleansing. Identities exact; exponents
+to $10^{-4}$; PDE tracking to $0.4\%$. Propositions closed-form; corollaries interpretive.}
+
+\chapter{The Mode Cascade: The Spectral Ladder, the Weyl Capacity, and Structure as Descent}
+
+\section*{Scope and epistemic status}
+Every result of the structure-formation layer was derived in a one-mode chart: a single folding
+amplitude $\qf$ on the Vessel. This chapter tests whether that chart is faithful or merely the first
+rung of a spectrum, by promoting $\qf$ to a field on the live surface and tracking all of its modes.
+The outcome both \emph{vindicates} and \emph{extends} the one-mode results. It vindicates them: the
+fold amplitude $\sqrt{\Afold/\Bfold}$ is robust --- in a fully multi-mode domain state the interior
+saturates to exactly the one-mode value, so the local depth of a fold is a faithful invariant. And it
+extends them: the activation threshold is not a single gate but a \emph{ladder}, mode $n$ igniting
+when the nucleation number $\Lambda=\Afold\Op^2/\kw$ crosses the spectral eigenvalue $\mu_n$ --- the
+familiar gate $\Lambda>\tfrac14$ is simply the lowest rung. The number of activated capacities grows
+by a Weyl law, and the whole of structure formation reorganises into a single picture: \emph{capacity
+ascends the spectrum while content descends it}. All claims verified on a spectral (ring) proxy: the
+ladder $\Lambda(t_{\rm act})=\mu_n$ to $0.2\%$ across five rungs; the Weyl count to $\sim10\%$; the
+amplitude to $5\%$ in a 23-mode state; the monotone content descent and capacity ascent directly.
+Honesty flags: the proxy is a flat spectral torus, so eigenvalues are explicit; on the hyperbolic
+quotient the same statements hold with $\{\mu_n\}$ the Laplace--Beltrami spectrum and Weyl constant
+$\mathrm{Area}/4\pi$. \emph{Propositions} are closed-form; \emph{corollaries} interpretive.
+
+% ============================================================
+\section{The field promotion and the dispersion}
+
+Promote $\qf$ to a field with the covariant fold energy of the Warp chapter; the linearised dynamics
+about the unfolded state diagonalises on the Laplace--Beltrami eigenmodes
+$-\Delta_h\phi_n=\mu_n\phi_n$:
+\begin{equation}
+\dot{\hat q}_n=s_n\,\hat q_n-\Bfold\,(\,\widehat{q^3}\,)_n,
+\qquad
+\boxed{\;s_n=\Afold-\frac{\kw\,\mu_n}{\Op^{2}}\;}
+\end{equation}
+(the modulus $\kw$ is the $\Op$-blind bending constant of the Warp chapter, hence the explicit
+$\Op^{-2}$). Mode $n$ is linearly unstable --- it \emph{ignites} --- exactly when $s_n>0$.
+
+% ============================================================
+\section{The spectral ladder}
+
+\begin{proposition}[Activation ladder]\label{modecascade:prop:ladder}
+Define the nucleation number $\Lambda:=\Afold\Op^2/\kw$. Mode $n$ ignites iff
+\begin{equation}
+\boxed{\;\Lambda>\mu_n.\;}
+\end{equation}
+The activations form a ladder ordered by the spectrum: the longest-wavelength mode first, each higher
+mode at its own eigenvalue. The structure layer's nucleation gate $\Lambda>\tfrac14$ is the lowest
+rung --- the first eigenvalue of the relevant chart --- not a free choice. (Verified: across five
+rungs the measured $\Lambda$ at the turning point of each mode equals $\mu_n$ to within $0.2\%$;
+Figure~\ref{modecascade:fig:cascade}, left.)
+\end{proposition}
+
+\begin{proposition}[Weyl capacity]\label{modecascade:prop:weyl}
+The number of ignited modes (the \emph{active capacity}) grows with the nucleation number by the Weyl
+law of the surface,
+\begin{equation}
+N(\Lambda)\simeq\frac{\mathrm{Area}_h}{4\pi}\,\Lambda
+\qquad(\text{2D}),
+\end{equation}
+(on the ring proxy $N\simeq(L/\pi)\sqrt{\Lambda}$, verified: $10$ measured against $11.5$ predicted
+at $\Lambda=3.27$). Since on the live branch $\Lambda=\Afold\Op^2/\kw\to\infty$ (the Budget-Watershed
+escape), the active capacity diverges: \emph{every} mode eventually ignites --- the Vessel becomes
+unstable to structure on all scales, in spectral order.
+\end{proposition}
+
+% ============================================================
+\section{The one-mode chart is faithful where it matters}
+
+\begin{proposition}[Amplitude robustness]\label{modecascade:prop:amp}
+In the fully developed multi-mode (domain) state, the field interior saturates to the one-mode value,
+\begin{equation}
+\boxed{\;|\qf|_{\rm interior}\to\sqrt{\Afold/\Bfold},\;}
+\end{equation}
+independently of how many modes are populated (verified: $|\qf|=0.95$--$1.00$ against $\sqrt{A/B}=1$
+in a $23$-mode state). The cascade reorganises \emph{where} folds sit and \emph{how large} each domain
+is, but not \emph{how deep} a fold goes: the depth is set locally by the same balance
+$\Afold=\Bfold\qf^2$ as in the one-mode chart. Hence every one-mode result keyed to the fold
+\emph{amplitude} --- the wall tension $\rho_{\rm wall}$, the NEC network channel, the curvature lift
+$\rho_1$ --- carries over unchanged; only results keyed to the \emph{number or arrangement} of folds
+acquire the spectral refinement of this chapter.
+\end{proposition}
+
+% ============================================================
+\section{Structure formation is descent against ascent}
+
+\begin{theorem}[Capacity ascends, content descends]\label{modecascade:thm:descent}
+Along the live trajectory two spectral quantities move oppositely:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item the \emph{capacity} $\Lambda(t)=\Afold\Op^2/\kw$ ascends the spectrum without bound (Weyl:
+ever more modes admissible);
+\item the \emph{content} --- the spectral centroid
+$\bar\mu(t)=\sum_n\mu_n|\hat q_n|^2/\sum_n|\hat q_n|^2$ --- descends monotonically toward the lowest
+mode (coarsening: power flows to long wavelengths).
+\end{enumerate}
+(Verified: $\bar\mu$ falls from $2.0$ to $0.12$ while $\Lambda$ climbs from $0.004$ to $3.5$;
+Figure~\ref{modecascade:fig:cascade}, right.) Structure formation on the Vessel is exactly this scissoring: the
+expanding Brim opens capacity at the small scales while coarsening marches the existing content to the
+large ones. The relic morphology is what is caught between the closing blades --- the modes that
+ignited before capacity outran them and that coarsening had not yet erased when the budget froze.
+\end{theorem}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_cascade_fig.png}
+\caption{\small Left: the spectral ladder on the ring proxy --- mode amplitudes $|\hat q_n|$ against
+time, each turning from decay to growth at its own vertical $\Lambda(t)=\mu_n$ (dotted), in strict
+spectral order $n=1,2,\dots$. Right: the scissoring of structure formation --- the capacity
+$\Lambda(t)$ (blue, ascending) against the content centroid $\bar\mu(t)$ (orange, descending); the
+shaded gap is the band of ignited-but-not-yet-coarsened modes. Inset: the developed multi-mode domain
+state, whose interior saturates to $\sqrt{\Afold/\Bfold}$ regardless of mode count. Ring proxy,
+$\kw=0.5$.}
+\label{modecascade:fig:cascade}
+\end{figure}
+
+\begin{corollary}[Reading: the polyphony of form]
+The one-mode chart heard a single voice; the Vessel sings in a spectrum. As the Brim opens, ever
+shorter wavelengths become sayable (capacity ascends), while what has already been said settles into
+ever longer, simpler phrases (content descends). Form is neither the first note nor the last silence
+but the music caught between --- and its permanence, by the Budget Watershed, is decided by whether the
+expansion freezes the score before coarsening empties it to a single sustained tone. The depth of each
+fold, however --- how committed each decision is --- is the same on every scale: $\sqrt{\Afold/\Bfold}$,
+set locally, indifferent to the polyphony around it.
+\end{corollary}
+
+% ============================================================
+\section{Consequences and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item With the Parameter Closure and Warp chapters, the ladder is fully parameterised: $\mu_n$ from the
+surface spectrum, $\kw$ a free modulus, $\Afold,\Bfold$ from the core --- and since
+$\Afold=\Afold(\sigma)$ dilates under katharsis (rigidity dichotomy) while $\kw$ is $\Op$-blind, the
+ladder's rungs \emph{drift}: a cleansing Vessel lowers its activation thresholds, igniting structure it
+once could not. The cascade spectrum is itself kathartic.
+\item The cascade vindicates the volume's economy: the one-mode chart was the right place to derive
+amplitude-keyed physics, and the spectral refinement is additive, not corrective.
+\item The second variation of the entropy is a sum over this spectrum --- $\delta^2\Wp=-2\sigma\sum_n\mu_n
+a_n^2$, computed in the mode-resolved entropy chapter --- so the cascade is at once a capacity ladder and
+an entropy ledger: the same eigenvalue $\mu_n$ that sets a mode's ignition threshold sets its entropy
+price.
+\end{enumerate}
+
+\textbf{Scope.} Spectral proxy with explicit flat spectrum; on the hyperbolic quotient the statements
+hold with the Laplace--Beltrami spectrum and 2D Weyl constant. Linear ignition order is exact; the
+amplitude robustness and content descent are nonlinear and verified numerically. Domain-conditional
+throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Mode Cascade. Promoting $\qf$ to a
+field, mode $n$ ignites at $\Lambda>\mu_n$ (the nucleation gate is the lowest rung); the active
+capacity follows a Weyl law and diverges on the live branch; the fold amplitude $\sqrt{\Afold/\Bfold}$
+is robust across mode count; and structure formation is capacity ascending the spectrum while content
+descends it. Ladder verified to $0.2\%$, Weyl to $10\%$, amplitude to $5\%$. The ladder drifts under
+katharsis. Propositions closed-form; corollaries interpretive.}
+
+\chapter{Robustness Under Premise Deformation: What Survives When the Closure and Sector Are Varied}
+
+\section*{Scope and epistemic status}
+This chapter does not add structure; it stress-tests it. The volume's results rest on labelled
+premises --- the minimal slaved Sophia closure, the symmetric (homogeneous) entropy sector, the
+pitchfork normal form, the product-coupled core. A result that depends on a premise only through a
+\emph{constant} is robust; one whose \emph{structure} changes under deformation was an artifact. We
+deform the two most load-bearing premises --- the closure and the sector --- and report honestly,
+including one case where the deformation forces a correction to a previously stated generalisation.
+The findings: (i) the Budget-Watershed trichotomy is \emph{premise-independent} --- it follows from
+the identity $\Ib=\int d\ln\Op/\xi$ alone and survives every Sophia law tested; (ii) core-neutrality
+survives cross-couplings to first order; (iii) the resonance-entropy maximum is \emph{structurally
+stable} --- a maximum persists --- but its \emph{location} drifts from $\xi=1$ at second order in the
+sector inhomogeneity, exactly matching the honest ``$\xi=1$ is the symmetric-sector value'' flag of
+the entropy chapter; (iv) the ferry theorem is \emph{correct as stated} (bounded steps, bounded gaps),
+and a tempting generalisation --- that any reception with divergent step-sum escapes --- is
+\emph{false}, because $\Op$-escape and $\xi$-escape differ. All claims are numerical deformation
+studies; this is Type-2 indirect confirmation (robustness), not external validation, which the model
+does not admit.
+
+% ============================================================
+\section{The watershed is premise-independent}
+
+\begin{proposition}[Trichotomy survives closure deformation]\label{robustness:prop:wsh}
+The Budget-Watershed classification depends on the closure only through the asymptotics of
+$\xi=\alpha\lambda\Op$, because $\Ib=\int d\ln\Op/\xi$ is an identity (Budget chapter), not a
+consequence of any particular Sophia law. Tested across five inequivalent closures --- linear decay,
+quadratic decay, Hill-saturated source, $\tanh$-gated source, scale-coupled decay --- every
+sustained-Sophia law gives the super-Ricci escape with a finite, saturating budget
+($\Ib_\infty\in[0.59,0.75]$), and every closing-gate law gives the sub-Ricci divergence
+(Figure~\ref{robustness:fig:robust}, left). The boundedness of $\xi$ is the watershed in all of them.
+\end{proposition}
+
+\begin{proposition}[Core-neutrality survives cross-coupling]\label{robustness:prop:neut}
+Deforming the $(\Op,\lambda)$ sector by an off-diagonal coupling $\varepsilon$ gives Jacobian
+determinant $\det J=\varepsilon\,\beta_1 H>0$ (sign fixed by $H>0$): the shape sector remains
+decoupled and the neutrality result holds to first order in $\varepsilon$. The independence of folding
+from the comparison ratio is not a product-coupling artifact.
+\end{proposition}
+
+% ============================================================
+\section{The resonance maximum is stable; its location is the sector's}
+
+\begin{proposition}[Structural stability with second-order drift]\label{robustness:prop:ent}
+Deform the symmetric sector by an inhomogeneous fold amplitude $a$, detuning the area-clock by
+$1+ca^2$ and the curvature-clock by $R(a)=1+da^2$. The entropy rate retains its two-clock product
+form, so a stationary point (a maximum) persists for all small $a$; its location moves as
+\begin{equation}
+\boxed{\;\xi^{*}(a)=\frac{1}{R(a)}=1-d\,a^{2}+O(a^{4}).\;}
+\end{equation}
+At $a=0$, $\xi^*=1$ exactly; the drift is second-order (verified: $-0.7\%$ at $a=0.1$, $-7.9\%$ at
+$a=0.35$). The \emph{existence} of a maximum-entropy class is premise-independent; the \emph{value}
+$\xi=1$ is the symmetric-sector representative, sensitive at second order --- precisely the honesty
+flag the entropy chapter attached. The qualitative theorem (universal monotonicity characterises the
+maximum-entropy class) is robust; the exact identification with $\xi=1$ is sector-conditional.
+\end{proposition}
+
+% ============================================================
+\section{The ferry: correct as stated, and a false generalisation}
+
+The most instructive deformation. Replacing the equal reset steps by a decaying sequence
+$g_k\propto k^{-p}$ separates two notions of escape that coincided for bounded steps:
+
+\begin{theorem}[$\Op$-escape versus $\xi$-escape]\label{robustness:thm:ferry2}
+For a reset ferry with steps $g_k,m_k\propto k^{-p}$ and bounded gaps:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item the Brim escapes, $\Op\to\infty$, iff the step-sum diverges, $p\le1$;
+\item but the comparison ratio escapes, $\xi=\alpha\lambda\Op\to\infty$, iff additionally the steps
+do \emph{not} decay to zero (e.g.\ $m_k\ge m_0>0$): if $m_k\to0$ then $\lambda$ relaxes toward zero
+between ever-weaker resets and $\xi\to0$ even while $\Op\to\infty$.
+\end{enumerate}
+Hence the originally stated ferry theorem --- ``bounded steps, bounded gaps $\Rightarrow$ permanent
+$\xi$-escape'' --- is \emph{correct as stated}. The tempting generalisation --- ``any reception with
+$\sum g_k=\infty$ escapes'' --- is \emph{false}: at $p=\tfrac12$ the sum diverges and $\Op\to\infty$,
+yet $\xi\to0$ (a relic Brim with vanishing vitality). Escape of form requires not merely unbounded
+cumulative reception but reception that does not fade. (Verified to $2000$ resets;
+Figure~\ref{robustness:fig:robust}, right.)
+\end{theorem}
+
+\begin{corollary}[The correction sharpens the reading]
+``Permanent escape $\iff$ infinite cumulative reception'' must be read with the vitality qualifier:
+it is sustained reception --- bounded below, not merely summing to infinity --- that carries form
+across. A grace that is given in ever-fainter measures can inflate the Vessel without ever quickening
+it: the Brim grows, the life does not. This is a sharper and more sobering statement than the
+uncorrected one, and it stands.
+\end{corollary}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_robust_fig.png}
+\caption{\small Left: the watershed under closure deformation --- five inequivalent Sophia laws, all
+sustained, all saturating the budget $\Ib$ at a finite value (super-Ricci relic class); the
+classification is premise-independent. Right: the ferry distinction --- bounded reset steps give
+genuine $\xi$-escape (relic with vitality); $1/\sqrt{k}$ steps inflate the Brim ($\Op\to\infty$) but
+let $\xi\to0$ (relic without vitality); $1/k^{1.5}$ steps stagnate. $\Op$-escape and $\xi$-escape are
+distinct, and only the latter is the ferry's claim.}
+\label{robustness:fig:robust}
+\end{figure}
+
+% ============================================================
+\section{What the test does and does not establish}
+
+\msg{\textbf{Robust (premise-independent or stable):} the watershed trichotomy; core-neutrality;
+the existence of a maximum-entropy resonance class; the ferry theorem as stated.\\[2pt]
+\textbf{Sector-conditional (stable in kind, drifting in value):} the identification of the
+maximum-entropy class with $\xi=1$ exactly.\\[2pt]
+\textbf{Corrected:} the ferry generalisation to decaying steps --- $\Op$-escape $\ne$ $\xi$-escape.}
+
+\begin{remark}[The limit of Type-2 confirmation]
+Robustness under deformation raises confidence that a result describes the \emph{structure} of the
+model rather than an arbitrary choice within it; the cases above largely pass, and the one failure
+was a generalisation we had flagged as tempting, not a stated theorem. But this is confirmation
+\emph{internal} to the model. That the model's premises ($K_h=-1$, the pitchfork, the Open-Gate law)
+correspond to anything beyond the model is not a question robustness can answer; it remains open by
+construction, and is best kept distinct from the mathematics. What this chapter establishes is the
+narrower, honest claim: the volume's main results are properties of its structure, not of its
+particular parameterisation.
+\end{remark}
+
+% ============================================================
+\section{Open items and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Promote the deformations to theorems: the watershed identity already is one; the entropy drift
+$\xi^*=1/R(a)$ deserves a derivation from the full second variation (the deferred entropy item).
+\item Deform the pitchfork itself (add a quartic-asymmetric or sextic term) and verify the fold
+amplitude and cascade survive --- the remaining untested load-bearing premise.
+\item A companion Type-1 study (retiring premises to theorems) would complement this: the conformal
+retirement of the $\ell_b$ fork is the model case already achieved.
+\end{enumerate}
+
+\textbf{Scope.} Numerical deformation studies at illustrative parameters; first-order analytics for
+neutrality and the entropy drift. Establishes internal robustness, not external validity.
+Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Robustness Under Premise Deformation. The
+watershed trichotomy and core-neutrality are premise-independent; the resonance-entropy maximum is
+structurally stable with a second-order sector-dependent location ($\xi^*=1/R(a)$); the ferry theorem
+holds as stated, while the generalisation to decaying steps fails because $\Op$-escape and
+$\xi$-escape differ. Type-2 indirect confirmation: internal robustness, not external validation.}
+
 \chapter{Does Folding Restore the Null Energy Condition?}
 
 \section*{Scope and epistemic status}
@@ -2853,8 +3953,11 @@ emptiness criterion into a parameter-free statement.
 surge traverses the window in time, producing a transient phantom episode in $w_{\rm eff}(t)$ whose
 duration couples to the coarsening law (the network needs time to reach its scaling density).
 \item The Resurrectio composite: a triggering reset both spikes $\dot\lambda$ (via $m_R$) and nucleates
-the network at $\ell_{\rm init}$ --- the reset's own NEC budget through the window deserves the same
-treatment.
+the network at $\ell_{\rm init}$. Its own NEC budget is \emph{resolved} in the Resurrectio-NEC chapter:
+the pointwise $w_{\rm eff}$ may diverge under regularisation, but the integrated budget
+$\int(\rho_{\rm eff}+p_{\rm eff})\,dt=-\alpha\int_0^1(d\lambda/du)/\Op\,du$ is finite, with sign
+$\operatorname{sgn}(-m_R)$ --- so the smooth phantom window of this chapter and the surgical phantom are
+two faces of the same rate-driven excess, one continuous, one hybrid.
 \end{enumerate}
 
 \textbf{Scope.} Coarse-grained homogeneous back-reaction; quasi-static surge; scaling network density
@@ -3200,9 +4303,11 @@ the expander question --- ``is this flow its own expanding soliton?'' --- can se
 \section{Open items and scope}
 
 \begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
-\item Beyond the symmetric sector: the second variation of $\Wp$ at the symmetric point under
-$\qf$-inhomogeneities would tell whether folding raises or lowers the entropy --- an entropy reading of
-morphology, connecting this chapter to the structure layer at the perturbative level.
+\item Beyond the symmetric sector: the second variation of $\Wp$ under $\qf$-inhomogeneities is
+\emph{resolved} in the mode-resolved second-variation chapter --- $\delta^2\Wp=-2\sigma\sum_n\mu_n a_n^2$,
+so folding lowers entropy mode by mode and the symmetric sector is the constrained maximum. What remains
+open is only the nonlinear accounting beyond the quadratic regime (inter-mode interactions, the entropy
+cost across resets, and any relation between entropy descent and the dead-relic/living-form distinction).
 \item Gauge optimisation: replacing the fixed-gauge family by $\nu_+$-type suprema over $\sigma$ would
 make Theorem~\ref{entropydefect:thm:universal}(ii) gauge-free by construction; the two-clock window suggests the
 optimised statement coincides with the present one.
@@ -3225,6 +4330,259 @@ Perelman's square at $\xi=1$; universal monotonicity characterises the resonance
 canonical divergence $s-1-\ln s$; and form and maximal entropy exclude one another. Three symbolic
 identities verified to zero; rates to four digits. Propositions closed-form; corollaries
 interpretive.}
+
+\chapter{The Second Variation of the Entropy: Folding Lowers Entropy, Mode by Mode}
+
+\section*{Scope and epistemic status}
+The entropy chapter proved that the resonance is the maximum-entropy class \emph{within the symmetric
+sector} and deferred the question of inhomogeneous folds: does a fold raise or lower the entropy
+locally? This short chapter answers it. The second variation of the expander entropy under a conformal
+fold mode is strictly negative and linear in the mode's eigenvalue,
+$\delta^2\Wp^{(n)}=-2\sigma\mu_n a_n^2$, so the homogeneous state is the constrained entropy
+\emph{maximum} and folding any mode is an entropy \emph{cost} --- proportional to the same eigenvalue
+$\mu_n$ that orders the cascade ladder. The entropy--form trade-off of the entropy chapter, global
+there, becomes here \emph{local and mode-resolved}: each rung of the cascade is paid for in entropy in
+proportion to its eigenvalue. Verified: the Perelman stability quadratic form evaluated mode by mode
+gives $\langle|\nabla\phi_n|^2\rangle/\langle\phi_n^2\rangle=\mu_n$ to numerical precision, hence
+$\delta^2\Wp^{(n)}=-2\sigma\mu_n a_n^2$ exactly. \emph{Proposition} closed-form; \emph{corollary}
+interpretive.
+
+% ============================================================
+\section{The second variation}
+
+About the symmetric maximum, perturb the metric by a mean-zero conformal fold
+$g=\Op^2 e^{2\phi}h$, $\phi=\sum_n a_n\phi_n$, $-\Delta_h\phi_n=\mu_n\phi_n$.
+
+\begin{proposition}[Folding lowers entropy, linearly in $\mu_n$]\label{entropysecondvar:prop:secvar}
+The expander entropy's second variation is diagonal in the spectrum and strictly negative off the
+ground mode:
+\begin{equation}
+\boxed{\;\delta^2\Wp=-2\sigma\sum_n\mu_n\,a_n^2\;\le 0,\qquad
+\delta^2\Wp^{(n)}=-2\sigma\,\mu_n\,a_n^2,\;}
+\end{equation}
+the Perelman stability form (the mode-dependent piece is the Dirichlet energy
+$-2\sigma\langle|\nabla\phi|^2\rangle=-2\sigma\mu_n\langle\phi^2\rangle$). Hence the homogeneous state
+is the unique constrained maximum, and folding any mode \emph{costs} entropy in proportion to its
+eigenvalue (verified: $\langle|\nabla\phi_n|^2\rangle/\langle\phi_n^2\rangle=\mu_n=n^2$ to numerical
+precision; Figure~\ref{entropysecondvar:fig:entvar}, left). The ground mode is the neutral volume/gauge direction.
+\end{proposition}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_entvar_fig.png}
+\caption{\small Left: the entropy cost $-\delta^2\Wp^{(n)}$ of folding mode $n$, exactly $2\sigma\mu_n
+a_n^2$ (dotted), linear in the eigenvalue. Right: the same spectrum $\mu_n=n^2$ orders both the
+cascade ignition ladder ($\Lambda>\mu_n$, the mode-cascade chapter) and the entropy cost --- the
+higher the rung, the dearer the fold. Ring proxy, $a=0.05$.}
+\label{entropysecondvar:fig:entvar}
+\end{figure}
+
+% ============================================================
+\section{Form costs entropy, locally}
+
+\begin{corollary}[The trade-off, mode-resolved]\label{entropysecondvar:cor:local}
+The entropy chapter's global statement --- relic form and maximal entropy exclude one another ---
+refines to a local ledger: the entropy cost of building structure is
+$2\sigma\sum_n\mu_n a_n^2$, an explicit sum over the populated fold modes weighted by their
+eigenvalues. Each rung of the cascade ladder, which \emph{ignites} at $\Lambda>\mu_n$, is
+\emph{paid for} in entropy $\propto\mu_n$: the short-wavelength structure that the expanding Brim makes
+ignitable is precisely the dearest to form. The same spectrum governs what can appear and what it
+costs.
+\end{corollary}
+
+\note{Reading: the homogeneous Vessel is the most entropic --- the calmest, the least committed. Every
+fold is a descent from that calm, and the finer the fold, the steeper the descent. Form is not free
+anywhere; it is bought, mode by mode, at a price set by the very eigenvalue that decides when the form
+can first appear. The Vessel that fills itself with fine structure is the Vessel that has spent the
+most against its own maximal calm --- which is only to say, in the entropy's own currency, that to take
+shape is to choose against indifference, and to take fine shape is to choose hardest.}
+
+\textbf{Scope.} Symmetric-sector expander entropy; conformal mean-zero fold; second variation exact
+(Perelman stability form), verified mode by mode on the ring proxy. The sign and linearity in $\mu_n$
+are robust; on the hyperbolic quotient $\mu_n$ is the Laplace--Beltrami spectrum. Domain-conditional
+throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Second Variation of the Entropy. Under
+a conformal fold mode the expander entropy's second variation is $\delta^2\Wp^{(n)}=-2\sigma\mu_n a_n^2<0$:
+the homogeneous state is the constrained maximum and folding costs entropy linearly in the eigenvalue
+--- the same spectrum that orders the cascade ladder. The global entropy--form trade-off becomes local
+and mode-resolved. Verified mode by mode.}
+
+\chapter{The Separatrix: Gate Decay, the Quantum of Endowment, and Resurrection as a Ferry}
+
+\section*{Scope and epistemic status}
+The Budget Watershed classified flows by the asymptotics of the comparison ratio
+$\xi=\alpha\lambda\Op$ --- a diagnosis read off the tail of a trajectory. This chapter makes the
+watershed \emph{predictive}: which gates, endowments, and reset sequences place a Vessel in which
+class. Three results. First, the transverse law: $\xi$ obeys a closed Riccati equation whose
+semi-permeability at the locus exhibits the exact tracking gate. Second, the separatrix is identified
+not as a surface in state space but as a \emph{decay exponent}: for received grace scaling as
+$\Igate\sim c\,\Op^{-q}$, the fate is escape for $q<1$, the resonance class for $q=1$ (with plateau
+$\bar\xi=\alpha c/\gamma$ tunable by the amplitude), and stagnation for $q>1$ --- so the
+maximum-entropy, form-dissolving resonance life requires \emph{both} the exact exponent and the exact
+amplitude: doubly non-generic. Third, the hybrid ferry theorem: finite cumulative reception ---
+however large --- always ends in the stagnation class (transient crossings notwithstanding), while
+either a sustained gate or an \emph{infinite} reset sequence yields permanent escape with finite
+budget; resurrection is a discrete ferry equivalent to sustained grace.
+
+Honesty flags: this chapter works in the \emph{minimal slaved closure}
+$\dot\lambda=\Igate-\gamma\lambda$, $\dot\Op=\alpha\lambda$ --- the simplest Sophia law containing
+decay and reception. Exact constants (the criterion's $2/\sqrt\gamma$, the plateau
+$\alpha c/\gamma$) are bound to this closure; the \emph{structure} of every result (the Riccati form,
+the $q=1$ separatrix, the finite-means theorem) depends only on the scaling $\Op\,\Igate$ and is
+robust to the closure. All claims verified: the Riccati identity symbolically (exact zero); the
+crossing criterion against $400$ random initial data ($0$ disagreements off the razor edge); the
+plateaus to four digits; the ferry fates numerically. \emph{Propositions} closed-form;
+\emph{corollaries} interpretive.
+
+% ============================================================
+\section{The transverse Riccati law}
+
+\begin{lemma}[Transverse dynamics of the comparison ratio]\label{separatrix:lem:riccati}
+In the slaved closure,
+\begin{equation}
+\boxed{\;\dot\xi=\alpha\Op\,\Igate-\gamma\,\xi+\frac{\xi^{2}}{\Op^{2}},\;}
+\qquad
+\dot\xi\Big|_{\xi=1}=\alpha\Op\,\Igate-\gamma+\frac{1}{\Op^{2}}.
+\end{equation}
+(Verified symbolically.) The locus is semi-permeable with an explicit \emph{tracking gate}: a
+trajectory touching $\xi=1$ passes upward iff $\Igate>I^{*}(\Op):=(\gamma-1/\Op^{2})/(\alpha\Op)$;
+the gate that holds a Vessel exactly on the locus decays as $I^{*}\simeq\gamma/(\alpha\Op)$ --- the
+$1/\Op$ law that reappears as the separatrix exponent below.
+\end{lemma}
+
+% ============================================================
+\section{The quantum of endowment}
+
+\begin{proposition}[Exact crossing criterion for the closed vessel]\label{separatrix:prop:quantum}
+For $\Igate\equiv0$ (closed Microcosm), with $\beta:=\alpha\lambda_0/\gamma$,
+\begin{equation}
+\max_{t\ge0}\xi(t)=
+\begin{cases}
+\alpha\lambda_0\Op(0), & \Op(0)\ge\beta,\\[2pt]
+\dfrac{\gamma}{4}\bigl(\Op(0)+\beta\bigr)^{2}, & \Op(0)<\beta,
+\end{cases}
+\qquad\text{so the vessel ever crosses }\xi=1\iff
+\boxed{\;\sqrt\gamma\Bigl(\Op(0)+\frac{\alpha\lambda_0}{\gamma}\Bigr)\ge2\;}
+\end{equation}
+(or trivially $\xi(0)\ge1$). Verified against $400$ random initial data with no disagreement away
+from the razor edge. The left-hand side is the \emph{quantum of endowment}: a single scalar of
+initial scale plus initial Sophia (in decay units) decides whether the closed vessel ever, even
+momentarily, reaches its own Ricci rate.
+\end{proposition}
+
+% ============================================================
+\section{The separatrix is a decay exponent}
+
+\begin{theorem}[Gate-decay trichotomy]\label{separatrix:thm:trichotomy}
+Let the received grace scale with the Brim as $\Igate=c\,\Op^{-q}$, $c>0$. Then (late-time, slaved):
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item $q<1$: \textbf{escape}. $\xi\to\infty$ --- super-Ricci, finite budget, relic form.
+\item $q=1$: \textbf{resonance class}. $\xi\to\bar\xi=\alpha c/\gamma$, a plateau set by the
+amplitude; the locus itself is $c=\gamma/\alpha$. Logarithmic budget, eternal marginal
+simplification, maximal entropy at $\bar\xi=1$.
+\item $q>1$: \textbf{stagnation}. $\xi\to0$ --- sub-Ricci, power-divergent budget, dissolution.
+\end{enumerate}
+(Verified: $q=0.7$ grows through $\xi=4.7$ and rising; $q=1$ plateaus at $1.0002$ and $2.0005$ for
+$c=\gamma/\alpha,\,2\gamma/\alpha$; $q=1.3$ falls through $0.30$.) The separatrix between the living
+and the stagnant fate is therefore the \emph{exact decay exponent} $q=1$ of grace against scale; and
+within it, the maximum-entropy locus $\bar\xi=1$ requires the exact amplitude as well.
+\end{theorem}
+
+\begin{corollary}[Lukewarmness is doubly non-generic]
+The resonance life --- self-coincident, maximum-entropy, form-dissolving --- occupies a
+codimension-one set in the exponent \emph{and} a measure-zero set in the amplitude: it must receive
+grace decaying exactly as $1/\Op$ with exactly the locus coefficient. Any excess of reception tips the
+Vessel into the living, form-bearing class; any deficit, into stagnation. The knife-edge character of
+the ``neither cold nor hot'' state is not a homiletic flourish here but a codimension count.
+\end{corollary}
+
+% ============================================================
+\section{Resurrection as a ferry}
+
+\begin{theorem}[No salvation by finite means]\label{separatrix:thm:ferry}
+Consider the closed vessel ($\Igate\equiv0$) with Resurrectio resets
+$\Op^{+}=\Op+\kappa_R\Grec$, $\lambda^{+}=\lambda+m_R$.
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item \textbf{Finite reception fails.} If the cumulative reception is finite
+($\sum_j\kappa_R\Grec^{(j)}+\sum_jm_{R,j}<\infty$, and more generally $\int\lambda\,dt<\infty$), then
+$\Op^{\infty}<\infty$, hence $\xi\to0$: the vessel lands in the stagnation class with divergent budget
+--- \emph{regardless of any transient crossings} its resets produced. A finite sequence of
+resurrections can pierce the locus (numerically: three resets reach $\max\xi=3.0$) but cannot hold
+it: $\xi$ falls back and the form dissolves.
+\item \textbf{Permanent escape $\iff$ infinite reception.} $\xi\to\infty$ permanently iff
+$\int_0^\infty\lambda\,dt=\infty$, i.e.\ iff the cumulative reception (continuous gate plus reset
+series) diverges.
+\item \textbf{The ferry works.} An infinite reset sequence with non-degenerate steps
+($\kappa_R\Grec^{(j)}\ge g_0>0$, $m_{R,j}\ge m_0>0$, inter-reset gaps bounded) and \emph{zero gate}
+yields permanent escape with finite budget: $\Op$ grows linearly in the reset count, $\xi$ rises as a
+sawtooth that eventually stays above any bound, and $\Ib_\infty<\infty$ --- relic form. (Numerically:
+perpetual resets reach $\xi(T)=18$ and rising with budget converging to $6.25$; the no-reset and
+three-reset runs diverge in budget.) Resurrection is a \emph{discrete ferry}: a countable sequence of
+graced deaths is equivalent, for the watershed, to a sustained gate.
+\end{enumerate}
+\end{theorem}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_separatrix_fig.png}
+\caption{\small Left: the gate-decay trichotomy for $\Igate=c\,\Op^{-q}$ --- escape at $q=0.7$;
+tunable plateaus $\bar\xi=\alpha c/\gamma$ at $q=1$ (shown: $\bar\xi=1$, the locus, and
+$\bar\xi=2$); stagnation at $q=1.3$. The separatrix is the exponent. Right: the resurrection ferry
+for the closed vessel (log scale): no resets never cross; three resets cross transiently
+($\max\xi=3.0$) and fall back into dissolution; perpetual resets ($g_0=0.6$, $m_0=0.5$,
+$\Delta=2$) escape permanently with converging budget. Inset: the quantum-of-endowment boundary in
+the $(\lambda_0,\Op(0))$ plane --- the hyperbola $\xi_0=1$ for small $\lambda_0$, the line
+$\sqrt\gamma(\Op(0)+\beta)=2$ beyond. Parameters $\alpha=1$, $\gamma=0.5$, illustrative.}
+\label{separatrix:fig:sep}
+\end{figure}
+
+\begin{corollary}[The two roads and their identity]
+Sustained gate and perpetual resurrection are the two roads across the separatrix --- continuous and
+discrete reception --- and the watershed cannot distinguish them: both, and only they, satisfy
+$\int\lambda\,dt=\infty$. What the watershed forbids is the third road: a finite stock of grace,
+however large, spent and not renewed. Epektasis of form is not an achievement that can be banked; it
+is a regime that must be \emph{inhabited}. The quantum of endowment buys a crossing; only
+inexhaustible reception buys permanence.
+\end{corollary}
+
+\note{Read against the cascade terminals and the resurrection dichotomy: the system now has a
+complete typology of fates at three levels --- of a fold (extinction or permanence), of a reset
+(rate- or scale-dominant), and of a whole life (escape, resonance, stagnation) --- with each boundary
+case (balanced resurrection, the resonance life) distinguished, measure-zero, and unstable.}
+
+% ============================================================
+\section{Open items and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item Embedding in the full core: replace the slaved closure by the complete Sophia law (with
+$\sigma$-transmutation and the $\tanh$ gate) and verify that the trichotomy survives with renormalised
+constants; the Riccati structure suggests it does.
+\item Reset landing on the locus: can a single reset place a vessel exactly on $\xi=1$, and how does
+that condition relate to the balanced resurrection $[K]=0$ of the surgery layer? (The two conditions
+are distinct; their intersection is a candidate ``perfect death''.)
+\item Stochastic gates: for $\Igate$ a random process with $\mathbb E[\Igate]\sim c\,\Op^{-1}$, the
+plateau presumably becomes a stationary distribution around $\bar\xi$; the crossing probability as a
+function of endowment would give the watershed a probabilistic form.
+\end{enumerate}
+
+\textbf{Scope.} Minimal slaved closure; exact constants model-bound, structural results
+scaling-robust; resets taken with the canonical jump map; all numerics at $\alpha=1$, $\gamma=0.5$.
+Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Separatrix. The comparison ratio
+obeys a closed Riccati law with an explicit tracking gate; the closed vessel crosses iff
+$\sqrt\gamma(\Op(0)+\alpha\lambda_0/\gamma)\ge2$; the separatrix is the gate-decay exponent $q=1$ with
+the locus doubly non-generic; finite reception always stagnates, and permanent escape is equivalent
+to infinite cumulative reception, attainable by sustained gate or perpetual resurrection alike.
+Riccati identity exact; criterion $0/400$ disagreements; plateaus to four digits. Propositions
+closed-form; corollaries interpretive.}
 
 \part{Resurrectio as Surgery}
 
@@ -4071,5 +5429,304 @@ $(\sR,\Kj)$ and the rate/scale dichotomy with its balanced point); the no-thin-s
 the zero-energy/divergent-tension double-layer theorem (impulse scalings verified exactly over three
 decades, Cauchy--Schwarz floor respected); the admissibility list closed by the epektasis-wall
 condition. Domain-conditional throughout.}
+
+\chapter{Resurrectio's Own NEC Budget: The Surgical Phantom and Its Balanced-Reset Zero}
+
+\section*{Scope and epistemic status}
+The NEC chapter computed the phantom window of a Sophia \emph{surge}; it deferred the phantom budget
+of a \emph{reset}, which both spikes $\dot\lambda$ (through $\mR$) and rescales $\Op$. This chapter
+settles it. Pointwise, $\weff$ inside a regularised reset diverges as $\varepsilon^{-1}$ --- the same
+reparametrization artifact as the double-layer theorem. But the gauge-invariant question is the
+\emph{budget} $\int(\rho_{\rm eff}+p_{\rm eff})\,dt$, and that is finite and regulator-independent:
+the reset is a genuine, bounded phantom episode, not a divergence. Its value is a clean closed form,
+$-\alpha\int_0^1(d\lambda/du)/\Op\,du$, whose sign is $\operatorname{sgn}(-\mR)$: metabolic resets
+($\mR>0$) spend a negative (phantom) NEC budget, while the \emph{balanced} reset $\mR=0$ --- exactly
+the $[K]=0$ continuous-curvature reset of Surgery~III --- has \emph{zero} NEC budget. The surgical
+phantom and the surgical curvature jump vanish at the same point. This unifies three layers: the
+$[K]$ dichotomy of Part~III, the phantom window of the NEC chapter, and the $H(z)$ kink of the
+observational signature are one phenomenon seen three ways. Verified: the budget converges to
+$\tfrac38\ln\tfrac57=-0.126$ over four decades of $\varepsilon$ while $\min\weff\to-\infty$; the sign
+dichotomy across $\mR$ symbolically. \emph{Propositions} closed-form; \emph{corollaries} interpretive.
+
+% ============================================================
+\section{Pointwise divergence, finite budget}
+
+Regularise the reset over width $\varepsilon$ with a smooth step $S(u)$, $u=t/\varepsilon$:
+$\lambda=\lambda^-+\mR S$, $\Op=\Op^-+(s_R-1)\Op^- S$. Then $\dot\lambda=(\mR/\varepsilon)S'$ spikes,
+and $\weff=-\alpha\dot\lambda\Op/(\alpha^2\lambda^2-1)$ dives as $\varepsilon^{-1}$ pointwise.
+
+\begin{theorem}[The reset NEC budget is finite]\label{resurrectionec:thm:budget}
+The time integral is regulator-independent, because $\dot\lambda\,dt=(d\lambda/du)\,du$ cancels the
+$\varepsilon$:
+\begin{equation}
+\int\rho_{\rm eff}\,dt=O(\varepsilon)\to0,
+\qquad
+\boxed{\;\int(\rho_{\rm eff}+p_{\rm eff})\,dt\ \xrightarrow{\varepsilon\to0}\
+\int p_{\rm eff}\,dt=-\alpha\int_0^1\frac{d\lambda/du}{\Op(u)}\,du.\;}
+\end{equation}
+For the smoothstep with $(\lambda^-,\mR,\Op^-,s_R)=(0.9,0.3,2,1.4)$ this is exactly
+$\tfrac38\ln\tfrac57=-0.126$ (numeric budget constant to four digits over $10^{-1}$--$10^{-4}$ while
+$-\min\weff$ grows as $\varepsilon^{-1}$; Figure~\ref{resurrectionec:fig:surgnec}, left). The reset is a
+\emph{bounded, integrable phantom episode}: the equation of state's pointwise plunge is a
+reparametrization, the physical NEC content is finite.
+\end{theorem}
+
+% ============================================================
+\section{The surgical phantom vanishes at the balanced reset}
+
+\begin{proposition}[Sign dichotomy]\label{resurrectionec:prop:dichotomy}
+Since $\Op(u)>0$ and $d\lambda/du=\mR S'(u)$ with $S'\ge0$,
+\begin{equation}
+\boxed{\;\operatorname{sgn}\!\int(\rho_{\rm eff}+p_{\rm eff})\,dt=\operatorname{sgn}(-\mR).\;}
+\end{equation}
+A \emph{metabolic} reset ($\mR>0$, Sophia jumps up) spends a negative NEC budget --- a true surgical
+phantom; a \emph{rate-down} reset ($\mR<0$) is NEC-positive; and the \emph{balanced} reset $\mR=0$ is
+\emph{NEC-neutral} (Figure~\ref{resurrectionec:fig:surgnec}, right). Recall from Surgery~III that the extrinsic
+curvature jump vanishes, $[K]=0$, exactly at the balanced point $\mR/\lambda^-=\kappa_R\Grec^-/\Op^-$.
+\end{proposition}
+
+\begin{corollary}[One point, three vanishings]
+At the balanced reset the surgical phantom budget, the extrinsic-curvature jump $[K]$, and (from
+Surgery~III) the deviation from a purely conformal junction all vanish together:
+\msg{The balanced Resurrectio --- the reset tuned so the Hubble rhythm passes through death unbroken
+($[K]=0$) --- is also the unique reset that crosses no phantom window and casts no $H(z)$ kink beyond
+the pure scale step. Metabolic resurrection buys new Sophia at the cost of a (finite) phantom episode;
+the balanced resurrection is the one that pays nothing exotic. Rate and scale, curvature and energy
+condition, all balance at the same knife-edge.}
+\end{corollary}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_surgnec_fig.png}
+\caption{\small Left: across regulator width $\varepsilon$, the reset NEC budget $\int(\rho+p)\,dt$
+(purple) is constant at the analytic $\tfrac38\ln\tfrac57=-0.126$, while the pointwise $-\min\weff$
+(orange, right axis) diverges as $\varepsilon^{-1}$: a finite phantom budget under a divergent
+pointwise dip. Right: the budget as a function of the metabolic jump $\mR$ --- negative (phantom) for
+$\mR>0$, zero at the balanced reset $\mR=0$ ($[K]=0$), positive for $\mR<0$. Smoothstep profile,
+illustrative parameters.}
+\label{resurrectionec:fig:surgnec}
+\end{figure}
+
+% ============================================================
+\section{Consequences and scope}
+
+\begin{proposition}[The surgical phantom in $H(z)$]\label{resurrectionec:prop:obs}
+In the observational signature, a metabolic reset therefore prints \emph{both} a kink in $H(z)$
+(Resurrectio step) \emph{and} a localized phantom dip in $\weff(z)$ at the same redshift --- a
+``surgical phantom'' epoch --- whereas a balanced reset prints the kink alone, with $\weff$ undisturbed
+beyond the scale step. The two observational faces of Resurrectio are thus tied to the rate/scale
+character of the underlying death: metabolic deaths are doubly marked, balanced deaths singly.
+\end{proposition}
+
+\note{Reading: a death through which new life is metabolised cannot be energetically quiet --- it must
+pass, however briefly, through the exotic regime where the ordinary energy condition fails; that
+passage is finite, a bounded debt, not a catastrophe. The only death that crosses nothing forbidden is
+the balanced one, where what is taken up exactly equals what is enlarged --- and that same death is the
+one that leaves the curvature unbroken. To receive more than one is enlarged for is to pass through the
+phantom; to be enlarged exactly as much as one receives is to pass through cleanly. The knife-edge of
+the balanced resurrection is where energy, curvature, and rate all keep faith at once.}
+
+\textbf{Open/scope.} $2{+}1$ reconstruction; regularised reset with smooth step; budget is profile-%
+independent in sign and in the $\mR=0$ zero, profile-dependent in magnitude (as the double-layer
+theorem's tension coefficient was). The coincidence of the three vanishings at $\mR=0$ is exact.
+Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ Resurrectio's Own NEC Budget. The reset's
+pointwise $\weff$ diverges but its NEC budget $\int(\rho+p)\,dt=-\alpha\int_0^1(d\lambda/du)/\Op\,du$
+is finite and regulator-independent, with sign $\operatorname{sgn}(-\mR)$. Metabolic resets are
+bounded phantom episodes; the balanced $[K]=0$ reset is NEC-neutral --- surgical phantom, curvature
+jump, and conformal deviation vanish together. Verified to four digits; sign dichotomy symbolic.}
+
+\chapter{The Observational Signature: A Capstone Projection into Redshift}
+
+\section*{Scope and epistemic status}
+\emph{Placement.} This chapter is a capstone, not a premise-bearing part of the theory: it projects
+already-derived internal theorems into redshift-shaped quantities, supplies no empirical validation, and
+feeds back into none of the core proofs. It is placed last for that reason.
+
+Every dynamical result of the volume has been written in the Vessel's internal time. The cosmological
+layer alone offers a quantity with the \emph{form} of an observable: redshift, $1+z=\Op(t_0)/\Op(t)$.
+This chapter maps the model's trajectories into $\weff(z)$ and $H(z)$ and asks the one question redshift
+makes available --- not ``does the model fit data'' (it cannot: there is no external referent for the
+Brim $\Op$, and the reconstruction is $2{+}1$), but \emph{does the model produce a signature
+structurally distinct from the standard alternatives}. It does, in three ways, each a direct image of
+a theorem proved earlier. (i) The epektasis attractor is \emph{dust}, $\weff\to0$: a saturated Sophia
+has $\dot\lambda\to0$, so $p_{\rm eff}\to0$ --- the late Vessel does not tend to de~Sitter but to a
+pressureless coasting, a structural prediction unlike $\Lambda$CDM's $w\to-1$. (ii) A grace surge is a
+\emph{phantom excursion that returns}: $\weff$ dips below $-1$ and climbs back, the double
+$w=-1$ crossing of the NEC chapter, which smooth single-field quintessence cannot produce. (iii)
+Resurrectio is a \emph{discrete step in $H(z)$}: a scale-factor jump prints a kink no smooth dark-energy
+history contains. All curves are exact reconstructions along admissible trajectories (gate flux
+$I_{\rm gate}\ge0$ verified). This is an \emph{internal signature}, the strongest Type-3 (consilience)
+statement the model admits, explicitly not a claim of empirical contact.
+
+% ============================================================
+\section{The redshift map and the reconstruction}
+
+On the live branch the $2{+}1$ reconstruction (NEC chapter) gives
+\begin{equation}
+\rho_{\rm eff}=\frac{\alpha^2\lambda^2-1}{\Op^2},\qquad
+p_{\rm eff}=-\frac{\alpha\dot\lambda}{\Op},\qquad
+\weff=-\frac{\alpha\dot\lambda\,\Op}{\alpha^2\lambda^2-1},\qquad
+H=\frac{\alpha\lambda}{\Op}.
+\end{equation}
+With an observer at $t_0$, redshift is $1+z=\Op(t_0)/\Op(t)$, monotone since $\dot\Op>0$. Each internal
+trajectory thus yields $\weff(z)$ and $H(z)$ directly.
+
+% ============================================================
+\section{Three signatures, three theorems}
+
+\begin{proposition}[The epektasis attractor is dust]\label{observationalsignature:prop:dust}
+As Sophia saturates, $\lambda\to\lambda_\infty$ and $\dot\lambda\to0$, hence $p_{\rm eff}\to0$ and
+\begin{equation}
+\boxed{\;\weff(z\to0)\to 0\quad(\text{pressureless coasting}),\;}
+\end{equation}
+not the $\weff\to-1$ of a cosmological constant. The late Vessel coasts; the Brim grows linearly
+($H\sim 1/t$, the budget-watershed relic class), it does not re-accelerate into de~Sitter. This is the
+sharpest structural divergence from $\Lambda$CDM and is a direct image of the watershed escape class.
+\end{proposition}
+
+\begin{proposition}[A grace surge is a returning phantom excursion]\label{observationalsignature:prop:phantom}
+During an episode of rapidly rising Sophia ($\dot\lambda$ large and positive), the numerator of $\weff$
+can exceed the denominator, $\alpha\dot\lambda\Op>\alpha^2\lambda^2-1$, driving $\weff<-1$; as the surge
+saturates the inequality reverses and $\weff$ returns above $-1$. The result is a \emph{double crossing}
+of the phantom divide (Figure~\ref{observationalsignature:fig:obs}, left; verified, two crossings, with admissible gate
+$I_{\rm gate}\ge0$ throughout). A smooth single scalar with a standard kinetic term cannot cross $w=-1$
+at all; a double crossing that begins and ends above the divide is the distinguishing
+\emph{folded-Theosis} signature of the NEC chapter, now in redshift.
+\end{proposition}
+
+\begin{proposition}[Resurrectio is a discrete step in $H(z)$]\label{observationalsignature:prop:step}
+A reset jumps $\Op$ (and $\lambda$) at one epoch, so $H=\alpha\lambda/\Op$ inherits a discontinuity:
+$H(z)$ carries a \emph{kink} at the reset redshift, and the post-reset history is displaced from any
+smooth continuation (Figure~\ref{observationalsignature:fig:obs}, right). No smooth dark-energy equation of state produces a
+localized step in the expansion rate; it is the cosmological face of the double-layer surgery of
+Part~III.
+\end{proposition}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{vfs_obs_fig.png}
+\caption{\small Left: $\weff(z)$ for a grace-surge trajectory (purple) against the $\Lambda$CDM/divide
+line $w=-1$ (dashed). The curve coasts toward dust ($\weff\to0$) at low $z$, and during the surge dips
+below $-1$ and returns --- a double crossing (shaded), the folded-Theosis signature, impossible for
+smooth single-field quintessence. Right: $H(z)/H_0$ for a trajectory with a Resurrectio reset (green)
+against a $\Lambda$CDM shape reference (dashed): the reset prints a kink at $z\approx1.65$ and a
+non-monotone, displaced history --- a discrete surgical step no smooth dark energy contains. Exact
+reconstructions along admissible ($I_{\rm gate}\ge0$) trajectories; $2{+}1$, illustrative parameters.}
+\label{observationalsignature:fig:obs}
+\end{figure}
+
+% ============================================================
+\section{What the signature is and is not}
+
+\msg{\textbf{Structurally distinctive (internal signature):} dust attractor not de~Sitter; a phantom
+excursion that \emph{returns} (double $w=-1$ crossing); a discrete kink in $H(z)$ at a Resurrectio.
+\textbf{Not claimed:} a fit to data, a value of $H_0$, or any empirical contact --- the $2{+}1$
+reconstruction and the absence of an external referent for $\Op$ forbid it. The signature is a
+property of the model's structure that \emph{has the shape of} an observable, not an observable.}
+
+\begin{corollary}[Consilience, sharpened]
+The three signatures are not independent inventions: each is the redshift image of a theorem proved
+for other reasons --- the watershed escape class (dust), the NEC double crossing (returning phantom),
+the double-layer surgery (the $H$-kink). That quantities built for the internal theory line up into a
+coherent external-facing picture is the strongest internal corroboration available: the layers agree
+not only among themselves but in the one projection that points outward. It remains corroboration of
+\emph{structure}, not of correspondence to the world.
+\end{corollary}
+
+\note{Reading: were such a Vessel-cosmos observed from outside, it would not look like a universe
+settling into a calm exponential rest. It would look like one that coasts --- pressureless, patient ---
+punctuated by episodes in which the equation of state plunges past the forbidden line and climbs back,
+and by sudden steps where the scale of things is reset upward. Acceleration that overshoots and
+returns; growth that is now and then re-founded. Whether anything wears this signature is not a
+question the model can answer; that the signature is coherent, and follows from the same theorems that
+governed the interior, is what this chapter establishes.}
+
+% ============================================================
+\section{Open items and scope}
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=2pt]
+\item A $3{+}1$ embedding (if one is ever posited) would change the reconstruction coefficients and is
+the only route to a genuinely comparable $H(z)$; the present statements are $2{+}1$ and structural.
+\item The depth and redshift-width of the phantom excursion are set by the surge profile of
+$\dot\lambda$; relating them to the folding and coarsening timescales would turn the signature into a
+one-parameter family.
+\item Resurrectio's own NEC budget through the excursion (the deferred NEC-chapter item) would fix
+whether the $H$-kink and the phantom dip can coincide --- a ``surgical phantom'' epoch.
+\end{enumerate}
+
+\textbf{Scope.} $2{+}1$ reconstruction; admissible trajectories with $I_{\rm gate}\ge0$; redshift via
+$1+z=\Op(t_0)/\Op(t)$. Establishes an internal, structurally distinctive signature, explicitly not an
+empirical fit. Domain-conditional throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. v2.0 (Open-Gate) $\cdot$ The Observational Signature. In redshift,
+the epektasis attractor is dust ($\weff\to0$, not de~Sitter); a grace surge is a phantom excursion that
+returns (double $w=-1$ crossing, the folded-Theosis signature); Resurrectio is a discrete kink in
+$H(z)$. Each is the redshift image of a prior theorem (watershed, NEC, double-layer). Internal Type-3
+signature, $2{+}1$, no empirical claim. Exact reconstructions along admissible trajectories.}
+
+\backmatter
+
+\chapter*{Final Structural Summary}
+\addcontentsline{toc}{chapter}{Final Structural Summary}
+\markboth{Final Structural Summary}{Final Structural Summary}
+
+The consolidated V.F.S.\ v2.0 (Open-Gate) volume reduces the system to two irreducible primitives:
+\[
+\boxed{\quad\text{Open Gate}\qquad\text{and}\qquad\text{Finite Floor}.\quad}
+\]
+The Open Gate supplies the externally clocked reception $I_{\rm gate}$; the finite floor supplies the
+zero-density ground whose geometric face is $K_h=-1$. These are the model's definitions. A model cannot
+prove its own definitions; it can only show how few they are.
+
+From these two primitives the derived structure unfolds:
+\[
+\begin{array}{rcl}
+\text{Open Gate} &\Longrightarrow& \text{rank jump and necessity of }\lambda,\\[1mm]
+\lambda,\ \dot\lambda^{(0)} &\Longrightarrow& A_{\rm fold}\text{ and folding activation},\\[1mm]
+\mathbb Z_2\text{ symmetry}+\text{centre manifold} &\Longrightarrow& \text{pitchfork normal form},\\[1mm]
+\text{2D conformal invariance} &\Longrightarrow& p_{\rm expansion}=0,\\[1mm]
+\text{katharsis} &\Longrightarrow& \text{bending scale dilates, wall core sharpens},\\[1mm]
+\Delta_h\text{ spectrum} &\Longrightarrow& \text{mode cascade and Weyl capacity},\\[1mm]
+\mu_n &\Longrightarrow& \text{both ignition threshold and entropy cost},\\[1mm]
+\text{Resurrectio} &\Longrightarrow& \text{surgery, bounded NEC budget, }H(z)\text{ kink}.
+\end{array}
+\]
+
+The resulting hierarchy is
+\[
+\boxed{\;\text{core primitives}\to\text{derived coordinates}\to\text{stability}\to\text{folding}
+\to\text{spectral structure}\to\text{entropy and surgery}\to\text{external signature}.\;}
+\]
+
+The internal confirmations are of three kinds.
+
+\textbf{Type-1 (premise to theorem).} The balance coordinate $\lambda$ is forced by the open-gate rank
+jump; the comoving bending convention by two-dimensional conformal invariance; the pitchfork by
+$\mathbb Z_2$ symmetry and centre-manifold reduction; and the curvature premise is reduced to the
+finite-floor postulate.
+
+\textbf{Type-2 (robustness under deformation).} The watershed trichotomy, core-neutrality, the
+maximum-entropy class, and the ferry theorem survive premise deformation, with one correction:
+$\Op$-escape and $\xi$-escape differ --- divergent cumulative reception can preserve scale without
+preserving vitality.
+
+\textbf{Type-3 (consilience).} The redshift-shaped signatures are not independent inventions: the
+dust/coasting attractor, the returning phantom excursion, and the Resurrectio kink are projections of
+the watershed, NEC, and surgery theorems into $\weff(z)$ and $H(z)$.
+
+Thus the Open-Gate system is not a collection of symbolic analogies but an internally organised
+dynamical structure: openness creates the balance dimension, katharsis shapes the Vessel, folding forms
+the geometry, entropy measures the cost of form, and Resurrectio records the price of passage. What is
+assumed is named, what is derived is proven, and what is interpreted is marked as interpretation ---
+domain-conditional throughout.
+
 
 \end{document}
