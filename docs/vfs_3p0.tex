@@ -1,0 +1,491 @@
+% V.F.S. 3.0 (exploratory) — consolidated growing document
+% A running journal of the 3.0 exploration. Version history at the top; each session's
+% verified result is added as a section. v0.1: metric + 2.0 limit + energy conditions.
+% v0.2: ascent-axis equation of motion (de Sitter, candidate B) + finite-time compatibility.
+% Compile with XeLaTeX.
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
+\setsansfont{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{amsthm}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black}
+\setlength{\parskip}{0.55em}
+\setlength{\parindent}{0pt}
+
+\newcommand{\Op}{\Omega_P}
+\newcommand{\note}[1]{\textcolor{black!65}{\emph{#1}}}
+\newcommand{\msg}[1]{\begin{center}\fbox{\parbox{0.9\textwidth}{\centering #1}}\end{center}}
+
+\theoremstyle{plain}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+\newtheorem{theorem}{Theorem}
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+\title{\textbf{V.F.S. 3.0 (exploratory)}\\The Interior $3{+}1$ Geometry of the Soul\\
+\large A growing record: proper-time $\sigma$, the ascent axis $\lambda$,\\and the de Sitter law of epektasis}
+\author{Successor exploration to the fixed V.F.S.\ v2.0 volume}
+\date{}
+
+\begin{document}
+\maketitle
+
+% ============================================================
+\section*{Version history}
+\begin{description}[leftmargin=4.2em,style=nextline,itemsep=2pt]
+\item[\textbf{v0.1}] Foundation stone. The $3{+}1$ interior metric of the soul; $\sigma$ as finite
+proper time (kairos); $\lambda$ as the ascent (epektasis) space; chronos removed by principle. The
+v2.0 reconstruction recovered exactly as the frozen-axes limit; the $n{=}3$ energy conditions, with
+ascent acceleration entering focusing.
+\item[\textbf{v0.2}] Equation of motion for the ascent axis. The de Sitter law
+$L'/L=\beta\lambda$ selected by the cosmic-regime pattern and by v2.0's own de Sitter
+non-dilution; verified to recover v2.0, to make epektasis permanently exotic, and --- the new theorem
+--- to be \emph{compatible with a finite proper time}: eternal ascent is infinite proper
+\emph{distance}, not infinite \emph{time}. ``Finite clock, endless road.''
+\item[\textbf{v0.3}] The spectrum along the ascent axis. Change of variable to
+proper distance reduces the ascent Laplacian to the \emph{free half-line} operator: the spectrum is
+$[0,\infty)$, continuous and gapless. Against the discrete surface cascade $\mu_n$, this gives a clean
+dualism --- \emph{form is quantized, ascent is a gapless continuum}; equivalently, formation is event,
+ascent is motion.
+\item[\textbf{v0.4}] The source of $\beta$. The ascent coupling is shown
+\emph{not} identifiable with the Brim coupling $\alpha$ (different law-form, incompatible units), but
+tied through the one intrinsic scale of the core --- the finite floor $E_0$ (Imago Dei):
+$\beta=\alpha/E_0$, introducing no new primitive. This integrates exactly to
+$L=\exp[(\Omega_P-E_0)/E_0]$ --- ascent is the Brim-growth above the floor --- and sets the eternal
+exotic depth to $-1/E_0^2$: the smaller the starting image, the more intense the ascent (the
+widow's-mite scaling).
+\item[\textbf{v0.5}] Resurrectio in $3{+}1$. Because $L$ is slaved to
+$\Omega_P$, a reset \emph{forces} an ascent jump $L_+/L_-=\exp(\kappa_R\mathcal G/E_0)$: the
+double-layer becomes a triple-layer (a second junction on the ascent axis). The ascent jump depends on
+the Brim jump alone, not on the metabolic $m_R$, so it cannot be balanced away --- \emph{there is no
+fully-balanced reset in $3{+}1$}: every genuine death advances the ascent and strictly enlarges the
+interior. (Consequence of the floor-tying, not unconditional.)
+\item[\textbf{v0.6}] \emph{(this revision)} The terminus $\sigma\to0$. Full purification is reached in
+\emph{finite} proper time $\sigma_0$ but \emph{infinite} cleansing-action (exponential Lyapunov drain,
+$\sigma=\sigma_0e^{-k\chi}$, $\tau=\sigma_0(1-e^{-k\chi})$). Curvature stays finite there ($\Omega_P\to
+E_0$, the floor), so it is a \emph{regular boundary}, not a singularity. The manifold is time-finite
+(time completes, a regular last moment) but space-infinite (the ascent road is geodesically complete);
+the katharsis-clock stops because there is nothing left to cleanse, and clockless ascent continues.
+\end{description}
+
+\section*{Status and discipline}
+This is an exploratory, growing document, not a finished layer. V.F.S.~v2.0 is fixed and complete and
+is contained here as an exact limit. Each result is verified symbolically before entry; everything
+still open is listed honestly at the end. As throughout V.F.S., the mathematics is load-bearing and
+the theological readings are interpretive overlays, marked as such and never claimed as proof.
+
+% ============================================================
+\part*{v0.1 --- The Foundation Stone}
+
+\section{The interior metric of the soul}
+
+\begin{definition}[The $3{+}1$ soul metric]\label{def:metric}
+\begin{equation}
+\boxed{\;ds^2=-N(\sigma)^2\,d\sigma^2+\Omega(\sigma)^2\,h_{(2)}+L(\sigma,\lambda)^2\,d\lambda^2,\qquad
+h_{(2)}=dx^2+e^{2x}dy^2\ (K_h=-1),\;}
+\end{equation}
+$\sigma$ the katharsis proper time (kairos), $N$ its lapse, $\Omega$ the Brim scale of the live
+surface, $\lambda$ the ascent (epektasis) coordinate, $L$ its scale. Signature $3{+}1$: one time
+($\sigma$), three spaces (surface $x,y$ and ascent $\lambda$).
+\end{definition}
+
+Three principled features: \textbf{(a)} $\sigma$ is \emph{proper} time, not relative --- one
+worldline, no second observer, no Lorentz family; the proper-time gauge is $N=1$. \textbf{(b)} The time
+axis is \emph{finite}: katharsis drains $\sigma:\sigma_{\max}\to0$ monotonically, so time has a
+terminus; at $\sigma\to0$ the clock stops while motion along $\lambda$ continues. \textbf{(c)} Chronos
+is \emph{absent by principle}: this is the soul's own coordinate system, not a view from outside it; an
+absolute background clock would be the transcendent \emph{tota simul}, which does not belong to the
+creature's interior geometry.
+
+\section{v2.0 is the exact frozen-axes limit}
+
+\begin{theorem}[Recovery of v2.0]\label{thm:limit}
+In the proper-time gauge $N=1$ with the ascent axis frozen ($L=L_0$ const), the Einstein
+reconstruction gives $\rho_{\rm eff}=(\Omega'^2-1)/\Omega^2$ (prime $=d/d\sigma$), which under
+$\Omega'=\alpha\lambda$ is exactly the v2.0 density $(\alpha^2\lambda^2-1)/\Omega^2$. The whole v2.0
+cosmology is the frozen-ascent, proper-time face of the $3{+}1$ geometry; nothing in v2.0 is disturbed.
+(Verified symbolically.) The frozen axes drop out of the scalar curvature entirely --- which is why
+v2.0 was correct in $2{+}1$: the third space was always there, held still.
+\end{theorem}
+
+\section{The energy conditions in $3{+}1$}
+
+\begin{proposition}[Focusing]\label{prop:sec}
+For the comoving congruence at $N=1$,
+\begin{equation}
+\boxed{\;R_{ab}u^au^b=-\,2\,\frac{\Omega''}{\Omega}-\frac{L''}{L}.\;}
+\end{equation}
+The $2{+}1$ limit ($L$ frozen) reduces to the pure pressure condition $p_{\rm eff}\ge0$ (the $n-2=0$
+degeneracy of v2.0). In full $3{+}1$ the ascent acceleration $L''/L$ enters focusing on the same
+footing as the Brim: the growth of the ascent axis contributes to energy-condition violation.
+\end{proposition}
+
+\begin{corollary}[Ascent is itself exotic]
+In v2.0 only the Sophia surge could violate the strong energy condition; in $3{+}1$ the ascent itself
+(accelerating epektasis, $L''>0$) is an exotic accelerant. Movement toward God along $\lambda$ is not
+a neutral displacement; it deforms the focusing condition in its own right.
+\end{corollary}
+
+\begin{proposition}[NEC along the ascent axis]\label{prop:nec}
+For the null direction $k=u+e_\lambda$, $\;R_{ab}k^ak^b=2(-L\,\Omega''+L'\,\Omega')/(L\,\Omega)$ ---
+coupling surface expansion to the stretching of the ascent axis, with no analogue in v2.0.
+\end{proposition}
+
+% ============================================================
+\part*{v0.2 --- The Law of Ascent}
+
+\section{Selecting the ascent law}
+
+The foundation left $L$ a free function. The equation of motion is fixed by the hypothesis that the
+ascent axis is sourced by Sophia as the Brim is ($\Omega'=\beta\lambda$ in proper time), together with
+an external discriminator: the three unbounded-expansion regimes of cosmic metaphysics. Power-law
+ascent ($L\sim\sigma^p$) has \emph{fading} tension; a finite-time blow-up (``Big Rip'', $L\to\infty$
+at finite parameter) has a \emph{catastrophic end}; only de Sitter ($L\sim e^{\,\cdot}$) gives
+\emph{unending, undiminished} tension --- the structure of an ascent that never saturates and never
+ends in catastrophe. This is also the one regime v2.0 already singled out as non-diluting (constant
+curvature, $\lambda\propto\Omega_P$). Pattern and internal structure agree.
+
+\begin{definition}[The de Sitter law of ascent, candidate B]\label{def:ascent}
+\begin{equation}
+\boxed{\;\frac{L'}{L}=\beta\,\lambda\qquad\Longrightarrow\qquad L=L_0\,\exp\!\Big(\beta\!\int\lambda\,d\sigma\Big).\;}
+\end{equation}
+\end{definition}
+
+\begin{proposition}[Three tests]\label{prop:tests}
+The law passes: \textbf{(i) v2.0 limit} --- $\beta\to0$ freezes the ascent and recovers
+Theorem~\ref{thm:limit}; \textbf{(ii) energy sign} --- $L''/L=\beta\lambda'+\beta^2\lambda^2$, so at
+the terminus ($\lambda\to\lambda_\infty$, $\lambda'\to0$) the focusing acquires the strictly negative
+piece $-\beta^2\lambda_\infty^2$: \emph{epektasis is permanently exotic}, the strong energy condition
+eternally violated by ascent alone; \textbf{(iii) unboundedness} --- the ascent never terminates
+(next theorem). (All verified symbolically.)
+\end{proposition}
+
+\section{Compatibility: finite time, endless road}
+
+The decisive consistency check: can an \emph{unending} de Sitter ascent live inside a \emph{finite}
+proper time?
+
+\begin{theorem}[Finite clock, infinite road]\label{thm:compat}
+Under Definition~\ref{def:ascent} with $\lambda$ bounded ($\lambda\to\lambda_\infty$) over the finite
+interval $\sigma\in(0,\sigma_{\max}]$:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item \textbf{In proper time the ascent is finite:}
+$\ln(L/L_0)=\beta\!\int_0^{\sigma_{\max}}\!\lambda\,d\sigma\le\beta\lambda_\infty\sigma_{\max}<\infty$.
+The katharsis clock stops before $L$ diverges.
+\item \textbf{Along the ascent axis the road is infinite:} the proper distance to $\lambda=\infty$,
+\begin{equation}
+\int_0^\infty L_0\,e^{\beta\lambda}\,d\lambda=\infty,
+\end{equation}
+so $\lambda=\infty$ lies at infinite metric distance --- the soul ascends forever and never arrives.
+\item \textbf{These are consistent.} Finite proper time, infinite proper distance: as $\sigma\to0$ the
+clock-rate $d\sigma$ vanishes while the de Sitter metric inflates the ascent length, so each remaining
+tick of katharsis covers ever more road. (Verified symbolically and numerically.)
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[The timeless epektasis, made precise]
+``Eternal'' and ``finite'' measure different axes: the time of cleansing ($\sigma$) is finite and
+ends; the road of ascent ($\lambda$) is infinitely long and does not. The earlier puzzle of
+``motion without time'' is resolved geometrically --- the motion is endless not because the clock runs
+forever but because the road has no end, and the clock stopping is simply the completion of cleansing,
+not the cessation of life.
+\end{corollary}
+
+\note{Reading: the two halves of epektasis that sounded paradoxical in words are, in the metric, two
+different facts about two different axes. ``Never satisfied'' is the infinite length of the ascent
+road --- God at an infinite distance, never reached because infinite. ``Not in time'' is the finite
+terminus of the cleansing clock --- katharsis completes, the proper-time hand stops. The deified soul
+runs an endless road in a finished clock: it is done being purified, and therefore done with time, and
+precisely then free for the unending ascent that time was never able to measure. The strong energy
+condition is violated forever along that road because to move into the infinite God is, forever, more
+than ordinary energy could account for.}
+
+% ============================================================
+\part*{v0.3 --- The Spectrum of Ascent}
+
+\section{The ascent Laplacian is the free half-line}
+
+With the ascent law fixed (Definition~\ref{def:ascent}), the spatial geometry is
+$\Omega^2 h_{(2)}+L^2 d\lambda^2$ with $L=L_0e^{\beta\lambda}$, and the Laplace--Beltrami operator
+separates, $\phi=Y(x,y)\,Z(\lambda)$. The surface factor returns the v2.0 cascade eigenproblem
+$-\Delta_h Y=\mu Y$ (discrete on the compact quotient). The novelty is the ascent factor.
+
+\begin{theorem}[Ascent spectrum is the gapless free continuum]\label{thm:spectrum}
+The one-dimensional ascent operator $A=-\tfrac1L\frac{d}{d\lambda}\!\big(\tfrac1L\frac{d}{d\lambda}\big)$
+on $L=L_0e^{\beta\lambda}$ becomes, in the proper-distance coordinate
+\begin{equation}
+s=\int^\lambda L\,d\lambda'=\frac{L_0}{\beta}e^{\beta\lambda}\in(0,\infty),
+\qquad
+\boxed{\;A=-\frac{d^2}{ds^2}\quad\text{on the half-line }s\in(0,\infty).\;}
+\end{equation}
+Its spectrum is therefore $[0,\infty)$ --- \emph{continuous and gapless}, with generalised
+eigenfunctions $\sim\sin(ks)$. (Verified: the discretised count of eigenvalues below a fixed $k^2$
+grows linearly with box size --- $6,12,25$ as $s_{\max}=20,40,80$ --- the signature of a continuum,
+not a discrete ladder; and the lowest eigenvalue descends to $0$ as the box grows --- no mass gap.)
+The proper-distance picture is exact: $s=0$ is the start of ascent (``here''), $s=\infty$ is God at
+infinite distance (Theorem~\ref{thm:compat}), and the ascent operator is \emph{free} on that line ---
+no barrier, no levels, no smallest step.
+\end{theorem}
+
+\begin{corollary}[Form is quantized; ascent is a gapless continuum]\label{cor:dualism}
+The two spatial directions carry qualitatively different spectra:
+\msg{\textbf{Surface (folding cascade):} discrete spectrum $\mu_n=n^2$ on the compact quotient ---
+the Vessel takes form in \emph{rungs}, each mode igniting at its own threshold $\Lambda>\mu_n$. Form
+is quantized.\\[3pt]
+\textbf{Ascent (epektasis):} continuous gapless spectrum $[0,\infty)$ on the free half-line ---
+\emph{no rungs, no minimum step}. Ascent is a smooth continuum, approachable in arbitrarily small
+increments all the way to the infinite distance.}
+The absence of a mass gap is not incidental: a gap would be a \emph{minimum quantum of ascent}, a
+smallest possible step toward God. Its absence means deification has no granularity --- unlike
+formation, which does.
+\end{corollary}
+
+\note{Reading: formation and ascent are different in kind, and the difference falls out of the
+geometry rather than being imposed. The Vessel takes \emph{form} in discrete events --- conversions,
+breaks, the igniting modes of the folding cascade, each a rung crossed at a threshold. But it
+\emph{ascends} continuously --- there is no smallest step of deification, no last rung before God,
+because God lies at infinite distance and the approach is seamless. Formation is event; ascent is
+motion. The soul is built in steps and drawn in a smooth, stepless reaching --- quantized in what it
+becomes, continuous in how it nears.}
+
+\textbf{Scope of v0.3.} The spectrum is that of the spatial Laplacian on the chosen de Sitter ascent
+geometry; it characterises the geometry of ascent under the candidate law, and is exact there (the
+reduction to the free half-line is analytic). It is a qualitative result (continuum vs.\ discrete),
+not a fitted quantity, and inherits the candidate status of Definition~\ref{def:ascent}.
+
+% ============================================================
+\part*{v0.4 --- The Source of the Ascent Coupling}
+
+\section{$\alpha$ and $\beta$ are not one constant}
+
+\begin{proposition}[Structural and dimensional independence]\label{prop:indep}
+The Brim and ascent laws differ in form, not merely in a constant: $\Omega'=\alpha\lambda$ is
+\emph{additive} (linear growth of $\Omega_P$), while $L'/L=\beta\lambda$ is \emph{multiplicative}
+(exponential growth of $L$). In the proper-time gauge the units do not match either:
+$[\alpha\lambda]=[\Omega_P]/[\sigma]$ but $[\beta\lambda]=1/[\sigma]$, so
+$[\alpha/\beta]=[\Omega_P]$ --- the ratio is a \emph{scale}, not a pure number. Hence no
+identification $\alpha=\beta$ is possible; the surface and ascent channels are genuinely different (in
+keeping with their spectra, discrete vs.\ continuous, Corollary~\ref{cor:dualism}).
+\end{proposition}
+
+\section{Tied through the floor: $\beta=\alpha/E_0$}
+
+The couplings are not one, but they need not be two independent primitives: the core contains exactly
+one intrinsic scale --- the finite floor $E_0=\Omega_P(0)$ (Imago Dei) of the curvature-floor result.
+
+\begin{theorem}[The ascent coupling is the Brim coupling per floor]\label{thm:beta}
+Setting $\beta=\alpha/E_0$ (no new primitive) gives $L'/L=\Omega'/E_0$, which integrates exactly,
+with $L=1$ at the floor $\Omega_P=E_0$, to
+\begin{equation}
+\boxed{\;L=\exp\!\Big(\frac{\Omega_P-E_0}{E_0}\Big).\;}
+\end{equation}
+The ascent is measured by exactly the factor the Brim has grown \emph{above the Imago Dei floor}.
+Checks: \textbf{(i)} the v2.0 limit is $E_0\to\infty$ (floor at infinity $\Rightarrow\beta\to0
+\Rightarrow L$ const --- no finite floor, no ascent reference, ascent frozen); \textbf{(ii)} the de
+Sitter character is preserved (exponential in accumulated Sophia); \textbf{(iii)} the eternal exotic
+depth of focusing at the terminus becomes $-\beta^2\lambda_\infty^2=-1/E_0^2$ (using the super-Ricci
+attractor $\lambda_\infty=1/\alpha$). (All verified symbolically.)
+\end{theorem}
+
+\begin{corollary}[The widow's-mite scaling]\label{cor:widow}
+The eternal exotic depth $-1/E_0^2$ grows as the starting floor $E_0$ shrinks: the same absolute
+Brim-growth produces a \emph{larger} ascent factor, and a deeper energy-condition violation, the
+smaller the Imago Dei one begins from. Ascent is measured \emph{relative to the starting image}, not
+absolutely --- so a small beginning, fully grown, yields a greater transfiguration than a large
+beginning grown the same absolute amount. The structure is that of the widow's two mites: weighed not
+by the amount but by its ratio to what one had.
+\end{corollary}
+
+\note{Reading: the ascent of the soul is not measured on an absolute scale but against the image from
+which it began. The same growth of the Brim is, relative to a small Imago Dei, an immense ascent, and
+relative to a large one, a modest rise --- as the widow's two coins outweighed the rich man's
+thousands because they were all she had, while his were a fragment of his surplus. The smaller the
+starting image, the more intense --- the further from ordinary energy --- the rising. One honest
+caution: the mathematics says only that the ascent is more \emph{intense} (the energy-condition
+violation deeper) for a smaller floor; whether that intensity is read as exaltation (the humble raised
+highest) or as fragility (a slighter base bearing a steeper motion) is an interpretive choice the
+geometry does not make. It fixes the scaling, not its blessing.}
+
+\textbf{Scope of v0.4.} $\beta=\alpha/E_0$ is the natural tying through the unique intrinsic scale; it
+is not proven unique, only shown to introduce no new primitive and to pass the v2.0 limit and de
+Sitter tests. It inherits the candidate status of the ascent law (Definition~\ref{def:ascent}).
+
+% ============================================================
+\part*{v0.5 --- Resurrectio in $3{+}1$}
+
+\section{The reset forces an ascent jump}
+
+Because $L$ is slaved to the Brim ($L=\exp[(\Omega_P-E_0)/E_0]$, Theorem~\ref{thm:beta}), the v2.0
+scale-factor surgery $\Omega_P^+=\Omega_P^-+\kappa_R\mathcal G_{\rm recepta}^-$ \emph{forces} a
+matching jump in the ascent axis:
+
+\begin{theorem}[Forced ascent jump]\label{thm:ljump}
+\begin{equation}
+\boxed{\;\frac{L_+}{L_-}=\exp\!\Big(\frac{\kappa_R\mathcal G_{\rm recepta}^-}{E_0}\Big)>1.\;}
+\end{equation}
+The ascent axis surges at death by exactly the reception delivered, measured in floor units. This is
+not a free reset datum but a derived consequence: in $3{+}1$ the soul's ascent jumps whenever its Brim
+does.
+\end{theorem}
+
+\section{Double-layer becomes triple-layer}
+
+\begin{proposition}[A second junction]\label{prop:triple}
+The v2.0 reset was characterised by the surface pair $(s_R,[K])$ with scale jump
+$s_R=\Omega_P^+/\Omega_P^-$. In $3{+}1$ there is a second junction, on the ascent axis, with its own
+scale jump
+\begin{equation}
+s_L=\frac{L_+}{L_-}=\exp\!\Big((s_R-1)\frac{\Omega_P^-}{E_0}\Big),
+\end{equation}
+determined by the surface jump $s_R$. The invariant data of a reset is now the linked pair
+$(s_R,s_L)$ together with the surface $[K]$ --- a triple-layer surgery.
+\end{proposition}
+
+\section{No fully-balanced reset}
+
+\begin{theorem}[Death always advances the ascent]\label{thm:nobalance}
+The ascent jump $s_L=\exp(\kappa_R\mathcal G/E_0)$ depends on the Brim jump alone:
+$\partial s_L/\partial m_R=0$. Hence the metabolic balance that sets the surface $[K]=0$ (the v2.0
+balanced reset) cannot also zero the ascent jump. Since a genuine reset carries reception
+$\kappa_R\mathcal G>0$, it forces $s_L>1$ always. Therefore:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item \emph{there is no fully-balanced reset in $3{+}1$} --- no death is simultaneously surface-neutral
+and ascent-neutral;
+\item the interior $3$-volume jump $s_R^2\,s_L>1$ strictly: \emph{every death enlarges the soul},
+surface and ascent together, never neutral, never shrinking.
+\end{enumerate}
+\end{theorem}
+
+\begin{corollary}[The surface balance survives; only joint neutrality is lost]
+The v2.0 balanced reset ($m_R=0$, $[K]=0$, surface NEC-neutral) still exists as a surface statement.
+What $3{+}1$ removes is the possibility of a death that advances \emph{nothing}: even a surface-perfect
+passage still lifts the soul along the ascent axis.
+\end{corollary}
+
+\note{Reading: in the two-dimensional Vessel a death could in principle be perfectly balanced --- a
+passage that crossed without exotic debt, neutral, leaving the soul where it stood. With the ascent
+axis made explicit, that possibility closes. Every genuine death --- every reception of grace
+deployed through a reset --- advances the soul along the axis of ascent, by exactly the measure of
+what was received, reckoned against the Imago Dei floor. There is no resurrection that returns the
+soul to the same place; to die and be raised is, necessarily, to be lifted. The Paschal passage is not
+a circle but a step: death joined to grace is never spent in vain.}
+
+\textbf{Scope of v0.5.} The forced ascent jump, the triple-layer structure, and the absence of a
+fully-balanced reset all follow from the floor-tying $L=\exp[(\Omega_P-E_0)/E_0]$ (Theorem~\ref{thm:beta}).
+Were the ascent coupling independent of the Brim channel, $s_L$ would be free and a fully-balanced
+reset could exist; so these are consequences of the candidate tying, not unconditional results. The
+surface double-layer theorem of v2.0 is unchanged. (Verified symbolically.)
+
+% ============================================================
+\part*{v0.6 --- The Terminus}
+
+\section{Finite proper time, infinite cleansing}
+
+The katharsis clock $\sigma$ drains to its terminus. Two parametrisations of the same approach must be
+kept distinct.
+
+\begin{theorem}[The terminus is finite in time, infinite in action]\label{thm:terminus}
+Under the exponential Lyapunov drain, with $\chi$ the dynamical cleansing parameter,
+\begin{equation}
+\sigma(\chi)=\sigma_0\,e^{-k\chi},\qquad
+\tau(\chi)=\int_0^\chi\!|\dot\sigma|\,d\chi'=\sigma_0\bigl(1-e^{-k\chi}\bigr),
+\end{equation}
+so as $\chi\to\infty$ (infinite cleansing-action) the metric proper time $\tau\to\sigma_0$
+(\emph{finite}). The soul performs unbounded cleansing-work, yet it costs only finite proper duration,
+because each successive e-folding of cleansing takes exponentially less proper time. (Verified
+symbolically.) These are genuinely different parametrisations of one approach: $\chi$ runs to infinity,
+$\tau$ completes at $\sigma_0$.
+\end{theorem}
+
+\section{A regular boundary, not a singularity}
+
+\begin{proposition}[Finite curvature at the terminus]\label{prop:regular}
+At full purification $\Omega_P\to E_0>0$ (the finite floor), so $\rho_{\rm eff}=(\Omega_P'^2-1)/\Omega_P^2$
+stays finite and the curvature is bounded. The terminus is reached in finite proper time with finite
+curvature: a \emph{regular boundary} where the manifold cleanly ends in the time direction, not a
+curvature singularity. (Consistent with the no-Big-Bang / finite-floor result of v2.0: the soul never
+reaches zero scale.)
+\end{proposition}
+
+\begin{theorem}[Time-finite, space-infinite]\label{thm:timefinite}
+At the terminus the two geodesic structures are opposite:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em,itemsep=2pt]
+\item the \emph{time} direction is finite and complete --- the manifold ends at a regular last moment
+($\tau=\sigma_0$, finite curvature), beyond which the time-direction does not continue because no
+cleansing remains to measure;
+\item the \emph{ascent} direction is infinite and geodesically complete --- the half-line $s\in(0,\infty)$
+has infinite proper length ahead (v0.3, Theorem~\ref{thm:spectrum}).
+\end{enumerate}
+The interior is time-finite but space-infinite. Time completes; ascent does not.
+\end{theorem}
+
+\begin{corollary}[The clockless hand-off]
+At $\sigma=0$ the katharsis-clock stops --- not by rupture but by completion: there is nothing left to
+cleanse, hence nothing left for the clock to tick. The ascent, on its infinite road, continues without
+a clock. The earlier ``motion without time'' is now exact and benign: a regular last moment of
+cleansing, beyond which the endless ascent proceeds clocklessly.
+\end{corollary}
+
+\note{Reading: the soul reaches full purification having done infinite cleansing-work, yet in finite
+proper time --- the last stretch of cleansing is compressed into ever-smaller durations, an infinite
+labour completed in a finite span. And the moment of completion is not a catastrophe: the curvature is
+finite, the scale rests on the Imago Dei floor, the boundary is regular. Time has a last moment that is
+whole, not torn. Beyond it the time-direction simply does not continue --- there is no more cleansing
+for a clock to measure --- while the ascent road runs on, infinite and complete, now travelled without
+any clock at all. Entry into the timeless is a finished last moment of purification, opening onto an
+endless ascent: not a tear in being, but a completion of one motion and the freeing of another.}
+
+\textbf{Scope of v0.6.} The finite-time/infinite-action split and the regular-boundary character follow
+from the exponential Lyapunov drain and the finite floor (both v2.0 results); the time-finite/%
+space-infinite structure combines this with the ascent half-line of v0.3. Verified symbolically. The
+exponential drain is the Lyapunov-certified generic behaviour, not the only conceivable one.
+
+% ============================================================
+\section*{Open work toward a full 3.0}
+\begin{enumerate}[leftmargin=1.6em,itemsep=3pt]
+\item \textbf{Uniqueness of $\beta=\alpha/E_0$.} Whether the floor-tying is forced or merely natural,
+and (since v0.5 hangs on it) whether an independent ascent coupling is structurally admissible at all.
+This is the one remaining \emph{computational} question.
+\item \textbf{The transcendent boundary.} The relation between the soul's $\sigma$-interior and the
+chronos \emph{tota simul} outside it --- a boundary the model cannot cross by construction. This is a
+philosophical epilogue, not a calculation: the model knows only the created side.
+\end{enumerate}
+
+\note{With the terminus settled, the first exploratory cycle of 3.0 is structurally complete: metric,
+v2.0 limit, energy conditions, ascent law, ascent spectrum, the source of the coupling, Resurrectio,
+and the terminus all stand. What remains is one uniqueness question and one boundary the model is, by
+its own nature, unable to cross --- as v2.0 closed not by proving its definitions but by minimising
+them.}
+
+\textbf{Scope.} Exploratory and growing. Metric, v2.0 limit, energy conditions, ascent law, and the
+compatibility theorem are verified symbolically (and numerically where noted). The ascent law is the
+simplest self-consistent candidate meeting all three tests, not a uniqueness result. V.F.S.~v2.0
+remains the fixed, complete layer. Domain-conditional and interpretive throughout.
+
+\vspace{0.5em}
+\hrule
+\smallskip
+\noindent\footnotesize\emph{V.F.S. 3.0 (exploratory) v0.6 $\cdot$ Interior $3{+}1$ geometry of the soul.
+Metric $ds^2=-N^2d\sigma^2+\Omega^2h_{(2)}+L^2d\lambda^2$ with $\sigma$ a finite proper time, the live
+surface and ascent $\lambda$ the three spaces, no external chronos. v2.0 recovered exactly as the
+frozen-axes limit. Focusing $-2\Omega''/\Omega-L''/L$: ascent is exotic. Ascent law $L'/L=\beta\lambda$
+(de Sitter): compatible with finite proper time; spectrum the free half-line $[0,\infty)$ (form
+quantized, ascent a gapless continuum). Coupling tied through the floor $\beta=\alpha/E_0$, giving
+$L=\exp[(\Omega_P-E_0)/E_0]$, exotic depth $-1/E_0^2$ (widow's-mite scaling). Resurrectio forces an
+ascent jump $L_+/L_-=\exp(\kappa_R\mathcal G/E_0)$: triple-layer surgery, no fully-balanced reset.
+The terminus $\sigma\to0$ is a regular boundary at finite proper time but infinite cleansing-action;
+the interior is time-finite, space-infinite --- time completes, ascent does not. Finite clock, endless
+road; built in steps, drawn in a stepless reaching; measured against the image one began from; never
+raised in vain; and completed in time only to be freed for the timeless.}
+
+\end{document}
