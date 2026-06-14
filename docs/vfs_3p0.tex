@@ -190,12 +190,49 @@ the floor-normalised representative. Slogans: \emph{the Brim coasts, Sophia-as-a
 \item[\textbf{v0.19}] \emph{(this revision)} The Lyapunov / stability layer of epektasis. The ascent
 $L$ grows without bound (not a defect: that is epektasis), so the stable object is the \emph{regime},
 not the value. The ascent rate $h=A'/A=\beta\lambda$ has the de Sitter attractor $h_*=\beta\lambda_\infty$;
-a Sophia perturbation $u$ obeys $u'=-\gamma u$, with Lyapunov $V=\tfrac12\beta^2u^2$, $\dot V=-\beta^2\gamma
-u^2<0$ --- asymptotic stability of the rate. Perturbations shift $\ln L$ by only a finite amount
-($\delta\ln L\to\beta u_0/\gamma$): perturbed souls ascend on \emph{parallel roads}, a fixed finite ratio
+a Sophia perturbation $u$ obeys $du/d\chi=-\gamma u$, with Lyapunov $V_{\rm asc}=\tfrac12\beta^2u^2$,
+$dV_{\rm asc}/d\chi=-\beta^2\gamma u^2<0$ --- asymptotic stability of the rate. Perturbations shift
+$\log A$ by only a finite amount ($\delta\log A\to\beta u_0/\gamma$): perturbed souls ascend on
+\emph{parallel roads}, a fixed finite ratio
 apart (orbital stability). The attractor is a constant-rate ray, not a point --- stable \emph{motion},
 not stable rest --- and its value is the eternal exotic depth $-\beta^2\lambda_\infty^2$, so stability
 and permanent-exotic agree. With figure.
+\item[\textbf{v0.20}] \emph{(this revision --- correction to v0.19)} The stability layer is restated in
+the unbounded dynamical parameter $\chi$, not the finite proper time $\sigma$: the de Sitter attractor
+is approached as $\chi\to\infty$, which by $\tau(\chi)=\sigma_0(1-e^{-k\chi})$ corresponds to
+approaching the terminus (in $\sigma$, bounded, the limit is unreachable). The Lyapunov drain
+$dV_{\rm asc}/d\chi=-\beta^2\gamma u^2<0$ and orbital shift $\delta\log A\to\beta u_0/\gamma$ are exact
+per \emph{reset-free arc} --- a Resurrectio reset creates new initial data $u_0$ for the next arc,
+restarting convergence rather than breaking it. A forced version $du/d\chi=-\gamma u+f(\chi)$, $f\in
+L^1$, gives input-to-state stability with finite accumulated $\delta\log A$. (Items 1--11 of the global
+patch were already applied in v0.13/v0.17/v0.18.)
+\item[\textbf{v0.21}] \emph{(this revision)} The Resurrectio junction budget. Full accounting of the
+extrinsic-curvature jumps across a reset, in four data: surface scale $[\Omega_P]=\kappa_R\mathcal G$,
+surface rate, ascent rate $[A'/A]=\alpha m_R/E_0$ (tunable, $m_R{=}0$), ascent scale
+$\log s_L=\kappa_R\mathcal G/E_0$ (irreducible). Backbone identity $\log s_L=[\Omega_P]/E_0$ (ascent
+jump is the Brim jump in floor units). The rate sector is conserved: $Q=A'/A-\Omega_P'/E_0=0$ on every
+arc and $[Q]=0$ across every reset. The non-softness is one scalar, the additive deficit
+$D=\frac1{E_0}\sum_j\kappa_R\mathcal G_j$ (total reception in floor units), giving the full ascent
+ledger $\log(A_{\rm fin}/A_0)=\beta\!\int\lambda\,d\sigma+\frac1{E_0}\sum_j\kappa_R\mathcal G_j$
+(continuous epektasis $+$ jump budget). Quantifies v0.15. With figure.
+\item[\textbf{v0.22}] \emph{(this revision)} Heat kernel and entropy of the joint spectrum. The heat
+trace factorises (no cross term, v0.16): $\theta_3=\theta_{\rm surf}\cdot\theta_{\rm asc}$. The form
+sector is finite, $\theta_{\rm surf}=\Omega_P^2V_h/(4\pi t)+\chi_E/6+O(t)$, carrying a topological
+invariant (the Euler characteristic via Gauss--Bonnet); its spectral entropy is finite. The ascent
+sector diverges --- $\theta_{\rm asc}=D_{\rm asc}/\sqrt{4\pi t}\to\infty$ on the infinite road (finite
+density $1/\sqrt{4\pi t}$, edge term $-1/4$) --- and its entropy is extensive in the road length,
+unbounded. So the soul's form is finitely describable (with a fixed topological signature) while its
+ascent is not: no finite information exhausts epektasis. Bonus: $\theta_3\sim t^{-3/2}$ per unit road,
+the $t^{-1/2}$ confirming the ascent as one continuous extra dimension. With figure.
+\item[\textbf{v0.23}] \emph{(this revision)} The gauge / invariant layer. Three coordinate freedoms
+classified: (G1) ascent rescaling $\lambda\to c\lambda,\,S\to S/c$; (G2) lapse $N(\sigma)\neq1$;
+(G3) floor normalisation $L_0$. The metric $1$-form $S\,d\lambda$, the proper time $\int N\,d\sigma$,
+and all curvature scalars are invariant; $\lambda$'s value, $L_0$, the $A/S$ split, $N$, $\sigma$, and
+$\beta$/$\lambda_\infty$/$\alpha$ \emph{separately} are pure gauge. The physics lives in ratios to the
+floor: $h_*=\alpha\lambda_\infty/E_0$, exotic depth $(\alpha\lambda_\infty/E_0)^2$, $s_L=e^{\kappa_R
+\mathcal G/E_0}$, $D=\sum\kappa_R\mathcal G_j/E_0$. Theorem: every result of v0.1--v0.22 is expressible
+in gauge invariants; none depends on a gauge choice. The Imago Dei floor $E_0$ is the invariant anchor.
+With a gauge/invariant table.
 \end{description}
 
 \section*{Status and discipline}
@@ -1251,22 +1288,28 @@ v2.0 had a Lyapunov layer: katharsis drains to a fixed point. The ascent has non
 $L$ grows without bound, and must, since that is epektasis. The right question is the stability of the
 \emph{regime} (the rate), not of the value.
 
-\paragraph{The rate is asymptotically stable.} The ascent rate is $h=A'/A=\beta\lambda$, with de Sitter
-fixed point $h_*=\beta\lambda_\infty$. A Sophia perturbation $u=\lambda-\lambda_\infty$ relaxes by its
-own law $u'=-\gamma u$. With the Lyapunov function $V=\tfrac12\beta^2u^2$,
+\paragraph{The rate is asymptotically stable (in the dynamical parameter $\chi$).} The stability must
+be stated in the \emph{dynamical/epektatic parameter} $\chi$ (unbounded), not the proper time $\sigma$
+(finite, bounded by the terminus $\sigma_0$): the attractor is approached as $\chi\to\infty$, which by
+$\tau(\chi)=\sigma_0(1-e^{-k\chi})$ corresponds to approaching the terminus. The ascent rate is
+$h=d\log A/d\chi=\beta\lambda$, with de Sitter fixed point $h_*=\beta\lambda_\infty$. On a reset-free
+arc a Sophia perturbation $u=\lambda-\lambda_\infty$ relaxes by $du/d\chi=-\gamma u$. With the Lyapunov
+functional $V_{\rm asc}=\tfrac12(h-h_*)^2=\tfrac12\beta^2u^2$,
 \begin{equation}
-\dot V=-\beta^2\gamma\,u^2<0\quad(u\neq0),
+\frac{dV_{\rm asc}}{d\chi}=-\beta^2\gamma\,u^2<0\quad(u\neq0),
 \end{equation}
-so $h\to h_*$ exponentially: the epektasis regime is asymptotically stable, even though $L\to\infty$.
+so $h\to h_*$ exponentially: the epektasis regime is asymptotically stable, even though $A\to\infty$.
+The stable object is the rate $h=A_\chi/A$, not the value $A$.
 
-\paragraph{Orbital stability: parallel roads.} A perturbation shifts the log-ascent by only a finite
-amount,
+\paragraph{Orbital stability: parallel roads.} With $u(\chi)=u_0e^{-\gamma\chi}$ a perturbation shifts
+the log-ascent by only a finite amount,
 \begin{equation}
-\delta\ln L(\sigma)=\beta\!\int_0^\sigma\!u\,ds\ \longrightarrow\ \frac{\beta u_0}{\gamma}<\infty,
+\delta\log A(\chi)=\beta\!\int_0^\chi\!u\,ds=\frac{\beta u_0}{\gamma}\bigl(1-e^{-\gamma\chi}\bigr)
+\ \longrightarrow\ \frac{\beta u_0}{\gamma}<\infty,
 \end{equation}
-so two perturbed souls keep a \emph{fixed finite ratio} of ascent forever: $L_{\rm pert}/L_{\rm
-unpert}\to$ const. They ascend on parallel roads --- never converging in position, never diverging ---
-the signature of stable unending motion rather than stable rest.
+so $A_{\rm pert}/A_{\rm ref}\to\exp(\beta u_0/\gamma)$: two perturbed souls keep a \emph{fixed finite
+ratio} of ascent forever. They ascend on parallel roads --- never converging in position, never
+diverging --- the signature of stable unending motion rather than stable rest.
 
 \begin{figure}[!htbp]
 \centering
@@ -1298,10 +1341,213 @@ rest of stopping, but the rest of a motion that has found its true and unfailing
 speed is itself the eternal exotic rate, the steady exceeding of ordinary energy that is the soul's
 endless nearing of God.}
 
-\textbf{Scope of v0.19.} The rate stability (Lyapunov $\dot V<0$) and the finite log-shift (orbital
-stability) are exact given the Sophia relaxation $\lambda'=J_{\rm in}-\gamma\lambda$; verified
-numerically. It is the $3{+}1$ ascent counterpart of v2.0's Lyapunov layer --- stability of a regime,
-not of a rest --- and inherits the ascent law (v0.8) and floor-tying (v0.4).
+\paragraph{Per-arc scope and the forced version.} The stability holds on \emph{reset-free arcs}, or
+after the forcing has settled: a Resurrectio reset jumps $\lambda$ and so creates new initial data
+$u_0$ for the next stable ascent arc --- it restarts the convergence rather than breaking it. More
+generally, with forcing $du/d\chi=-\gamma u+f(\chi)$ and $f\in L^1$ (or $f\to0$ fast enough), the same
+conclusion holds in input-to-state form: the accumulated $\delta\log A$ remains finite whenever
+$u\in L^1$. So the regime is stable arc by arc, and robust to bounded perturbation.
+
+\textbf{Scope of v0.19.} The rate stability (Lyapunov $dV_{\rm asc}/d\chi<0$) and the finite log-shift
+(orbital stability) are exact given the Sophia relaxation $d\lambda/d\chi=J_{\rm in}-\gamma\lambda$, in
+the dynamical parameter $\chi$ (not the finite proper time $\sigma$); verified numerically. It is the
+$3{+}1$ ascent counterpart of v2.0's Lyapunov layer --- stability of a regime, not of a rest --- holds
+per reset-free arc, and inherits the ascent law (v0.8) and floor-tying (v0.4).
+
+% ============================================================
+\FloatBarrier
+\section*{v0.21 --- The Resurrectio junction budget}
+v0.15 showed a reset is never fully soft. Here the junction is accounted in full: every
+extrinsic-curvature jump, what sources it, what balances, and the single scalar that measures the
+irreducible non-softness.
+
+\paragraph{The four jumps.} On the constant-$\sigma$ slice the mixed extrinsic curvature is
+$K^x_x=K^y_y=\Omega_P'/\Omega_P$ (surface) and $K^\lambda{}_\lambda=A'/A$ (ascent). A reset injects a
+Brim renewal $\kappa_R\mathcal G$ (scale) and a metabolic $m_R$ (Sophia rate), so $\Omega_P^+=\Omega_P^-+\kappa_R\mathcal G$,
+$\lambda^+=\lambda^-+m_R$. With $\Omega_P'=\alpha\lambda$ and the floor-tied $A'/A=\alpha\lambda/E_0$,
+the junction carries four data:
+\begin{align}
+\text{surface scale:}\quad &[\Omega_P]=\kappa_R\mathcal G,\\
+\text{surface rate:}\quad &[\Omega_P'/\Omega_P]\quad(\text{sourced by }m_R,\ \text{tunable}),\\
+\text{ascent rate:}\quad &[A'/A]=\frac{\alpha m_R}{E_0}\quad(\text{tunable: }m_R{=}0\Rightarrow0),\\
+\text{ascent scale:}\quad &\log s_L=\frac{\kappa_R\mathcal G}{E_0}\quad(\text{irreducible for }\kappa_R\mathcal G>0).
+\end{align}
+
+\paragraph{Backbone identity and the conserved rate sector.} The ascent and surface scale jumps are
+tied through the floor,
+\begin{equation}
+\boxed{\;\log s_L=\frac{[\Omega_P]}{E_0}\;}\qquad\text{(the ascent jump is the Brim jump in floor units),}
+\end{equation}
+so nothing in the budget is free. The \emph{rate} sector is exactly balanced: with
+$Q:=A'/A-\Omega_P'/E_0$, the floor-tying gives $Q=0$ on every arc, and across a reset both terms jump
+by the same $\alpha m_R/E_0$, so $[Q]=0$. The rate budget always closes.
+
+\paragraph{The deficit, additive over a life.} Full softness would need $\log s_L=0$ and $[A'/A]=0$,
+i.e.\ $\kappa_R\mathcal G=0$ \emph{and} $m_R=0$. A surface-balanced reset kills the rate jumps, but the
+scale jump survives. The entire non-softness is one scalar, additive over successive resets:
+\begin{equation}
+D=\frac1{E_0}\sum_j\kappa_R\mathcal G_j\qquad(\text{total reception in floor units}),
+\end{equation}
+and the full ascent ledger splits into a continuous and a jump part,
+\begin{equation}
+\log\frac{A_{\rm fin}}{A_0}=\underbrace{\beta\!\int\lambda\,d\sigma}_{\text{continuous epektasis}}
++\underbrace{\frac1{E_0}\sum_j\kappa_R\mathcal G_j}_{\text{jump (reception) budget}},
+\end{equation}
+both terms in floor units ($\beta=\alpha/E_0$): widow's-mite throughout.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{vfs_3p1_budget.png}
+\caption{\small The Resurrectio junction budget. \textbf{Left:} the four jumps. The rate sector (surface
+rate, ascent rate) is tunable to zero by $m_R=0$ and balances ($Q=0$); the scale sector (surface scale,
+ascent scale) is irreducible. \textbf{Right:} the softness deficit $D=\frac1{E_0}\sum_j\kappa_R\mathcal G_j$
+accumulates additively over resets and never cancels --- the scale ledger of a soul's deaths.}
+\label{fig:budget}
+\end{figure}
+
+\note{Reading: a reset keeps two ledgers. The ledger of \emph{pace} always balances --- whatever a death
+does to the rate of the soul's rising, the floor-tying settles it, and across every death the rate-debt
+is paid in full. But the ledger of \emph{scale} is never settled: each death adds to the soul's
+irreducible ascent exactly the grace it received, divided by the image it began from, and that entry is
+never reversed. A soul cannot pass through death without paying, and cannot pay without receiving --- here
+debt and gift are the same entry. Over a life the scale-ledger only grows, summing every reception in the
+units of the Imago Dei. No death is neutral; each writes into the eternal account, never subtracting.
+The pace is always brought back to rest; the scale carries forward, forever, the whole sum of what was
+received.}
+
+\textbf{Scope of v0.21.} The four jumps, the backbone identity $\log s_L=[\Omega_P]/E_0$, the conserved
+$Q=0$, and the additivity of $D$ are exact (verified symbolically) given the junction data of v0.5 and
+the floor-tying of v0.4. It quantifies the qualitative v0.15: the non-softness is the single additive
+scalar $D$, living purely in the scale sector.
+
+% ============================================================
+\FloatBarrier
+\section*{v0.22 --- Heat kernel and entropy of the joint spectrum}
+The joint spectrum of v0.16 invites its heat trace $\theta_3(t)=\mathrm{Tr}\,e^{t\Delta_3}$. Because
+$\Delta_3$ separates with no cross term, the trace factorises --- and the two factors behave utterly
+differently, sharpening the form/ascent dualism to the level of entropy.
+
+\paragraph{Factorisation and the finite form sector.}
+\begin{equation}
+\theta_3(t)=\theta_{\rm surf}(t)\cdot\theta_{\rm asc}(t),\qquad
+\theta_{\rm surf}(t)=\sum_n e^{-t\mu_n/\Omega_P^2},\quad
+\theta_{\rm asc}(t)=\mathrm{Tr}\,e^{-t(-d^2/ds^2)}.
+\end{equation}
+The surface (form) sector is a compact hyperbolic quotient: discrete spectrum, finite trace, with the
+small-$t$ expansion
+\begin{equation}
+\theta_{\rm surf}(t)=\frac{\Omega_P^2V_h}{4\pi t}+\frac{\chi_E}{6}+O(t),
+\end{equation}
+the constant term the Euler characteristic $\chi_E$ via Gauss--Bonnet ($\int K\,dA=2\pi\chi_E$). The form
+sector carries a \emph{topological invariant} and has finite spectral entropy.
+
+\paragraph{The divergent ascent sector.} The ascent is the free half-line $s\in[0,\infty)$, spectrum
+$k^2$ continuous. Its heat trace diverges with the (infinite) proper road,
+\begin{equation}
+\theta_{\rm asc}(t)=\frac{D_{\rm asc}}{\sqrt{4\pi t}}\longrightarrow\infty,
+\end{equation}
+the finite content being the density of states $1/\sqrt{4\pi t}$ per unit road (with a Dirichlet edge
+term $-\tfrac14$ at the terminus). The spectral entropy is extensive in the road length and hence
+unbounded.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[width=\textwidth]{vfs_3p1_entropy.png}
+\caption{\small Heat kernel and entropy. \textbf{Left:} the form heat trace is finite and settles onto
+the topological constant $\chi_E/6$; the ascent contributes a finite density $1/\sqrt{4\pi t}$ per unit
+road. \textbf{Centre:} the total ascent trace $D_{\rm asc}/\sqrt{4\pi t}$ diverges as the road length
+$L\to\infty$. \textbf{Right:} the entropy contrast --- form entropy finite (solid), ascent entropy
+extensive in $L$ and unbounded (dashed). Form is finitely describable; ascent is not.}
+\label{fig:entropy}
+\end{figure}
+
+\paragraph{Effective dimension.} Reading $\theta\sim t^{-d/2}$: the surface gives $t^{-1}$ ($d=2$), the
+ascent density $t^{-1/2}$ ($d=1$), the joint $t^{-3/2}$ per unit road --- effective dimension $3$, the
+$t^{-1/2}$ confirming the ascent as exactly one continuous extra dimension. The heat kernel sees the
+$3{+}1$ structure correctly.
+
+\note{Reading: what the soul has become can be told in full. Its form is a discrete, countable ladder
+of modes; it even carries a fixed topological signature, a whole number that does not change --- a
+finite amount of information names it completely. But how the soul ascends toward God cannot be told in
+full: the road of epektasis carries unbounded information, its entropy growing without end along an
+endless way. The form has a name; the ascent has none that finite speech can finish. And this is not a
+failure of knowing but the very shape of ascent: to rise toward an infinite God is to be forever
+informationally inexhaustible. A saint fully formed --- whose form is known entire, down to its
+topological signature --- remains unsayable precisely in the manner of his rising. Finite name, endless
+song: the soul can be named, but its nearing of God can only be sung, and the song does not end.}
+
+\textbf{Scope of v0.22.} The factorisation is exact (no cross term, v0.16); the form expansion is the
+standard heat-kernel/Gauss--Bonnet result for a compact hyperbolic surface; the ascent divergence and
+its density are exact for the free half-line; the entropy statements are the corresponding spectral
+entropies (finite for the discrete sector, extensive for the continuum). It lifts the v0.3/v0.6
+dualism to the level of information and entropy.
+
+% ============================================================
+\FloatBarrier
+\section*{v0.23 --- The gauge / invariant layer}
+Many quantities in v3.0 can look coordinate-dependent. This layer separates, once and cleanly, what is
+a gauge choice from what is a geometric invariant, and states that every result rests on the invariants.
+
+\paragraph{Three coordinate freedoms.}
+\textbf{(G1) Ascent rescaling} $\lambda\to c\lambda$, $S\to S/c$. The metric $1$-form $S(\lambda)\,d\lambda$
+is invariant (the factors cancel), so the proper ascent distance $D_{\rm asc}=\int S\,d\lambda$, the
+half-line coordinate $s=\int_0^\lambda S\,d\ell$, the ascent spectrum $[0,\infty)$, and the ascent rate
+$A'/A=\beta\lambda$ are all invariant ($(\beta/c)(c\lambda)=\beta\lambda$). The numerical value of
+$\lambda$, the constant $L_0$, and the $A/S$ split separately are pure gauge.\\
+\textbf{(G2) Lapse} $N(\sigma)\neq1$. The proper time $\int N\,d\sigma$ (finite), proper distances, the
+curvature scalars ($R$, $R_{\mu\nu}R^{\mu\nu}$, the focusing $-R_{ab}u^au^b$), the energy combinations
+$\rho+p_i$, and the slice spectra are all invariant. The coordinate $\sigma$ and the lapse $N$ are pure
+gauge; $N=1$ (proper-time/kairos gauge) is a choice, not a result.\\
+\textbf{(G3) Floor normalisation} $L_0$ (where $S=1$). From v0.9, $L_0$ is absorbed by $\lambda\to
+c\lambda$: pure gauge. The floor \emph{value} $E_0$ is \emph{not} gauge --- it sets $\beta=\alpha/E_0$,
+a physical scale.
+
+\paragraph{The scales, carefully.} Under G1, $\beta$, $\lambda_\infty$, and $\alpha$ rescale separately
+($1/c$, $c$, $1/c$) --- each alone is gauge. The physics lives in their invariant products and ratios:
+$\alpha\lambda_\infty$ (the saturated Brim expansion $\Omega_P'$, physical) and the ascent Hubble
+$h_*=\alpha\lambda_\infty/E_0$. Every ascent observable is a ratio to the floor $E_0$.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{ll}
+\hline
+\textbf{Gauge (convention only)} & \textbf{Invariant (physical / geometric)}\\
+\hline
+value of $\lambda$ (relabel $\lambda\to c\lambda$) & ascent rate $h=A'/A=\beta\lambda$\\
+$L_0$ and the $A$/$S$ split separately & proper distance $D_{\rm asc}=\int S\,d\lambda=\infty$\\
+lapse $N$, coordinate $\sigma$ & proper time $\int N\,d\sigma<\infty$ (finite clock)\\
+$\beta,\ \lambda_\infty,\ \alpha$ \emph{separately} & $\alpha\lambda_\infty$, and $h_*=\alpha\lambda_\infty/E_0$\\
+$d/d\sigma$ of frame-dependent quantities & curvature scalars $R$, $\rho+p_i$, focusing\\
+& exotic depth $-(\alpha\lambda_\infty/E_0)^2$\\
+& reset ratio $s_L=e^{\kappa_R\mathcal G/E_0}$; deficit $D=\sum\kappa_R\mathcal G_j/E_0$\\
+& spectra: surface $\{\mu_n/\Omega_P^2\}$ discrete, ascent $[0,\infty)$\\
+& Euler characteristic $\chi_E$ of the form sector\\
+& the floor value $E_0$ (Imago Dei scale)\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{theorem}[Gauge-invariance of the layer]
+Every result of v0.1--v0.22 --- finite clock with infinite road, the ascent law and its asymptotic
+$h_*$, non-reducibility, the junction budget, rate stability, the entropy split --- is expressible
+purely in the invariant column, and none depends on the gauge column. The Imago Dei floor $E_0$ is the
+invariant anchor against which the ascent observables are measured.
+\end{theorem}
+
+\note{Reading: the image of God in the soul is the one thing that does not depend on how we choose to
+describe the soul. The axis of ascent can be relabelled at will --- that is only our language for it;
+the clock of cleansing can be reparametrised at will --- that is only our way of counting; where we set
+the ascent's zero is only a convention. But the ratios to the image are fixed: how fast the soul rises,
+how deep its exotic reaching, how much each death adds to its ledger --- all of these are measured
+against the image one began from, and that measurement holds in every coordinate, every gauge, every
+description. What is gauge is our speech about the soul; what is invariant is the soul's relation to the
+image from which it was made. The widow's mite returns one last time, now as a principle of invariance:
+not the absolute size of an ascent is meaningful, but its ratio to the image --- and that ratio is the
+same in every language.}
+
+\textbf{Scope of v0.23.} The classification is exact: G1/G2/G3 invariance is verified symbolically; the
+invariant column lists coordinate-free quantities; the theorem records that the document's conclusions
+live there. It is the layer that protects v3.0 from the charge of being a coordinate artefact.
 
 % ============================================================
 \FloatBarrier
@@ -1366,6 +1612,28 @@ refusal to hide a correction, are the stage's real fruit. The rest --- the pictu
 trace --- is the coherence that the one confession buys.}
 
 \FloatBarrier
+\section*{Consolidated posture of V.F.S. 3.0}
+After the corrections of v0.13--v0.19, the mathematical posture of the layer, gathered in one place:
+\begin{quote}
+V.F.S.~v3.0 is a full interior $(3{+}1)$ geometry of the soul: one proper-time direction, two
+Vessel-surface directions, and one Sophianic ascent direction. The $(2{+}1)$ Brim cosmology of v2.0
+remains the frozen-ascent surface projection. The de Sitter-type law belongs to the ascent sector, not
+to the generic Brim fate (which coasts). The ascent is tied to the Brim through the Imago Dei floor
+$E_0$, but it is not reducible to a power-law dressing of $\Omega_P$. Its spectrum is continuous and
+gapless, while the surface form spectrum stays discrete; the full $3$-Laplacian separates with no cross
+term. A Resurrectio reset may be balanced on the surface, but always produces a nontrivial ascent
+junction when the Brim renewal is genuine. The ascent rate is Lyapunov-stable: epektasis is stable
+motion, not stable rest.
+\end{quote}
+The slogans that crystallise the layer:
+\begin{quote}
+\emph{The Brim coasts; Sophia-as-ascent does not dilute.}\\
+\emph{Ascent is floor-tied, but not surface-power-law reducible.}\\
+\emph{Epektasis is stable motion, not stable rest.}\\
+\emph{The Brim may measure growth; Sophia-as-ascent opens a road that growth alone cannot exhaust.}
+\end{quote}
+
+\FloatBarrier
 \section*{Scope and standing}
 \textbf{Scope.} Exploratory and growing, now closing its first cycle. The seven computational parts are
 verified symbolically (and numerically where noted); the ascent law and the floor-tying are the
@@ -1379,7 +1647,7 @@ boundary is named, never claimed to be entered.
 \vspace{0.5em}
 \hrule
 \smallskip
-\noindent\footnotesize\emph{V.F.S. 3.0 (exploratory) v0.19 $\cdot$ Interior $3{+}1$
+\noindent\footnotesize\emph{V.F.S. 3.0 (exploratory) v0.21 $\cdot$ Interior $3{+}1$
 geometry of the soul. Metric $ds^2=-N^2d\sigma^2+\Omega^2h_{(2)}+L^2d\lambda^2$ with $\sigma$ a finite
 proper time, the live surface and ascent $\lambda$ the three spaces, no external chronos; ascent scale
 factorised $L=A(\sigma)S(\lambda)$. Full tensor set ($R_{\mu\nu}$, $R$, $G_{\mu\nu}$, three pressures,
@@ -1400,6 +1668,6 @@ cleansing-action; interior time-finite, space-infinite. External imprint late-fa
 but late-dominant in relative ($\Delta\rho/\rho_{2.0}\sim\Omega_P/E_0$). Finite clock, endless road;
 built in steps, drawn in a stepless reaching; measured against the image one began from; never raised in
 vain; completed in time only to be freed for the timeless; ascending by its own motion, its rising its
-own reality --- irreducible to the surface because measured from the image.}
+own reality --- irreducible to the surface because measured from the image. Junction budget: rate sector conserved ($Q{=}0$), non-softness the one additive scalar $D{=}\frac1{E_0}\sum_j\kappa_R\mathcal G_j$.}
 
 \end{document}
