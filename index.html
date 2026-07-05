@@ -1120,7 +1120,7 @@
             const resetBtn = document.getElementById('btn-reset');
             const resetModal = document.getElementById('reset-modal');
             const closeResetModalBtn = document.getElementById('reset-modal-close-btn');
-            //const paschalBtn = document.getElementById('btn-paschal-diagram');
+            const paschalBtn = document.getElementById('btn-paschal-diagram');
             const paschalModal = document.getElementById('paschal-modal');
             const closePaschalModalBtn = document.getElementById('paschal-modal-close-btn');
 
@@ -1158,19 +1158,21 @@
                 }
             });
 
-            // paschalBtn.addEventListener('click', () => {
-            //     paschalModal.classList.add('active');
-            // });
+            if (paschalBtn) {
+                paschalBtn.addEventListener('click', () => {
+                    paschalModal.classList.add('active');
+                });
+            }
 
             // closePaschalModalBtn.addEventListener('click', () => {
             //     paschalModal.classList.remove('active');
             // });
 
-            paschalModal.addEventListener('click', (e) => {
-                if (e.target === paschalModal) {
-                    paschalModal.classList.remove('active');
-                }
-            });
+            // paschalModal.addEventListener('click', (e) => {
+            //     if (e.target === paschalModal) {
+            //         paschalModal.classList.remove('active');
+            //     }
+            // });
 
             resetBtn.addEventListener('click', () => {
                 resetModal.classList.add('active');
