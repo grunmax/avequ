@@ -600,15 +600,15 @@
                 <a href="#concepts-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Concepts</a> |
                 <a href="#key-component-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Keystone</a> | 
                 <a href="#derivative-ladder-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Derivatives</a> 
-                <a href="#paschal-triad-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Core Triad</a> | 
+                <!-- <a href="#paschal-triad-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Core Triad</a> |  -->
                 <a href="#theological-conclusions-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Conclusions</a> | 
                 <a href="#theological-exegesis-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Exegesis</a> |
-                <a href="#sophia-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Sophia</a> 
+                <a href="#sophia-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Sophia</a> |
                 <a href="#vfs3-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">v3.0</a> |
-                <a href="#ricci-analogy-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">v3.5 Ricci</a> | 
+                <a href="#ricci-analogy-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">v3.5 Ricci</a> 
                 <a href="#vfs4-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">v4.0</a> |
                 <a href="#vfs45-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">v4.5</a> |
-                <a href="#vfs5-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">v5.0 Boundaries</a>
+                <a href="#vfs5-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Boundaries</a> |
                 <a href="#vfs-vertex-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Vertex</a> | 
                 <a href="#attribution-section" style="color: #8c7b72; text-decoration: none; margin: 0 10px;">Attribution</a>
             </div>
@@ -697,12 +697,12 @@
             <button class="vfs-btn" id="btn-diagram">Architecture Map</button>
         </div>
 
-        <h2 id="paschal-triad-section">2.0 Core Triad</h2>
+        <!-- <h2 id="paschal-triad-section">2.0 Core Triad</h2>
         <p>The higher derivatives of <strong>Pleroma</strong> expose the hidden zero-structure of <strong>Filtrum Lucis</strong>.</p>
         <p>The central zero of the third derivative marks <strong>Katharsis</strong> — the Cross-point of purification. Around it, the fourth derivative <strong>Anastasis</strong> has two symmetric zeros: one before the Cross and one after the Cross.</p>
         <div class="btn-group"> 
             <button class="vfs-btn" id="btn-paschal-diagram">Core Triad Chart</button>
-        </div>
+        </div> -->
 
         <h2 id="geometry-section">Brim-Flow geometry and cosmology</h2>
         <p>The hyperbolic geometry of the Vessel’s live-surface.</p>
@@ -1119,7 +1119,7 @@
             const resetBtn = document.getElementById('btn-reset');
             const resetModal = document.getElementById('reset-modal');
             const closeResetModalBtn = document.getElementById('reset-modal-close-btn');
-            const paschalBtn = document.getElementById('btn-paschal-diagram');
+            //const paschalBtn = document.getElementById('btn-paschal-diagram');
             const paschalModal = document.getElementById('paschal-modal');
             const closePaschalModalBtn = document.getElementById('paschal-modal-close-btn');
 
@@ -1157,13 +1157,13 @@
                 }
             });
 
-            paschalBtn.addEventListener('click', () => {
-                paschalModal.classList.add('active');
-            });
+            // paschalBtn.addEventListener('click', () => {
+            //     paschalModal.classList.add('active');
+            // });
 
-            closePaschalModalBtn.addEventListener('click', () => {
-                paschalModal.classList.remove('active');
-            });
+            // closePaschalModalBtn.addEventListener('click', () => {
+            //     paschalModal.classList.remove('active');
+            // });
 
             paschalModal.addEventListener('click', (e) => {
                 if (e.target === paschalModal) {
